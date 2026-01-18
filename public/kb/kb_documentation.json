@@ -1,0 +1,10 @@
+{
+  "narrative_template": {
+    "opening": "At approximately {time}, resident was assessed for {issue}.",
+    "assessment": "{assessment_sentences}",
+    "interventions": "{intervention_sentences}",
+    "notifications": "{notification_sentences}",
+    "plan": "Continue monitoring per protocol/orders and notify provider for any change in condition.",
+    "joiner": "\n\n"
+  }
+}

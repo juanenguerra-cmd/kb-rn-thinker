@@ -1,44 +1,199 @@
 {
   "sources": [
     {
-      "source_id": "POL_IP_01",
+      "source_id": "POL_COC_01",
       "type": "facility_policy",
-      "title": "Infection Prevention Policy",
+      "title": "Change in Condition Assessment & Provider Notification Policy",
       "jurisdiction": "Facility",
-      "effective_date": "2026-01-01",
-      "review_by": "2026-12-31",
-      "url_or_location": "Binder: IP → Tab 1 (Policies) / Intranet: /policies/ip-01",
-      "tags": ["isolation", "precautions", "outbreak", "cdc"]
+      "effective_date": "2026-01-18",
+      "review_by": "2027-01-18",
+      "url_or_location": "Binder: Nursing Policies \u2192 Change in Condition",
+      "tags": [
+        "change of condition",
+        "SBAR",
+        "provider notification",
+        "baseline",
+        "monitoring"
+      ]
     },
     {
-      "source_id": "CDC_IC_01",
+      "source_id": "POL_IP_01",
+      "type": "facility_policy",
+      "title": "Infection Prevention & Isolation Precautions Policy",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-18",
+      "review_by": "2027-01-18",
+      "url_or_location": "Binder: Infection Prevention \u2192 Precautions",
+      "tags": [
+        "infection",
+        "precautions",
+        "isolation",
+        "PPE",
+        "outbreak",
+        "line list"
+      ]
+    },
+    {
+      "source_id": "POL_FALL_01",
+      "type": "facility_policy",
+      "title": "Falls, Injury Response, and Post-Fall Monitoring Policy",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-18",
+      "review_by": "2027-01-18",
+      "url_or_location": "Binder: Safety \u2192 Falls",
+      "tags": [
+        "fall",
+        "post-fall",
+        "neuro checks",
+        "head injury",
+        "anticoagulant"
+      ]
+    },
+    {
+      "source_id": "POL_SKIN_01",
+      "type": "facility_policy",
+      "title": "Skin Integrity & Pressure Injury Prevention/Treatment Policy",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-18",
+      "review_by": "2027-01-18",
+      "url_or_location": "Binder: Wound Care \u2192 Skin Integrity",
+      "tags": [
+        "skin",
+        "pressure injury",
+        "wound",
+        "turning",
+        "offloading",
+        "documentation"
+      ]
+    },
+    {
+      "source_id": "POL_ABUSE_01",
+      "type": "facility_policy",
+      "title": "Abuse/Neglect/Mistreatment Prevention, Reporting, and Investigation Policy",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-18",
+      "review_by": "2027-01-18",
+      "url_or_location": "Binder: Administration \u2192 Abuse Reporting",
+      "tags": [
+        "abuse",
+        "neglect",
+        "maltreatment",
+        "allegation",
+        "injury",
+        "reporting",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_MED_01",
+      "type": "facility_policy",
+      "title": "Medication Error & Adverse Drug Reaction Response Policy",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-18",
+      "review_by": "2027-01-18",
+      "url_or_location": "Binder: Pharmacy \u2192 Medication Safety",
+      "tags": [
+        "med error",
+        "adverse drug reaction",
+        "monitoring",
+        "provider notification",
+        "incident"
+      ]
+    },
+    {
+      "source_id": "CDC_CORE_PRACTICES",
       "type": "guideline",
-      "title": "CDC Infection Control Guidance (General)",
+      "title": "CDC: Core Infection Prevention Practices",
       "jurisdiction": "CDC",
       "effective_date": "2024-01-01",
       "review_by": "2026-12-31",
-      "url_or_location": "https://www.cdc.gov/",
-      "tags": ["isolation", "precautions", "hand hygiene"]
+      "url_or_location": "CDC (online) - Core Practices",
+      "tags": [
+        "CDC",
+        "standard precautions",
+        "hand hygiene",
+        "PPE",
+        "respiratory hygiene"
+      ]
     },
     {
-      "source_id": "NYS_IP_01",
-      "type": "nysdoh_guidance",
-      "title": "NYSDOH Infection Prevention Guidance (Reference)",
-      "jurisdiction": "New York",
-      "effective_date": "2025-01-01",
+      "source_id": "CDC_TBP",
+      "type": "guideline",
+      "title": "CDC: Transmission-Based Precautions Overview",
+      "jurisdiction": "CDC",
+      "effective_date": "2024-01-01",
       "review_by": "2026-12-31",
-      "url_or_location": "NYSDOH (health.ny.gov) — add exact page in your curated library",
-      "tags": ["nysdoh", "infection prevention", "reporting"]
+      "url_or_location": "CDC (online) - Transmission-Based Precautions",
+      "tags": [
+        "CDC",
+        "contact precautions",
+        "droplet",
+        "airborne",
+        "isolation"
+      ]
     },
     {
-      "source_id": "CMS_FTAG_SAMPLE",
-      "type": "interpretive_guidance",
-      "title": "CMS Interpretive Guidance (Sample Entry)",
+      "source_id": "CMS_483",
+      "type": "regulation",
+      "title": "CMS: 42 CFR Part 483 (Nursing Home Requirements)",
       "jurisdiction": "Federal",
-      "effective_date": "2024-10-01",
+      "effective_date": "2024-01-01",
       "review_by": "2026-12-31",
-      "url_or_location": "CMS.gov / Appendix PP — add exact binder location",
-      "tags": ["cms", "ftag", "survey", "appendix pp"]
+      "url_or_location": "eCFR (online) - 42 CFR Part 483",
+      "tags": [
+        "CMS",
+        "CFR",
+        "nursing home",
+        "requirements",
+        "documentation"
+      ]
+    },
+    {
+      "source_id": "CMS_APP_PP",
+      "type": "interpretive_guidance",
+      "title": "CMS: State Operations Manual Appendix PP (Surveyor Guidance)",
+      "jurisdiction": "Federal",
+      "effective_date": "2024-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "CMS (online) - Appendix PP",
+      "tags": [
+        "Appendix PP",
+        "F-tag",
+        "survey",
+        "interpretive guidance"
+      ]
+    },
+    {
+      "source_id": "NYSDOH_IP",
+      "type": "nysdoh_guidance",
+      "title": "NYSDOH: Infection Prevention Guidance for LTC",
+      "jurisdiction": "New York",
+      "effective_date": "2024-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "NYSDOH (online) - LTC Infection Prevention",
+      "tags": [
+        "NYSDOH",
+        "infection",
+        "outbreak",
+        "reporting",
+        "line list"
+      ]
+    },
+    {
+      "source_id": "NYSDOH_REPORTING",
+      "type": "nysdoh_guidance",
+      "title": "NYSDOH: Reporting Requirements (General Reference)",
+      "jurisdiction": "New York",
+      "effective_date": "2024-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "NYSDOH (online) - Reporting",
+      "tags": [
+        "NYSDOH",
+        "reporting",
+        "incident",
+        "abuse",
+        "communicable disease"
+      ]
     }
   ]
 }

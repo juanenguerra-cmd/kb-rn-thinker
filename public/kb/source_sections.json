@@ -1,44 +1,2835 @@
 {
   "sections": [
     {
-      "source_id": "POL_IP_01",
-      "section_id": "POL_IP_01_isolation_contact",
-      "heading": "Contact Precautions - When to Use",
-      "text": "Use Contact Precautions when residents have suspected or confirmed infections transmitted by direct contact or contaminated surfaces. Ensure appropriate PPE and dedicated equipment as indicated.",
-      "keywords": ["contact precautions", "PPE", "dedicated equipment"],
-      "tags": ["contact", "isolation", "PPE"]
+      "source_id": "POL_ABUSE_01",
+      "section_id": "abuse_1",
+      "heading": "Immediate Safety",
+      "text": "Ensure resident safety first; separate parties if needed and notify leadership per policy.",
+      "keywords": [
+        "allegation",
+        "investigation"
+      ],
+      "tags": [
+        "abuse",
+        "neglect",
+        "maltreatment",
+        "reporting",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_ABUSE_01",
+      "section_id": "abuse_2",
+      "heading": "Objective Documentation",
+      "text": "Document objective findings and resident statement when possible; avoid assumptions or conclusions.",
+      "keywords": [
+        "allegation",
+        "investigation"
+      ],
+      "tags": [
+        "abuse",
+        "neglect",
+        "maltreatment",
+        "reporting",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_ABUSE_01",
+      "section_id": "abuse_3",
+      "heading": "Notifications",
+      "text": "Notify Administrator/DON and follow the facility reporting workflow; document time, person notified, and outcome.",
+      "keywords": [
+        "allegation",
+        "investigation"
+      ],
+      "tags": [
+        "abuse",
+        "neglect",
+        "maltreatment",
+        "reporting",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_ABUSE_01",
+      "section_id": "abuse_4",
+      "heading": "Injury Assessment",
+      "text": "Assess and document injuries with location, size, color, and photographs per policy if applicable.",
+      "keywords": [
+        "allegation",
+        "investigation"
+      ],
+      "tags": [
+        "abuse",
+        "neglect",
+        "maltreatment",
+        "reporting",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_ABUSE_01",
+      "section_id": "abuse_5",
+      "heading": "Preservation of Evidence",
+      "text": "Preserve relevant evidence and maintain chain of custody steps per policy when indicated.",
+      "keywords": [
+        "allegation",
+        "investigation"
+      ],
+      "tags": [
+        "abuse",
+        "neglect",
+        "maltreatment",
+        "reporting",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_ABUSE_01",
+      "section_id": "abuse_6",
+      "heading": "Family/Emergency Contact",
+      "text": "Notify family/emergency contact per policy unless restricted by investigation guidance; document notification.",
+      "keywords": [
+        "allegation",
+        "investigation"
+      ],
+      "tags": [
+        "abuse",
+        "neglect",
+        "maltreatment",
+        "reporting",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_FALL_01",
+      "section_id": "fall_1",
+      "heading": "Post-Fall Assessment",
+      "text": "Complete immediate assessment including vital signs, pain, neuro status, and visible injuries; compare to baseline.",
+      "keywords": [
+        "unwitnessed",
+        "injury"
+      ],
+      "tags": [
+        "fall",
+        "post-fall",
+        "neuro checks",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_FALL_01",
+      "section_id": "fall_2",
+      "heading": "Head Strike & Anticoagulants",
+      "text": "If head strike suspected or resident is on anticoagulant/antiplatelet therapy, escalate per protocol and increase monitoring.",
+      "keywords": [
+        "unwitnessed",
+        "injury"
+      ],
+      "tags": [
+        "fall",
+        "post-fall",
+        "neuro checks",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_FALL_01",
+      "section_id": "fall_3",
+      "heading": "Neuro Checks",
+      "text": "Initiate neuro checks per protocol/orders when indicated; document frequency, findings, and escalation criteria.",
+      "keywords": [
+        "unwitnessed",
+        "injury"
+      ],
+      "tags": [
+        "fall",
+        "post-fall",
+        "neuro checks",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_FALL_01",
+      "section_id": "fall_4",
+      "heading": "Provider Notification",
+      "text": "Notify provider using SBAR; document orders received and actions taken.",
+      "keywords": [
+        "unwitnessed",
+        "injury"
+      ],
+      "tags": [
+        "fall",
+        "post-fall",
+        "neuro checks",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_FALL_01",
+      "section_id": "fall_5",
+      "heading": "Family Notification",
+      "text": "Notify family/emergency contact per policy and document contact and response.",
+      "keywords": [
+        "unwitnessed",
+        "injury"
+      ],
+      "tags": [
+        "fall",
+        "post-fall",
+        "neuro checks",
+        "safety"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_1",
+      "heading": "Recognize Change",
+      "text": "Identify acute change from baseline (mental status, respiratory status, pain, intake, mobility) and initiate focused assessment.",
+      "keywords": [
+        "baseline",
+        "escalation"
+      ],
+      "tags": [
+        "change of condition",
+        "SBAR",
+        "monitoring",
+        "documentation"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_2",
+      "heading": "SBAR Communication",
+      "text": "Use SBAR format for provider notification; include baseline, current findings, and your recommendation/request.",
+      "keywords": [
+        "baseline",
+        "escalation"
+      ],
+      "tags": [
+        "change of condition",
+        "SBAR",
+        "monitoring",
+        "documentation"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_3",
+      "heading": "Monitoring",
+      "text": "Increase monitoring based on severity and provider orders; define what changes require escalation.",
+      "keywords": [
+        "baseline",
+        "escalation"
+      ],
+      "tags": [
+        "change of condition",
+        "SBAR",
+        "monitoring",
+        "documentation"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_4",
+      "heading": "Documentation",
+      "text": "Document time course, objective findings, interventions, response, notifications, and plan.",
+      "keywords": [
+        "baseline",
+        "escalation"
+      ],
+      "tags": [
+        "change of condition",
+        "SBAR",
+        "monitoring",
+        "documentation"
+      ]
     },
     {
       "source_id": "POL_IP_01",
-      "section_id": "POL_IP_01_outbreak_reporting",
-      "heading": "Outbreak Escalation and Reporting",
-      "text": "Escalate clusters of symptoms to the Infection Preventionist and Administrator-on-Call. Initiate line listing and follow facility outbreak reporting workflow. Notify appropriate agencies per current requirements.",
-      "keywords": ["outbreak", "reporting", "line list"],
-      "tags": ["outbreak", "reporting"]
+      "section_id": "ip_1",
+      "heading": "Standard Precautions",
+      "text": "Apply Standard Precautions for all residents; perform hand hygiene and use PPE based on anticipated exposure.",
+      "keywords": [
+        "isolation",
+        "line list"
+      ],
+      "tags": [
+        "infection",
+        "precautions",
+        "PPE",
+        "outbreak",
+        "reporting"
+      ]
     },
     {
-      "source_id": "CDC_IC_01",
-      "section_id": "CDC_IC_01_standard_precautions",
-      "heading": "Standard Precautions - Core Elements",
-      "text": "Standard Precautions apply to all residents regardless of suspected or confirmed infection status. Key elements include hand hygiene, PPE based on exposure risk, and respiratory hygiene/cough etiquette.",
-      "keywords": ["standard precautions", "hand hygiene", "PPE"],
-      "tags": ["standard", "hand hygiene", "PPE"]
+      "source_id": "POL_IP_01",
+      "section_id": "ip_2",
+      "heading": "Transmission-Based Precautions",
+      "text": "Initiate Contact/Droplet/Airborne precautions when indicated; post signage and use dedicated equipment as required.",
+      "keywords": [
+        "isolation",
+        "line list"
+      ],
+      "tags": [
+        "infection",
+        "precautions",
+        "PPE",
+        "outbreak",
+        "reporting"
+      ]
     },
     {
-      "source_id": "NYS_IP_01",
-      "section_id": "NYS_IP_01_reporting_basics",
-      "heading": "Reporting (NY) - What to Consider",
-      "text": "Follow New York State reporting requirements for outbreaks and reportable diseases as applicable. Maintain documentation of notifications and required forms.",
-      "keywords": ["reporting", "New York", "outbreak"],
-      "tags": ["nysdoh", "reporting"]
+      "source_id": "POL_IP_01",
+      "section_id": "ip_3",
+      "heading": "Outbreak Response",
+      "text": "For suspected outbreak, initiate case tracking/line listing and notify Infection Prevention leadership per policy.",
+      "keywords": [
+        "isolation",
+        "line list"
+      ],
+      "tags": [
+        "infection",
+        "precautions",
+        "PPE",
+        "outbreak",
+        "reporting"
+      ]
     },
     {
-      "source_id": "CMS_FTAG_SAMPLE",
-      "section_id": "CMS_FTAG_SAMPLE_infection_control",
-      "heading": "Survey Expectations - Infection Control",
-      "text": "Maintain infection prevention practices, staff training, and documentation supporting implementation of policies and procedures.",
-      "keywords": ["survey", "infection control", "documentation"],
-      "tags": ["cms", "survey", "documentation"]
+      "source_id": "POL_IP_01",
+      "section_id": "ip_4",
+      "heading": "Reporting",
+      "text": "Follow reporting requirements for communicable diseases/outbreaks and document actions taken.",
+      "keywords": [
+        "isolation",
+        "line list"
+      ],
+      "tags": [
+        "infection",
+        "precautions",
+        "PPE",
+        "outbreak",
+        "reporting"
+      ]
+    },
+    {
+      "source_id": "POL_SKIN_01",
+      "section_id": "skin_1",
+      "heading": "Skin Assessment",
+      "text": "Assess skin routinely and with any change in condition; document location, staging/description, drainage, odor, and surrounding tissue.",
+      "keywords": [
+        "offloading",
+        "infection"
+      ],
+      "tags": [
+        "skin",
+        "pressure injury",
+        "wound",
+        "turning"
+      ]
+    },
+    {
+      "source_id": "POL_SKIN_01",
+      "section_id": "skin_2",
+      "heading": "Prevention",
+      "text": "Implement prevention: turning/repositioning, offloading, moisture management, nutrition/hydration support.",
+      "keywords": [
+        "offloading",
+        "infection"
+      ],
+      "tags": [
+        "skin",
+        "pressure injury",
+        "wound",
+        "turning"
+      ]
+    },
+    {
+      "source_id": "POL_SKIN_01",
+      "section_id": "skin_3",
+      "heading": "Treatment",
+      "text": "Provide wound care per orders/protocol; document dressing type, wound response, and tolerance.",
+      "keywords": [
+        "offloading",
+        "infection"
+      ],
+      "tags": [
+        "skin",
+        "pressure injury",
+        "wound",
+        "turning"
+      ]
+    },
+    {
+      "source_id": "POL_SKIN_01",
+      "section_id": "skin_4",
+      "heading": "Escalation",
+      "text": "Escalate for signs of infection or rapid deterioration; notify provider and wound team per policy.",
+      "keywords": [
+        "offloading",
+        "infection"
+      ],
+      "tags": [
+        "skin",
+        "pressure injury",
+        "wound",
+        "turning"
+      ]
+    },
+    {
+      "source_id": "POL_MED_01",
+      "section_id": "med_1",
+      "heading": "Immediate Response",
+      "text": "If medication error or suspected adverse drug reaction occurs, assess resident, ensure safety, and notify provider per protocol.",
+      "keywords": [
+        "provider notification"
+      ],
+      "tags": [
+        "med error",
+        "adverse reaction",
+        "incident",
+        "monitoring"
+      ]
+    },
+    {
+      "source_id": "POL_MED_01",
+      "section_id": "med_2",
+      "heading": "Monitoring",
+      "text": "Increase monitoring for expected adverse effects; document symptoms, vitals, and response.",
+      "keywords": [
+        "provider notification"
+      ],
+      "tags": [
+        "med error",
+        "adverse reaction",
+        "incident",
+        "monitoring"
+      ]
+    },
+    {
+      "source_id": "POL_MED_01",
+      "section_id": "med_3",
+      "heading": "Documentation",
+      "text": "Complete required incident documentation and medication record updates per policy.",
+      "keywords": [
+        "provider notification"
+      ],
+      "tags": [
+        "med error",
+        "adverse reaction",
+        "incident",
+        "monitoring"
+      ]
+    },
+    {
+      "source_id": "POL_MED_01",
+      "section_id": "med_4",
+      "heading": "Family Notification",
+      "text": "Notify family/emergency contact as required; document time and response.",
+      "keywords": [
+        "provider notification"
+      ],
+      "tags": [
+        "med error",
+        "adverse reaction",
+        "incident",
+        "monitoring"
+      ]
+    },
+    {
+      "source_id": "CDC_CORE_PRACTICES",
+      "section_id": "cdc_core_1",
+      "heading": "Hand Hygiene",
+      "text": "Perform hand hygiene at key moments (before/after resident contact, after glove removal, after contact with bodily fluids).",
+      "keywords": [
+        "respiratory hygiene"
+      ],
+      "tags": [
+        "CDC",
+        "standard precautions",
+        "hand hygiene",
+        "PPE"
+      ]
+    },
+    {
+      "source_id": "CDC_CORE_PRACTICES",
+      "section_id": "cdc_core_2",
+      "heading": "PPE Selection",
+      "text": "Select PPE based on anticipated exposure: gloves, gown, mask/eye protection when splash/spray is possible.",
+      "keywords": [
+        "respiratory hygiene"
+      ],
+      "tags": [
+        "CDC",
+        "standard precautions",
+        "hand hygiene",
+        "PPE"
+      ]
+    },
+    {
+      "source_id": "CDC_CORE_PRACTICES",
+      "section_id": "cdc_core_3",
+      "heading": "Respiratory Hygiene",
+      "text": "Implement respiratory hygiene/cough etiquette and source control when respiratory symptoms are present.",
+      "keywords": [
+        "respiratory hygiene"
+      ],
+      "tags": [
+        "CDC",
+        "standard precautions",
+        "hand hygiene",
+        "PPE"
+      ]
+    },
+    {
+      "source_id": "CDC_TBP",
+      "section_id": "cdc_tbp_1",
+      "heading": "Contact Precautions",
+      "text": "Use Contact Precautions for pathogens spread by direct/indirect contact; dedicate equipment and clean high-touch surfaces.",
+      "keywords": [
+        "contact",
+        "droplet",
+        "airborne"
+      ],
+      "tags": [
+        "CDC",
+        "transmission-based precautions",
+        "isolation"
+      ]
+    },
+    {
+      "source_id": "CDC_TBP",
+      "section_id": "cdc_tbp_2",
+      "heading": "Droplet Precautions",
+      "text": "Use Droplet Precautions for pathogens spread by respiratory droplets; use mask and eye protection per guidance.",
+      "keywords": [
+        "contact",
+        "droplet",
+        "airborne"
+      ],
+      "tags": [
+        "CDC",
+        "transmission-based precautions",
+        "isolation"
+      ]
+    },
+    {
+      "source_id": "CDC_TBP",
+      "section_id": "cdc_tbp_3",
+      "heading": "Airborne Precautions",
+      "text": "Use Airborne Precautions for airborne pathogens; use respirator and appropriate room controls as applicable.",
+      "keywords": [
+        "contact",
+        "droplet",
+        "airborne"
+      ],
+      "tags": [
+        "CDC",
+        "transmission-based precautions",
+        "isolation"
+      ]
+    },
+    {
+      "source_id": "CMS_483",
+      "section_id": "cms_483_doc",
+      "heading": "Documentation Requirements (General)",
+      "text": "Maintain complete, accurate documentation supporting assessment, care planning, interventions, and outcomes.",
+      "keywords": [
+        "CFR 483"
+      ],
+      "tags": [
+        "CMS",
+        "documentation",
+        "care plan"
+      ]
+    },
+    {
+      "source_id": "CMS_APP_PP",
+      "section_id": "cms_pp_survey",
+      "heading": "Survey Readiness (General)",
+      "text": "Be able to demonstrate policies are implemented consistently with documentation showing assessment, interventions, monitoring, and follow-up.",
+      "keywords": [
+        "evidence"
+      ],
+      "tags": [
+        "survey",
+        "Appendix PP",
+        "F-tag"
+      ]
+    },
+    {
+      "source_id": "NYSDOH_IP",
+      "section_id": "ny_ip_reporting",
+      "heading": "Reporting & Outbreak Coordination (General)",
+      "text": "Follow state reporting requirements and coordinate outbreak response, tracking, and communication per guidance.",
+      "keywords": [
+        "line list"
+      ],
+      "tags": [
+        "NYSDOH",
+        "reporting",
+        "outbreak"
+      ]
+    },
+    {
+      "source_id": "NYSDOH_REPORTING",
+      "section_id": "ny_reporting_abuse",
+      "heading": "Reporting Pathways (General)",
+      "text": "Follow required reporting pathways for incidents, allegations, and communicable diseases; document time and recipients.",
+      "keywords": [
+        "hotline",
+        "forms"
+      ],
+      "tags": [
+        "NYSDOH",
+        "reporting",
+        "abuse",
+        "incident"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_fever_1",
+      "heading": "Fever / suspected infection \u2014 Key Assessment 1",
+      "text": "Monitor temperature trends and associated symptoms; assess hydration and mental status changes.",
+      "keywords": [
+        "fever / suspected infection"
+      ],
+      "tags": [
+        "change of condition",
+        "fever"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_fever_2",
+      "heading": "Fever / suspected infection \u2014 Key Assessment 2",
+      "text": "Monitor temperature trends and associated symptoms; assess hydration and mental status changes.",
+      "keywords": [
+        "fever / suspected infection"
+      ],
+      "tags": [
+        "change of condition",
+        "fever"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_fever_3",
+      "heading": "Fever / suspected infection \u2014 Key Assessment 3",
+      "text": "Monitor temperature trends and associated symptoms; assess hydration and mental status changes.",
+      "keywords": [
+        "fever / suspected infection"
+      ],
+      "tags": [
+        "change of condition",
+        "fever"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_fever_4",
+      "heading": "Fever / suspected infection \u2014 Key Assessment 4",
+      "text": "Monitor temperature trends and associated symptoms; assess hydration and mental status changes.",
+      "keywords": [
+        "fever / suspected infection"
+      ],
+      "tags": [
+        "change of condition",
+        "fever"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_fever_5",
+      "heading": "Fever / suspected infection \u2014 Key Assessment 5",
+      "text": "Monitor temperature trends and associated symptoms; assess hydration and mental status changes.",
+      "keywords": [
+        "fever / suspected infection"
+      ],
+      "tags": [
+        "change of condition",
+        "fever"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_fever_6",
+      "heading": "Fever / suspected infection \u2014 Key Assessment 6",
+      "text": "Monitor temperature trends and associated symptoms; assess hydration and mental status changes.",
+      "keywords": [
+        "fever / suspected infection"
+      ],
+      "tags": [
+        "change of condition",
+        "fever"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_fever_7",
+      "heading": "Fever / suspected infection \u2014 Key Assessment 7",
+      "text": "Monitor temperature trends and associated symptoms; assess hydration and mental status changes.",
+      "keywords": [
+        "fever / suspected infection"
+      ],
+      "tags": [
+        "change of condition",
+        "fever"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_fever_8",
+      "heading": "Fever / suspected infection \u2014 Key Assessment 8",
+      "text": "Monitor temperature trends and associated symptoms; assess hydration and mental status changes.",
+      "keywords": [
+        "fever / suspected infection"
+      ],
+      "tags": [
+        "change of condition",
+        "fever"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_sob_1",
+      "heading": "Shortness of breath / low oxygen \u2014 Key Assessment 1",
+      "text": "Assess respiratory effort, O2 saturation, lung sounds, and response to interventions; escalate for distress.",
+      "keywords": [
+        "shortness of breath / low oxygen"
+      ],
+      "tags": [
+        "change of condition",
+        "sob"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_sob_2",
+      "heading": "Shortness of breath / low oxygen \u2014 Key Assessment 2",
+      "text": "Assess respiratory effort, O2 saturation, lung sounds, and response to interventions; escalate for distress.",
+      "keywords": [
+        "shortness of breath / low oxygen"
+      ],
+      "tags": [
+        "change of condition",
+        "sob"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_sob_3",
+      "heading": "Shortness of breath / low oxygen \u2014 Key Assessment 3",
+      "text": "Assess respiratory effort, O2 saturation, lung sounds, and response to interventions; escalate for distress.",
+      "keywords": [
+        "shortness of breath / low oxygen"
+      ],
+      "tags": [
+        "change of condition",
+        "sob"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_sob_4",
+      "heading": "Shortness of breath / low oxygen \u2014 Key Assessment 4",
+      "text": "Assess respiratory effort, O2 saturation, lung sounds, and response to interventions; escalate for distress.",
+      "keywords": [
+        "shortness of breath / low oxygen"
+      ],
+      "tags": [
+        "change of condition",
+        "sob"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_sob_5",
+      "heading": "Shortness of breath / low oxygen \u2014 Key Assessment 5",
+      "text": "Assess respiratory effort, O2 saturation, lung sounds, and response to interventions; escalate for distress.",
+      "keywords": [
+        "shortness of breath / low oxygen"
+      ],
+      "tags": [
+        "change of condition",
+        "sob"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_sob_6",
+      "heading": "Shortness of breath / low oxygen \u2014 Key Assessment 6",
+      "text": "Assess respiratory effort, O2 saturation, lung sounds, and response to interventions; escalate for distress.",
+      "keywords": [
+        "shortness of breath / low oxygen"
+      ],
+      "tags": [
+        "change of condition",
+        "sob"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_sob_7",
+      "heading": "Shortness of breath / low oxygen \u2014 Key Assessment 7",
+      "text": "Assess respiratory effort, O2 saturation, lung sounds, and response to interventions; escalate for distress.",
+      "keywords": [
+        "shortness of breath / low oxygen"
+      ],
+      "tags": [
+        "change of condition",
+        "sob"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_sob_8",
+      "heading": "Shortness of breath / low oxygen \u2014 Key Assessment 8",
+      "text": "Assess respiratory effort, O2 saturation, lung sounds, and response to interventions; escalate for distress.",
+      "keywords": [
+        "shortness of breath / low oxygen"
+      ],
+      "tags": [
+        "change of condition",
+        "sob"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_ams_1",
+      "heading": "Acute mental status change \u2014 Key Assessment 1",
+      "text": "Assess orientation, behavior change, reversible contributors, and safety risks; notify provider per protocol.",
+      "keywords": [
+        "acute mental status change"
+      ],
+      "tags": [
+        "change of condition",
+        "ams"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_ams_2",
+      "heading": "Acute mental status change \u2014 Key Assessment 2",
+      "text": "Assess orientation, behavior change, reversible contributors, and safety risks; notify provider per protocol.",
+      "keywords": [
+        "acute mental status change"
+      ],
+      "tags": [
+        "change of condition",
+        "ams"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_ams_3",
+      "heading": "Acute mental status change \u2014 Key Assessment 3",
+      "text": "Assess orientation, behavior change, reversible contributors, and safety risks; notify provider per protocol.",
+      "keywords": [
+        "acute mental status change"
+      ],
+      "tags": [
+        "change of condition",
+        "ams"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_ams_4",
+      "heading": "Acute mental status change \u2014 Key Assessment 4",
+      "text": "Assess orientation, behavior change, reversible contributors, and safety risks; notify provider per protocol.",
+      "keywords": [
+        "acute mental status change"
+      ],
+      "tags": [
+        "change of condition",
+        "ams"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_ams_5",
+      "heading": "Acute mental status change \u2014 Key Assessment 5",
+      "text": "Assess orientation, behavior change, reversible contributors, and safety risks; notify provider per protocol.",
+      "keywords": [
+        "acute mental status change"
+      ],
+      "tags": [
+        "change of condition",
+        "ams"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_ams_6",
+      "heading": "Acute mental status change \u2014 Key Assessment 6",
+      "text": "Assess orientation, behavior change, reversible contributors, and safety risks; notify provider per protocol.",
+      "keywords": [
+        "acute mental status change"
+      ],
+      "tags": [
+        "change of condition",
+        "ams"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_ams_7",
+      "heading": "Acute mental status change \u2014 Key Assessment 7",
+      "text": "Assess orientation, behavior change, reversible contributors, and safety risks; notify provider per protocol.",
+      "keywords": [
+        "acute mental status change"
+      ],
+      "tags": [
+        "change of condition",
+        "ams"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_ams_8",
+      "heading": "Acute mental status change \u2014 Key Assessment 8",
+      "text": "Assess orientation, behavior change, reversible contributors, and safety risks; notify provider per protocol.",
+      "keywords": [
+        "acute mental status change"
+      ],
+      "tags": [
+        "change of condition",
+        "ams"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_gi_1",
+      "heading": "GI symptoms (vomiting/diarrhea) \u2014 Key Assessment 1",
+      "text": "Assess stool/vomit frequency, hydration status, infection risk, and need for isolation precautions; monitor intake/output.",
+      "keywords": [
+        "gi symptoms (vomiting/diarrhea)"
+      ],
+      "tags": [
+        "change of condition",
+        "gi"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_gi_2",
+      "heading": "GI symptoms (vomiting/diarrhea) \u2014 Key Assessment 2",
+      "text": "Assess stool/vomit frequency, hydration status, infection risk, and need for isolation precautions; monitor intake/output.",
+      "keywords": [
+        "gi symptoms (vomiting/diarrhea)"
+      ],
+      "tags": [
+        "change of condition",
+        "gi"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_gi_3",
+      "heading": "GI symptoms (vomiting/diarrhea) \u2014 Key Assessment 3",
+      "text": "Assess stool/vomit frequency, hydration status, infection risk, and need for isolation precautions; monitor intake/output.",
+      "keywords": [
+        "gi symptoms (vomiting/diarrhea)"
+      ],
+      "tags": [
+        "change of condition",
+        "gi"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_gi_4",
+      "heading": "GI symptoms (vomiting/diarrhea) \u2014 Key Assessment 4",
+      "text": "Assess stool/vomit frequency, hydration status, infection risk, and need for isolation precautions; monitor intake/output.",
+      "keywords": [
+        "gi symptoms (vomiting/diarrhea)"
+      ],
+      "tags": [
+        "change of condition",
+        "gi"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_gi_5",
+      "heading": "GI symptoms (vomiting/diarrhea) \u2014 Key Assessment 5",
+      "text": "Assess stool/vomit frequency, hydration status, infection risk, and need for isolation precautions; monitor intake/output.",
+      "keywords": [
+        "gi symptoms (vomiting/diarrhea)"
+      ],
+      "tags": [
+        "change of condition",
+        "gi"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_gi_6",
+      "heading": "GI symptoms (vomiting/diarrhea) \u2014 Key Assessment 6",
+      "text": "Assess stool/vomit frequency, hydration status, infection risk, and need for isolation precautions; monitor intake/output.",
+      "keywords": [
+        "gi symptoms (vomiting/diarrhea)"
+      ],
+      "tags": [
+        "change of condition",
+        "gi"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_gi_7",
+      "heading": "GI symptoms (vomiting/diarrhea) \u2014 Key Assessment 7",
+      "text": "Assess stool/vomit frequency, hydration status, infection risk, and need for isolation precautions; monitor intake/output.",
+      "keywords": [
+        "gi symptoms (vomiting/diarrhea)"
+      ],
+      "tags": [
+        "change of condition",
+        "gi"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_gi_8",
+      "heading": "GI symptoms (vomiting/diarrhea) \u2014 Key Assessment 8",
+      "text": "Assess stool/vomit frequency, hydration status, infection risk, and need for isolation precautions; monitor intake/output.",
+      "keywords": [
+        "gi symptoms (vomiting/diarrhea)"
+      ],
+      "tags": [
+        "change of condition",
+        "gi"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_uti_1",
+      "heading": "Urinary symptoms \u2014 Key Assessment 1",
+      "text": "Assess urinary symptoms, fever, hydration, and baseline; follow protocol for provider notification and specimen collection if ordered.",
+      "keywords": [
+        "urinary symptoms"
+      ],
+      "tags": [
+        "change of condition",
+        "uti"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_uti_2",
+      "heading": "Urinary symptoms \u2014 Key Assessment 2",
+      "text": "Assess urinary symptoms, fever, hydration, and baseline; follow protocol for provider notification and specimen collection if ordered.",
+      "keywords": [
+        "urinary symptoms"
+      ],
+      "tags": [
+        "change of condition",
+        "uti"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_uti_3",
+      "heading": "Urinary symptoms \u2014 Key Assessment 3",
+      "text": "Assess urinary symptoms, fever, hydration, and baseline; follow protocol for provider notification and specimen collection if ordered.",
+      "keywords": [
+        "urinary symptoms"
+      ],
+      "tags": [
+        "change of condition",
+        "uti"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_uti_4",
+      "heading": "Urinary symptoms \u2014 Key Assessment 4",
+      "text": "Assess urinary symptoms, fever, hydration, and baseline; follow protocol for provider notification and specimen collection if ordered.",
+      "keywords": [
+        "urinary symptoms"
+      ],
+      "tags": [
+        "change of condition",
+        "uti"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_uti_5",
+      "heading": "Urinary symptoms \u2014 Key Assessment 5",
+      "text": "Assess urinary symptoms, fever, hydration, and baseline; follow protocol for provider notification and specimen collection if ordered.",
+      "keywords": [
+        "urinary symptoms"
+      ],
+      "tags": [
+        "change of condition",
+        "uti"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_uti_6",
+      "heading": "Urinary symptoms \u2014 Key Assessment 6",
+      "text": "Assess urinary symptoms, fever, hydration, and baseline; follow protocol for provider notification and specimen collection if ordered.",
+      "keywords": [
+        "urinary symptoms"
+      ],
+      "tags": [
+        "change of condition",
+        "uti"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_uti_7",
+      "heading": "Urinary symptoms \u2014 Key Assessment 7",
+      "text": "Assess urinary symptoms, fever, hydration, and baseline; follow protocol for provider notification and specimen collection if ordered.",
+      "keywords": [
+        "urinary symptoms"
+      ],
+      "tags": [
+        "change of condition",
+        "uti"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_uti_8",
+      "heading": "Urinary symptoms \u2014 Key Assessment 8",
+      "text": "Assess urinary symptoms, fever, hydration, and baseline; follow protocol for provider notification and specimen collection if ordered.",
+      "keywords": [
+        "urinary symptoms"
+      ],
+      "tags": [
+        "change of condition",
+        "uti"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_78",
+      "heading": "Focused Assessment Prompt 78",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_79",
+      "heading": "Focused Assessment Prompt 79",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_80",
+      "heading": "Focused Assessment Prompt 80",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_81",
+      "heading": "Focused Assessment Prompt 81",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_82",
+      "heading": "Focused Assessment Prompt 82",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_83",
+      "heading": "Focused Assessment Prompt 83",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_84",
+      "heading": "Focused Assessment Prompt 84",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_85",
+      "heading": "Focused Assessment Prompt 85",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_86",
+      "heading": "Focused Assessment Prompt 86",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_87",
+      "heading": "Focused Assessment Prompt 87",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_88",
+      "heading": "Focused Assessment Prompt 88",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_89",
+      "heading": "Focused Assessment Prompt 89",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_90",
+      "heading": "Focused Assessment Prompt 90",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_91",
+      "heading": "Focused Assessment Prompt 91",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_92",
+      "heading": "Focused Assessment Prompt 92",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_93",
+      "heading": "Focused Assessment Prompt 93",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_94",
+      "heading": "Focused Assessment Prompt 94",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_95",
+      "heading": "Focused Assessment Prompt 95",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_96",
+      "heading": "Focused Assessment Prompt 96",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_97",
+      "heading": "Focused Assessment Prompt 97",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_98",
+      "heading": "Focused Assessment Prompt 98",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_99",
+      "heading": "Focused Assessment Prompt 99",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_100",
+      "heading": "Focused Assessment Prompt 100",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_101",
+      "heading": "Focused Assessment Prompt 101",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_102",
+      "heading": "Focused Assessment Prompt 102",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_103",
+      "heading": "Focused Assessment Prompt 103",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_104",
+      "heading": "Focused Assessment Prompt 104",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_105",
+      "heading": "Focused Assessment Prompt 105",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_106",
+      "heading": "Focused Assessment Prompt 106",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_107",
+      "heading": "Focused Assessment Prompt 107",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_108",
+      "heading": "Focused Assessment Prompt 108",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_109",
+      "heading": "Focused Assessment Prompt 109",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_110",
+      "heading": "Focused Assessment Prompt 110",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_111",
+      "heading": "Focused Assessment Prompt 111",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_112",
+      "heading": "Focused Assessment Prompt 112",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_113",
+      "heading": "Focused Assessment Prompt 113",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_114",
+      "heading": "Focused Assessment Prompt 114",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_115",
+      "heading": "Focused Assessment Prompt 115",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_116",
+      "heading": "Focused Assessment Prompt 116",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_117",
+      "heading": "Focused Assessment Prompt 117",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_118",
+      "heading": "Focused Assessment Prompt 118",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_119",
+      "heading": "Focused Assessment Prompt 119",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_120",
+      "heading": "Focused Assessment Prompt 120",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_121",
+      "heading": "Focused Assessment Prompt 121",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_122",
+      "heading": "Focused Assessment Prompt 122",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_123",
+      "heading": "Focused Assessment Prompt 123",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_124",
+      "heading": "Focused Assessment Prompt 124",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_125",
+      "heading": "Focused Assessment Prompt 125",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_126",
+      "heading": "Focused Assessment Prompt 126",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_127",
+      "heading": "Focused Assessment Prompt 127",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_128",
+      "heading": "Focused Assessment Prompt 128",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_129",
+      "heading": "Focused Assessment Prompt 129",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_130",
+      "heading": "Focused Assessment Prompt 130",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_131",
+      "heading": "Focused Assessment Prompt 131",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_132",
+      "heading": "Focused Assessment Prompt 132",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_133",
+      "heading": "Focused Assessment Prompt 133",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_134",
+      "heading": "Focused Assessment Prompt 134",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_135",
+      "heading": "Focused Assessment Prompt 135",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_136",
+      "heading": "Focused Assessment Prompt 136",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_137",
+      "heading": "Focused Assessment Prompt 137",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_138",
+      "heading": "Focused Assessment Prompt 138",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_139",
+      "heading": "Focused Assessment Prompt 139",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_140",
+      "heading": "Focused Assessment Prompt 140",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_141",
+      "heading": "Focused Assessment Prompt 141",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_142",
+      "heading": "Focused Assessment Prompt 142",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_143",
+      "heading": "Focused Assessment Prompt 143",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_144",
+      "heading": "Focused Assessment Prompt 144",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_145",
+      "heading": "Focused Assessment Prompt 145",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_146",
+      "heading": "Focused Assessment Prompt 146",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_147",
+      "heading": "Focused Assessment Prompt 147",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_148",
+      "heading": "Focused Assessment Prompt 148",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_149",
+      "heading": "Focused Assessment Prompt 149",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_150",
+      "heading": "Focused Assessment Prompt 150",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_151",
+      "heading": "Focused Assessment Prompt 151",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_152",
+      "heading": "Focused Assessment Prompt 152",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_153",
+      "heading": "Focused Assessment Prompt 153",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_154",
+      "heading": "Focused Assessment Prompt 154",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_155",
+      "heading": "Focused Assessment Prompt 155",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_156",
+      "heading": "Focused Assessment Prompt 156",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_157",
+      "heading": "Focused Assessment Prompt 157",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_158",
+      "heading": "Focused Assessment Prompt 158",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_159",
+      "heading": "Focused Assessment Prompt 159",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_160",
+      "heading": "Focused Assessment Prompt 160",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_161",
+      "heading": "Focused Assessment Prompt 161",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_162",
+      "heading": "Focused Assessment Prompt 162",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_163",
+      "heading": "Focused Assessment Prompt 163",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_164",
+      "heading": "Focused Assessment Prompt 164",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_165",
+      "heading": "Focused Assessment Prompt 165",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_166",
+      "heading": "Focused Assessment Prompt 166",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_167",
+      "heading": "Focused Assessment Prompt 167",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_168",
+      "heading": "Focused Assessment Prompt 168",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_169",
+      "heading": "Focused Assessment Prompt 169",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_170",
+      "heading": "Focused Assessment Prompt 170",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_171",
+      "heading": "Focused Assessment Prompt 171",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_172",
+      "heading": "Focused Assessment Prompt 172",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_173",
+      "heading": "Focused Assessment Prompt 173",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_174",
+      "heading": "Focused Assessment Prompt 174",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_175",
+      "heading": "Focused Assessment Prompt 175",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_176",
+      "heading": "Focused Assessment Prompt 176",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_177",
+      "heading": "Focused Assessment Prompt 177",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_178",
+      "heading": "Focused Assessment Prompt 178",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_179",
+      "heading": "Focused Assessment Prompt 179",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_180",
+      "heading": "Focused Assessment Prompt 180",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_181",
+      "heading": "Focused Assessment Prompt 181",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_182",
+      "heading": "Focused Assessment Prompt 182",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_183",
+      "heading": "Focused Assessment Prompt 183",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_184",
+      "heading": "Focused Assessment Prompt 184",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_185",
+      "heading": "Focused Assessment Prompt 185",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_186",
+      "heading": "Focused Assessment Prompt 186",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_187",
+      "heading": "Focused Assessment Prompt 187",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_188",
+      "heading": "Focused Assessment Prompt 188",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_189",
+      "heading": "Focused Assessment Prompt 189",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_190",
+      "heading": "Focused Assessment Prompt 190",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_191",
+      "heading": "Focused Assessment Prompt 191",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_192",
+      "heading": "Focused Assessment Prompt 192",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_193",
+      "heading": "Focused Assessment Prompt 193",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_194",
+      "heading": "Focused Assessment Prompt 194",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_195",
+      "heading": "Focused Assessment Prompt 195",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_196",
+      "heading": "Focused Assessment Prompt 196",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_197",
+      "heading": "Focused Assessment Prompt 197",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_198",
+      "heading": "Focused Assessment Prompt 198",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_199",
+      "heading": "Focused Assessment Prompt 199",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
+    },
+    {
+      "source_id": "POL_COC_01",
+      "section_id": "coc_extra_200",
+      "heading": "Focused Assessment Prompt 200",
+      "text": "Perform focused assessment and document objective findings, interventions, and resident response.",
+      "keywords": [
+        "objective",
+        "baseline"
+      ],
+      "tags": [
+        "change of condition",
+        "assessment"
+      ]
     }
   ]
 }

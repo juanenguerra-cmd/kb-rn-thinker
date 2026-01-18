@@ -111,6 +111,34 @@ a:hover { text-decoration: underline; }
 .row { display: flex; gap: 10px; align-items: center; }
 .grow { flex: 1; }
 
+.searchField {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.clearBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearBtn:hover {
+  color: var(--text);
+  box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.04);
+}
+
 .input, .textarea, .select {
   width: 100%;
   border: 1px solid var(--border);
@@ -179,6 +207,82 @@ a:hover { text-decoration: underline; }
   position: sticky;
   top: 12px;
   z-index: 5;
+}
+
+details.filterDetails {
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+details.filterDetails > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+details.filterDetails > summary::-webkit-details-marker { display: none; }
+
+.summaryTitle {
+  font-weight: 900;
+}
+
+.summaryMeta {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.chevron {
+  margin-left: auto;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+details.filterDetails[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.filterBody {
+  padding: 0 14px 14px 14px;
+}
+
+.actionBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.92) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+  margin: -14px -14px 12px -14px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.actionBarInner {
+  display: grid;
+  gap: 8px;
+}
+
+.resultsMeta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.actionBar .btn { width: 100%; }
+
+.resultsMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 mark {

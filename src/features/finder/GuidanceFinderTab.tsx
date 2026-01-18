@@ -41,51 +41,84 @@ export function GuidanceFinderTab() {
     return arr.includes(value) ? arr.filter((x) => x !== value) : [value, ...arr];
   }
 
+  const [filtersOpen, setFiltersOpen] = React.useState(true);
+  const activeFilterCount =
+    finder.typeFilter.length +
+    finder.jurisdictionFilter.length +
+    finder.tagFilter.length +
+    (finder.exactPhrase ? 1 : 0) +
+    (finder.approvedOnly ? 0 : 1);
+
   return (
     <div style={{ display: "grid", gap: 12 }}>
       <div className="row">
-        <input
-          value={finder.query}
-          onChange={(e) => actions.setQuery(e.target.value)}
-          placeholder="Search policies, CMS, CDC, NYSDOH guidance…"
-          className="input grow"
-        />
+        <div className="searchField">
+          <input
+            value={finder.query}
+            onChange={(e) => actions.setQuery(e.target.value)}
+            placeholder="Search policies, CMS, CDC, NYSDOH guidance…"
+            className="input"
+            style={{ paddingRight: 48 }}
+          />
+          {finder.query.trim().length > 0 ? (
+            <button
+              className="clearBtn"
+              onClick={() => {
+                actions.setQuery("");
+                actions.runSearch();
+              }}
+              aria-label="Clear search"
+              title="Clear search"
+              type="button"
+            >
+              ×
+            </button>
+          ) : null}
+        </div>
         <button onClick={actions.runSearch} className="btn btnPrimary">Search</button>
       </div>
 
-      <div className="panel panelPad" style={{ boxShadow: "none" }}>
-        <div className="row" style={{ flexWrap: "wrap" }}>
-          <label className="row" style={{ gap: 8 }}>
-            <input type="checkbox" checked={finder.exactPhrase} onChange={(e) => actions.setExactPhrase(e.target.checked)} />
-            <span className="muted">Exact phrase</span>
-          </label>
+      <details
+        className="filterDetails"
+        open={filtersOpen}
+        onToggle={(e) => setFiltersOpen((e.target as HTMLDetailsElement).open)}
+      >
+        <summary>
+          <span className="summaryTitle">Filters</span>
+          <span className="summaryMeta">{activeFilterCount} active</span>
+          <span className="chevron">▾</span>
+        </summary>
 
-          <label className="row" style={{ gap: 8 }}>
-            <input type="checkbox" checked={finder.approvedOnly} onChange={(e) => actions.setApprovedOnly(e.target.checked)} />
-            <span className="muted">Approved-only</span>
-          </label>
+        <div className="filterBody" style={{ display: "grid", gap: 10 }}>
+          <div className="row" style={{ flexWrap: "wrap" }}>
+            <label className="row" style={{ gap: 8 }}>
+              <input type="checkbox" checked={finder.exactPhrase} onChange={(e) => actions.setExactPhrase(e.target.checked)} />
+              <span className="muted">Exact phrase</span>
+            </label>
 
-          <div className="grow" />
+            <label className="row" style={{ gap: 8 }}>
+              <input type="checkbox" checked={finder.approvedOnly} onChange={(e) => actions.setApprovedOnly(e.target.checked)} />
+              <span className="muted">Approved-only</span>
+            </label>
 
-          <span className="muted">Default add section:</span>
-          <select
-            value={finder.defaultAddSection}
-            onChange={(e) => actions.setDefaultAddSection(e.target.value as PacketDraftSection)}
-            className="select"
-            style={{ width: 180 }}
-          >
-            <option value="citations">Citations</option>
-            <option value="assessment">Assessment</option>
-            <option value="interventions">Interventions</option>
-            <option value="monitoring">Monitoring</option>
-            <option value="documentation">Documentation</option>
-            <option value="issue">Issue</option>
-          </select>
-        </div>
+            <div className="grow" />
 
-        <div className="divider" />
+            <span className="muted">Default add section:</span>
+            <select
+              value={finder.defaultAddSection}
+              onChange={(e) => actions.setDefaultAddSection(e.target.value as PacketDraftSection)}
+              className="select"
+              style={{ width: 180 }}
+            >
+              <option value="citations">Citations</option>
+              <option value="assessment">Assessment</option>
+              <option value="interventions">Interventions</option>
+              <option value="monitoring">Monitoring</option>
+              <option value="documentation">Documentation</option>
+              <option value="issue">Issue</option>
+            </select>
+          </div>
 
-        <div style={{ display: "grid", gap: 10 }}>
           <div>
             <div className="muted" style={{ marginBottom: 6 }}>Type</div>
             <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
@@ -138,6 +171,7 @@ export function GuidanceFinderTab() {
                 actions.setJurisdictionFilter([]);
                 actions.setTagFilter([]);
                 actions.setApprovedOnly(true);
+                actions.setExactPhrase(false);
               }}
               className="btn"
             >
@@ -145,6 +179,16 @@ export function GuidanceFinderTab() {
             </button>
           </div>
         </div>
+      </details>
+
+      <div className="resultsMetaRow">
+        <div className="resultsMeta">
+          <strong>Results:</strong> {results.length}
+          {finder.query.trim() ? <span>for “{finder.query.trim()}”</span> : null}
+        </div>
+        {results.length > 0 ? (
+          <div className="muted">Tip: use Filters ▾ to narrow by policy/CMS/CDC/NYS</div>
+        ) : null}
       </div>
 
       <div style={{ display: "grid", gap: 10 }}>

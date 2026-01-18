@@ -2,6 +2,7 @@ import * as React from "react";
 import { useAppStore } from "@/store/appStore";
 import { docToCitationCard, canIncludeInPacket } from "@/lib/citations";
 import { buildPacketModel } from "@/packet/buildPacketModel";
+import type { PacketDraftSection } from "@/store/appStore";
 
 export function PacketPrintPage() {
   const kb = useAppStore((s) => s.kb);
@@ -12,7 +13,7 @@ export function PacketPrintPage() {
     if (!kb) return null;
 
     const options = { allowExternal: false, allowUnapproved: false };
-    const included: Array<{ card: any; section: any }> = [];
+    const included: Array<{ card: any; section: PacketDraftSection }> = [];
     const excluded: Array<{ label: string; reason: string }> = [];
 
     for (const item of draft.items) {
@@ -54,7 +55,7 @@ export function PacketPrintPage() {
 
   if (!kb || !model) return <div style={{ padding: 20 }}>Loading packet…</div>;
 
-  const sectionsOrder = ["assessment", "interventions", "monitoring", "documentation", "citations"] as const;
+  const sectionsOrder: PacketDraftSection[] = ["assessment", "interventions", "monitoring", "documentation", "citations"];
 
   return (
     <div className="printPage">
@@ -106,7 +107,7 @@ export function PacketPrintPage() {
               <div key={sec} style={{ marginTop: 10 }}>
                 <div style={{ fontWeight: 900, marginBottom: 6, opacity: 0.9 }}>{sec.toUpperCase()}</div>
                 <div className="citations">
-                  {list.map((c: any) => (
+                  {list.map((c) => (
                     <div key={c.key} className="citationCard">
                       <div className="ctitle">{c.title}</div>
                       {c.heading ? <div className="chead">{c.heading}</div> : null}

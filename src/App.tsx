@@ -6,11 +6,9 @@ import { DecisionWizardTab } from "@/features/wizard/DecisionWizardTab";
 import { PacketDraftDrawer } from "@/features/packet/PacketDraftDrawer";
 
 export default function App() {
-  const actions = useAppStore((s) => s.actions);
   const kb = useAppStore((s) => s.kb);
-
-  const activeTab = useAppStore((s) => s.ui.activeTab ?? "finder");
-  const setTab = useAppStore((s) => s.actions.setActiveTab);
+  const actions = useAppStore((s) => s.actions);
+  const activeTab = useAppStore((s) => s.activeTab);
 
   React.useEffect(() => {
     loadKB().then(actions.loadKb).catch(console.error);
@@ -25,30 +23,36 @@ export default function App() {
           <div className="kbTabs">
             <button
               className={`kbTab ${activeTab === "finder" ? "kbTabActive" : ""}`}
-              onClick={() => setTab("finder")}
+              onClick={() => actions.setTab("finder")}
             >
               Guidance Finder
             </button>
             <button
               className={`kbTab ${activeTab === "wizard" ? "kbTabActive" : ""}`}
-              onClick={() => setTab("wizard")}
+              onClick={() => actions.setTab("wizard")}
             >
               Decision Wizard
             </button>
           </div>
 
           <div className="kbRight">
-            {kb ? <>KB v{kb.manifest.kb_version} • {kb.manifest.approval.status}</> : "Loading KB…"}
+            {kb ? (
+              <span>
+                KB v{kb.manifest.kb_version} • {kb.manifest.approval.status}
+              </span>
+            ) : (
+              <span>Loading KB…</span>
+            )}
           </div>
         </div>
       </div>
 
       <div className="kbMain">
-        <div className="panel panelPad">
+        <div className="panel panelPad" style={{ minWidth: 0 }}>
           {activeTab === "finder" ? <GuidanceFinderTab /> : <DecisionWizardTab />}
         </div>
 
-        <div className="panel panelPad stickyTop">
+        <div className="panel panelPad stickyTop" style={{ height: "calc(100vh - 110px)", overflow: "auto" }}>
           <PacketDraftDrawer />
         </div>
       </div>

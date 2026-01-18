@@ -4,6 +4,7 @@ import { useAppStore } from "@/store/appStore";
 import { GuidanceFinderTab } from "@/features/finder/GuidanceFinderTab";
 import { DecisionWizardTab } from "@/features/wizard/DecisionWizardTab";
 import { PacketDraftDrawer } from "@/features/packet/PacketDraftDrawer";
+import { ReleaseNotesButton } from "@/components/ReleaseNotesButton"; // ✅ ADD THIS
 
 export default function App() {
   const kb = useAppStore((s) => s.kb);
@@ -56,6 +57,9 @@ export default function App() {
           <PacketDraftDrawer />
         </div>
       </div>
+
+      {/* ✅ ADD THIS (bottom-left fixed button + modal) */}
+      <ReleaseNotesButton />
     </div>
   );
 }

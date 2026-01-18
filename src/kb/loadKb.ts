@@ -3,6 +3,14 @@ export type KBManifest = {
   effective_date: string;
   approval: { status: "draft" | "pending" | "approved" | "retired"; approved_by_role: string; approved_date: string };
   files: { sources: string; sections: string; search_index: string };
+  
+// ✅ ADD THIS:
+  changelog: Array<{
+    date: string;
+    summary: string;
+    files_changed?: string[];
+    ticket_or_reason?: string;
+  }>;
 };
 
 export type KBSource = {

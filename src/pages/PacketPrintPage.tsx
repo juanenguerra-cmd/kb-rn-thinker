@@ -7,7 +7,6 @@ import type { PacketDraftSection } from "@/store/appStore";
 export function PacketPrintPage() {
   const kb = useAppStore((s) => s.kb);
   const draft = useAppStore((s) => s.packetDraft);
-  const prompts = useAppStore((s) => s.notePrompts);
 
   const model = React.useMemo(() => {
     if (!kb) return null;
@@ -31,27 +30,14 @@ export function PacketPrintPage() {
       else excluded.push({ label: `${card.title} — ${card.heading ?? ""}`.trim(), reason: gate.reason });
     }
 
-    const nursingNoteTemplate = [
-      "Nursing Progress Note:",
-      `Issue/Change in condition: ${draft.meta.issue_text?.trim() ? draft.meta.issue_text.trim() : "__"}`,
-      "VS: BP __ HR __ RR __ T __ SpO2 __ Pain __/10.",
-      `Assessment/Evaluation: ${prompts.assessment.join("; ")}.`,
-      `Interventions: ${prompts.interventions.join("; ")}.`,
-      `Documentation: ${prompts.documentation.join("; ")}.`,
-      "Provider notified at __; orders received: __ (implemented as appropriate).",
-      "Family/EC notified (__ ) at __; response/instructions: __.",
-      "Plan: Continue monitoring per protocol/orders and notify provider for any change in condition."
-    ].join("\n");
-
     return buildPacketModel({
       kb,
       issue_text: draft.meta.issue_text,
       sectionNotes: draft.sectionNotes,
       included,
-      excluded,
-      nursingNoteTemplate
+      excluded
     });
-  }, [kb, draft.items, draft.meta.issue_text, draft.sectionNotes, prompts]);
+  }, [kb, draft.items, draft.meta.issue_text, draft.sectionNotes]);
 
   if (!kb || !model) return <div style={{ padding: 20 }}>Loading packet…</div>;
 
@@ -107,7 +93,7 @@ export function PacketPrintPage() {
               <div key={sec} style={{ marginTop: 10 }}>
                 <div style={{ fontWeight: 900, marginBottom: 6, opacity: 0.9 }}>{sec.toUpperCase()}</div>
                 <div className="citations">
-                  {list.map((c) => (
+                  {list.map((c: (typeof list)[number]) => (
                     <div key={c.key} className="citationCard">
                       <div className="ctitle">{c.title}</div>
                       {c.heading ? <div className="chead">{c.heading}</div> : null}
@@ -138,15 +124,6 @@ export function PacketPrintPage() {
             </details>
           ) : null}
         </section>
-
-        {model.appendices?.nursing_progress_note ? (
-          <section className="block">
-            <h2>{model.appendices.nursing_progress_note.title}</h2>
-            <pre style={{ whiteSpace: "pre-wrap", border: "1px solid #eee", borderRadius: 14, padding: 12 }}>
-              {model.appendices.nursing_progress_note.generated_note_template}
-            </pre>
-          </section>
-        ) : null}
 
         <footer className="sheetFooter">
           {model.footer.disclaimer_lines.map((l, i) => (

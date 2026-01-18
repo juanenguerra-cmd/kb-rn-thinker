@@ -36,13 +36,6 @@ export type PacketModel = {
     excluded?: Array<{ label: string; reason: string }>;
   };
 
-  appendices?: {
-    nursing_progress_note?: {
-      title: "Nursing Progress Note";
-      generated_note_template: string;
-    };
-  };
-
   footer: {
     disclaimer_lines: string[];
     page_numbering: boolean;
@@ -64,9 +57,8 @@ export function buildPacketModel(args: {
   sectionNotes: Record<PacketDraftSection, string>;
   included: Array<{ card: CitationCard; section: PacketDraftSection }>;
   excluded: Array<{ label: string; reason: string }>;
-  nursingNoteTemplate?: string;
 }): PacketModel {
-  const { kb, issue_text, sectionNotes, included, excluded, nursingNoteTemplate } = args;
+  const { kb, issue_text, sectionNotes, included, excluded } = args;
 
   const watermark = kb.manifest.approval.status !== "approved" ? "DRAFT" : undefined;
 
@@ -131,15 +123,6 @@ export function buildPacketModel(args: {
       included_by_section,
       excluded: excluded.length ? excluded : undefined
     },
-
-    appendices: nursingNoteTemplate
-      ? {
-          nursing_progress_note: {
-            title: "Nursing Progress Note",
-            generated_note_template: nursingNoteTemplate
-          }
-        }
-      : undefined,
 
     footer: {
       disclaimer_lines: [

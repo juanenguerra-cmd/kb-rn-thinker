@@ -24,33 +24,27 @@ export function NursingProgressNoteModal(props: Props) {
   const [familyResponse, setFamilyResponse] = React.useState("");
 
   const generated = React.useMemo(() => {
+    const issue = issueText?.trim() ? issueText.trim() : "__";
     const vs = vitals
-      ? `VS: BP ${vitals.bp ?? "__"} HR ${vitals.hr ?? "__"} RR ${vitals.rr ?? "__"} T ${vitals.t ?? "__"} SpO2 ${vitals.spo2 ?? "__"} Pain ${vitals.pain ?? "__"}/10.`
-      : "VS: BP __ HR __ RR __ T __ SpO2 __ Pain __/10.";
+      ? `BP ${vitals.bp ?? "__"}, HR ${vitals.hr ?? "__"}, RR ${vitals.rr ?? "__"}, T ${vitals.t ?? "__"}, SpO2 ${vitals.spo2 ?? "__"}, Pain ${vitals.pain ?? "__"}/10`
+      : "BP __, HR __, RR __, T __, SpO2 __, Pain __/10";
 
-    const assessLine = `Assessment/Evaluation: ${assessmentPrompts.join("; ")}.`;
-    const docLine = `Documentation: ${documentationPrompts.join("; ")}.`;
-    const intLine = `Interventions: ${interventionPrompts.join("; ")}.`;
+    const p1 = `Resident assessed due to ${issue}. Vital signs obtained: ${vs}.`;
+    const p2 = `Assessment/Evaluation included: ${assessmentPrompts.join(", ")}. Relevant findings documented and compared to baseline (as applicable).`;
+    const p3 = `Interventions performed/initiated: ${interventionPrompts.join(", ")}. Resident response/tolerance documented.`;
 
     const providerLine = providerNotified
-      ? `Provider notified at ${providerTime || "__"}; orders received: ${providerOrders || "__"} (implemented as appropriate).`
-      : `Provider notification: not completed (reason: __).`;
+      ? `Provider notified at ${providerTime || "__"}; orders received: ${providerOrders || "__"} and implemented as appropriate.`
+      : `Provider notification not completed (reason: __).`;
 
     const familyLine = familyNotified
-      ? `Family/EC notified (${familyName || "__"}) at ${familyTime || "__"}; response/instructions: ${familyResponse || "__"}.`
-      : `Family/EC notification: not completed (reason: __).`;
+      ? `Family/Emergency Contact notified (${familyName || "__"}) at ${familyTime || "__"}; response/instructions: ${familyResponse || "__"}.`
+      : `Family/Emergency Contact notification not completed (reason: __).`;
 
-    return [
-      "Nursing Progress Note:",
-      `Issue/Change in condition: ${issueText?.trim() ? issueText.trim() : "__"}`,
-      vs,
-      assessLine,
-      intLine,
-      docLine,
-      providerLine,
-      familyLine,
-      "Plan: Continue monitoring per protocol/orders and notify provider for any change in condition."
-    ].join("\n");
+    const p4 = `${providerLine} ${familyLine}`;
+    const p5 = `Documentation completed as applicable: ${documentationPrompts.join(", ")}. Plan: continue monitoring per protocol/orders and notify provider for any change in condition.`;
+
+    return `Nursing Progress Note:\n\n${p1}\n\n${p2}\n\n${p3}\n\n${p4}\n\n${p5}`;
   }, [
     issueText,
     vitals,

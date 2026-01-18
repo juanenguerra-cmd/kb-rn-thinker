@@ -57,6 +57,8 @@ type PacketDraftState = {
   blockedReasons: Record<string, string>;
 };
 
+type WizardCategory = "general" | "fever" | "respiratory" | "fall" | "abuse";
+
 type WizardState = {
   step: 1 | 2 | 3;
   changeOfCondition: "unknown" | "yes" | "no";
@@ -67,6 +69,8 @@ type WizardState = {
     acuteNeuroChange: boolean;
   };
   suggestedTopic: string;
+  category: WizardCategory;
+  answers: Record<string, any>;
 };
 
 type AppState = {
@@ -112,6 +116,7 @@ type AppState = {
     wizardBack: () => void;
     wizardSetChangeOfCondition: (v: WizardState["changeOfCondition"]) => void;
     wizardToggleRedFlag: (k: keyof WizardState["redFlags"], v: boolean) => void;
+    wizardSetAnswer: (key: string, value: any) => void;
     wizardApplyToPacket: () => void;
 
     // Note modal
@@ -128,6 +133,56 @@ const emptyNotes = (): Record<PacketDraftSection, string> => ({
   documentation: "",
   citations: ""
 });
+
+function inferWizardFromIssue(issueText: string): { category: WizardCategory; topic: string } {
+  const t = (issueText || "").toLowerCase();
+  if (/(fall|fell|slip|trip)/.test(t)) return { category: "fall", topic: "Post-fall assessment / monitoring" };
+  if (/(fever|temp|temperature|chills|rigor)/.test(t)) return { category: "fever", topic: "Fever / possible infection" };
+  if (/(sob|shortness|dyspnea|o2|oxygen|resp|cough|wheeze)/.test(t)) return { category: "respiratory", topic: "Respiratory symptoms / low O2" };
+  if (/(abuse|neglect|mistreat|assault|alleg)/.test(t)) return { category: "abuse", topic: "Allegation/concern: abuse or neglect" };
+  return { category: "general", topic: "General change in condition" };
+}
+
+function buildWizardNarrative(issueText: string, wizard: WizardState): string {
+  const issue = issueText?.trim() ? issueText.trim() : "__";
+  const flags = Object.entries(wizard.redFlags).filter(([, v]) => v).map(([k]) => k).join(", ");
+  const flagText = flags ? ` Red flags present: ${flags}.` : "";
+
+  const base = `Resident assessed due to ${issue}. Change in condition: ${wizard.changeOfCondition.toUpperCase()}.${flagText}`;
+
+  // Optional fields (from wizard answers)
+  const a = wizard.answers || {};
+  const bits: string[] = [];
+  if (wizard.category === "fever") {
+    if (a.tempF) bits.push(`T ${a.tempF}F`);
+    if (a.cough) bits.push("cough");
+    if (a.sob) bits.push("shortness of breath");
+    if (a.onset) bits.push(`onset: ${a.onset}`);
+  } else if (wizard.category === "respiratory") {
+    if (a.spo2) bits.push(`SpO2 ${a.spo2}%`);
+    if (a.cough) bits.push("cough");
+    if (a.sob) bits.push("shortness of breath");
+    if (a.wheeze) bits.push("wheezing");
+  } else if (wizard.category === "fall") {
+    if (a.witnessedFall) bits.push(`fall witnessed: ${String(a.witnessedFall)}`);
+    if (a.headStrike !== undefined) bits.push(`head strike: ${a.headStrike ? "yes" : "no"}`);
+    if (a.anticoagulant !== undefined) bits.push(`anticoagulants: ${a.anticoagulant ? "yes" : "no"}`);
+    if (a.pain) bits.push(`pain: ${a.pain}`);
+  } else if (wizard.category === "abuse") {
+    if (a.immediateDanger !== undefined) bits.push(`immediate danger: ${a.immediateDanger ? "yes" : "no"}`);
+    if (a.injury) bits.push("observed injury/bruise");
+    if (a.allegation) bits.push("allegation reported");
+  }
+
+  const contextLine = bits.length ? `Key details: ${bits.join(", ")}.` : "";
+
+  const assess = "Assessment completed including vital signs and focused assessment relevant to the concern; findings compared to baseline as applicable.";
+  const interventions = "Interventions initiated per facility protocol/orders as applicable; resident response/tolerance documented.";
+  const notifications = "Provider notified and orders received/implemented as applicable. Family/Emergency Contact notified as applicable.";
+  const plan = "Plan: continue monitoring per protocol/orders and notify provider for any change in condition.";
+
+  return [base, contextLine, assess, interventions, notifications, plan].filter(Boolean).join("\n\n");
+}
 
 export const useAppStore = create<AppState>((set, get) => ({
   activeTab: "finder",
@@ -147,7 +202,9 @@ export const useAppStore = create<AppState>((set, get) => ({
     step: 1,
     changeOfCondition: "unknown",
     redFlags: { lowO2: false, lowBP: false, chestPain: false, acuteNeuroChange: false },
-    suggestedTopic: "General change in condition"
+    suggestedTopic: "General change in condition",
+    category: "general",
+    answers: {}
   },
 
   packetDraft: {
@@ -368,17 +425,34 @@ export const useAppStore = create<AppState>((set, get) => ({
           step: 1,
           changeOfCondition: "unknown",
           redFlags: { lowO2: false, lowBP: false, chestPain: false, acuteNeuroChange: false },
-          suggestedTopic: "General change in condition"
+          suggestedTopic: "General change in condition",
+          category: "general",
+          answers: {}
         }
       })),
 
-    wizardNext: () =>
+    wizardNext: () => {
+      const { wizard, packetDraft } = get();
+      if (wizard.step === 1) {
+        const inferred = inferWizardFromIssue(packetDraft.meta.issue_text ?? "");
+        set((s) => ({
+          wizard: {
+            ...s.wizard,
+            step: 2,
+            category: inferred.category,
+            suggestedTopic: inferred.topic,
+            answers: {}
+          }
+        }));
+        return;
+      }
       set((s) => ({
         wizard: {
           ...s.wizard,
           step: (s.wizard.step === 3 ? 3 : ((s.wizard.step + 1) as 1 | 2 | 3))
         }
-      })),
+      }));
+    },
 
     wizardBack: () =>
       set((s) => ({
@@ -393,27 +467,42 @@ export const useAppStore = create<AppState>((set, get) => ({
     wizardToggleRedFlag: (k, v) =>
       set((s) => ({ wizard: { ...s.wizard, redFlags: { ...s.wizard.redFlags, [k]: v } } })),
 
+    wizardSetAnswer: (key, value) =>
+      set((s) => ({ wizard: { ...s.wizard, answers: { ...s.wizard.answers, [key]: value } } })),
+
     wizardApplyToPacket: () => {
       const { kb, wizard } = get();
       if (!kb) return;
 
-      // Populate section notes with a standard clinical structure
-      const flags = Object.entries(wizard.redFlags)
-        .filter(([, val]) => val)
-        .map(([k]) => k)
-        .join(", ");
+      const issueText = get().packetDraft.meta.issue_text ?? "";
+      const flags = Object.entries(wizard.redFlags).filter(([, val]) => val).map(([k]) => k);
+      const flagLine = flags.length ? `Red flags present: ${flags.join(", ")}.` : "";
 
-      const assessmentNote =
-        wizard.changeOfCondition === "yes"
-          ? "Change in condition noted. Compare to baseline. Obtain focused assessment and full vitals."
-          : "No clear change in condition reported. Verify baseline, assess resident, and document findings.";
+      const assessmentNoteByCategory: Record<WizardCategory, string> = {
+        general: `Full vital signs (BP/HR/RR/T/SpO2) and pain score; compare to baseline. Focused assessment based on the complaint. Review recent meds/changes and relevant history. ${flagLine}`.trim(),
+        fever: `VS including temperature; assess for infection symptoms (cough, SOB, urinary/GI symptoms), hydration status, mental status compared to baseline, and potential exposure/outbreak context. Consider point-of-care testing per protocol. ${flagLine}`.trim(),
+        respiratory: `Assess respiratory status (SpO2, work of breathing, breath sounds), vital signs, and symptom progression. Consider need for oxygen support per protocol/orders. Evaluate for aspiration risk and new neuro changes if present. ${flagLine}`.trim(),
+        fall: `Immediate post-fall assessment: VS, pain score, focused neuro check, ROM/guarding, skin/injury check. Determine witnessed/unwitnessed, head strike suspected, anticoagulant/antiplatelet use, and baseline mental status comparison. ${flagLine}`.trim(),
+        abuse: `Ensure immediate safety. Assess resident for injury and acute distress; obtain objective findings (location/size of bruising, skin tears, pain). Preserve facts (who/when/what was reported) and notify supervisor/Administrator/IP per facility policy. ${flagLine}`.trim()
+      };
 
-      const monitoringNote = flags
-        ? `Red flags present (${flags}). Increase monitoring and escalate per protocol/provider orders.`
-        : "Monitoring per facility protocol and provider orders as applicable.";
+      const interventionsNoteByCategory: Record<WizardCategory, string> = {
+        general: "Provide immediate safety measures, address symptoms per protocol, and follow provider orders. Initiate monitoring and escalate for change in condition.",
+        fever: "Initiate infection control precautions as indicated, obtain ordered tests/specimens, encourage fluids as appropriate, administer PRN per orders, and monitor for deterioration. Notify provider per protocol.",
+        respiratory: "Position for comfort, apply oxygen per protocol/orders, monitor SpO2/resp effort, implement infection control precautions if indicated, and notify provider for worsening symptoms.",
+        fall: "Ensure safety, assist with positioning/mobility per status, provide first aid/wound care as needed, initiate neuro checks if indicated/orders, update precautions, and notify provider per protocol.",
+        abuse: "Ensure safety, notify required leadership immediately, follow mandated reporting/internal reporting policy as applicable, provide care for injuries, and avoid speculation in documentation."
+      };
 
-      const documentationNote =
-        "Document objective findings, interventions, resident response, and notifications (provider + family/EC if applicable).";
+      const monitoringNoteByCategory: Record<WizardCategory, string> = {
+        general: flags.length ? "Increase monitoring frequency and escalate per protocol/provider orders." : "Monitor per facility protocol and provider orders as applicable.",
+        fever: "Trend temperature, VS, mental status, intake/output, and symptom progression. Monitor for sepsis indicators or rapid decline and escalate per protocol.",
+        respiratory: "Trend SpO2, RR, work of breathing, and mental status. Escalate for increasing O2 needs, distress, or new neuro changes.",
+        fall: "Monitor for pain progression, neuro changes (especially head strike/anticoagulants), bleeding, and mobility changes. Follow neuro check protocol/orders when indicated.",
+        abuse: "Monitor for pain, emotional distress, and injury changes. Ensure ongoing safety plan and follow reporting workflow." 
+      };
+
+      const narrative = buildWizardNarrative(issueText, wizard);
 
       set((s) => ({
         packetDraft: {
@@ -421,23 +510,46 @@ export const useAppStore = create<AppState>((set, get) => ({
           meta: { ...s.packetDraft.meta, updated_at: new Date().toISOString() },
           sectionNotes: {
             ...s.packetDraft.sectionNotes,
-            assessment: assessmentNote,
-            monitoring: monitoringNote,
-            documentation: documentationNote
+            assessment: assessmentNoteByCategory[wizard.category],
+            interventions: interventionsNoteByCategory[wizard.category],
+            monitoring: monitoringNoteByCategory[wizard.category],
+            documentation: narrative
           }
         }
       }));
 
-      // Add a small set of starter citations from your curated KB (demo)
-      const pickIds = [
+      // Add starter citations from the curated KB (simple relevance pick)
+      const seedTermsByCategory: Record<WizardCategory, string[]> = {
+        general: ["standard", "precautions", "infection"],
+        fever: ["fever", "outbreak", "reporting", "precautions", "isolation"],
+        respiratory: ["resp", "oxygen", "o2", "cough", "precautions", "isolation"],
+        fall: ["fall", "accident", "injury"],
+        abuse: ["abuse", "neglect", "reporting", "incident"]
+      };
+
+      const seeds = seedTermsByCategory[wizard.category] ?? seedTermsByCategory.general;
+      const scored = kb.searchIndex.docs
+        .map((d) => {
+          const hay = `${d.title} ${d.heading} ${d.text} ${(d.tags || []).join(" ")}`.toLowerCase();
+          let score = 0;
+          for (const s of seeds) if (hay.includes(s)) score += 1;
+          return { d, score };
+        })
+        .filter((x) => x.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3)
+        .map((x) => x.d);
+
+      const fallbackIds = [
         "POL_IP_01::POL_IP_01_outbreak_reporting",
         "CDC_IC_01::CDC_IC_01_standard_precautions",
         "CMS_FTAG_SAMPLE::CMS_FTAG_SAMPLE_infection_control"
       ];
 
-      for (const id of pickIds) {
-        const doc = kb.searchIndex.docs.find((d) => d.id === id);
-        if (doc) get().actions.addToDraftFromDoc(doc, "citations", "wizard");
+      const picks = scored.length ? scored : fallbackIds.map((id) => kb.searchIndex.docs.find((d) => d.id === id)).filter(Boolean);
+
+      for (const doc of picks as any[]) {
+        get().actions.addToDraftFromDoc(doc, "citations", "wizard");
       }
 
       get().actions.recomputeGating();

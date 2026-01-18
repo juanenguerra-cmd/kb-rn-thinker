@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useAppStore, type PacketDraftSection } from "@/store/appStore";
-import { NursingProgressNoteModal } from "@/features/note/NursingProgressNoteModal";
 
 const sectionOrder: PacketDraftSection[] = [
   "issue",
@@ -24,8 +23,6 @@ export function PacketDraftDrawer() {
   const kb = useAppStore((s) => s.kb);
   const draft = useAppStore((s) => s.packetDraft);
   const actions = useAppStore((s) => s.actions);
-  const ui = useAppStore((s) => s.ui);
-  const prompts = useAppStore((s) => s.notePrompts);
 
   const docsByKey = React.useMemo(() => {
     const map = new Map<string, any>();
@@ -46,10 +43,6 @@ export function PacketDraftDrawer() {
 
           <button onClick={() => window.open("/packet", "_blank")} className="btn btnPrimary">
             Preview / Print Packet
-          </button>
-
-          <button onClick={actions.openNoteModal} className="btn">
-            Nursing Progress Note
           </button>
         </div>
       </div>
@@ -135,15 +128,6 @@ export function PacketDraftDrawer() {
         })}
 
       </div>
-
-      <NursingProgressNoteModal
-        open={ui.noteModalOpen}
-        onClose={actions.closeNoteModal}
-        issueText={draft.meta.issue_text}
-        assessmentPrompts={prompts.assessment}
-        documentationPrompts={prompts.documentation}
-        interventionPrompts={prompts.interventions}
-      />
     </div>
   );
 }

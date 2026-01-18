@@ -5,6 +5,8 @@ import App from "./App";
 import { PacketPrintPage } from "@/pages/PacketPrintPage";
 import "./index.css";
 import "@/styles/print.css";
+import "@/styles/theme.css";
+
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

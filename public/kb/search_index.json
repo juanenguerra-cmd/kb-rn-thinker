@@ -1,0 +1,112 @@
+{
+  "kb_version": "0.1.0",
+  "generated_at": "2026-01-18T04:48:36.249Z",
+  "docs": [
+    {
+      "id": "POL_IP_01::POL_IP_01_isolation_contact",
+      "source_id": "POL_IP_01",
+      "section_id": "POL_IP_01_isolation_contact",
+      "title": "Infection Prevention Policy",
+      "heading": "Contact Precautions - When to Use",
+      "type": "facility_policy",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "Binder: IP → Tab 1 (Policies) / Intranet: /policies/ip-01",
+      "tags": [
+        "isolation",
+        "precautions",
+        "outbreak",
+        "cdc",
+        "contact",
+        "PPE",
+        "contact precautions",
+        "dedicated equipment"
+      ],
+      "text": "Use Contact Precautions when residents have suspected or confirmed infections transmitted by direct contact or contaminated surfaces. Ensure appropriate PPE and dedicated equipment as indicated."
+    },
+    {
+      "id": "POL_IP_01::POL_IP_01_outbreak_reporting",
+      "source_id": "POL_IP_01",
+      "section_id": "POL_IP_01_outbreak_reporting",
+      "title": "Infection Prevention Policy",
+      "heading": "Outbreak Escalation and Reporting",
+      "type": "facility_policy",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "Binder: IP → Tab 1 (Policies) / Intranet: /policies/ip-01",
+      "tags": [
+        "isolation",
+        "precautions",
+        "outbreak",
+        "cdc",
+        "reporting",
+        "line list"
+      ],
+      "text": "Escalate clusters of symptoms to the Infection Preventionist and Administrator-on-Call. Initiate line listing and follow facility outbreak reporting workflow. Notify appropriate agencies per current requirements."
+    },
+    {
+      "id": "CDC_IC_01::CDC_IC_01_standard_precautions",
+      "source_id": "CDC_IC_01",
+      "section_id": "CDC_IC_01_standard_precautions",
+      "title": "CDC Infection Control Guidance (General)",
+      "heading": "Standard Precautions - Core Elements",
+      "type": "guideline",
+      "jurisdiction": "CDC",
+      "effective_date": "2024-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "https://www.cdc.gov/",
+      "tags": [
+        "isolation",
+        "precautions",
+        "hand hygiene",
+        "standard",
+        "PPE",
+        "standard precautions"
+      ],
+      "text": "Standard Precautions apply to all residents regardless of suspected or confirmed infection status. Key elements include hand hygiene, PPE based on exposure risk, and respiratory hygiene/cough etiquette."
+    },
+    {
+      "id": "NYS_IP_01::NYS_IP_01_reporting_basics",
+      "source_id": "NYS_IP_01",
+      "section_id": "NYS_IP_01_reporting_basics",
+      "title": "NYSDOH Infection Prevention Guidance (Reference)",
+      "heading": "Reporting (NY) - What to Consider",
+      "type": "nysdoh_guidance",
+      "jurisdiction": "New York",
+      "effective_date": "2025-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "NYSDOH (health.ny.gov) — add exact page in your curated library",
+      "tags": [
+        "nysdoh",
+        "infection prevention",
+        "reporting",
+        "New York",
+        "outbreak"
+      ],
+      "text": "Follow New York State reporting requirements for outbreaks and reportable diseases as applicable. Maintain documentation of notifications and required forms."
+    },
+    {
+      "id": "CMS_FTAG_SAMPLE::CMS_FTAG_SAMPLE_infection_control",
+      "source_id": "CMS_FTAG_SAMPLE",
+      "section_id": "CMS_FTAG_SAMPLE_infection_control",
+      "title": "CMS Interpretive Guidance (Sample Entry)",
+      "heading": "Survey Expectations - Infection Control",
+      "type": "interpretive_guidance",
+      "jurisdiction": "Federal",
+      "effective_date": "2024-10-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "CMS.gov / Appendix PP — add exact binder location",
+      "tags": [
+        "cms",
+        "ftag",
+        "survey",
+        "appendix pp",
+        "documentation",
+        "infection control"
+      ],
+      "text": "Maintain infection prevention practices, staff training, and documentation supporting implementation of policies and procedures."
+    }
+  ]
+}

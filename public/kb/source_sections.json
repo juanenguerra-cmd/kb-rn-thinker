@@ -1,0 +1,44 @@
+{
+  "sections": [
+    {
+      "source_id": "POL_IP_01",
+      "section_id": "POL_IP_01_isolation_contact",
+      "heading": "Contact Precautions - When to Use",
+      "text": "Use Contact Precautions when residents have suspected or confirmed infections transmitted by direct contact or contaminated surfaces. Ensure appropriate PPE and dedicated equipment as indicated.",
+      "keywords": ["contact precautions", "PPE", "dedicated equipment"],
+      "tags": ["contact", "isolation", "PPE"]
+    },
+    {
+      "source_id": "POL_IP_01",
+      "section_id": "POL_IP_01_outbreak_reporting",
+      "heading": "Outbreak Escalation and Reporting",
+      "text": "Escalate clusters of symptoms to the Infection Preventionist and Administrator-on-Call. Initiate line listing and follow facility outbreak reporting workflow. Notify appropriate agencies per current requirements.",
+      "keywords": ["outbreak", "reporting", "line list"],
+      "tags": ["outbreak", "reporting"]
+    },
+    {
+      "source_id": "CDC_IC_01",
+      "section_id": "CDC_IC_01_standard_precautions",
+      "heading": "Standard Precautions - Core Elements",
+      "text": "Standard Precautions apply to all residents regardless of suspected or confirmed infection status. Key elements include hand hygiene, PPE based on exposure risk, and respiratory hygiene/cough etiquette.",
+      "keywords": ["standard precautions", "hand hygiene", "PPE"],
+      "tags": ["standard", "hand hygiene", "PPE"]
+    },
+    {
+      "source_id": "NYS_IP_01",
+      "section_id": "NYS_IP_01_reporting_basics",
+      "heading": "Reporting (NY) - What to Consider",
+      "text": "Follow New York State reporting requirements for outbreaks and reportable diseases as applicable. Maintain documentation of notifications and required forms.",
+      "keywords": ["reporting", "New York", "outbreak"],
+      "tags": ["nysdoh", "reporting"]
+    },
+    {
+      "source_id": "CMS_FTAG_SAMPLE",
+      "section_id": "CMS_FTAG_SAMPLE_infection_control",
+      "heading": "Survey Expectations - Infection Control",
+      "text": "Maintain infection prevention practices, staff training, and documentation supporting implementation of policies and procedures.",
+      "keywords": ["survey", "infection control", "documentation"],
+      "tags": ["cms", "survey", "documentation"]
+    }
+  ]
+}

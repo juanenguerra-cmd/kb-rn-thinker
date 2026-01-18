@@ -1,0 +1,19 @@
+{
+  "kb_version": "0.1.0",
+  "effective_date": "2026-01-17",
+  "approval": { "status": "approved", "approved_by_role": "IP", "approved_date": "2026-01-17" },
+  "files": {
+    "sources": "sources.json",
+    "sections": "source_sections.json",
+    "search_index": "search_index.json"
+  },
+  "active_trees": [],
+  "changelog": [
+    {
+      "date": "2026-01-17",
+      "summary": "Initial Guidance Finder datasets",
+      "files_changed": ["manifest.json", "sources.json", "source_sections.json"],
+      "ticket_or_reason": "Initial build"
+    }
+  ]
+}

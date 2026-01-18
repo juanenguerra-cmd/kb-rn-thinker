@@ -1,0 +1,44 @@
+{
+  "sources": [
+    {
+      "source_id": "POL_IP_01",
+      "type": "facility_policy",
+      "title": "Infection Prevention Policy",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "Binder: IP → Tab 1 (Policies) / Intranet: /policies/ip-01",
+      "tags": ["isolation", "precautions", "outbreak", "cdc"]
+    },
+    {
+      "source_id": "CDC_IC_01",
+      "type": "guideline",
+      "title": "CDC Infection Control Guidance (General)",
+      "jurisdiction": "CDC",
+      "effective_date": "2024-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "https://www.cdc.gov/",
+      "tags": ["isolation", "precautions", "hand hygiene"]
+    },
+    {
+      "source_id": "NYS_IP_01",
+      "type": "nysdoh_guidance",
+      "title": "NYSDOH Infection Prevention Guidance (Reference)",
+      "jurisdiction": "New York",
+      "effective_date": "2025-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "NYSDOH (health.ny.gov) — add exact page in your curated library",
+      "tags": ["nysdoh", "infection prevention", "reporting"]
+    },
+    {
+      "source_id": "CMS_FTAG_SAMPLE",
+      "type": "interpretive_guidance",
+      "title": "CMS Interpretive Guidance (Sample Entry)",
+      "jurisdiction": "Federal",
+      "effective_date": "2024-10-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "CMS.gov / Appendix PP — add exact binder location",
+      "tags": ["cms", "ftag", "survey", "appendix pp"]
+    }
+  ]
+}

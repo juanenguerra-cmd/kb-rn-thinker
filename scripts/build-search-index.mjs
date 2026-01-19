@@ -1,20 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
-
-function readJson(p) {
-  return JSON.parse(fs.readFileSync(p, "utf8"));
-}
+import { validateKB } from "./kb-validate.mjs";
 
 const ROOT = process.cwd();
 const KB_DIR = path.join(ROOT, "public", "kb");
 
-const manifest = readJson(path.join(KB_DIR, "manifest.json"));
-const sources = readJson(path.join(KB_DIR, manifest.files.sources));
-const sections = readJson(path.join(KB_DIR, manifest.files.sections));
+// Validate KB + enforce minimum size before generating the search index.
+// Gate override: set KB_MIN_DOCS (default 50).
+const { manifest, sourcesJson, sectionsJson, sourceById } = validateKB({ rootDir: ROOT, kbDir: KB_DIR });
 
-const sourceById = new Map(sources.sources.map((s) => [s.source_id, s]));
-
-const docs = sections.sections.map((sec) => {
+const docs = sectionsJson.sections.map((sec) => {
   const src = sourceById.get(sec.source_id);
   if (!src) throw new Error(`Missing source for section: ${sec.source_id}::${sec.section_id}`);
 
@@ -44,3 +39,12 @@ const out = {
 
 fs.writeFileSync(path.join(KB_DIR, "search_index.json"), JSON.stringify(out, null, 2), "utf8");
 console.log(`[build-search-index] wrote ${docs.length} docs -> public/kb/search_index.json`);
+
+// Secondary safety check: ensure we wrote a non-trivial index.
+const minDocs = Number(process.env.KB_MIN_DOCS ?? 50);
+if (docs.length < minDocs) {
+  throw new Error(
+    `Index build gate failed: wrote ${docs.length} docs (min ${minDocs}). ` +
+      `Confirm public/kb/ contains the full KB pack and rerun.`
+  );
+}

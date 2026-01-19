@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "validate:kb": "node scripts/kb-validate.mjs",
     "build:search-index": "node scripts/build-search-index.mjs",
     "build": "npm run build:search-index && tsc -b && vite build",
     "lint": "eslint .",

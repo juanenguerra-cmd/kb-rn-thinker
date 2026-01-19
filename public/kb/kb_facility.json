@@ -2,59 +2,67 @@
   "actions": [
     {
       "action_id": "ACT_NOTIFY_PROVIDER_SBAR",
-      "title": "Notify Provider Using SBAR",
+      "title": "Notify provider using SBAR",
       "allowed_roles": [
-        "LPN",
-        "RN"
+        "RN",
+        "LPN"
       ],
       "steps": [
-        "Gather baseline and current objective findings (vitals, symptoms, focused assessment).",
-        "Call provider and communicate using SBAR.",
-        "Read back orders as required and document orders received.",
-        "Implement orders and monitor response."
+        "Summarize situation and baseline comparison",
+        "Provide objective assessment findings and vital signs",
+        "State what you need (orders/transfer evaluation)"
       ],
       "documentation_prompts": [
-        "Time and method of notification",
-        "Provider name/role",
-        "Orders received and implemented",
-        "Resident response"
+        "Time/method of notification",
+        "Orders received",
+        "Implementation and resident response"
       ],
       "citations": [
         {
-          "source_id": "POL_COC_01",
-          "section_id": "coc_2"
+          "source_id": "POL_COC_01"
         }
       ]
     },
     {
-      "action_id": "ACT_INITIATE_PRECAUTIONS",
-      "title": "Initiate Precautions",
+      "action_id": "ACT_NOTIFY_FAMILY_EC",
+      "title": "Notify family / emergency contact",
       "allowed_roles": [
-        "CNA",
-        "LPN",
         "RN",
-        "IP"
+        "LPN"
       ],
       "steps": [
-        "Use Standard Precautions for all residents.",
-        "Add Transmission-Based Precautions when indicated by symptoms/diagnosis.",
-        "Post signage and ensure PPE supplies are available.",
-        "Use dedicated equipment when required and clean high-touch surfaces."
+        "Notify per policy; document person/time/response",
+        "Escalate concerns per facility chain"
       ],
       "documentation_prompts": [
-        "Type of precautions initiated",
-        "Start time",
-        "Education provided",
-        "Any barriers"
+        "Who notified",
+        "Time",
+        "Response/instructions"
       ],
       "citations": [
         {
-          "source_id": "POL_IP_01",
-          "section_id": "ip_2"
-        },
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "action_id": "ACT_STANDARD_PRECAUTIONS",
+      "title": "Maintain Standard Precautions",
+      "allowed_roles": [
+        "All"
+      ],
+      "steps": [
+        "Hand hygiene before/after resident contact",
+        "PPE based on anticipated exposure",
+        "Clean/disinfect equipment as indicated"
+      ],
+      "documentation_prompts": [
+        "Precautions in place",
+        "Education provided if needed"
+      ],
+      "citations": [
         {
-          "source_id": "CDC_TBP",
-          "section_id": "cdc_tbp_1"
+          "source_id": "CDC_IC"
         }
       ]
     }

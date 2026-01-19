@@ -1,35 +1,35 @@
 {
   "kb_version": "0.3.0",
-  "effective_date": "2026-01-18",
+  "effective_date": "2026-01-19",
   "approval": {
     "status": "approved",
     "approved_by_role": "Admin",
-    "approved_date": "2026-01-18"
+    "approved_date": "2026-01-19"
   },
   "files": {
     "sources": "sources.json",
     "sections": "source_sections.json",
+    "search_index": "search_index.json",
+    "events": "kb_events.json",
     "facility": "kb_facility.json",
     "medical": "kb_medical.json",
-    "documentation": "kb_documentation.json",
-    "events": "kb_events.json",
-    "search_index": "search_index.json"
+    "documentation": "kb_documentation.json"
   },
   "active_trees": [],
   "changelog": [
     {
-      "date": "2026-01-18",
-      "summary": "Bulk KB update: expanded Finder sections, 50+ LTC/SNF events (Option 3), dynamic checklists, narrative note scaffolding",
+      "date": "2026-01-19",
+      "summary": "Bulk KB update: expanded snippets (200) + event catalog (77) + documentation templates + governance.",
       "files_changed": [
+        "manifest.json",
         "sources.json",
         "source_sections.json",
         "kb_events.json",
-        "kb_documentation.json",
         "kb_facility.json",
         "kb_medical.json",
-        "manifest.json"
+        "kb_documentation.json"
       ],
-      "ticket_or_reason": "Big bulk update rollout"
+      "ticket_or_reason": "Bulk update pack v0.3.0"
     }
   ]
 }

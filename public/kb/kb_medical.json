@@ -2,47 +2,29 @@
   "red_flags": [
     {
       "rule_id": "RF_LOW_SPO2",
-      "label": "Low oxygen saturation or respiratory distress",
-      "facility_defined": true,
-      "prompt": "Escalate per protocol for low SpO2 or increased work of breathing.",
-      "recommended_action_refs": [
+      "label": "Low oxygen saturation",
+      "if": "SpO2 < 90% (or per baseline/order)",
+      "severity": "high",
+      "suggested_actions": [
         "ACT_NOTIFY_PROVIDER_SBAR"
-      ],
-      "citations": [
-        {
-          "source_id": "POL_COC_01",
-          "section_id": "coc_1"
-        }
       ]
     },
     {
       "rule_id": "RF_HYPOTENSION",
-      "label": "Hypotension or signs of shock",
-      "facility_defined": true,
-      "prompt": "Escalate per protocol for hypotension, poor perfusion, or acute decline.",
-      "recommended_action_refs": [
+      "label": "Low blood pressure",
+      "if": "SBP < 90 (or symptomatic)",
+      "severity": "high",
+      "suggested_actions": [
         "ACT_NOTIFY_PROVIDER_SBAR"
-      ],
-      "citations": [
-        {
-          "source_id": "POL_COC_01",
-          "section_id": "coc_3"
-        }
       ]
     },
     {
       "rule_id": "RF_SEVERE_AMS",
-      "label": "Severe acute mental status change",
-      "facility_defined": true,
-      "prompt": "Escalate per protocol for severe AMS or unsafe behavior.",
-      "recommended_action_refs": [
+      "label": "Acute severe mental status change",
+      "if": "New unresponsiveness, seizures, focal deficits",
+      "severity": "critical",
+      "suggested_actions": [
         "ACT_NOTIFY_PROVIDER_SBAR"
-      ],
-      "citations": [
-        {
-          "source_id": "POL_COC_01",
-          "section_id": "coc_1"
-        }
       ]
     }
   ]

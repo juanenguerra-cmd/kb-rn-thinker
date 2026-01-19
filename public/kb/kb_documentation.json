@@ -1,10 +1,18 @@
 {
-  "narrative_template": {
-    "opening": "At approximately {time}, resident was assessed for {issue}.",
-    "assessment": "{assessment_sentences}",
-    "interventions": "{intervention_sentences}",
-    "notifications": "{notification_sentences}",
-    "plan": "Continue monitoring per protocol/orders and notify provider for any change in condition.",
-    "joiner": "\n\n"
+  "templates": {
+    "progress_note_narrative": {
+      "structure": [
+        "opening",
+        "assessment",
+        "interventions",
+        "notifications",
+        "plan"
+      ],
+      "opening": "At approximately {time}, resident evaluated for {issue}.",
+      "assessment": "Assessment included: {assessment_sentences}",
+      "interventions": "Interventions completed: {intervention_sentences}",
+      "notifications": "Provider notified at {provider_time}; orders received: {orders}. Family/EC notified ({family_name}) at {family_time}; response: {family_response}.",
+      "plan": "Plan: Continue monitoring per protocol/orders and notify provider for any change in condition."
+    }
   }
 }

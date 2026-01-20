@@ -3,13 +3,15 @@ import { loadKB } from "@/kb/loadKb";
 import { useAppStore } from "@/store/appStore";
 import { GuidanceFinderTab } from "@/features/finder/GuidanceFinderTab";
 import { DecisionWizardTab } from "@/features/wizard/DecisionWizardTab";
-import { PacketDraftDrawer } from "@/features/packet/PacketDraftDrawer";
+import { PacketDraftFab } from "@/features/packet/PacketDraftFab";
+import { PacketDraftModal } from "@/features/packet/PacketDraftModal";
 import { ReleaseNotesButton } from "@/components/ReleaseNotesButton"; // ✅ ADD THIS
 
 export default function App() {
   const kb = useAppStore((s) => s.kb);
   const actions = useAppStore((s) => s.actions);
   const activeTab = useAppStore((s) => s.activeTab);
+  const [packetOpen, setPacketOpen] = React.useState(false);
 
   React.useEffect(() => {
     loadKB().then(actions.loadKb).catch(console.error);
@@ -52,11 +54,10 @@ export default function App() {
         <div className="panel panelPad" style={{ minWidth: 0 }}>
           {activeTab === "finder" ? <GuidanceFinderTab /> : <DecisionWizardTab />}
         </div>
-
-        <div className="panel panelPad stickyTop packetPanel">
-          <PacketDraftDrawer />
-        </div>
       </div>
+
+      <PacketDraftFab onOpen={() => setPacketOpen(true)} />
+      <PacketDraftModal open={packetOpen} onClose={() => setPacketOpen(false)} />
 
       {/* ✅ ADD THIS (bottom-left fixed button + modal) */}
       <ReleaseNotesButton />

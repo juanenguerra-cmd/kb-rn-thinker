@@ -20,7 +20,13 @@ const sectionLabels: Record<PacketDraftSection, string> = {
   citations: "Citations"
 };
 
-export function PacketDraftDrawer() {
+type Props = {
+  onClose?: () => void;
+};
+
+export function PacketDraftDrawer({ onClose }: Props) {
+  // NOTE: This component is used inside a modal. Keep it height:100% (not 100vh)
+  // so it doesn't create nested viewport scroll traps on mobile.
   const kb = useAppStore((s) => s.kb);
   const draft = useAppStore((s) => s.packetDraft);
   const actions = useAppStore((s) => s.actions);
@@ -33,7 +39,7 @@ export function PacketDraftDrawer() {
   }, [kb]);
 
   return (
-    <div style={{ height: "100vh", overflow: "auto" }}>
+    <div style={{ height: "100%", maxHeight: "100%", overflow: "auto" }}>
       <div className="actionBar">
         <div className="actionBarInner">
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -43,9 +49,17 @@ export function PacketDraftDrawer() {
             </div>
           </div>
 
-          <button onClick={() => setPreviewOpen(true)} className="btn btnPrimary">
-            Preview / Print Packet
-          </button>
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <button onClick={() => setPreviewOpen(true)} className="btn btnPrimary">
+              Preview / Print Packet
+            </button>
+
+            {onClose ? (
+              <button onClick={onClose} className="btn" aria-label="Close packet draft">
+                Close
+              </button>
+            ) : null}
+          </div>
         </div>
       </div>
 

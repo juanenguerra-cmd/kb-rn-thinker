@@ -160,6 +160,52 @@ export function DecisionWizardTab() {
 
   const p = React.useMemo(() => promptsForCategory(wizard.category), [wizard.category]);
 
+  // Step 3: allow selecting which suggested actions are actually performed/documented.
+  const [selAssess, setSelAssess] = React.useState<Record<string, boolean>>({});
+  const [selInterv, setSelInterv] = React.useState<Record<string, boolean>>({});
+  const [selDoc, setSelDoc] = React.useState<Record<string, boolean>>({});
+  const [selMon, setSelMon] = React.useState<Record<string, boolean>>({});
+
+  React.useEffect(() => {
+    if (wizard.step !== 3) return;
+    const initAll = (arr: string[]) => arr.reduce<Record<string, boolean>>((acc, x) => ((acc[x] = true), acc), {});
+    setSelAssess(initAll(p.assessment));
+    setSelInterv(initAll(p.interventions));
+    setSelDoc(initAll(p.documentation));
+    setSelMon(initAll(monitoringForCategory(wizard.category)));
+  }, [wizard.step, wizard.category, p.assessment, p.interventions, p.documentation]);
+
+  const picked = React.useMemo(() => {
+    const pick = (arr: string[], sel: Record<string, boolean>) => arr.filter((x) => sel[x]);
+    return {
+      assessment: pick(p.assessment, selAssess),
+      interventions: pick(p.interventions, selInterv),
+      documentation: pick(p.documentation, selDoc),
+      monitoring: pick(monitoringForCategory(wizard.category), selMon)
+    };
+  }, [p, selAssess, selInterv, selDoc, selMon, wizard.category]);
+
+  function sectionControls(kind: "assessment" | "interventions" | "documentation" | "monitoring") {
+    const all = kind === "assessment" ? p.assessment
+      : kind === "interventions" ? p.interventions
+      : kind === "documentation" ? p.documentation
+      : monitoringForCategory(wizard.category);
+    const setSel = kind === "assessment" ? setSelAssess
+      : kind === "interventions" ? setSelInterv
+      : kind === "documentation" ? setSelDoc
+      : setSelMon;
+
+    return {
+      selectAll: () => setSel(all.reduce<Record<string, boolean>>((acc, x) => ((acc[x] = true), acc), {})),
+      clear: () => setSel({}),
+      toggle: (x: string, v: boolean) => setSel((prev) => ({ ...prev, [x]: v })),
+      checked: (x: string) => {
+        const sel = kind === "assessment" ? selAssess : kind === "interventions" ? selInterv : kind === "documentation" ? selDoc : selMon;
+        return !!sel[x];
+      }
+    };
+  }
+
   const narrative = React.useMemo(() => {
     const issue = draft.meta.issue_text?.trim() ? draft.meta.issue_text.trim() : "__";
     const flags = Object.entries(wizard.redFlags).filter(([, v]) => v).map(([k]) => k).join(", ");
@@ -434,40 +480,112 @@ export function DecisionWizardTab() {
             </div>
           ) : null}
 
-          <div style={{ display: "grid", gap: 6 }}>
-            <div style={{ fontWeight: 700 }}>Assessment</div>
-            <ul style={{ margin: 0, paddingLeft: 18 }}>
+          <div style={{ display: "grid", gap: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+              <div style={{ fontWeight: 800 }}>Assessment</div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <button onClick={() => sectionControls("assessment").selectAll()} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Select all
+                </button>
+                <button onClick={() => sectionControls("assessment").clear()} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Clear
+                </button>
+              </div>
+            </div>
+            <div style={{ display: "grid", gap: 8 }}>
               {p.assessment.map((x) => (
-                <li key={x}>{x}</li>
+                <label key={x} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <input
+                    type="checkbox"
+                    checked={sectionControls("assessment").checked(x)}
+                    onChange={(e) => sectionControls("assessment").toggle(x, e.target.checked)}
+                    style={{ marginTop: 3 }}
+                  />
+                  <span>{x}</span>
+                </label>
               ))}
-            </ul>
+            </div>
           </div>
 
-          <div style={{ display: "grid", gap: 6 }}>
-            <div style={{ fontWeight: 700 }}>Monitoring</div>
-            <ul style={{ margin: 0, paddingLeft: 18 }}>
+          <div style={{ display: "grid", gap: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+              <div style={{ fontWeight: 800 }}>Monitoring</div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <button onClick={() => sectionControls("monitoring").selectAll()} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Select all
+                </button>
+                <button onClick={() => sectionControls("monitoring").clear()} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Clear
+                </button>
+              </div>
+            </div>
+            <div style={{ display: "grid", gap: 8 }}>
               {monitoringForCategory(wizard.category).map((x) => (
-                <li key={x}>{x}</li>
+                <label key={x} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <input
+                    type="checkbox"
+                    checked={sectionControls("monitoring").checked(x)}
+                    onChange={(e) => sectionControls("monitoring").toggle(x, e.target.checked)}
+                    style={{ marginTop: 3 }}
+                  />
+                  <span>{x}</span>
+                </label>
               ))}
-            </ul>
+            </div>
           </div>
 
-          <div style={{ display: "grid", gap: 6 }}>
-            <div style={{ fontWeight: 700 }}>Documentation</div>
-            <ul style={{ margin: 0, paddingLeft: 18 }}>
+          <div style={{ display: "grid", gap: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+              <div style={{ fontWeight: 800 }}>Documentation</div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <button onClick={() => sectionControls("documentation").selectAll()} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Select all
+                </button>
+                <button onClick={() => sectionControls("documentation").clear()} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Clear
+                </button>
+              </div>
+            </div>
+            <div style={{ display: "grid", gap: 8 }}>
               {p.documentation.map((x) => (
-                <li key={x}>{x}</li>
+                <label key={x} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <input
+                    type="checkbox"
+                    checked={sectionControls("documentation").checked(x)}
+                    onChange={(e) => sectionControls("documentation").toggle(x, e.target.checked)}
+                    style={{ marginTop: 3 }}
+                  />
+                  <span>{x}</span>
+                </label>
               ))}
-            </ul>
+            </div>
           </div>
 
-          <div style={{ display: "grid", gap: 6 }}>
-            <div style={{ fontWeight: 700 }}>Interventions</div>
-            <ul style={{ margin: 0, paddingLeft: 18 }}>
+          <div style={{ display: "grid", gap: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+              <div style={{ fontWeight: 800 }}>Interventions</div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <button onClick={() => sectionControls("interventions").selectAll()} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Select all
+                </button>
+                <button onClick={() => sectionControls("interventions").clear()} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Clear
+                </button>
+              </div>
+            </div>
+            <div style={{ display: "grid", gap: 8 }}>
               {p.interventions.map((x) => (
-                <li key={x}>{x}</li>
+                <label key={x} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <input
+                    type="checkbox"
+                    checked={sectionControls("interventions").checked(x)}
+                    onChange={(e) => sectionControls("interventions").toggle(x, e.target.checked)}
+                    style={{ marginTop: 3 }}
+                  />
+                  <span>{x}</span>
+                </label>
               ))}
-            </ul>
+            </div>
           </div>
 
           <div style={{ display: "grid", gap: 8, borderTop: "1px solid #eee", paddingTop: 10 }}>
@@ -521,6 +639,11 @@ export function DecisionWizardTab() {
         assessmentPrompts={p.assessment}
         documentationPrompts={p.documentation}
         interventionPrompts={p.interventions}
+        defaultSelected={{
+          assessment: picked.assessment,
+          documentation: picked.documentation,
+          interventions: picked.interventions
+        }}
       />
     </div>
   );

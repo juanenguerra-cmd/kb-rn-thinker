@@ -36,4 +36,17 @@
   .noPrint { display: none !important; }
   .sheet { border: none; border-radius: 0; margin: 0; max-width: none; }
   @page { margin: 14mm; }
+
+  /* When printing from the in-app packet preview modal, hide everything except the modal print area. */
+  body.printPacketOnly * { visibility: hidden !important; }
+  body.printPacketOnly .packetModalPrintArea,
+  body.printPacketOnly .packetModalPrintArea * { visibility: visible !important; }
+  body.printPacketOnly .packetModalPrintArea {
+    position: absolute;
+    inset: 0;
+    width: auto !important;
+    height: auto !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
 }

@@ -53,7 +53,7 @@ export default function App() {
           {activeTab === "finder" ? <GuidanceFinderTab /> : <DecisionWizardTab />}
         </div>
 
-        <div className="panel panelPad stickyTop" style={{ height: "calc(100vh - 110px)", overflow: "auto" }}>
+        <div className="panel panelPad stickyTop packetPanel">
           <PacketDraftDrawer />
         </div>
       </div>

@@ -9,10 +9,29 @@ type Props = {
   assessmentPrompts: string[];
   documentationPrompts: string[];
   interventionPrompts: string[];
+
+  /**
+   * Optional: pre-check only these items (useful when Step 3 already selected items).
+   * If omitted, all prompts start checked.
+   */
+  defaultSelected?: {
+    assessment?: string[];
+    documentation?: string[];
+    interventions?: string[];
+  };
 };
 
 export function NursingProgressNoteModal(props: Props) {
-  const { open, onClose, issueText, vitals, assessmentPrompts, documentationPrompts, interventionPrompts } = props;
+  const {
+    open,
+    onClose,
+    issueText,
+    vitals,
+    assessmentPrompts,
+    documentationPrompts,
+    interventionPrompts,
+    defaultSelected
+  } = props;
 
   const [providerNotified, setProviderNotified] = React.useState(true);
   const [familyNotified, setFamilyNotified] = React.useState(true);
@@ -23,6 +42,30 @@ export function NursingProgressNoteModal(props: Props) {
   const [familyTime, setFamilyTime] = React.useState("");
   const [familyResponse, setFamilyResponse] = React.useState("");
 
+  const [selAssess, setSelAssess] = React.useState<Record<string, boolean>>({});
+  const [selInterv, setSelInterv] = React.useState<Record<string, boolean>>({});
+  const [selDoc, setSelDoc] = React.useState<Record<string, boolean>>({});
+
+  // Initialize checkbox selections on open.
+  React.useEffect(() => {
+    if (!open) return;
+
+    const init = (prompts: string[], pre?: string[]) => {
+      const map: Record<string, boolean> = {};
+      const set = new Set((pre ?? []).map((x) => x.trim()));
+      for (const p of prompts) map[p] = pre ? set.has(p.trim()) : true;
+      return map;
+    };
+
+    setSelAssess(init(assessmentPrompts, defaultSelected?.assessment));
+    setSelInterv(init(interventionPrompts, defaultSelected?.interventions));
+    setSelDoc(init(documentationPrompts, defaultSelected?.documentation));
+  }, [open, assessmentPrompts, interventionPrompts, documentationPrompts, defaultSelected]);
+
+  const pickedAssess = React.useMemo(() => assessmentPrompts.filter((p) => selAssess[p]), [assessmentPrompts, selAssess]);
+  const pickedInterv = React.useMemo(() => interventionPrompts.filter((p) => selInterv[p]), [interventionPrompts, selInterv]);
+  const pickedDoc = React.useMemo(() => documentationPrompts.filter((p) => selDoc[p]), [documentationPrompts, selDoc]);
+
   const generated = React.useMemo(() => {
     const issue = issueText?.trim() ? issueText.trim() : "__";
     const vs = vitals
@@ -30,8 +73,13 @@ export function NursingProgressNoteModal(props: Props) {
       : "BP __, HR __, RR __, T __, SpO2 __, Pain __/10";
 
     const p1 = `Resident assessed due to ${issue}. Vital signs obtained: ${vs}.`;
-    const p2 = `Assessment/Evaluation included: ${assessmentPrompts.join(", ")}. Relevant findings documented and compared to baseline (as applicable).`;
-    const p3 = `Interventions performed/initiated: ${interventionPrompts.join(", ")}. Resident response/tolerance documented.`;
+    const p2 = pickedAssess.length
+      ? `Assessment/Evaluation included: ${pickedAssess.join(", ")}. Relevant findings documented and compared to baseline (as applicable).`
+      : `Assessment/Evaluation completed; relevant findings documented and compared to baseline (as applicable).`;
+
+    const p3 = pickedInterv.length
+      ? `Interventions performed/initiated: ${pickedInterv.join(", ")}. Resident response/tolerance documented.`
+      : `Interventions performed/initiated per protocol/orders as applicable; resident response/tolerance documented.`;
 
     const providerLine = providerNotified
       ? `Provider notified at ${providerTime || "__"}; orders received: ${providerOrders || "__"} and implemented as appropriate.`
@@ -42,15 +90,17 @@ export function NursingProgressNoteModal(props: Props) {
       : `Family/Emergency Contact notification not completed (reason: __).`;
 
     const p4 = `${providerLine} ${familyLine}`;
-    const p5 = `Documentation completed as applicable: ${documentationPrompts.join(", ")}. Plan: continue monitoring per protocol/orders and notify provider for any change in condition.`;
+    const p5 = pickedDoc.length
+      ? `Documentation completed as applicable: ${pickedDoc.join(", ")}. Plan: continue monitoring per protocol/orders and notify provider for any change in condition.`
+      : `Documentation completed as applicable. Plan: continue monitoring per protocol/orders and notify provider for any change in condition.`;
 
     return `Nursing Progress Note:\n\n${p1}\n\n${p2}\n\n${p3}\n\n${p4}\n\n${p5}`;
   }, [
     issueText,
     vitals,
-    assessmentPrompts,
-    documentationPrompts,
-    interventionPrompts,
+    pickedAssess,
+    pickedDoc,
+    pickedInterv,
     providerNotified,
     providerTime,
     providerOrders,
@@ -69,6 +119,19 @@ export function NursingProgressNoteModal(props: Props) {
   }
 
   if (!open) return null;
+
+  function selectAll(which: "assessment" | "interventions" | "documentation") {
+    const makeAll = (prompts: string[]) => prompts.reduce<Record<string, boolean>>((acc, p) => ((acc[p] = true), acc), {});
+    if (which === "assessment") setSelAssess(makeAll(assessmentPrompts));
+    if (which === "interventions") setSelInterv(makeAll(interventionPrompts));
+    if (which === "documentation") setSelDoc(makeAll(documentationPrompts));
+  }
+
+  function clearAll(which: "assessment" | "interventions" | "documentation") {
+    if (which === "assessment") setSelAssess({});
+    if (which === "interventions") setSelInterv({});
+    if (which === "documentation") setSelDoc({});
+  }
 
   return (
     <div
@@ -100,30 +163,87 @@ export function NursingProgressNoteModal(props: Props) {
 
         <div style={{ padding: 14, display: "grid", gap: 12 }}>
           <div style={{ display: "grid", gap: 6 }}>
-            <div style={{ fontWeight: 800 }}>What to assess / evaluate</div>
-            <ul style={{ margin: 0, paddingLeft: 18 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+              <div style={{ fontWeight: 800 }}>What to assess / evaluate</div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <button onClick={() => selectAll("assessment")} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Select all
+                </button>
+                <button onClick={() => clearAll("assessment")} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Clear
+                </button>
+              </div>
+            </div>
+
+            <div style={{ display: "grid", gap: 8 }}>
               {assessmentPrompts.map((p) => (
-                <li key={p}>{p}</li>
+                <label key={p} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <input
+                    type="checkbox"
+                    checked={!!selAssess[p]}
+                    onChange={(e) => setSelAssess((prev) => ({ ...prev, [p]: e.target.checked }))}
+                    style={{ marginTop: 3 }}
+                  />
+                  <span>{p}</span>
+                </label>
               ))}
-            </ul>
+            </div>
           </div>
 
           <div style={{ display: "grid", gap: 6 }}>
-            <div style={{ fontWeight: 800 }}>Interventions to document</div>
-            <ul style={{ margin: 0, paddingLeft: 18 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+              <div style={{ fontWeight: 800 }}>Interventions to document</div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <button onClick={() => selectAll("interventions")} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Select all
+                </button>
+                <button onClick={() => clearAll("interventions")} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Clear
+                </button>
+              </div>
+            </div>
+
+            <div style={{ display: "grid", gap: 8 }}>
               {interventionPrompts.map((p) => (
-                <li key={p}>{p}</li>
+                <label key={p} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <input
+                    type="checkbox"
+                    checked={!!selInterv[p]}
+                    onChange={(e) => setSelInterv((prev) => ({ ...prev, [p]: e.target.checked }))}
+                    style={{ marginTop: 3 }}
+                  />
+                  <span>{p}</span>
+                </label>
               ))}
-            </ul>
+            </div>
           </div>
 
           <div style={{ display: "grid", gap: 6 }}>
-            <div style={{ fontWeight: 800 }}>Documentation prompts</div>
-            <ul style={{ margin: 0, paddingLeft: 18 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+              <div style={{ fontWeight: 800 }}>Documentation prompts</div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <button onClick={() => selectAll("documentation")} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Select all
+                </button>
+                <button onClick={() => clearAll("documentation")} style={{ padding: "6px 10px", borderRadius: 9999 }}>
+                  Clear
+                </button>
+              </div>
+            </div>
+
+            <div style={{ display: "grid", gap: 8 }}>
               {documentationPrompts.map((p) => (
-                <li key={p}>{p}</li>
+                <label key={p} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <input
+                    type="checkbox"
+                    checked={!!selDoc[p]}
+                    onChange={(e) => setSelDoc((prev) => ({ ...prev, [p]: e.target.checked }))}
+                    style={{ marginTop: 3 }}
+                  />
+                  <span>{p}</span>
+                </label>
               ))}
-            </ul>
+            </div>
           </div>
 
           <div style={{ display: "grid", gap: 10, borderTop: "1px solid #eee", paddingTop: 12 }}>

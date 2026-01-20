@@ -98,6 +98,28 @@ a:hover { text-decoration: underline; }
   padding: 14px;
 }
 
+.packetPanel {
+  height: calc(100vh - 110px);
+  overflow: auto;
+}
+
+@media (max-width: 980px) {
+  .kbMain {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .stickyTop {
+    position: static;
+    top: auto;
+  }
+
+  .packetPanel {
+    height: auto;
+    overflow: visible;
+  }
+}
+
 .panel {
   background: var(--surface);
   border: 1px solid var(--border);

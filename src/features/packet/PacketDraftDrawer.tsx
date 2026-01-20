@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useAppStore, type PacketDraftSection } from "@/store/appStore";
+import { PacketPreviewModal } from "@/features/packet/PacketPreviewModal";
 
 const sectionOrder: PacketDraftSection[] = [
   "issue",
@@ -23,6 +24,7 @@ export function PacketDraftDrawer() {
   const kb = useAppStore((s) => s.kb);
   const draft = useAppStore((s) => s.packetDraft);
   const actions = useAppStore((s) => s.actions);
+  const [previewOpen, setPreviewOpen] = React.useState(false);
 
   const docsByKey = React.useMemo(() => {
     const map = new Map<string, any>();
@@ -41,11 +43,13 @@ export function PacketDraftDrawer() {
             </div>
           </div>
 
-          <button onClick={() => window.open("/packet", "_blank")} className="btn btnPrimary">
+          <button onClick={() => setPreviewOpen(true)} className="btn btnPrimary">
             Preview / Print Packet
           </button>
         </div>
       </div>
+
+      <PacketPreviewModal open={previewOpen} onClose={() => setPreviewOpen(false)} />
 
       <div style={{ padding: 16 }}>
         <textarea

@@ -6,48 +6,34 @@ export function ReleaseNotesButton() {
   const kb = useAppStore((s) => s.kb);
   const [open, setOpen] = React.useState(false);
 
-  const latest = React.useMemo(() => {
-    const log = kb?.manifest?.changelog ?? [];
-    return log.length ? log[0] : null;
-  }, [kb]);
+  // Button-only (per requirements). Keep it compact so it doesn't cover content on mobile.
 
   return (
     <>
-      <div
+      <button
+        aria-label="Release notes"
+        onClick={() => setOpen(true)}
         style={{
           position: "fixed",
           left: 14,
-          bottom: 14,
+          bottom: "calc(14px + env(safe-area-inset-bottom))",
           zIndex: 9998,
-          display: "flex",
-          gap: 10,
-          alignItems: "center",
-          padding: "10px 12px",
-          borderRadius: 14,
+          width: 46,
+          height: 46,
+          borderRadius: 9999,
           border: "1px solid rgba(0,0,0,0.12)",
           background: "rgba(255,255,255,0.92)",
-          boxShadow: "0 10px 22px rgba(15,23,42,0.10)"
+          boxShadow: "0 10px 22px rgba(15,23,42,0.10)",
+          cursor: "pointer",
+          display: "grid",
+          placeItems: "center",
+          fontWeight: 900,
+          letterSpacing: 0.2
         }}
+        title={kb?.manifest?.kb_version ? `KB v${kb.manifest.kb_version}` : "Release Notes"}
       >
-        <button
-          onClick={() => setOpen(true)}
-          style={{
-            padding: "8px 12px",
-            borderRadius: 9999,
-            border: "1px solid rgba(0,0,0,0.12)",
-            background: "white",
-            cursor: "pointer",
-            fontWeight: 800
-          }}
-        >
-          Release Notes
-        </button>
-
-        <div style={{ fontSize: 12, opacity: 0.75 }}>
-          {kb?.manifest?.kb_version ? `KB v${kb.manifest.kb_version}` : "KB —"}
-          {latest?.date ? ` • ${latest.date}` : ""}
-        </div>
-      </div>
+        RN
+      </button>
 
       <ReleaseNotesModal open={open} onClose={() => setOpen(false)} />
     </>

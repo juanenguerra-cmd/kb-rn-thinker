@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useAppStore } from "@/store/appStore";
+import { loadKB } from "@/kb/loadKb";
 import { docToCitationCard, canIncludeInPacket } from "@/lib/citations";
 import { buildPacketModel } from "@/packet/buildPacketModel";
 import type { PacketDraftSection } from "@/store/appStore";
@@ -7,6 +8,14 @@ import type { PacketDraftSection } from "@/store/appStore";
 export function PacketPrintPage() {
   const kb = useAppStore((s) => s.kb);
   const draft = useAppStore((s) => s.packetDraft);
+  const actions = useAppStore((s) => s.actions);
+
+  React.useEffect(() => {
+    if (kb) return;
+    loadKB().then(actions.loadKb).catch(() => {
+      // ignore; page will show a simple fallback
+    });
+  }, [kb, actions]);
 
   const model = React.useMemo(() => {
     if (!kb) return null;
@@ -39,7 +48,23 @@ export function PacketPrintPage() {
     });
   }, [kb, draft.items, draft.meta.issue_text, draft.sectionNotes]);
 
-  if (!kb || !model) return <div style={{ padding: 20 }}>Loading packet…</div>;
+  if (!kb) return <div style={{ padding: 20 }}>Loading KB…</div>;
+  if (!draft.items.length) {
+    return (
+      <div style={{ padding: 20 }}>
+        No packet draft found for this page load.
+        <div style={{ marginTop: 10, opacity: 0.8 }}>
+          Open the main app first, build the Packet Draft, then use “Preview / Print Packet”.
+        </div>
+        <div style={{ marginTop: 12 }}>
+          <a href="/" style={{ padding: "10px 12px", borderRadius: 9999, textDecoration: "none", border: "1px solid #eee" }}>
+            Back
+          </a>
+        </div>
+      </div>
+    );
+  }
+  if (!model) return <div style={{ padding: 20 }}>Loading packet…</div>;
 
   const sectionsOrder: PacketDraftSection[] = ["assessment", "interventions", "monitoring", "documentation", "citations"];
 

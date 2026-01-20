@@ -7,7 +7,7 @@
       "jurisdiction": "Facility",
       "effective_date": "2026-01-01",
       "review_by": "2026-12-31",
-      "url_or_location": "Binder: Nursing Admin → Policies → Change of Condition",
+      "url_or_location": "Binder: Nursing Admin \u2192 Policies \u2192 Change of Condition",
       "tags": [
         "change of condition",
         "SBAR",
@@ -22,7 +22,7 @@
       "jurisdiction": "Facility",
       "effective_date": "2026-01-01",
       "review_by": "2026-12-31",
-      "url_or_location": "Binder: IP → Policies",
+      "url_or_location": "Binder: IP \u2192 Policies",
       "tags": [
         "infection",
         "isolation",
@@ -37,7 +37,7 @@
       "jurisdiction": "Facility",
       "effective_date": "2026-01-01",
       "review_by": "2026-12-31",
-      "url_or_location": "Binder: Nursing → Falls Program",
+      "url_or_location": "Binder: Nursing \u2192 Falls Program",
       "tags": [
         "fall",
         "post-fall",
@@ -99,7 +99,7 @@
     {
       "source_id": "ECFR_42CFR483",
       "type": "regulation",
-      "title": "42 CFR Part 483 – Requirements for States and Long Term Care Facilities (eCFR)",
+      "title": "42 CFR Part 483 \u2013 Requirements for States and Long Term Care Facilities (eCFR)",
       "jurisdiction": "Federal",
       "effective_date": "",
       "review_by": "",
@@ -184,7 +184,7 @@
     {
       "source_id": "IHI_SBAR",
       "type": "tool",
-      "title": "IHI SBAR Tool (Situation–Background–Assessment–Recommendation)",
+      "title": "IHI SBAR Tool (Situation\u2013Background\u2013Assessment\u2013Recommendation)",
       "jurisdiction": "IHI",
       "effective_date": "",
       "review_by": "",
@@ -200,7 +200,7 @@
     {
       "source_id": "AHRQ_LTC_MOD2_TOOLS",
       "type": "toolkit",
-      "title": "AHRQ Long-Term Care: Communicating Change in a Resident’s Condition (Tools)",
+      "title": "AHRQ Long-Term Care: Communicating Change in a Resident\u2019s Condition (Tools)",
       "jurisdiction": "AHRQ",
       "effective_date": "",
       "review_by": "",
@@ -264,7 +264,7 @@
     {
       "source_id": "NYCRR_415_3",
       "type": "regulation",
-      "title": "10 NYCRR 415.3 – Residents’ Rights (New York)",
+      "title": "10 NYCRR 415.3 \u2013 Residents\u2019 Rights (New York)",
       "jurisdiction": "New York",
       "effective_date": "",
       "review_by": "",
@@ -329,7 +329,7 @@
     {
       "source_id": "CMS_QSO_25_14_NH",
       "type": "policy_memo",
-      "title": "CMS QSO-25-14-NH – Revised LTC Surveyor Guidance (Appendix PP updates)",
+      "title": "CMS QSO-25-14-NH \u2013 Revised LTC Surveyor Guidance (Appendix PP updates)",
       "jurisdiction": "Federal",
       "effective_date": "2025-04-28",
       "review_by": "",
@@ -377,7 +377,7 @@
     {
       "source_id": "IDSA_ASYMPTOMATIC_BACTERIURIA",
       "type": "guideline",
-      "title": "IDSA Clinical Practice Guideline – Asymptomatic Bacteriuria",
+      "title": "IDSA Clinical Practice Guideline \u2013 Asymptomatic Bacteriuria",
       "jurisdiction": "IDSA",
       "effective_date": "2019-03-21",
       "review_by": "",
@@ -393,7 +393,7 @@
     {
       "source_id": "IDSA_COMPLICATED_UTI",
       "type": "guideline",
-      "title": "IDSA Clinical Practice Guideline – Complicated Urinary Tract Infections (cUTI)",
+      "title": "IDSA Clinical Practice Guideline \u2013 Complicated Urinary Tract Infections (cUTI)",
       "jurisdiction": "IDSA",
       "effective_date": "2025-07-17",
       "review_by": "",
@@ -409,7 +409,7 @@
     {
       "source_id": "SHEA_APIC_LTCF",
       "type": "guideline",
-      "title": "SHEA/APIC Guideline – Infection Prevention and Control in the Long-Term Care Facility",
+      "title": "SHEA/APIC Guideline \u2013 Infection Prevention and Control in the Long-Term Care Facility",
       "jurisdiction": "SHEA/APIC",
       "effective_date": "2008-01-01",
       "review_by": "",
@@ -420,6 +420,25 @@
         "infection control",
         "ltc",
         "guideline"
+      ]
+    },
+    {
+      "source_id": "KB_COC_GUIDE",
+      "type": "guideline",
+      "title": "Change of Condition \u2013 Behavior / Refusal / Symptoms (Decision Support)",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-20",
+      "review_by": "2027-01-20",
+      "url_or_location": "KB internal: /kb/kb_change_of_condition.json",
+      "tags": [
+        "change of condition",
+        "behavior",
+        "acute mental status change",
+        "refusal",
+        "symptoms",
+        "triage",
+        "SBAR",
+        "documentation"
       ]
     }
   ]

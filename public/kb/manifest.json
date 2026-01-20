@@ -1,5 +1,5 @@
 {
-  "kb_version": "0.3.2",
+  "kb_version": "0.3.3",
   "effective_date": "2026-01-20",
   "approval": {
     "status": "approved",
@@ -17,6 +17,18 @@
   },
   "active_trees": [],
   "changelog": [
+    {
+      "date": "2026-01-20",
+      "summary": "Added dedicated KB file for Change of Condition triage (Behavior/Refusal/Symptoms) with survey-ready sections, SBAR template, refusal documentation expectations, and packet-building guidance. Added KB_COC_GUIDE source and indexed sections for search.",
+      "files_changed": [
+        "kb_change_of_condition.json",
+        "sources.json",
+        "source_sections.json",
+        "search_index.json",
+        "manifest.json"
+      ],
+      "ticket_or_reason": "Content: Change of Condition decision-support KB doc"
+    },
     {
       "date": "2026-01-20",
       "summary": "Authority pack expansion: CMS (Appendix PP + QSO memo), eCFR, CDC (core practices/NHSN/LTC toolkits), AHRQ stewardship + change-in-condition tools, IDSA UTI guidance, expanded F-tag definitions, and expanded citation sections for stronger search + packet credibility.",

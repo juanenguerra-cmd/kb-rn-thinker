@@ -1,6 +1,9 @@
 import * as React from "react";
 import { useAppStore, type PacketDraftSection } from "@/store/appStore";
 import { SourceCard } from "@/components/SourceCard";
+import { DocReaderModal } from "@/features/finder/DocReaderModal";
+import { FilterInfoModal, type FilterRef } from "@/features/finder/FilterInfoModal";
+import type { SearchDoc } from "@/kb/loadKb";
 
 export function GuidanceFinderTab() {
   const kb = useAppStore((s) => s.kb);
@@ -42,6 +45,20 @@ export function GuidanceFinderTab() {
   }
 
   const [filtersOpen, setFiltersOpen] = React.useState(true);
+  const [readerOpen, setReaderOpen] = React.useState(false);
+  const [filterInfoOpen, setFilterInfoOpen] = React.useState(false);
+  const [activeDoc, setActiveDoc] = React.useState<SearchDoc | null>(null);
+  const [activeFilter, setActiveFilter] = React.useState<FilterRef | null>(null);
+
+  const openDoc = React.useCallback((doc: SearchDoc) => {
+    setActiveDoc(doc);
+    setReaderOpen(true);
+  }, []);
+
+  const openFilterInfo = React.useCallback((filter: FilterRef) => {
+    setActiveFilter(filter);
+    setFilterInfoOpen(true);
+  }, []);
   const activeFilterCount =
     finder.typeFilter.length +
     finder.jurisdictionFilter.length +
@@ -125,7 +142,11 @@ export function GuidanceFinderTab() {
               {allTypes.map((t) => (
                 <button
                   key={t}
-                  onClick={() => actions.setTypeFilter(toggle(finder.typeFilter, t))}
+                  onClick={() => {
+                    const next = toggle(finder.typeFilter, t);
+                    actions.setTypeFilter(next);
+                    if (!finder.typeFilter.includes(t)) openFilterInfo({ kind: "type", value: t });
+                  }}
                   className={`pill ${finder.typeFilter.includes(t) ? "pillActive" : ""}`}
                 >
                   {t}
@@ -140,7 +161,11 @@ export function GuidanceFinderTab() {
               {allJur.map((j) => (
                 <button
                   key={j}
-                  onClick={() => actions.setJurisdictionFilter(toggle(finder.jurisdictionFilter, j))}
+                  onClick={() => {
+                    const next = toggle(finder.jurisdictionFilter, j);
+                    actions.setJurisdictionFilter(next);
+                    if (!finder.jurisdictionFilter.includes(j)) openFilterInfo({ kind: "jurisdiction", value: j });
+                  }}
                   className={`pill ${finder.jurisdictionFilter.includes(j) ? "pillActive" : ""}`}
                 >
                   {j}
@@ -155,7 +180,11 @@ export function GuidanceFinderTab() {
               {topTags.map((tag) => (
                 <button
                   key={tag}
-                  onClick={() => actions.setTagFilter(toggle(finder.tagFilter, tag))}
+                  onClick={() => {
+                    const next = toggle(finder.tagFilter, tag);
+                    actions.setTagFilter(next);
+                    if (!finder.tagFilter.includes(tag)) openFilterInfo({ kind: "tag", value: tag });
+                  }}
                   className={`pill ${finder.tagFilter.includes(tag) ? "pillActive" : ""}`}
                 >
                   {tag}
@@ -198,6 +227,7 @@ export function GuidanceFinderTab() {
           results.map((doc: any) => (
             <SourceCard
               key={doc.id}
+              onRead={() => openDoc(doc)}
               model={{
                 id: doc.id,
                 title: doc.title,
@@ -218,6 +248,29 @@ export function GuidanceFinderTab() {
           ))
         )}
       </div>
+
+      <FilterInfoModal
+        open={filterInfoOpen}
+        onClose={() => setFilterInfoOpen(false)}
+        filter={activeFilter}
+        docs={kb?.searchIndex.docs ?? []}
+        query={finder.query}
+        onOpenDoc={(d) => {
+          openDoc(d);
+          setFilterInfoOpen(false);
+        }}
+      />
+
+      <DocReaderModal
+        open={readerOpen}
+        onClose={() => setReaderOpen(false)}
+        result={activeDoc}
+        query={finder.query}
+        addSection={finder.defaultAddSection}
+        onChangeAddSection={(s) => actions.setDefaultAddSection(s)}
+        onAdd={(doc, section) => actions.addToDraftFromDoc(doc, section, "finder")}
+        onOpenRelated={(d) => setActiveDoc(d)}
+      />
     </div>
   );
 }

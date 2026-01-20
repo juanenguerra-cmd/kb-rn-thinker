@@ -45,17 +45,41 @@ export function SourceCard(props: {
   addSection: PacketDraftSection;
   onChangeAddSection: (s: PacketDraftSection) => void;
   onAdd: (section: PacketDraftSection) => void;
+  onRead?: () => void;
   addDisabled?: boolean;
   addDisabledReason?: string;
 }) {
-  const { model, query, addSection, onChangeAddSection, onAdd, addDisabled, addDisabledReason } = props;
+  const { model, query, addSection, onChangeAddSection, onAdd, onRead, addDisabled, addDisabledReason } = props;
 
   const snippet = model.text ? highlight(model.text, query ?? "") : "";
   const tags = (model.tags ?? []).slice(0, 12);
 
   return (
     <div className="card">
-      <div className="h2">{model.title}</div>
+      <div className="row" style={{ alignItems: "baseline" }}>
+        <button
+          type="button"
+          onClick={() => onRead?.()}
+          disabled={!onRead}
+          className="h2"
+          style={{
+            background: "transparent",
+            border: 0,
+            padding: 0,
+            cursor: onRead ? "pointer" : "default",
+            textAlign: "left"
+          }}
+          title={onRead ? "Open" : undefined}
+        >
+          {model.title}
+        </button>
+        <div className="grow" />
+        {onRead ? (
+          <button type="button" className="btn" onClick={() => onRead()} title="Read full section">
+            Read
+          </button>
+        ) : null}
+      </div>
       {model.heading ? <div className="muted">{model.heading}</div> : null}
 
       {model.text ? <div style={{ marginTop: 8 }}>{renderHighlighted(snippet)}</div> : null}

@@ -1,0 +1,15 @@
+{
+  "F600": {
+    "title": "Freedom from Abuse, Neglect, and Exploitation",
+    "definition": "Facility must protect residents from abuse, neglect, exploitation, and misappropriation.",
+    "surveyFocus": [
+      "Reporting, investigation, protection, and follow-up",
+      "Staff training and competence"
+    ],
+    "docCues": [
+      "Objective findings and timeline",
+      "Who was notified and when",
+      "Immediate protections implemented"
+    ]
+  }
+}

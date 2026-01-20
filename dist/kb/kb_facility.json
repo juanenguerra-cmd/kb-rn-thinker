@@ -1,0 +1,70 @@
+{
+  "actions": [
+    {
+      "action_id": "ACT_NOTIFY_PROVIDER_SBAR",
+      "title": "Notify provider using SBAR",
+      "allowed_roles": [
+        "RN",
+        "LPN"
+      ],
+      "steps": [
+        "Summarize situation and baseline comparison",
+        "Provide objective assessment findings and vital signs",
+        "State what you need (orders/transfer evaluation)"
+      ],
+      "documentation_prompts": [
+        "Time/method of notification",
+        "Orders received",
+        "Implementation and resident response"
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "action_id": "ACT_NOTIFY_FAMILY_EC",
+      "title": "Notify family / emergency contact",
+      "allowed_roles": [
+        "RN",
+        "LPN"
+      ],
+      "steps": [
+        "Notify per policy; document person/time/response",
+        "Escalate concerns per facility chain"
+      ],
+      "documentation_prompts": [
+        "Who notified",
+        "Time",
+        "Response/instructions"
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "action_id": "ACT_STANDARD_PRECAUTIONS",
+      "title": "Maintain Standard Precautions",
+      "allowed_roles": [
+        "All"
+      ],
+      "steps": [
+        "Hand hygiene before/after resident contact",
+        "PPE based on anticipated exposure",
+        "Clean/disinfect equipment as indicated"
+      ],
+      "documentation_prompts": [
+        "Precautions in place",
+        "Education provided if needed"
+      ],
+      "citations": [
+        {
+          "source_id": "CDC_IC"
+        }
+      ]
+    }
+  ]
+}

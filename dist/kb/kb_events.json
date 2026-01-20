@@ -1,0 +1,5488 @@
+{
+  "events": [
+    {
+      "event_id": "coc_fever",
+      "title": "Fever / Possible Infection",
+      "category": "bulk",
+      "keywords": [
+        "fever",
+        "temp",
+        "chills",
+        "infection",
+        "uti",
+        "pneumonia"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_sob",
+      "title": "Shortness of Breath / Low O2",
+      "category": "bulk",
+      "keywords": [
+        "sob",
+        "dyspnea",
+        "oxygen",
+        "hypoxia",
+        "respiratory distress"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "inc_fall",
+      "title": "Fall (Witnessed/Unwitnessed)",
+      "category": "bulk",
+      "keywords": [
+        "fall",
+        "found on floor",
+        "post-fall",
+        "head strike"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "skin_pi",
+      "title": "Pressure Injury / Skin Breakdown",
+      "category": "bulk",
+      "keywords": [
+        "pressure injury",
+        "wound",
+        "skin breakdown",
+        "ulcer"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "med_error",
+      "title": "Medication Error / Adverse Reaction",
+      "category": "bulk",
+      "keywords": [
+        "med error",
+        "wrong dose",
+        "adverse reaction",
+        "rash"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_ams",
+      "title": "Acute Mental Status Change",
+      "category": "bulk",
+      "keywords": [
+        "confused",
+        "lethargic",
+        "delirium",
+        "ams"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_hypogly",
+      "title": "Hypoglycemia",
+      "category": "bulk",
+      "keywords": [
+        "low blood sugar",
+        "hypoglycemia",
+        "shaky",
+        "sweaty"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_chestpain",
+      "title": "Chest Pain / Cardiac Symptoms",
+      "category": "bulk",
+      "keywords": [
+        "chest pain",
+        "pressure",
+        "diaphoresis",
+        "cardiac"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "gi_nvd",
+      "title": "Nausea/Vomiting/Diarrhea",
+      "category": "bulk",
+      "keywords": [
+        "vomiting",
+        "diarrhea",
+        "gi",
+        "c diff"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "safety_abuse",
+      "title": "Abuse/Neglect Concern",
+      "category": "bulk",
+      "keywords": [
+        "abuse",
+        "neglect",
+        "allegation",
+        "unexplained bruising"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_dehydration",
+      "title": "Dehydration / Poor Intake",
+      "category": "bulk",
+      "keywords": [
+        "poor intake",
+        "dehydration",
+        "dry",
+        "orthostatic"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_pain",
+      "title": "New/Worsening Pain",
+      "category": "bulk",
+      "keywords": [
+        "pain",
+        "grimacing",
+        "new pain",
+        "worsening"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_stroke",
+      "title": "Stroke/TIA Warning Signs",
+      "category": "bulk",
+      "keywords": [
+        "stroke",
+        "facial droop",
+        "weakness",
+        "slurred speech"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "inc_choking",
+      "title": "Choking / Aspiration Event",
+      "category": "bulk",
+      "keywords": [
+        "choking",
+        "aspiration",
+        "coughing",
+        "swallow"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "inc_elopement",
+      "title": "Elopement / Missing Resident",
+      "category": "bulk",
+      "keywords": [
+        "elopement",
+        "missing resident",
+        "wander"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "skin_tear",
+      "title": "Skin Tear / Bruising",
+      "category": "bulk",
+      "keywords": [
+        "skin tear",
+        "bruise",
+        "hematoma"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_refusal",
+      "title": "Refusal of Care",
+      "category": "bulk",
+      "keywords": [
+        "refusal",
+        "declines",
+        "noncompliant"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_aggression",
+      "title": "Aggression / Unsafe Behavior",
+      "category": "bulk",
+      "keywords": [
+        "aggressive",
+        "hitting",
+        "unsafe"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_outbreak",
+      "title": "Outbreak Management (Respiratory/GI)",
+      "category": "bulk",
+      "keywords": [
+        "outbreak",
+        "cluster",
+        "multiple residents"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "med_event_20",
+      "title": "Medication Event #20",
+      "category": "bulk",
+      "keywords": [
+        "med",
+        "medication",
+        "concern"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_21",
+      "title": "Change of Condition Event #21",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "reported"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_22",
+      "title": "Change of Condition Event #22",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "follow-up"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CDC_IC"
+        }
+      ]
+    },
+    {
+      "event_id": "med_event_23",
+      "title": "Medication Event #23",
+      "category": "bulk",
+      "keywords": [
+        "med",
+        "medication",
+        "follow-up"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_24",
+      "title": "Change of Condition Event #24",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_25",
+      "title": "Change of Condition Event #25",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_event_26",
+      "title": "Behavior/Safety Event #26",
+      "category": "bulk",
+      "keywords": [
+        "beh",
+        "behavior",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_event_27",
+      "title": "Behavior/Safety Event #27",
+      "category": "bulk",
+      "keywords": [
+        "beh",
+        "behavior",
+        "worsening"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_event_28",
+      "title": "Behavior/Safety Event #28",
+      "category": "bulk",
+      "keywords": [
+        "beh",
+        "behavior",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CDC_IC"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_29",
+      "title": "Infection Prevention Event #29",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "concern"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_30",
+      "title": "Infection Prevention Event #30",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "concern"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_event_31",
+      "title": "Behavior/Safety Event #31",
+      "category": "bulk",
+      "keywords": [
+        "beh",
+        "behavior",
+        "concern"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_32",
+      "title": "Infection Prevention Event #32",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "new"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "inc_event_33",
+      "title": "Incident/Accident Event #33",
+      "category": "bulk",
+      "keywords": [
+        "inc",
+        "incident",
+        "evaluation"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_34",
+      "title": "Infection Prevention Event #34",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_35",
+      "title": "Change of Condition Event #35",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "evaluation"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_event_36",
+      "title": "Behavior/Safety Event #36",
+      "category": "bulk",
+      "keywords": [
+        "beh",
+        "behavior",
+        "reported"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_37",
+      "title": "Infection Prevention Event #37",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "skin_event_38",
+      "title": "Skin/Wound Event #38",
+      "category": "bulk",
+      "keywords": [
+        "skin",
+        "skin",
+        "new"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_39",
+      "title": "Infection Prevention Event #39",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_40",
+      "title": "Infection Prevention Event #40",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "worsening"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "safety_event_41",
+      "title": "Safety/Allegation Event #41",
+      "category": "bulk",
+      "keywords": [
+        "safety",
+        "safety",
+        "worsening"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_42",
+      "title": "Infection Prevention Event #42",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "evaluation"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_43",
+      "title": "Infection Prevention Event #43",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "skin_event_44",
+      "title": "Skin/Wound Event #44",
+      "category": "bulk",
+      "keywords": [
+        "skin",
+        "skin",
+        "new"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_45",
+      "title": "Change of Condition Event #45",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_event_46",
+      "title": "Behavior/Safety Event #46",
+      "category": "bulk",
+      "keywords": [
+        "beh",
+        "behavior",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_47",
+      "title": "Change of Condition Event #47",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "evaluation"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CDC_IC"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_event_48",
+      "title": "Behavior/Safety Event #48",
+      "category": "bulk",
+      "keywords": [
+        "beh",
+        "behavior",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "skin_event_49",
+      "title": "Skin/Wound Event #49",
+      "category": "bulk",
+      "keywords": [
+        "skin",
+        "skin",
+        "evaluation"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "inc_event_50",
+      "title": "Incident/Accident Event #50",
+      "category": "bulk",
+      "keywords": [
+        "inc",
+        "incident",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "med_event_51",
+      "title": "Medication Event #51",
+      "category": "bulk",
+      "keywords": [
+        "med",
+        "medication",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_52",
+      "title": "Change of Condition Event #52",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "worsening"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_53",
+      "title": "Infection Prevention Event #53",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "follow-up"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "safety_event_54",
+      "title": "Safety/Allegation Event #54",
+      "category": "bulk",
+      "keywords": [
+        "safety",
+        "safety",
+        "reported"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "inc_event_55",
+      "title": "Incident/Accident Event #55",
+      "category": "bulk",
+      "keywords": [
+        "inc",
+        "incident",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "safety_event_56",
+      "title": "Safety/Allegation Event #56",
+      "category": "bulk",
+      "keywords": [
+        "safety",
+        "safety",
+        "new"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_IP_01"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_57",
+      "title": "Infection Prevention Event #57",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "evaluation"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_58",
+      "title": "Change of Condition Event #58",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_59",
+      "title": "Change of Condition Event #59",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_event_60",
+      "title": "Behavior/Safety Event #60",
+      "category": "bulk",
+      "keywords": [
+        "beh",
+        "behavior",
+        "reported"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    },
+    {
+      "event_id": "med_event_61",
+      "title": "Medication Event #61",
+      "category": "bulk",
+      "keywords": [
+        "med",
+        "medication",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "med_event_62",
+      "title": "Medication Event #62",
+      "category": "bulk",
+      "keywords": [
+        "med",
+        "medication",
+        "reported"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CDC_IC"
+        }
+      ]
+    },
+    {
+      "event_id": "safety_event_63",
+      "title": "Safety/Allegation Event #63",
+      "category": "bulk",
+      "keywords": [
+        "safety",
+        "safety",
+        "follow-up"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "skin_event_64",
+      "title": "Skin/Wound Event #64",
+      "category": "bulk",
+      "keywords": [
+        "skin",
+        "skin",
+        "reported"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CDC_IC"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_65",
+      "title": "Change of Condition Event #65",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "med_event_66",
+      "title": "Medication Event #66",
+      "category": "bulk",
+      "keywords": [
+        "med",
+        "medication",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_67",
+      "title": "Infection Prevention Event #67",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "evaluation"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_68",
+      "title": "Change of Condition Event #68",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "possible"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "skin_event_69",
+      "title": "Skin/Wound Event #69",
+      "category": "bulk",
+      "keywords": [
+        "skin",
+        "skin",
+        "reported"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_70",
+      "title": "Change of Condition Event #70",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "new"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_COC_01"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_event_71",
+      "title": "Behavior/Safety Event #71",
+      "category": "bulk",
+      "keywords": [
+        "beh",
+        "behavior",
+        "evaluation"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "coc_event_72",
+      "title": "Change of Condition Event #72",
+      "category": "bulk",
+      "keywords": [
+        "coc",
+        "change of condition",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "med_event_73",
+      "title": "Medication Event #73",
+      "category": "bulk",
+      "keywords": [
+        "med",
+        "medication",
+        "follow-up"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        },
+        {
+          "id": "d3",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "POL_FALL_01"
+        }
+      ]
+    },
+    {
+      "event_id": "med_event_74",
+      "title": "Medication Event #74",
+      "category": "bulk",
+      "keywords": [
+        "med",
+        "medication",
+        "concern"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a3",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a4",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i3",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Interventions performed and resident response",
+          "render": "Interventions performed and resident response."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CDC_IC"
+        }
+      ]
+    },
+    {
+      "event_id": "beh_event_75",
+      "title": "Behavior/Safety Event #75",
+      "category": "bulk",
+      "keywords": [
+        "beh",
+        "behavior",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a2",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a3",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a4",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i2",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d2",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d3",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "NYS_DOH_IP"
+        }
+      ]
+    },
+    {
+      "event_id": "inc_event_76",
+      "title": "Incident/Accident Event #76",
+      "category": "bulk",
+      "keywords": [
+        "inc",
+        "incident",
+        "reported"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline",
+          "render": "Vital signs (BP/HR/RR/T/SpO2) and compare to baseline."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        },
+        {
+          "id": "a4",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement infection prevention precautions as indicated",
+          "render": "Implement infection prevention precautions as indicated."
+        },
+        {
+          "id": "i2",
+          "label": "Initiate/adjust monitoring per protocol/orders",
+          "render": "Initiate/adjust monitoring per protocol/orders."
+        },
+        {
+          "id": "i3",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d2",
+          "label": "Plan for monitoring and escalation criteria",
+          "render": "Plan for monitoring and escalation criteria."
+        },
+        {
+          "id": "d3",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CDC_IC"
+        }
+      ]
+    },
+    {
+      "event_id": "inf_event_77",
+      "title": "Infection Prevention Event #77",
+      "category": "bulk",
+      "keywords": [
+        "inf",
+        "infection prevention",
+        "monitoring"
+      ],
+      "assessment_items": [
+        {
+          "id": "a1",
+          "label": "Safety assessment and immediate needs",
+          "render": "Safety assessment and immediate needs."
+        },
+        {
+          "id": "a2",
+          "label": "Mental status compared to baseline (AMS?)",
+          "render": "Mental status compared to baseline (AMS?)."
+        },
+        {
+          "id": "a3",
+          "label": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)",
+          "render": "Focused assessment related to the concern (resp/GU/GI/skin/neuro)."
+        },
+        {
+          "id": "a4",
+          "label": "Pain assessment and location/quality if applicable",
+          "render": "Pain assessment and location/quality if applicable."
+        }
+      ],
+      "intervention_items": [
+        {
+          "id": "i1",
+          "label": "Implement immediate safety measures and precautions",
+          "render": "Implement immediate safety measures and precautions."
+        },
+        {
+          "id": "i2",
+          "label": "Notify family/EC per policy when applicable",
+          "render": "Notify family/EC per policy when applicable."
+        },
+        {
+          "id": "i3",
+          "label": "Notify provider using SBAR as indicated",
+          "render": "Notify provider using SBAR as indicated."
+        }
+      ],
+      "documentation_items": [
+        {
+          "id": "d1",
+          "label": "Provider notification time/method and orders received",
+          "render": "Provider notification time/method and orders received."
+        },
+        {
+          "id": "d2",
+          "label": "Family/EC notification details",
+          "render": "Family/EC notification details."
+        },
+        {
+          "id": "d3",
+          "label": "Objective findings with baseline comparison",
+          "render": "Objective findings with baseline comparison."
+        }
+      ],
+      "citations": [
+        {
+          "source_id": "CMS_APP_PP"
+        }
+      ]
+    }
+  ]
+}

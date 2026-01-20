@@ -1,0 +1,94 @@
+{
+  "sources": [
+    {
+      "source_id": "POL_COC_01",
+      "type": "facility_policy",
+      "title": "Change of Condition / Provider Notification Policy",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "Binder: Nursing Admin → Policies → Change of Condition",
+      "tags": [
+        "change of condition",
+        "SBAR",
+        "provider notification",
+        "documentation"
+      ]
+    },
+    {
+      "source_id": "POL_IP_01",
+      "type": "facility_policy",
+      "title": "Infection Prevention Policy",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "Binder: IP → Policies",
+      "tags": [
+        "infection",
+        "isolation",
+        "precautions",
+        "outbreak"
+      ]
+    },
+    {
+      "source_id": "POL_FALL_01",
+      "type": "facility_policy",
+      "title": "Falls: Post-Fall Assessment & Monitoring",
+      "jurisdiction": "Facility",
+      "effective_date": "2026-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "Binder: Nursing → Falls Program",
+      "tags": [
+        "fall",
+        "post-fall",
+        "neuro checks",
+        "incident report"
+      ]
+    },
+    {
+      "source_id": "CMS_APP_PP",
+      "type": "interpretive_guidance",
+      "title": "CMS State Operations Manual Appendix PP (LTC Guidance)",
+      "jurisdiction": "Federal",
+      "effective_date": "2024-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "CMS Website / Survey Binder",
+      "tags": [
+        "CMS",
+        "Appendix PP",
+        "F-tags",
+        "survey guidance"
+      ]
+    },
+    {
+      "source_id": "CDC_IC",
+      "type": "guideline",
+      "title": "CDC Infection Control (Standard + Transmission-Based Precautions)",
+      "jurisdiction": "CDC",
+      "effective_date": "2024-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "CDC Website / IP Binder",
+      "tags": [
+        "CDC",
+        "standard precautions",
+        "transmission-based precautions",
+        "PPE"
+      ]
+    },
+    {
+      "source_id": "NYS_DOH_IP",
+      "type": "guideline",
+      "title": "NYSDOH Infection Prevention / Communicable Disease Guidance (LTC)",
+      "jurisdiction": "New York",
+      "effective_date": "2024-01-01",
+      "review_by": "2026-12-31",
+      "url_or_location": "NYSDOH Website / Policy Binder",
+      "tags": [
+        "NYSDOH",
+        "infection",
+        "reporting",
+        "LTC"
+      ]
+    }
+  ]
+}

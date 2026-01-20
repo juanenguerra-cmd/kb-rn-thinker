@@ -1,6 +1,6 @@
 {
-  "kb_version": "0.3.0",
-  "effective_date": "2026-01-19",
+  "kb_version": "0.3.2",
+  "effective_date": "2026-01-20",
   "approval": {
     "status": "approved",
     "approved_by_role": "Admin",
@@ -17,6 +17,44 @@
   },
   "active_trees": [],
   "changelog": [
+    {
+      "date": "2026-01-20",
+      "summary": "Authority pack expansion: CMS (Appendix PP + QSO memo), eCFR, CDC (core practices/NHSN/LTC toolkits), AHRQ stewardship + change-in-condition tools, IDSA UTI guidance, expanded F-tag definitions, and expanded citation sections for stronger search + packet credibility.",
+      "files_changed": [
+        "manifest.json",
+        "sources.json",
+        "source_sections.json",
+        "ftags.json",
+        "search_index.json"
+      ],
+      "ticket_or_reason": "Content expansion: regulatory + medical references"
+    },
+    {
+      "date": "2026-01-19",
+      "summary": "Authority pack expansion: CMS policy memo + NHSN manual + AHRQ antimicrobial stewardship + IDSA UTI guidance + SHEA/APIC LTC infection guideline; expanded F-tag definitions and searchable citation sections.",
+      "files_changed": [
+        "manifest.json",
+        "sources.json",
+        "source_sections.json",
+        "ftags.json",
+        "synonyms.json",
+        "search_index.json"
+      ],
+      "ticket_or_reason": "Content enhancement pack v0.3.1"
+    },
+    {
+      "date": "2026-01-19",
+      "summary": "Authority packs expanded: added Federal (eCFR 42 CFR 483), CMS QAPI, CDC LTCF/NHSN/Respiratory Toolkit, IHI SBAR, AHRQ LTC tools, NYSDOH rights/abuse reporting sources; expanded F-tag definitions and citation sections.",
+      "files_changed": [
+        "manifest.json",
+        "sources.json",
+        "source_sections.json",
+        "ftags.json",
+        "synonyms.json",
+        "search_index.json"
+      ],
+      "ticket_or_reason": "Content enhancement pack v0.3.1"
+    },
     {
       "date": "2026-01-19",
       "summary": "Bulk KB update: expanded snippets (200) + event catalog (77) + documentation templates + governance.",

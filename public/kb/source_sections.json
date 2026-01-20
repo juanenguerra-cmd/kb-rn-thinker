@@ -3760,6 +3760,955 @@
         "outbreak",
         "precautions"
       ]
+    },
+    {
+      "source_id": "ECFR_42CFR483",
+      "section_id": "ECFR_42CFR483_0001",
+      "heading": "Resident rights: refusal and informed decision-making",
+      "text": "Federal regulations include resident rights related to informed choices about care, including the right to refuse treatment. Documentation should reflect the resident\u2019s stated refusal, education provided, risks/benefits discussed, alternatives offered, and follow-up plan.",
+      "tags": [
+        "resident rights",
+        "refusal",
+        "informed consent",
+        "documentation",
+        "regulatory"
+      ],
+      "keywords": [
+        "42 cfr 483",
+        "483.10",
+        "refuse"
+      ]
+    },
+    {
+      "source_id": "ECFR_42CFR483",
+      "section_id": "ECFR_42CFR483_0002",
+      "heading": "Quality of care: change in condition response",
+      "text": "When a resident\u2019s condition changes, nursing assessment, timely notification, and appropriate interventions/monitoring are expected. Record objective findings, baseline comparison, provider notification, orders, and resident response.",
+      "tags": [
+        "change of condition",
+        "assessment",
+        "provider notification",
+        "monitoring",
+        "regulatory"
+      ],
+      "keywords": [
+        "483.25",
+        "assessment",
+        "baseline"
+      ]
+    },
+    {
+      "source_id": "ECFR_42CFR483",
+      "section_id": "ECFR_42CFR483_0003",
+      "heading": "Accidents and supervision (falls risk)",
+      "text": "Facilities must take reasonable steps to prevent accidents and provide adequate supervision/assistive devices. Post-fall documentation should include circumstances, injury assessment, neuro checks if indicated, notifications, and prevention plan updates.",
+      "tags": [
+        "falls",
+        "accident",
+        "supervision",
+        "injury",
+        "regulatory"
+      ],
+      "keywords": [
+        "accident",
+        "supervision",
+        "assistive devices"
+      ]
+    },
+    {
+      "source_id": "CMS_APP_PP",
+      "section_id": "CMS_APP_PP_0101",
+      "heading": "F-tag mapping: use citations in packets",
+      "text": "Appendix PP provides interpretive guidance used by surveyors. When generating packets, include the relevant F-tag context (e.g., Resident Rights, Abuse/Neglect, Infection Control) and tie your actions/documentation to objective evidence and facility policy.",
+      "tags": [
+        "cms",
+        "appendix pp",
+        "ftag",
+        "survey",
+        "packet"
+      ],
+      "keywords": [
+        "survey",
+        "interpretive",
+        "guidance"
+      ]
+    },
+    {
+      "source_id": "CMS_APP_PP",
+      "section_id": "CMS_APP_PP_0102",
+      "heading": "Abuse/neglect: immediate protection + reporting + investigation",
+      "text": "Survey expectations emphasize immediate resident protection, timely reporting, thorough investigation, and documentation of findings and follow-up. Notes should include who was notified, when, what protections were implemented, and the investigation status.",
+      "tags": [
+        "abuse",
+        "neglect",
+        "investigation",
+        "reporting",
+        "survey",
+        "documentation"
+      ],
+      "keywords": [
+        "F600",
+        "misappropriation",
+        "allegation"
+      ]
+    },
+    {
+      "source_id": "CMS_APP_PP",
+      "section_id": "CMS_APP_PP_0103",
+      "heading": "Infection control: program expectations",
+      "text": "Survey guidance on infection control focuses on an active program, implementation of precautions, staff education, and documentation that supports decisions (signs/symptoms, testing, isolation, monitoring).",
+      "tags": [
+        "infection",
+        "precautions",
+        "education",
+        "survey",
+        "documentation"
+      ],
+      "keywords": [
+        "F880",
+        "program"
+      ]
+    },
+    {
+      "source_id": "CDC_CORE_PRACTICES_PDF",
+      "section_id": "CDC_CORE_PRACTICES_PDF_0001",
+      "heading": "Core practices: hand hygiene + PPE selection",
+      "text": "Core IPC practices include consistent hand hygiene and selecting PPE based on anticipated exposure. Documentation and audits should focus on adherence to core practices and staff education/competency.",
+      "tags": [
+        "cdc",
+        "core practices",
+        "hand hygiene",
+        "ppe",
+        "infection prevention"
+      ],
+      "keywords": [
+        "hicpac",
+        "standard precautions"
+      ]
+    },
+    {
+      "source_id": "CDC_CORE_PRACTICES_PDF",
+      "section_id": "CDC_CORE_PRACTICES_PDF_0002",
+      "heading": "Core practices: environmental cleaning and disinfection",
+      "text": "Environmental cleaning and disinfection are key core practices. For outbreaks, emphasize high-touch surfaces, correct disinfectant use, and clear assignment of responsibilities.",
+      "tags": [
+        "cdc",
+        "core practices",
+        "cleaning",
+        "disinfection",
+        "outbreak"
+      ],
+      "keywords": [
+        "environmental",
+        "disinfectant"
+      ]
+    },
+    {
+      "source_id": "CDC_CORE_PRACTICES_PDF",
+      "section_id": "CDC_CORE_PRACTICES_PDF_0003",
+      "heading": "Core practices: respiratory hygiene/cough etiquette",
+      "text": "Respiratory hygiene and cough etiquette reduce transmission of respiratory pathogens. For symptomatic residents, include source control, masking per guidance, and timely evaluation/testing as indicated.",
+      "tags": [
+        "cdc",
+        "respiratory hygiene",
+        "source control",
+        "respiratory virus"
+      ],
+      "keywords": [
+        "cough etiquette",
+        "masking"
+      ]
+    },
+    {
+      "source_id": "CDC_LTCF_RESOURCES",
+      "section_id": "CDC_LTCF_RESOURCES_0001",
+      "heading": "LTCF infection prevention: resident/family education",
+      "text": "CDC LTCF resources support education for residents, families, and caregivers on preventing infections in nursing homes and assisted living facilities. Use these materials to reinforce hand hygiene, vaccination, and reporting symptoms early.",
+      "tags": [
+        "cdc",
+        "ltcf",
+        "education",
+        "infection prevention",
+        "vaccination"
+      ],
+      "keywords": [
+        "nursing home",
+        "caregiver"
+      ]
+    },
+    {
+      "source_id": "CDC_LTCF_RESOURCES",
+      "section_id": "CDC_LTCF_RESOURCES_0002",
+      "heading": "LTCF prevention focus: early symptom recognition",
+      "text": "Emphasize early recognition of new symptoms and prompt reporting to nursing staff to reduce spread and complications. Pair with facility policy for triage and provider notification.",
+      "tags": [
+        "cdc",
+        "ltcf",
+        "symptoms",
+        "triage",
+        "change of condition"
+      ],
+      "keywords": [
+        "recognize",
+        "report"
+      ]
+    },
+    {
+      "source_id": "CDC_NHSN_LTCF",
+      "section_id": "CDC_NHSN_LTCF_0001",
+      "heading": "NHSN LTCF Component: surveillance and process measures",
+      "text": "NHSN LTCF Component supports tracking infections and prevention process measures to identify problems, improve care, and monitor progress. Consider aligning facility line lists and surveillance logs with NHSN concepts.",
+      "tags": [
+        "cdc",
+        "nhsn",
+        "ltcf",
+        "surveillance",
+        "line list"
+      ],
+      "keywords": [
+        "process measures",
+        "tracking"
+      ]
+    },
+    {
+      "source_id": "CDC_NHSN_LTCF",
+      "section_id": "CDC_NHSN_LTCF_0002",
+      "heading": "Common LTCF modules: UTI, MDRO/CDI, vaccination",
+      "text": "NHSN LTCF includes modules relevant to nursing homes (e.g., UTI, MDRO/CDI, HCP flu vaccination, prevention process measures). Use these as a reference framework for consistent surveillance documentation.",
+      "tags": [
+        "cdc",
+        "nhsn",
+        "uti",
+        "mdro",
+        "cdi",
+        "vaccination"
+      ],
+      "keywords": [
+        "module",
+        "framework"
+      ]
+    },
+    {
+      "source_id": "CDC_RESP_VIRUS_TOOLKIT",
+      "section_id": "CDC_RESP_VIRUS_TOOLKIT_0001",
+      "heading": "Respiratory viruses: prepare and respond in nursing homes",
+      "text": "Toolkit actions include preparation steps, symptom-based response, testing considerations, and escalation when respiratory illness is detected among residents or staff. Use for influenza/RSV/COVID-19 season planning and outbreak response.",
+      "tags": [
+        "cdc",
+        "respiratory virus",
+        "toolkit",
+        "nursing home",
+        "outbreak"
+      ],
+      "keywords": [
+        "influenza",
+        "rsv",
+        "covid"
+      ]
+    },
+    {
+      "source_id": "CDC_RESP_VIRUS_TOOLKIT",
+      "section_id": "CDC_RESP_VIRUS_TOOLKIT_0002",
+      "heading": "Outbreak workflow: line lists and communication",
+      "text": "Maintain clear line lists, communicate with leadership and public health as required, and document cohorting/precautions decisions. Ensure staff education and consistent PPE use.",
+      "tags": [
+        "cdc",
+        "outbreak",
+        "line list",
+        "communication",
+        "ppe"
+      ],
+      "keywords": [
+        "cohorting",
+        "public health"
+      ]
+    },
+    {
+      "source_id": "IHI_SBAR",
+      "section_id": "IHI_SBAR_0001",
+      "heading": "SBAR structure for provider notification",
+      "text": "SBAR provides a structured way to communicate changes in condition: Situation (what is happening now), Background (baseline and history), Assessment (your findings), Recommendation (what you need/next steps). Use SBAR in notes to show clear escalation.",
+      "tags": [
+        "sbar",
+        "provider notification",
+        "communication",
+        "change of condition",
+        "documentation"
+      ],
+      "keywords": [
+        "situation",
+        "background",
+        "assessment",
+        "recommendation"
+      ]
+    },
+    {
+      "source_id": "IHI_SBAR",
+      "section_id": "IHI_SBAR_0002",
+      "heading": "SBAR documentation cues for LTC/SNF notes",
+      "text": "In documentation, capture: objective findings (VS, symptoms, timeline), baseline comparison, what was communicated to provider, orders received, interventions performed, and resident response/monitoring plan.",
+      "tags": [
+        "sbar",
+        "documentation",
+        "vitals",
+        "baseline",
+        "orders"
+      ],
+      "keywords": [
+        "objective",
+        "timeline",
+        "monitoring"
+      ]
+    },
+    {
+      "source_id": "AHRQ_LTC_MOD2_TOOLS",
+      "section_id": "AHRQ_LTC_MOD2_TOOLS_0001",
+      "heading": "Change in condition communication: early warning tools",
+      "text": "AHRQ LTC tools include early warning/communication supports to help staff recognize and communicate changes in condition. Integrate into your wizard by prompting for objective findings and clear escalation steps.",
+      "tags": [
+        "ahrq",
+        "change of condition",
+        "early warning",
+        "communication",
+        "wizard"
+      ],
+      "keywords": [
+        "triage",
+        "handoff"
+      ]
+    },
+    {
+      "source_id": "AHRQ_LTC_MOD2_TOOLS",
+      "section_id": "AHRQ_LTC_MOD2_TOOLS_0002",
+      "heading": "Team communication training: standardize the message",
+      "text": "Use standardized communication (e.g., SBAR) and team training to reduce missed information during a change in condition. Pair with documentation checklists and packet citations.",
+      "tags": [
+        "ahrq",
+        "training",
+        "sbar",
+        "standardization",
+        "documentation"
+      ],
+      "keywords": [
+        "team",
+        "handoff"
+      ]
+    },
+    {
+      "source_id": "CMS_QAPI_RESOURCES",
+      "section_id": "CMS_QAPI_RESOURCES_0001",
+      "heading": "QAPI: link findings to education and re-audit",
+      "text": "CMS QAPI resources emphasize systematic improvement: identify a problem, implement interventions (including staff education), measure outcomes, and sustain changes. Use this to power closed-loop QA \u2192 Education \u2192 Re-audit workflows.",
+      "tags": [
+        "cms",
+        "qapi",
+        "quality",
+        "education",
+        "re-audit"
+      ],
+      "keywords": [
+        "PI",
+        "QA"
+      ]
+    },
+    {
+      "source_id": "CMS_QAPI_AT_A_GLANCE",
+      "section_id": "CMS_QAPI_AT_A_GLANCE_0001",
+      "heading": "QAPI governance: leadership and accountability",
+      "text": "QAPI at a Glance highlights leadership responsibility, data-driven improvement, and ongoing performance monitoring. Use this as an executive-language reference in survey packets and QAPI minutes.",
+      "tags": [
+        "cms",
+        "qapi",
+        "leadership",
+        "governance",
+        "metrics"
+      ],
+      "keywords": [
+        "minutes",
+        "executive summary"
+      ]
+    },
+    {
+      "source_id": "NYSDOH_RIGHTS_PDF",
+      "section_id": "NYSDOH_RIGHTS_PDF_0001",
+      "heading": "NY nursing home resident rights: key themes",
+      "text": "NYSDOH resident rights resources emphasize dignity, respect, communication, and participation in care decisions. Documentation should reflect education provided, resident preferences, and involvement of representative when appropriate.",
+      "tags": [
+        "nysdoh",
+        "resident rights",
+        "dignity",
+        "informed decision",
+        "documentation"
+      ],
+      "keywords": [
+        "rights",
+        "preferences"
+      ]
+    },
+    {
+      "source_id": "NYCRR_415_3",
+      "section_id": "NYCRR_415_3_0001",
+      "heading": "NYCRR 415.3: resident rights baseline",
+      "text": "10 NYCRR 415.3 describes nursing home responsibilities to protect and promote resident rights, including dignity, privacy, and self-determination. Use when building refusal-of-treatment packets and documenting resident-centered decision-making.",
+      "tags": [
+        "nycrr",
+        "415.3",
+        "resident rights",
+        "refusal",
+        "self-determination"
+      ],
+      "keywords": [
+        "privacy",
+        "dignity"
+      ]
+    },
+    {
+      "source_id": "NYSDOH_ABUSE_REPORT_REQ",
+      "section_id": "NYSDOH_ABUSE_REPORT_REQ_0001",
+      "heading": "NY reporting expectations: suspected abuse/neglect",
+      "text": "NYSDOH outlines reporting requirements for suspected abuse, mistreatment, and neglect. Documentation should include immediate protections, notifications, and the status of investigation/reporting per policy.",
+      "tags": [
+        "nysdoh",
+        "abuse",
+        "neglect",
+        "reporting",
+        "investigation"
+      ],
+      "keywords": [
+        "report",
+        "telephone",
+        "written"
+      ]
+    },
+    {
+      "source_id": "NYSDOH_ABUSE_REPORT_FORM",
+      "section_id": "NYSDOH_ABUSE_REPORT_FORM_0001",
+      "heading": "NY investigation report: what to include",
+      "text": "The NYSDOH incident/abuse reporting materials support consistent investigation reporting. For packets, include objective findings, timeline, actions taken, notifications, and follow-up/monitoring.",
+      "tags": [
+        "nysdoh",
+        "investigation",
+        "report",
+        "timeline",
+        "follow-up"
+      ],
+      "keywords": [
+        "allegation",
+        "documentation"
+      ]
+    },
+    {
+      "source_id": "NYSDOH_COMPLAINT_FORM",
+      "section_id": "NYSDOH_COMPLAINT_FORM_0001",
+      "heading": "NY complaint process: resident/family pathway",
+      "text": "NYSDOH provides an online complaint form and hotline information. Include this reference in resident rights packets when concerns escalate beyond facility grievance processes.",
+      "tags": [
+        "nysdoh",
+        "complaint",
+        "grievance",
+        "hotline",
+        "resident rights"
+      ],
+      "keywords": [
+        "form",
+        "report"
+      ]
+    },
+    {
+      "source_id": "CMS_QSO_25_14_NH",
+      "section_id": "CMS_QSO_25_14_NH_900",
+      "heading": "What this memo changes (high level)",
+      "text": "CMS issued QSO-25-14-NH to revise long-term care surveyor guidance. Use this memo as the \u201cwhy\u201d behind Appendix PP updates and align facility education, audits, and packets with the updated expectations.",
+      "tags": [
+        "cms",
+        "qso",
+        "appendix pp",
+        "survey"
+      ],
+      "keywords": [
+        "qso-25-14-nh",
+        "appendix pp update",
+        "survey guidance"
+      ]
+    },
+    {
+      "source_id": "CMS_QSO_25_14_NH",
+      "section_id": "CMS_QSO_25_14_NH_901",
+      "heading": "Effective date and rollout",
+      "text": "Treat the updated surveyor guidance as effective on the stated CMS rollout date; ensure staff education, competency checks, and audit tools reflect the revised interpretive guidance and critical element pathways.",
+      "tags": [
+        "cms",
+        "survey",
+        "effective date",
+        "education"
+      ],
+      "keywords": [
+        "rollout",
+        "critical element pathways",
+        "training"
+      ]
+    },
+    {
+      "source_id": "CDC_NHSN_LTCF_MANUAL",
+      "section_id": "CDC_NHSN_LTCF_MANUAL_910",
+      "heading": "Why NHSN LTCF tracking matters",
+      "text": "Use NHSN LTCF component concepts to standardize infection tracking and prevention measures. A consistent surveillance approach supports outbreak detection, QAPI trending, and documentation that is easy to defend.",
+      "tags": [
+        "cdc",
+        "nhsn",
+        "surveillance",
+        "qapi"
+      ],
+      "keywords": [
+        "ltcf component",
+        "infection tracking",
+        "prevention process measures"
+      ]
+    },
+    {
+      "source_id": "CDC_NHSN_LTCF_MANUAL",
+      "section_id": "CDC_NHSN_LTCF_MANUAL_911",
+      "heading": "Line list discipline",
+      "text": "Maintain a clean line list during clusters/outbreaks: who, what symptoms, onset dates, test results, unit/room, isolation status, and outcomes. Keep it current and use it for escalation and reporting.",
+      "tags": [
+        "nhsn",
+        "line list",
+        "outbreak"
+      ],
+      "keywords": [
+        "line listing",
+        "onset date",
+        "testing",
+        "isolation"
+      ]
+    },
+    {
+      "source_id": "AHRQ_NH_AS_GUIDE",
+      "section_id": "AHRQ_NH_AS_GUIDE_920",
+      "heading": "Antibiotic stewardship in nursing homes (program focus)",
+      "text": "Use a nursing-home-specific antimicrobial stewardship framework: define criteria for suspected infection, improve communication (SBAR), and monitor antibiotic starts, indications, and durations as part of QAPI.",
+      "tags": [
+        "ahrq",
+        "antibiotic stewardship",
+        "qapi"
+      ],
+      "keywords": [
+        "antimicrobial stewardship",
+        "criteria",
+        "tracking",
+        "qapi"
+      ]
+    },
+    {
+      "source_id": "AHRQ_NH_AS_GUIDE",
+      "section_id": "AHRQ_NH_AS_GUIDE_921",
+      "heading": "Documentation cues for suspected infection",
+      "text": "When antibiotics are considered, document the suspected source, objective signs/symptoms, relevant vitals, test plan, and monitoring/escalation plan. Avoid vague \u201cUTI\u201d language without clinical criteria.",
+      "tags": [
+        "documentation",
+        "uti",
+        "infection",
+        "stewardship"
+      ],
+      "keywords": [
+        "objective criteria",
+        "signs and symptoms",
+        "avoid vague"
+      ]
+    },
+    {
+      "source_id": "IDSA_ASYMPTOMATIC_BACTERIURIA",
+      "section_id": "IDSA_ASYMPTOMATIC_BACTERIURIA_930",
+      "heading": "Do not treat asymptomatic bacteriuria (LTC)",
+      "text": "In older residents in long-term care, bacteriuria without symptoms is common. Use clinical criteria before treating; do not screen or treat asymptomatic bacteriuria unless specific exceptions apply (follow provider/facility protocol).",
+      "tags": [
+        "idsa",
+        "uti",
+        "asymptomatic bacteriuria",
+        "stewardship"
+      ],
+      "keywords": [
+        "asb",
+        "no treatment",
+        "older adults",
+        "long-term care"
+      ]
+    },
+    {
+      "source_id": "IDSA_COMPLICATED_UTI",
+      "section_id": "IDSA_COMPLICATED_UTI_940",
+      "heading": "When UTI is complicated",
+      "text": "Use provider guidance and clinical criteria to distinguish uncomplicated lower urinary symptoms from complicated UTI (e.g., obstruction, systemic illness, instrumentation). Document reason for concern and escalation plan.",
+      "tags": [
+        "idsa",
+        "uti",
+        "escalation"
+      ],
+      "keywords": [
+        "complicated uti",
+        "systemic illness",
+        "escalation"
+      ]
+    },
+    {
+      "source_id": "SHEA_APIC_LTCF",
+      "section_id": "SHEA_APIC_LTCF_950",
+      "heading": "Core elements of infection prevention in LTC",
+      "text": "A strong LTC infection prevention program includes surveillance, outbreak response, staff education, hand hygiene/PPE, environmental cleaning, and reporting to public health when required. Tie infection control work to QAPI.",
+      "tags": [
+        "shea",
+        "apic",
+        "infection control",
+        "ltc",
+        "qapi"
+      ],
+      "keywords": [
+        "core elements",
+        "surveillance",
+        "outbreak response",
+        "education"
+      ]
+    },
+    {
+      "source_id": "SHEA_APIC_LTCF",
+      "section_id": "SHEA_APIC_LTCF_951",
+      "heading": "Notifiable disease reporting expectations",
+      "text": "Maintain a system to recognize and report notifiable diseases to public health. Document who was notified, when, and what data were provided (line list, labs, case counts).",
+      "tags": [
+        "public health",
+        "reporting",
+        "outbreak"
+      ],
+      "keywords": [
+        "notifiable disease",
+        "public health",
+        "documentation"
+      ]
+    },
+    {
+      "source_id": "AHRQ_NH_AS_GUIDE",
+      "section_id": "AHRQ_NH_AS_GUIDE_960",
+      "heading": "Purpose and scope",
+      "text": "Use a structured antimicrobial stewardship program in nursing homes to improve antibiotic use, reduce harms, and support appropriate diagnosis and treatment decisions.",
+      "keywords": [
+        "stewardship",
+        "antibiotics",
+        "nursing home"
+      ],
+      "tags": [
+        "antibiotic stewardship",
+        "ahrq",
+        "infection",
+        "qapi"
+      ]
+    },
+    {
+      "source_id": "AHRQ_NH_AS_GUIDE",
+      "section_id": "AHRQ_NH_AS_GUIDE_961",
+      "heading": "When to suspect infection vs colonization",
+      "text": "Focus on resident-specific signs/symptoms and avoid treating colonization; document objective findings and clinical rationale for starting or withholding antibiotics.",
+      "keywords": [
+        "colonization",
+        "symptoms",
+        "rationale"
+      ],
+      "tags": [
+        "diagnostic stewardship",
+        "uti",
+        "asymptomatic bacteriuria",
+        "documentation"
+      ]
+    },
+    {
+      "source_id": "AHRQ_NH_AS_GUIDE",
+      "section_id": "AHRQ_NH_AS_GUIDE_962",
+      "heading": "Start, monitor, and maintain",
+      "text": "Establish facility goals, track antibiotic starts, review cultures and durations, and provide feedback/education to prescribers and staff.",
+      "keywords": [
+        "monitor",
+        "audit",
+        "feedback"
+      ],
+      "tags": [
+        "tracking",
+        "feedback",
+        "education",
+        "qapi"
+      ]
+    },
+    {
+      "source_id": "AHRQ_NH_AS_GUIDE",
+      "section_id": "AHRQ_NH_AS_GUIDE_963",
+      "heading": "Documentation essentials",
+      "text": "Document indication, symptoms, tests obtained, prescriber notification, orders, start date, planned duration, monitoring plan, and resident response.",
+      "keywords": [
+        "indication",
+        "duration",
+        "response"
+      ],
+      "tags": [
+        "documentation",
+        "orders",
+        "provider notification"
+      ]
+    },
+    {
+      "source_id": "AHRQ_NH_AS_GUIDE",
+      "section_id": "AHRQ_NH_AS_GUIDE_964",
+      "heading": "Tools and templates",
+      "text": "Use standardized forms/checklists (e.g., SBAR, stop-and-watch, antibiotic time-outs) to ensure consistent communication and decision support.",
+      "keywords": [
+        "checklist",
+        "communication"
+      ],
+      "tags": [
+        "tools",
+        "templates",
+        "sbar",
+        "stop-and-watch"
+      ]
+    },
+    {
+      "source_id": "CDC_RESP_VIRUS_TOOLKIT",
+      "section_id": "CDC_RESP_VIRUS_TOOLKIT_970",
+      "heading": "Early recognition and response",
+      "text": "When respiratory symptoms are identified, implement a structured response: assess, consider testing per guidance, and apply appropriate source control and precautions.",
+      "keywords": [
+        "symptoms",
+        "testing",
+        "precautions"
+      ],
+      "tags": [
+        "respiratory",
+        "toolkit",
+        "cdc",
+        "nursing home"
+      ]
+    },
+    {
+      "source_id": "CDC_RESP_VIRUS_TOOLKIT",
+      "section_id": "CDC_RESP_VIRUS_TOOLKIT_971",
+      "heading": "Cohorting and precautions",
+      "text": "Use appropriate precautions (standard + transmission-based as indicated), consider cohorting residents/units, and reinforce PPE/hand hygiene.",
+      "keywords": [
+        "cohort",
+        "isolation",
+        "PPE"
+      ],
+      "tags": [
+        "cohorting",
+        "precautions",
+        "ppe",
+        "hand hygiene"
+      ]
+    },
+    {
+      "source_id": "CDC_RESP_VIRUS_TOOLKIT",
+      "section_id": "CDC_RESP_VIRUS_TOOLKIT_972",
+      "heading": "Outbreak communication",
+      "text": "Maintain line lists as needed, communicate with leadership and public health per policy, and document education and monitoring.",
+      "keywords": [
+        "line list",
+        "public health"
+      ],
+      "tags": [
+        "outbreak",
+        "line list",
+        "reporting",
+        "communication"
+      ]
+    },
+    {
+      "source_id": "CDC_NHSN_LTCF_MANUAL",
+      "section_id": "CDC_NHSN_LTCF_MANUAL_980",
+      "heading": "What NHSN LTCF tracks",
+      "text": "Use the NHSN LTCF Component to track infections and prevention process measures over time to identify trends and improve care.",
+      "keywords": [
+        "track",
+        "measure",
+        "trend"
+      ],
+      "tags": [
+        "nhsn",
+        "ltcf",
+        "surveillance",
+        "cdc"
+      ]
+    },
+    {
+      "source_id": "CDC_NHSN_LTCF_MANUAL",
+      "section_id": "CDC_NHSN_LTCF_MANUAL_981",
+      "heading": "UTI and MDRO surveillance concepts",
+      "text": "Standardize definitions and reporting approaches for events like UTI and MDRO/CDI to support consistent surveillance and benchmarking.",
+      "keywords": [
+        "surveillance",
+        "definitions"
+      ],
+      "tags": [
+        "uti",
+        "mdro",
+        "cdi",
+        "definitions"
+      ]
+    },
+    {
+      "source_id": "CDC_NHSN_LTCF_MANUAL",
+      "section_id": "CDC_NHSN_LTCF_MANUAL_982",
+      "heading": "Process measures",
+      "text": "Use process measures (e.g., hand hygiene, PPE, vaccination, prevention bundles) to drive improvement work alongside outcome measures.",
+      "keywords": [
+        "bundles",
+        "process"
+      ],
+      "tags": [
+        "process measures",
+        "hand hygiene",
+        "ppe",
+        "vaccination"
+      ]
+    },
+    {
+      "source_id": "SHEA_APIC_LTCF",
+      "section_id": "SHEA_APIC_LTCF_990",
+      "heading": "Infection prevention program elements",
+      "text": "Maintain an organized infection prevention program with surveillance, education, policy oversight, and outbreak response capability.",
+      "keywords": [
+        "surveillance",
+        "education",
+        "policy"
+      ],
+      "tags": [
+        "shea",
+        "apic",
+        "infection control",
+        "program"
+      ]
+    },
+    {
+      "source_id": "SHEA_APIC_LTCF",
+      "section_id": "SHEA_APIC_LTCF_991",
+      "heading": "Hand hygiene and PPE fundamentals",
+      "text": "Reinforce hand hygiene and PPE selection based on risk assessment; use audits and feedback to improve compliance.",
+      "keywords": [
+        "audit",
+        "feedback"
+      ],
+      "tags": [
+        "hand hygiene",
+        "ppe",
+        "audits",
+        "compliance"
+      ]
+    },
+    {
+      "source_id": "SHEA_APIC_LTCF",
+      "section_id": "SHEA_APIC_LTCF_992",
+      "heading": "Outbreak detection and response",
+      "text": "Establish triggers for outbreak detection, initiate control measures promptly, and coordinate reporting to public health when required.",
+      "keywords": [
+        "control measures",
+        "triggers"
+      ],
+      "tags": [
+        "outbreak",
+        "reporting",
+        "public health"
+      ]
+    },
+    {
+      "source_id": "SHEA_APIC_LTCF",
+      "section_id": "SHEA_APIC_LTCF_993",
+      "heading": "Employee health considerations",
+      "text": "Include staff illness reporting and work restriction guidance, vaccination programs, and exposure management as part of infection prevention.",
+      "keywords": [
+        "work restriction",
+        "illness"
+      ],
+      "tags": [
+        "employee health",
+        "vaccination",
+        "exposure"
+      ]
+    },
+    {
+      "source_id": "SHEA_APIC_LTCF",
+      "section_id": "SHEA_APIC_LTCF_994",
+      "heading": "Integration with QAPI",
+      "text": "Align infection prevention work with QAPI: track data, prioritize improvement projects, and document interventions and outcomes.",
+      "keywords": [
+        "data",
+        "projects",
+        "outcomes"
+      ],
+      "tags": [
+        "qapi",
+        "performance improvement",
+        "tracking"
+      ]
+    },
+    {
+      "source_id": "IDSA_ASYMPTOMATIC_BACTERIURIA",
+      "section_id": "IDSA_ASYMPTOMATIC_BACTERIURIA_1000",
+      "heading": "Avoid treating ASB in LTC residents",
+      "text": "In older residents of long-term care facilities, avoid screening for or treating asymptomatic bacteriuria; focus evaluation on symptoms and objective findings.",
+      "keywords": [
+        "screening",
+        "treatment",
+        "LTC"
+      ],
+      "tags": [
+        "idsa",
+        "asymptomatic bacteriuria",
+        "uti",
+        "stewardship"
+      ]
+    },
+    {
+      "source_id": "IDSA_ASYMPTOMATIC_BACTERIURIA",
+      "section_id": "IDSA_ASYMPTOMATIC_BACTERIURIA_1001",
+      "heading": "Documentation tip",
+      "text": "Document presence/absence of urinary symptoms and objective findings; if no symptoms, document rationale for not treating and monitoring plan.",
+      "keywords": [
+        "symptoms",
+        "plan"
+      ],
+      "tags": [
+        "documentation",
+        "rationale",
+        "monitoring"
+      ]
+    },
+    {
+      "source_id": "CMS_QSO_25_14_NH",
+      "section_id": "CMS_QSO_25_14_NH_1010",
+      "heading": "Effective date awareness",
+      "text": "Appendix PP revisions take effect on the stated CMS effective date; facilities should align training, audits, and policies accordingly.",
+      "keywords": [
+        "effective",
+        "training",
+        "audit"
+      ],
+      "tags": [
+        "cms",
+        "qso",
+        "appendix pp",
+        "effective date"
+      ]
+    },
+    {
+      "source_id": "CMS_QSO_25_14_NH",
+      "section_id": "CMS_QSO_25_14_NH_1011",
+      "heading": "Training and readiness",
+      "text": "Prepare staff and leadership by reviewing revised pathways and guidance, updating facility processes, and ensuring documentation supports compliance.",
+      "keywords": [
+        "readiness",
+        "pathways"
+      ],
+      "tags": [
+        "training",
+        "survey readiness",
+        "documentation"
+      ]
     }
   ]
 }

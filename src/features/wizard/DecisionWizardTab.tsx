@@ -1,10 +1,8 @@
 // src/features/wizard/DecisionWizardTab.tsx
-// Typing fix (matches your appStore.ts):
-// - Your store keeps the issue text at packetDraft.meta.issue_text
-// - The action to update it is actions.setDraftIssueText
-// - Wizard step 1 -> 2 already reads from packetDraft.meta.issue_text
-//
-// This component reads/writes that same field, so the textarea is editable.
+// Narrative completeness fix:
+// - Step 3 note includes PROBLEM + key findings + only-checked actions.
+// - Typing fix: source of truth = packetDraft.meta.issue_text; setter = actions.setDraftIssueText.
+// - Exports both named + default to satisfy App.tsx imports.
 
 import React, { useEffect, useMemo, useState } from "react";
 import { useAppStore } from "../../store/appStore";
@@ -44,13 +42,19 @@ const PATHWAY_PATHS: Record<string, string> = {
   critical_labs: "/kb/coc/pathways/critical_labs_decision_tree.json",
 };
 
-function buildNarrativeFromChecklist(sections: ChecklistSection[], selected: Record<string, Record<string, boolean>>) {
+function buildActionsNarrative(sections: ChecklistSection[], selected: Record<string, Record<string, boolean>>) {
   const parts: string[] = [];
   for (const sec of sections) {
     const picked = sec.items.filter((it) => selected?.[sec.key]?.[it.id]).map((it) => it.text);
     if (picked.length) parts.push(`${sec.label}: ${picked.join("; ")}`);
   }
   return parts.length ? parts.join(". ") + "." : "";
+}
+
+function prettyValue(val: any): string {
+  if (val === null || val === undefined) return "";
+  if (Array.isArray(val)) return val.filter(Boolean).join(", ");
+  return String(val).trim();
 }
 
 function Btn(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -71,7 +75,6 @@ function Btn(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   );
 }
 
-// Named + default export to satisfy App.tsx imports
 export function DecisionWizardTab() {
   const wizard = useAppStore((s: any) => s.wizard);
   const packetDraft = useAppStore((s: any) => s.packetDraft);
@@ -79,9 +82,8 @@ export function DecisionWizardTab() {
 
   const step: number = wizard?.step ?? 1;
 
-  // ✅ SOURCE OF TRUTH FOR ISSUE TEXT (matches appStore.ts)
+  // ✅ Source of truth (matches appStore.ts)
   const issueText: string = packetDraft?.meta?.issue_text ?? "";
-
   const setIssueText = actions?.setDraftIssueText || ((_: string) => {});
   const wizardBack = actions?.wizardBack || (() => {});
   const wizardNext = actions?.wizardNext || (() => {});
@@ -92,6 +94,7 @@ export function DecisionWizardTab() {
   const [pathwayError, setPathwayError] = useState<string | null>(null);
   const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
 
+  // Local pathway answers (kept client-side)
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [selected, setSelected] = useState<Record<string, Record<string, boolean>>>({});
 
@@ -102,7 +105,6 @@ export function DecisionWizardTab() {
   }, [issueText]);
 
   useEffect(() => {
-    // Only load decision tree in Step 2
     if (step !== 2) return;
 
     if (!pathwayPath) {
@@ -150,10 +152,56 @@ export function DecisionWizardTab() {
     return pathway.nodes.find((n) => n.type === "checklist") as Extract<WizardNode, { type: "checklist" }> | null;
   }, [pathway]);
 
-  const narrative = useMemo(() => {
+  // Concise "Key findings" from answers
+  const findingsLine = useMemo(() => {
+    if (!pathway) return "";
+    const parts: string[] = [];
+    const seen = new Set<string>();
+
+    for (const n of pathway.nodes) {
+      const v = answers[n.id];
+      const pv = prettyValue(v);
+      if (!pv) continue;
+
+      if (n.type === "question_single") {
+        const opt = (n.options || []).find((o) => o.value === v);
+        const label = opt?.label || pv;
+        const key = `${n.id}:${label}`;
+        if (!seen.has(key)) { seen.add(key); parts.push(label); }
+      } else if (n.type === "question_multi") {
+        const labels = Array.isArray(v)
+          ? v.map((val: string) => (n.options || []).find((o) => o.value === val)?.label || val)
+          : [pv];
+        const joined = labels.filter(Boolean).slice(0, 6).join(", ") + (labels.length > 6 ? "…" : "");
+        const key = `${n.id}:${joined}`;
+        if (!seen.has(key)) { seen.add(key); parts.push(joined); }
+      } else if (n.type === "lab_numeric" || n.type === "text_short") {
+        const label = n.prompt.replace(/^Enter\s+/i, "").replace(/\s*\(.*?\)\s*/g, "").trim();
+        const key = `${label}:${pv}`;
+        if (!seen.has(key)) { seen.add(key); parts.push(`${label}: ${pv}`); }
+      }
+    }
+
+    return parts.length ? `Key findings: ${parts.join("; ")}.` : "";
+  }, [pathway, answers]);
+
+  const actionsNarrative = useMemo(() => {
     if (!checklistNode) return "";
-    return buildNarrativeFromChecklist(checklistNode.sections, selected);
+    return buildActionsNarrative(checklistNode.sections, selected);
   }, [checklistNode, selected]);
+
+  const finalNote = useMemo(() => {
+    const prob = issueText?.trim() ? issueText.trim() : "__";
+    const proto = protocol !== "unknown" ? protocol.replaceAll("_", " ") : "general";
+    const header = `Problem: ${prob}. Protocol: ${proto}.`;
+
+    const lines = [header];
+    if (findingsLine) lines.push(findingsLine);
+    if (actionsNarrative) lines.push(actionsNarrative);
+    if (!actionsNarrative) lines.push("Actions: (none selected). Select actions in Step 2 checklist to include them here.");
+
+    return lines.join("\n\n");
+  }, [issueText, protocol, findingsLine, actionsNarrative]);
 
   function goNext(next?: string) { setActiveNodeId(next || null); }
 
@@ -224,7 +272,7 @@ export function DecisionWizardTab() {
             <textarea
               value={issueText}
               onChange={(e) => setIssueText(e.target.value)}
-              placeholder='Try: "stroke symptoms", "chest pain", "pain protocol", or "potassium 2.5"'
+              placeholder='Try: "Potassium 2.5", "Stroke symptoms", "Chest pain", "New/worsening pain protocol"'
               style={{
                 width: "100%",
                 minHeight: 90,
@@ -249,7 +297,7 @@ export function DecisionWizardTab() {
               <div style={{ border: "1px solid #fca5a5", borderRadius: 14, padding: 10 }}>
                 <div style={{ fontWeight: 900 }}>No protocol detected</div>
                 <div style={{ opacity: 0.9 }}>
-                  Try: <b>stroke symptoms</b>, <b>chest pain</b>, <b>pain protocol</b>, <b>potassium 2.5</b>
+                  Try: <b>potassium 2.5</b>, <b>stroke symptoms</b>, <b>chest pain</b>, <b>pain protocol</b>
                 </div>
               </div>
             ) : null}
@@ -372,13 +420,15 @@ export function DecisionWizardTab() {
         {step === 3 ? (
           <div style={{ display: "grid", gap: 10 }}>
             <div style={{ fontWeight: 800 }}>Step 3: Suggested actions + narrative</div>
+
             <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
-              <div style={{ fontWeight: 900 }}>Narrative (only checked items)</div>
-              <textarea value={narrative} readOnly style={{ width: "100%", minHeight: 110, marginTop: 8, padding: 10, borderRadius: 12, border: "1px solid #e5e7eb", fontFamily: "inherit" }} />
+              <div style={{ fontWeight: 900 }}>Progress Note (problem + findings + selected actions)</div>
+              <textarea value={finalNote} readOnly style={{ width: "100%", minHeight: 130, marginTop: 8, padding: 10, borderRadius: 12, border: "1px solid #e5e7eb", fontFamily: "inherit" }} />
               <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-                <Btn onClick={() => navigator.clipboard.writeText(narrative || "")} disabled={!narrative}>Copy Note</Btn>
+                <Btn onClick={() => navigator.clipboard.writeText(finalNote || "")} disabled={!finalNote}>Copy Note</Btn>
               </div>
             </div>
+
             <div style={{ display: "flex", gap: 8 }}>
               <Btn onClick={wizardBack}>Back</Btn>
               <div style={{ flex: 1 }} />

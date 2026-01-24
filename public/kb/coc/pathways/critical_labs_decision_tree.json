@@ -1,0 +1,223 @@
+{
+  "schema": "kb.coc_pathway.v1",
+  "id": "coc_pathway_critical_labs",
+  "title": "Critical Lab Result (COC Triage)",
+  "version": "1.0.0",
+  "startNodeId": "lab_pick",
+  "assets": {
+    "criticalDefaults": "/kb/clinical/critical_values_defaults.json",
+    "kbDocId": "coc_critical_labs"
+  },
+  "nodes": [
+    {
+      "id": "lab_pick",
+      "type": "question_single",
+      "prompt": "Which critical lab result are you triaging?",
+      "options": [
+        {
+          "value": "potassium",
+          "label": "Potassium (K)",
+          "next": "lab_value"
+        },
+        {
+          "value": "sodium",
+          "label": "Sodium (Na)",
+          "next": "lab_value"
+        },
+        {
+          "value": "glucose",
+          "label": "Glucose",
+          "next": "lab_value"
+        },
+        {
+          "value": "calcium_total",
+          "label": "Calcium (Total)",
+          "next": "lab_value"
+        },
+        {
+          "value": "calcium_ionized",
+          "label": "Calcium (Ionized)",
+          "next": "lab_value"
+        },
+        {
+          "value": "magnesium",
+          "label": "Magnesium (Mg)",
+          "next": "lab_value"
+        },
+        {
+          "value": "phosphorus",
+          "label": "Phosphorus (Phos)",
+          "next": "lab_value"
+        },
+        {
+          "value": "lactate",
+          "label": "Lactate",
+          "next": "lab_value"
+        },
+        {
+          "value": "hemoglobin",
+          "label": "Hemoglobin (Hgb)",
+          "next": "lab_value"
+        },
+        {
+          "value": "platelets",
+          "label": "Platelets",
+          "next": "lab_value"
+        },
+        {
+          "value": "wbc",
+          "label": "WBC",
+          "next": "lab_value"
+        },
+        {
+          "value": "inr",
+          "label": "INR",
+          "next": "lab_value"
+        }
+      ]
+    },
+    {
+      "id": "lab_value",
+      "type": "lab_numeric",
+      "prompt": "Enter the lab value exactly as reported (use the units shown on the report).",
+      "defaultsPath": "/kb/clinical/critical_values_defaults.json",
+      "next": "safety_screen"
+    },
+    {
+      "id": "safety_screen",
+      "type": "question_single",
+      "prompt": "Any immediate red flags right now?",
+      "helpText": "Examples: chest pain, severe SOB, syncope, new focal neuro deficit, uncontrolled bleeding, seizure, unstable vitals, severe hypoglycemia symptoms.",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes",
+          "next": "red_flag_stop"
+        },
+        {
+          "value": "no",
+          "label": "No",
+          "next": "focused_assessment"
+        }
+      ]
+    },
+    {
+      "id": "red_flag_stop",
+      "type": "info",
+      "title": "Red Flag \u2014 Escalate",
+      "body": "Follow facility emergency protocol. Ensure safety, obtain vitals, and notify provider/EMS per policy. Document time of notification and orders received.",
+      "next": "actions_checklist"
+    },
+    {
+      "id": "focused_assessment",
+      "type": "question_multi",
+      "prompt": "Focused assessment prompts (select what you assessed / will assess):",
+      "options": [
+        {
+          "value": "vitals_baseline",
+          "label": "Full vital signs + compare to baseline"
+        },
+        {
+          "value": "cardio",
+          "label": "Cardiac symptoms (palpitations, chest discomfort, dizziness/syncope)"
+        },
+        {
+          "value": "neuro",
+          "label": "Neuro status (confusion, weakness, seizure symptoms)"
+        },
+        {
+          "value": "gi",
+          "label": "GI losses (vomiting/diarrhea), intake/hydration"
+        },
+        {
+          "value": "med_review",
+          "label": "Medication review for contributing factors"
+        },
+        {
+          "value": "bleeding",
+          "label": "Bleeding check (if INR/platelets/Hgb concern)"
+        },
+        {
+          "value": "repeat_verify",
+          "label": "Verify/confirm need for repeat lab per provider"
+        }
+      ],
+      "next": "actions_checklist"
+    },
+    {
+      "id": "actions_checklist",
+      "type": "checklist",
+      "title": "Actions (select to include in note)",
+      "sections": [
+        {
+          "key": "assessment",
+          "label": "Assessment",
+          "items": [
+            {
+              "id": "vs",
+              "text": "Obtained full vital signs and compared to baseline"
+            },
+            {
+              "id": "focused",
+              "text": "Performed focused assessment based on the abnormal lab"
+            },
+            {
+              "id": "meds",
+              "text": "Reviewed medication list for contributing factors"
+            }
+          ]
+        },
+        {
+          "key": "interventions",
+          "label": "Interventions",
+          "items": [
+            {
+              "id": "safety",
+              "text": "Implemented immediate safety measures as indicated"
+            },
+            {
+              "id": "repeat",
+              "text": "Arranged repeat lab per provider order / protocol"
+            },
+            {
+              "id": "orders",
+              "text": "Implemented provider orders and monitored response"
+            }
+          ]
+        },
+        {
+          "key": "documentation",
+          "label": "Documentation",
+          "items": [
+            {
+              "id": "sbar",
+              "text": "Notified provider using SBAR with objective findings"
+            },
+            {
+              "id": "notify_family",
+              "text": "Notified resident/representative as appropriate"
+            },
+            {
+              "id": "plan",
+              "text": "Documented monitoring and escalation plan"
+            }
+          ]
+        }
+      ],
+      "next": "outputs"
+    },
+    {
+      "id": "outputs",
+      "type": "summary",
+      "outputs": {
+        "noteTemplate": "narrative_paragraph_only_checked",
+        "kbAdd": [
+          "coc_critical_labs"
+        ],
+        "packetAdd": [
+          "coc_critical_labs"
+        ]
+      }
+    }
+  ]
+}

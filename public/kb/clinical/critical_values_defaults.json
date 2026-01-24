@@ -1,0 +1,207 @@
+{
+  "schema": "kb.critical_values.v1",
+  "notes": [
+    "Critical/panic thresholds vary by laboratory and facility policy. Treat these as configurable defaults.",
+    "Units must match the lab report. If units differ, convert or use a facility-specific table."
+  ],
+  "defaults": [
+    {
+      "analyte": "potassium",
+      "display": "Potassium (K)",
+      "units": "mmol/L",
+      "critical_low": 2.5,
+      "alert_low": 3.0,
+      "critical_high": 6.0,
+      "alert_high": 6.1,
+      "sources": [
+        {
+          "label": "Bridgeport Hospital critical values (K \u22642.5 or \u22656.0)",
+          "url_or_ref": "turn0search17"
+        },
+        {
+          "label": "ARUP Critical Values (K <3.0 or >6.1)",
+          "url_or_ref": "turn0search5"
+        },
+        {
+          "label": "StatPearls: severe hypokalemia <2.5 mmol/L",
+          "url_or_ref": "turn0search3"
+        }
+      ]
+    },
+    {
+      "analyte": "sodium",
+      "display": "Sodium (Na)",
+      "units": "mmol/L",
+      "critical_low": 120,
+      "critical_high": 160,
+      "sources": [
+        {
+          "label": "ARUP Critical Values (Na <120 or >160)",
+          "url_or_ref": "turn0search5"
+        },
+        {
+          "label": "Laboratory Alliance (Na <120 or >160 option shown)",
+          "url_or_ref": "turn0search1"
+        }
+      ]
+    },
+    {
+      "analyte": "glucose",
+      "display": "Glucose",
+      "units": "mg/dL",
+      "critical_low": 50,
+      "critical_high": 400,
+      "sources": [
+        {
+          "label": "UIowa critical values (Glucose 50\u2013450)",
+          "url_or_ref": "turn0search14"
+        },
+        {
+          "label": "Bridgeport Hospital (Glucose \u226450 or \u2265400)",
+          "url_or_ref": "turn0search17"
+        },
+        {
+          "label": "Laboratory Alliance (Glucose <50 or >400)",
+          "url_or_ref": "turn0search1"
+        }
+      ]
+    },
+    {
+      "analyte": "calcium_total",
+      "display": "Calcium (Total)",
+      "units": "mg/dL",
+      "critical_low": 6.5,
+      "critical_high": 11.0,
+      "sources": [
+        {
+          "label": "Laboratory Alliance critical value chart (Ca <6.5 or >11.0)",
+          "url_or_ref": "turn0search1"
+        }
+      ]
+    },
+    {
+      "analyte": "calcium_ionized",
+      "display": "Calcium (Ionized)",
+      "units": "mg/dL",
+      "critical_low": 3.2,
+      "critical_high": 5.9,
+      "sources": [
+        {
+          "label": "UIowa critical values (Ionized Ca 3.2\u20135.9)",
+          "url_or_ref": "turn0search14"
+        }
+      ]
+    },
+    {
+      "analyte": "magnesium",
+      "display": "Magnesium (Mg)",
+      "units": "mg/dL",
+      "critical_low": 1.0,
+      "critical_high": 4.0,
+      "sources": [
+        {
+          "label": "Laboratory Alliance (Mg <1.0 or >4.0)",
+          "url_or_ref": "turn0search1"
+        },
+        {
+          "label": "ARUP publishes Mg thresholds (lab-specific)",
+          "url_or_ref": "turn0search5"
+        }
+      ]
+    },
+    {
+      "analyte": "phosphorus",
+      "display": "Phosphorus (Phos)",
+      "units": "mg/dL",
+      "critical_low": 1.0,
+      "critical_high": 9.0,
+      "sources": [
+        {
+          "label": "ARUP critical values (Phos <1.0 or >9.0)",
+          "url_or_ref": "turn0search5"
+        }
+      ]
+    },
+    {
+      "analyte": "lactate",
+      "display": "Lactate",
+      "units": "mmol/L",
+      "critical_high": 5.0,
+      "sources": [
+        {
+          "label": "ARUP (Lactic Acid \u22655 mmol/L)",
+          "url_or_ref": "turn0search5"
+        },
+        {
+          "label": "UIowa (Lactate 5.0 mmol/L)",
+          "url_or_ref": "turn0search14"
+        }
+      ]
+    },
+    {
+      "analyte": "hemoglobin",
+      "display": "Hemoglobin (Hgb)",
+      "units": "g/dL",
+      "critical_low": 7.0,
+      "sources": [
+        {
+          "label": "Incyte Critical Values (Hgb \u22647.0)",
+          "url_or_ref": "turn1search4"
+        },
+        {
+          "label": "Houston Methodist (Hgb \u22647.0)",
+          "url_or_ref": "turn0search18"
+        },
+        {
+          "label": "UIowa table lists Hgb 6.0 as critical (facility-specific)",
+          "url_or_ref": "turn0search14"
+        }
+      ]
+    },
+    {
+      "analyte": "platelets",
+      "display": "Platelets",
+      "units": "x10^3/uL",
+      "critical_low": 20,
+      "sources": [
+        {
+          "label": "Incyte Critical Values (Platelets \u226420)",
+          "url_or_ref": "turn1search4"
+        },
+        {
+          "label": "Quest priority values (Platelets <20,000/uL)",
+          "url_or_ref": "turn1search16"
+        }
+      ]
+    },
+    {
+      "analyte": "wbc",
+      "display": "WBC",
+      "units": "x10^3/uL",
+      "critical_low": 2.0,
+      "critical_high": 40.0,
+      "sources": [
+        {
+          "label": "Incyte Critical Values (WBC \u22642.0 or \u226540)",
+          "url_or_ref": "turn1search4"
+        }
+      ]
+    },
+    {
+      "analyte": "inr",
+      "display": "INR",
+      "units": "ratio",
+      "critical_high": 5.0,
+      "sources": [
+        {
+          "label": "Incyte Critical Values (INR \u22655.0)",
+          "url_or_ref": "turn1search4"
+        },
+        {
+          "label": "Interpath (INR >4.9)",
+          "url_or_ref": "turn1search8"
+        }
+      ]
+    }
+  ]
+}

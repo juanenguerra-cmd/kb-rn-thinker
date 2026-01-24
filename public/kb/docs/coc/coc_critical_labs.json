@@ -1,0 +1,50 @@
+{
+  "schema": "kb.doc.v1",
+  "id": "coc_critical_labs",
+  "title": "Change of Condition \u2014 Critical Labs (Decision Support)",
+  "updatedAt": "2026-01-23",
+  "tags": [
+    "change of condition",
+    "critical labs",
+    "electrolytes",
+    "SBAR",
+    "triage"
+  ],
+  "summary": "A triage workflow for critical/panic lab values in LTC/SNF: immediate safety checks, focused assessment, SBAR notification, and packet-ready documentation.",
+  "sections": [
+    {
+      "id": "scope",
+      "heading": "Scope and safety note",
+      "body": "Critical value thresholds vary by lab and facility policy. Use this as decision-support: verify the result, assess the resident, and notify the provider per protocol. Escalate to a higher level of care when clinically indicated or directed by the provider."
+    },
+    {
+      "id": "first_5_minutes",
+      "heading": "First 5 minutes checklist (any critical lab)",
+      "body": "Verify the report (resident, date/time). Assess ABCs and symptoms. Obtain vital signs and compare to baseline. Review current meds/recent changes (diuretics, insulin, ACE/ARB, potassium supplements, anticoagulants). Notify provider using SBAR with objective data. Document: notifications, orders received, interventions, response, monitoring/escalation plan."
+    },
+    {
+      "id": "potassium_low_2_5",
+      "heading": "Example: Potassium 2.5 mmol/L (severe hypokalemia)",
+      "body": "Treat K=2.5 mmol/L as a critical/urgent result. Evaluate for weakness/cramps, palpitations, dizziness/syncope, and hydration/GI losses (vomiting/diarrhea). Review contributing meds (diuretics, insulin, beta-agonists, laxatives) and consider concurrent low magnesium. Obtain vitals and monitor for arrhythmia symptoms; obtain EKG/telemetry if available/ordered. Notify provider promptly with SBAR; anticipate repeat labs and replacement orders per provider. Escalate to ED if symptomatic, unstable vitals, suspected arrhythmia, or unable to manage safely in facility per policy/provider direction."
+    },
+    {
+      "id": "common_critical_labs",
+      "heading": "Common critical labs to include in the wizard",
+      "body": "Common 'call/critical' labs used by many labs include: Potassium, Sodium, Glucose, Calcium (total/ionized), Magnesium, Phosphorus, Lactate, Hemoglobin/Hematocrit, Platelets, WBC/ANC, and INR. Use your contracted lab\u2019s published critical value table as the facility-specific source of truth."
+    }
+  ],
+  "citations": [
+    {
+      "label": "Severe hypokalemia threshold (<2.5 mmol/L)",
+      "ref": "turn0search3"
+    },
+    {
+      "label": "Urgent attention for low K (<3.0 mmol/L) (Mayo Clinic)",
+      "ref": "turn0search12"
+    },
+    {
+      "label": "Example critical value tables for electrolytes and glucose",
+      "ref": "turn0search5"
+    }
+  ]
+}

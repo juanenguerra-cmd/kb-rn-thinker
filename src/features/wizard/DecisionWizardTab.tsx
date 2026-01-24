@@ -1,13 +1,15 @@
 // src/features/wizard/DecisionWizardTab.tsx
-// Build-fix + compatibility:
-// - Exports BOTH named and default component: `DecisionWizardTab`
-//   so App.tsx can import either `import { DecisionWizardTab } ...` or `import DecisionWizardTab ...`
+// Typing fix (matches your appStore.ts):
+// - Your store keeps the issue text at packetDraft.meta.issue_text
+// - The action to update it is actions.setDraftIssueText
+// - Wizard step 1 -> 2 already reads from packetDraft.meta.issue_text
+//
+// This component reads/writes that same field, so the textarea is editable.
 
 import React, { useEffect, useMemo, useState } from "react";
 import { useAppStore } from "../../store/appStore";
 
 type Option = { value: string; label: string; next?: string };
-
 type ChecklistItem = { id: string; text: string };
 type ChecklistSection = { key: string; label: string; items: ChecklistItem[] };
 
@@ -69,19 +71,18 @@ function Btn(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   );
 }
 
+// Named + default export to satisfy App.tsx imports
 export function DecisionWizardTab() {
   const wizard = useAppStore((s: any) => s.wizard);
+  const packetDraft = useAppStore((s: any) => s.packetDraft);
   const actions = useAppStore((s: any) => s.actions);
 
   const step: number = wizard?.step ?? 1;
-  const issueText: string = wizard?.issueText ?? wizard?.issue ?? "";
 
-  const setIssueText =
-    actions?.setWizardIssueText ||
-    actions?.setIssueText ||
-    actions?.setWizardIssue ||
-    ((_: string) => {});
+  // ✅ SOURCE OF TRUTH FOR ISSUE TEXT (matches appStore.ts)
+  const issueText: string = packetDraft?.meta?.issue_text ?? "";
 
+  const setIssueText = actions?.setDraftIssueText || ((_: string) => {});
   const wizardBack = actions?.wizardBack || (() => {});
   const wizardNext = actions?.wizardNext || (() => {});
 
@@ -101,7 +102,9 @@ export function DecisionWizardTab() {
   }, [issueText]);
 
   useEffect(() => {
+    // Only load decision tree in Step 2
     if (step !== 2) return;
+
     if (!pathwayPath) {
       setPathway(null);
       setActiveNodeId(null);
@@ -209,13 +212,9 @@ export function DecisionWizardTab() {
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontSize: 12 }}>
           <span style={{ border: "1px solid #e5e7eb", borderRadius: 9999, padding: "6px 10px" }}>Step: {step}</span>
-          <span style={{ border: "1px solid #e5e7eb", borderRadius: 9999, padding: "6px 10px" }}>
-            Protocol: {protocol}
-          </span>
+          <span style={{ border: "1px solid #e5e7eb", borderRadius: 9999, padding: "6px 10px" }}>Protocol: {protocol}</span>
           {pathwayPath ? (
-            <span style={{ border: "1px solid #e5e7eb", borderRadius: 9999, padding: "6px 10px" }}>
-              Path: {pathwayPath}
-            </span>
+            <span style={{ border: "1px solid #e5e7eb", borderRadius: 9999, padding: "6px 10px" }}>Path: {pathwayPath}</span>
           ) : null}
         </div>
 
@@ -270,35 +269,15 @@ export function DecisionWizardTab() {
                 {node ? (
                   <div style={{ marginTop: 10, display: "grid", gap: 10 }}>
                     {"prompt" in node && (node as any).prompt ? <div style={{ fontWeight: 800 }}>{(node as any).prompt}</div> : null}
-                    {"helpText" in node && (node as any).helpText ? (
-                      <div style={{ fontSize: 12, opacity: 0.8 }}>{(node as any).helpText}</div>
-                    ) : null}
+                    {"helpText" in node && (node as any).helpText ? <div style={{ fontSize: 12, opacity: 0.8 }}>{(node as any).helpText}</div> : null}
 
                     {node.type === "question_single" ? (
                       <div style={{ display: "grid", gap: 8 }}>
                         {node.options.map((o) => {
                           const checked = answers[node.id] === o.value;
                           return (
-                            <label
-                              key={o.value}
-                              style={{
-                                display: "flex",
-                                gap: 10,
-                                alignItems: "flex-start",
-                                padding: 10,
-                                border: "1px solid #e5e7eb",
-                                borderRadius: 12,
-                                cursor: "pointer",
-                                background: checked ? "#f1f5f9" : "#fff",
-                              }}
-                            >
-                              <input
-                                type="radio"
-                                name={node.id}
-                                checked={checked}
-                                onChange={() => onSinglePick(node, o.value)}
-                                style={{ marginTop: 3 }}
-                              />
+                            <label key={o.value} style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: 10, border: "1px solid #e5e7eb", borderRadius: 12, cursor: "pointer", background: checked ? "#f1f5f9" : "#fff" }}>
+                              <input type="radio" name={node.id} checked={checked} onChange={() => onSinglePick(node, o.value)} style={{ marginTop: 3 }} />
                               <div style={{ fontWeight: 700 }}>{o.label}</div>
                             </label>
                           );
@@ -312,25 +291,8 @@ export function DecisionWizardTab() {
                           const cur: string[] = Array.isArray(answers[node.id]) ? answers[node.id] : [];
                           const checked = cur.includes(o.value);
                           return (
-                            <label
-                              key={o.value}
-                              style={{
-                                display: "flex",
-                                gap: 10,
-                                alignItems: "flex-start",
-                                padding: 10,
-                                border: "1px solid #e5e7eb",
-                                borderRadius: 12,
-                                cursor: "pointer",
-                                background: checked ? "#f1f5f9" : "#fff",
-                              }}
-                            >
-                              <input
-                                type="checkbox"
-                                checked={checked}
-                                onChange={() => toggleMulti(node, o.value)}
-                                style={{ marginTop: 3 }}
-                              />
+                            <label key={o.value} style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: 10, border: "1px solid #e5e7eb", borderRadius: 12, cursor: "pointer", background: checked ? "#f1f5f9" : "#fff" }}>
+                              <input type="checkbox" checked={checked} onChange={() => toggleMulti(node, o.value)} style={{ marginTop: 3 }} />
                               <div style={{ fontWeight: 700 }}>{o.label}</div>
                             </label>
                           );
@@ -341,21 +303,8 @@ export function DecisionWizardTab() {
 
                     {node.type === "lab_numeric" || node.type === "text_short" ? (
                       <div style={{ display: "grid", gap: 8 }}>
-                        <input
-                          value={String(answers[node.id] ?? "")}
-                          onChange={(e) => setText(node, e.target.value)}
-                          placeholder="Enter value"
-                          style={{
-                            width: "100%",
-                            padding: 10,
-                            borderRadius: 12,
-                            border: "1px solid #e5e7eb",
-                            fontFamily: "inherit",
-                          }}
-                        />
-                        <Btn onClick={() => goNext((node as any).next)} disabled={!String(answers[node.id] ?? "").trim()}>
-                          Continue
-                        </Btn>
+                        <input value={String(answers[node.id] ?? "")} onChange={(e) => setText(node, e.target.value)} placeholder="Enter value" style={{ width: "100%", padding: 10, borderRadius: 12, border: "1px solid #e5e7eb", fontFamily: "inherit" }} />
+                        <Btn onClick={() => goNext((node as any).next)} disabled={!String(answers[node.id] ?? "").trim()}>Continue</Btn>
                       </div>
                     ) : null}
 
@@ -370,7 +319,6 @@ export function DecisionWizardTab() {
                     {node.type === "checklist" ? (
                       <div style={{ display: "grid", gap: 12 }}>
                         <div style={{ fontWeight: 900 }}>{node.title}</div>
-
                         {node.sections.map((sec) => (
                           <div key={sec.key} style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
                             <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
@@ -380,18 +328,12 @@ export function DecisionWizardTab() {
                                 <Btn onClick={() => clearAll(sec.key)} style={{ padding: "6px 10px" }}>Clear</Btn>
                               </div>
                             </div>
-
                             <div style={{ display: "grid", gap: 8, marginTop: 10 }}>
                               {sec.items.map((it) => {
                                 const checked = !!selected?.[sec.key]?.[it.id];
                                 return (
                                   <label key={it.id} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                                    <input
-                                      type="checkbox"
-                                      checked={checked}
-                                      onChange={() => toggleChecklist(sec.key, it.id)}
-                                      style={{ marginTop: 3 }}
-                                    />
+                                    <input type="checkbox" checked={checked} onChange={() => toggleChecklist(sec.key, it.id)} style={{ marginTop: 3 }} />
                                     <div>{it.text}</div>
                                   </label>
                                 );
@@ -399,7 +341,6 @@ export function DecisionWizardTab() {
                             </div>
                           </div>
                         ))}
-
                         <Btn onClick={() => goNext((node as any).next)}>Continue</Btn>
                       </div>
                     ) : null}
@@ -433,23 +374,9 @@ export function DecisionWizardTab() {
             <div style={{ fontWeight: 800 }}>Step 3: Suggested actions + narrative</div>
             <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
               <div style={{ fontWeight: 900 }}>Narrative (only checked items)</div>
-              <textarea
-                value={narrative}
-                readOnly
-                style={{
-                  width: "100%",
-                  minHeight: 110,
-                  marginTop: 8,
-                  padding: 10,
-                  borderRadius: 12,
-                  border: "1px solid #e5e7eb",
-                  fontFamily: "inherit",
-                }}
-              />
+              <textarea value={narrative} readOnly style={{ width: "100%", minHeight: 110, marginTop: 8, padding: 10, borderRadius: 12, border: "1px solid #e5e7eb", fontFamily: "inherit" }} />
               <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-                <Btn onClick={() => navigator.clipboard.writeText(narrative || "")} disabled={!narrative}>
-                  Copy Note
-                </Btn>
+                <Btn onClick={() => navigator.clipboard.writeText(narrative || "")} disabled={!narrative}>Copy Note</Btn>
               </div>
             </div>
             <div style={{ display: "flex", gap: 8 }}>

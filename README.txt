@@ -1,18 +1,13 @@
-PatchOnly — src/store/appStore.ts (FINAL)
+PatchOnly — DecisionWizardTab Typing Fix
 
-Fixes Cloudflare TS2739 build failures:
-- Record<WizardCategory, string> maps were missing: stroke, chest_pain, pain, critical_labs
-- Record<WizardCategory, string[]> map was missing the same keys
+Why you couldn't type:
+- The wizard textarea was bound to wizard.issueText (which doesn't exist in your appStore).
+- Your real issue text lives at packetDraft.meta.issue_text.
+- The action to update it is actions.setDraftIssueText.
 
-This file adds those keys to:
-- assessmentNoteByCategory
-- interventionsNoteByCategory
-- monitoringNoteByCategory
-- seedTermsByCategory
-
-Also fixes regex word-boundary typos in inferWizardFromIssue using \b (so triggers work reliably).
+Fix:
+- Step 1 textarea now reads/writes packetDraft.meta.issue_text via actions.setDraftIssueText.
 
 Apply:
 1) Unzip into repo root (same folder as package.json), overwrite.
 2) Commit + push.
-3) Cloudflare Pages should build cleanly.

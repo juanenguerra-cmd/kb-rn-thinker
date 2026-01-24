@@ -1,9 +1,18 @@
-KB Bulk Update Pack v0.3.0 (regenerated)
+KB Critical Labs + COC Decision Tree (PatchOnly)
 
-Copy the folder public/kb into your repo's public/kb.
-Backup your existing public/kb first (rename to kb_backup).
-Then run:
-  npm run build
-  npm run preview
+Adds:
+- public/kb/clinical/critical_values_defaults.json
+- public/kb/docs/coc/coc_critical_labs.json
+- public/kb/coc/pathways/critical_labs_decision_tree.json
 
-Expected: build-search-index should write ~200 docs.
+Apply:
+1) Unzip into your repo root (same folder as package.json), preserving paths.
+2) Rebuild/deploy:
+   cmd /c "npm run build"
+3) Wizard wiring:
+   - If your wizard auto-loads /kb/coc/pathways/*.json, it will appear automatically.
+   - Otherwise, add a wizard entry that points to:
+     /kb/coc/pathways/critical_labs_decision_tree.json
+
+Important:
+- Replace defaults with your contracted lab’s official critical value table when available.

@@ -1,23 +1,18 @@
-Cloudflare Build Fix — WizardCategory Maps
+PatchOnly — src/store/appStore.ts (FINAL)
 
-Problem:
-Cloudflare build fails with TS2739 in src/store/appStore.ts because Record<WizardCategory, ...> maps
-only include legacy keys: general/fever/respiratory/fall/abuse, while WizardCategory now includes:
-stroke/chest_pain/pain/critical_labs.
+Fixes Cloudflare TS2739 build failures:
+- Record<WizardCategory, string> maps were missing: stroke, chest_pain, pain, critical_labs
+- Record<WizardCategory, string[]> map was missing the same keys
 
-This patch fixes it WITHOUT manual edits by running a pre-TS patch step during build.
+This file adds those keys to:
+- assessmentNoteByCategory
+- interventionsNoteByCategory
+- monitoringNoteByCategory
+- seedTermsByCategory
 
-Files included:
-- scripts/patch-wizardcategory-maps.mjs  (patches src/store/appStore.ts)
-- scripts/patch-packagejson-pretsc.mjs   (patches package.json scripts.build to run the patch before tsc)
+Also fixes regex word-boundary typos in inferWizardFromIssue using \b (so triggers work reliably).
 
-How to apply:
-1) Unzip into your repo root (same folder as package.json).
-2) Run once locally:
-   cmd /c "node scripts/patch-packagejson-pretsc.mjs"
-3) Commit + push.
-4) Cloudflare will now build successfully.
-
-Optional (one-time patch instead of auto):
-- cmd /c "node scripts/patch-wizardcategory-maps.mjs"
-- Commit the appStore.ts changes
+Apply:
+1) Unzip into repo root (same folder as package.json), overwrite.
+2) Commit + push.
+3) Cloudflare Pages should build cleanly.

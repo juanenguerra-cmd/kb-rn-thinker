@@ -57,7 +57,16 @@ type PacketDraftState = {
   blockedReasons: Record<string, string>;
 };
 
-type WizardCategory = "general" | "fever" | "respiratory" | "fall" | "abuse" | "stroke" | "chest_pain" | "pain" | "critical_labs";
+type WizardCategory =
+  | "general"
+  | "fever"
+  | "respiratory"
+  | "fall"
+  | "abuse"
+  | "stroke"
+  | "chest_pain"
+  | "pain"
+  | "critical_labs";
 
 type WizardState = {
   step: 1 | 2 | 3;
@@ -138,7 +147,7 @@ function inferWizardFromIssue(issueText: string): { category: WizardCategory; to
   const t = (issueText || "").toLowerCase();
 
   // Cascading decision-tree triggers (problem-driven)
-  if (/(stroke|tia|facial droop|slurred speech|arm weakness|one[- ]sided weakness|be-?fast|fast)/.test(t)) {
+  if (/(stroke|tia|facial droop|slurred speech|arm weakness|one[- ]sided weakness|be-?fast|\bfast\b)/.test(t)) {
     return { category: "stroke", topic: "Suspected Stroke / TIA (cascading protocol)" };
   }
   if (/(chest pain|chest pressure|acs|heart attack|myocard|angina)/.test(t)) {
@@ -148,7 +157,7 @@ function inferWizardFromIssue(issueText: string): { category: WizardCategory; to
   if (/(pain protocol|new pain|worsening pain|severe pain|uncontrolled pain)/.test(t)) {
     return { category: "pain", topic: "Pain Assessment + Follow-through (cascading protocol)" };
   }
-  if (/(critical lab|panic lab|potassium|k|sodium|na|glucose|troponin|ammonia|anc|neutropen|bun|creatinine|co2|bicarb)/.test(t)) {
+  if (/(critical lab|panic lab|potassium|\bk\b|sodium|\bna\b|glucose|troponin|ammonia|\banc\b|neutropen|bun|creatinine|\bco2\b|bicarb)/.test(t)) {
     return { category: "critical_labs", topic: "Critical Lab Result (cascading protocol)" };
   }
 
@@ -501,7 +510,12 @@ export const useAppStore = create<AppState>((set, get) => ({
         fever: `VS including temperature; assess for infection symptoms (cough, SOB, urinary/GI symptoms), hydration status, mental status compared to baseline, and potential exposure/outbreak context. Consider point-of-care testing per protocol. ${flagLine}`.trim(),
         respiratory: `Assess respiratory status (SpO2, work of breathing, breath sounds), vital signs, and symptom progression. Consider need for oxygen support per protocol/orders. Evaluate for aspiration risk and new neuro changes if present. ${flagLine}`.trim(),
         fall: `Immediate post-fall assessment: VS, pain score, focused neuro check, ROM/guarding, skin/injury check. Determine witnessed/unwitnessed, head strike suspected, anticoagulant/antiplatelet use, and baseline mental status comparison. ${flagLine}`.trim(),
-        abuse: `Ensure immediate safety. Assess resident for injury and acute distress; obtain objective findings (location/size of bruising, skin tears, pain). Preserve facts (who/when/what was reported) and notify supervisor/Administrator/IP per facility policy. ${flagLine}`.trim()
+        abuse: `Ensure immediate safety. Assess resident for injury and acute distress; obtain objective findings (location/size of bruising, skin tears, pain). Preserve facts (who/when/what was reported) and notify supervisor/Administrator/IP per facility policy. ${flagLine}`.trim(),
+
+        stroke: `Treat as time-sensitive neuro emergency when suspected. Obtain full VS and blood glucose (hypoglycemia mimic). Perform focused neuro check (FAST/BE-FAST elements), identify last known well time, and note baseline deficits. If red flags/instability or per protocol, activate EMS/911 and notify provider immediately. ${flagLine}`.trim(),
+        chest_pain: `Assess ABCs, obtain VS and SpO2, and perform focused chest pain assessment (onset, quality, radiation, 0–10, associated symptoms). Compare to baseline, review cardiac history if known, and follow facility chest pain protocol including EMS activation for severe/ongoing symptoms or instability. Notify provider with SBAR. ${flagLine}`.trim(),
+        pain: `Complete structured pain assessment (location, onset, quality, severity 0–10 or PAINAD, functional impact). Assess red flags and likely causes (recent fall/injury, urinary/bowel, wounds). Obtain VS if new/worsening or severe. Review timing/effectiveness of ordered meds and non-pharm measures. ${flagLine}`.trim(),
+        critical_labs: `Verify resident/result/time/specimen. Obtain VS and symptom check relevant to the abnormal lab (cardiac/neuro/resp/bleeding). Review contributing meds/recent changes and baseline renal status. Notify provider promptly with SBAR; anticipate repeat labs and orders. Escalate for instability, concerning symptoms, or per protocol/provider direction. ${flagLine}`.trim()
       };
 
       const interventionsNoteByCategory: Record<WizardCategory, string> = {
@@ -509,7 +523,12 @@ export const useAppStore = create<AppState>((set, get) => ({
         fever: "Initiate infection control precautions as indicated, obtain ordered tests/specimens, encourage fluids as appropriate, administer PRN per orders, and monitor for deterioration. Notify provider per protocol.",
         respiratory: "Position for comfort, apply oxygen per protocol/orders, monitor SpO2/resp effort, implement infection control precautions if indicated, and notify provider for worsening symptoms.",
         fall: "Ensure safety, assist with positioning/mobility per status, provide first aid/wound care as needed, initiate neuro checks if indicated/orders, update precautions, and notify provider per protocol.",
-        abuse: "Ensure safety, notify required leadership immediately, follow mandated reporting/internal reporting policy as applicable, provide care for injuries, and avoid speculation in documentation."
+        abuse: "Ensure safety, notify required leadership immediately, follow mandated reporting/internal reporting policy as applicable, provide care for injuries, and avoid speculation in documentation.",
+
+        stroke: "Activate emergency response/EMS per protocol when stroke suspected. Maintain airway safety and close monitoring. Implement fall precautions, obtain glucose/vitals if feasible without delaying EMS. Notify provider and follow orders. Document exact times.",
+        chest_pain: "Activate EMS per protocol for concerning or unstable symptoms. Provide rest/monitoring and implement standing/provider orders (e.g., oxygen/ASA/NTG) only as ordered and allowed by facility policy. Notify provider immediately.",
+        pain: "Implement ordered non-pharmacologic and pharmacologic interventions. Reassess pain and function after intervention within expected timeframe. Notify provider if uncontrolled/new concerning pain or red flags.",
+        critical_labs: "Implement immediate safety measures, follow provider orders for replacement/monitoring/testing, and increase monitoring as indicated. Escalate to higher level of care for instability, symptomatic arrhythmia/bleeding/AMS, or per provider."
       };
 
       const monitoringNoteByCategory: Record<WizardCategory, string> = {
@@ -517,7 +536,12 @@ export const useAppStore = create<AppState>((set, get) => ({
         fever: "Trend temperature, VS, mental status, intake/output, and symptom progression. Monitor for sepsis indicators or rapid decline and escalate per protocol.",
         respiratory: "Trend SpO2, RR, work of breathing, and mental status. Escalate for increasing O2 needs, distress, or new neuro changes.",
         fall: "Monitor for pain progression, neuro changes (especially head strike/anticoagulants), bleeding, and mobility changes. Follow neuro check protocol/orders when indicated.",
-        abuse: "Monitor for pain, emotional distress, and injury changes. Ensure ongoing safety plan and follow reporting workflow." 
+        abuse: "Monitor for pain, emotional distress, and injury changes. Ensure ongoing safety plan and follow reporting workflow.",
+
+        stroke: "Continue close neuro monitoring and VS per protocol/orders while awaiting EMS/transfer. Escalate for worsening neuro status, airway compromise, or instability.",
+        chest_pain: "Monitor VS/SpO2 and symptom progression closely. Escalate immediately for recurrent/worsening pain, SOB, syncope, hypotension, or new confusion.",
+        pain: "Reassess pain score/behavioral cues and functional impact after interventions. Monitor for side effects of analgesics and for any red flags or rapid decline.",
+        critical_labs: "Trend VS and symptom status; monitor for arrhythmia symptoms, bleeding, AMS, or respiratory distress as relevant. Follow repeat lab schedule and escalate for worsening status."
       };
 
       const narrative = buildWizardNarrative(issueText, wizard);
@@ -542,7 +566,12 @@ export const useAppStore = create<AppState>((set, get) => ({
         fever: ["fever", "outbreak", "reporting", "precautions", "isolation"],
         respiratory: ["resp", "oxygen", "o2", "cough", "precautions", "isolation"],
         fall: ["fall", "accident", "injury"],
-        abuse: ["abuse", "neglect", "reporting", "incident"]
+        abuse: ["abuse", "neglect", "reporting", "incident"],
+
+        stroke: ["stroke", "tia", "neuro", "fast", "be-fast"],
+        chest_pain: ["chest pain", "acs", "heart attack", "cardiac", "troponin"],
+        pain: ["pain", "comfort", "assessment", "palliative"],
+        critical_labs: ["critical values", "potassium", "troponin", "inr", "anc", "ammonia", "bicarbonate", "creatinine"]
       };
 
       const seeds = seedTermsByCategory[wizard.category] ?? seedTermsByCategory.general;

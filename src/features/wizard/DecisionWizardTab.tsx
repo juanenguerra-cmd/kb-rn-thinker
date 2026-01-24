@@ -1,11 +1,9 @@
 // src/features/wizard/DecisionWizardTab.tsx
-// Narrative completeness fix:
-// - Step 3 note includes PROBLEM + key findings + only-checked actions.
-// - Typing fix: source of truth = packetDraft.meta.issue_text; setter = actions.setDraftIssueText.
-// - Exports both named + default to satisfy App.tsx imports.
-
+// Wizard flow: Problem → Pick Match → Cascading Tree → Note
 import React, { useEffect, useMemo, useState } from "react";
 import { useAppStore } from "../../store/appStore";
+import type { CocCatalogItem } from "./useCocCatalog";
+import { ProblemPickerStep } from "./ProblemPickerStep";
 
 type Option = { value: string; label: string; next?: string };
 type ChecklistItem = { id: string; text: string };
@@ -21,26 +19,11 @@ type WizardNode =
 
 type Pathway = { id: string; title: string; version?: string; startNodeId: string; nodes: WizardNode[] };
 
-function lower(s: string) { return (s || "").toLowerCase(); }
-
-function detectProtocol(issueText: string) {
-  const t = lower(issueText);
-  if (t.includes("stroke") || t.includes("tia") || t.includes("face droop") || t.includes("arm weakness")) return "stroke";
-  if (t.includes("chest pain") || t.includes("heart attack") || t.includes("acs")) return "chest_pain";
-  if (t.includes("pain protocol") || t === "pain" || t.startsWith("pain ")) return "pain";
-  if (
-    t.includes("potassium") || t.includes("troponin") || t.includes("anc") || t.includes("ammonia") ||
-    t.includes("bun") || t.includes("creatinine") || t.includes("bicarbonate") || t.includes("co2") || t.includes("critical lab")
-  ) return "critical_labs";
-  return "unknown";
+function prettyValue(val: any): string {
+  if (val === null || val === undefined) return "";
+  if (Array.isArray(val)) return val.filter(Boolean).join(", ");
+  return String(val).trim();
 }
-
-const PATHWAY_PATHS: Record<string, string> = {
-  stroke: "/kb/coc/pathways/stroke_protocol_decision_tree.json",
-  chest_pain: "/kb/coc/pathways/chest_pain_protocol_decision_tree.json",
-  pain: "/kb/coc/pathways/pain_protocol_decision_tree.json",
-  critical_labs: "/kb/coc/pathways/critical_labs_decision_tree.json",
-};
 
 function buildActionsNarrative(sections: ChecklistSection[], selected: Record<string, Record<string, boolean>>) {
   const parts: string[] = [];
@@ -49,12 +32,6 @@ function buildActionsNarrative(sections: ChecklistSection[], selected: Record<st
     if (picked.length) parts.push(`${sec.label}: ${picked.join("; ")}`);
   }
   return parts.length ? parts.join(". ") + "." : "";
-}
-
-function prettyValue(val: any): string {
-  if (val === null || val === undefined) return "";
-  if (Array.isArray(val)) return val.filter(Boolean).join(", ");
-  return String(val).trim();
 }
 
 function Btn(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -69,7 +46,7 @@ function Btn(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
         background: "#fff",
         cursor: props.disabled ? "not-allowed" : "pointer",
         opacity: props.disabled ? 0.6 : 1,
-        ...(style || {}),
+        ...(style || {})
       }}
     />
   );
@@ -81,28 +58,28 @@ export function DecisionWizardTab() {
   const actions = useAppStore((s: any) => s.actions);
 
   const step: number = wizard?.step ?? 1;
-
-  // ✅ Source of truth (matches appStore.ts)
   const issueText: string = packetDraft?.meta?.issue_text ?? "";
   const setIssueText = actions?.setDraftIssueText || ((_: string) => {});
   const wizardBack = actions?.wizardBack || (() => {});
   const wizardNext = actions?.wizardNext || (() => {});
 
-  const [protocol, setProtocol] = useState<string>(() => detectProtocol(issueText));
+  const [selectedProblem, setSelectedProblem] = useState<CocCatalogItem | null>(null);
+
   const [pathwayPath, setPathwayPath] = useState<string | null>(null);
   const [pathway, setPathway] = useState<Pathway | null>(null);
   const [pathwayError, setPathwayError] = useState<string | null>(null);
   const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
 
-  // Local pathway answers (kept client-side)
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [selected, setSelected] = useState<Record<string, Record<string, boolean>>>({});
 
   useEffect(() => {
-    const p = detectProtocol(issueText);
-    setProtocol(p);
-    setPathwayPath(PATHWAY_PATHS[p] || null);
-  }, [issueText]);
+    if (step === 1) setSelectedProblem(null);
+  }, [issueText, step]);
+
+  useEffect(() => {
+    setPathwayPath(selectedProblem?.pathway || null);
+  }, [selectedProblem]);
 
   useEffect(() => {
     if (step !== 2) return;
@@ -136,7 +113,9 @@ export function DecisionWizardTab() {
         setPathwayError(String(e?.message || e));
       });
 
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [step, pathwayPath]);
 
   const nodesById = useMemo(() => {
@@ -152,7 +131,6 @@ export function DecisionWizardTab() {
     return pathway.nodes.find((n) => n.type === "checklist") as Extract<WizardNode, { type: "checklist" }> | null;
   }, [pathway]);
 
-  // Concise "Key findings" from answers
   const findingsLine = useMemo(() => {
     if (!pathway) return "";
     const parts: string[] = [];
@@ -192,16 +170,14 @@ export function DecisionWizardTab() {
 
   const finalNote = useMemo(() => {
     const prob = issueText?.trim() ? issueText.trim() : "__";
-    const proto = protocol !== "unknown" ? protocol.replaceAll("_", " ") : "general";
-    const header = `Problem: ${prob}. Protocol: ${proto}.`;
-
+    const label = selectedProblem?.label || "General change in condition";
+    const header = `Problem: ${prob}. Selected COC topic: ${label}.`;
     const lines = [header];
     if (findingsLine) lines.push(findingsLine);
     if (actionsNarrative) lines.push(actionsNarrative);
-    if (!actionsNarrative) lines.push("Actions: (none selected). Select actions in Step 2 checklist to include them here.");
-
+    if (!actionsNarrative) lines.push("Actions: (none selected). Select actions in the checklist to include them here.");
     return lines.join("\n\n");
-  }, [issueText, protocol, findingsLine, actionsNarrative]);
+  }, [issueText, selectedProblem, findingsLine, actionsNarrative]);
 
   function goNext(next?: string) { setActiveNodeId(next || null); }
 
@@ -250,7 +226,7 @@ export function DecisionWizardTab() {
     padding: 12,
     display: "grid",
     gap: 12,
-    background: "#fff",
+    background: "#fff"
   };
 
   return (
@@ -260,7 +236,9 @@ export function DecisionWizardTab() {
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontSize: 12 }}>
           <span style={{ border: "1px solid #e5e7eb", borderRadius: 9999, padding: "6px 10px" }}>Step: {step}</span>
-          <span style={{ border: "1px solid #e5e7eb", borderRadius: 9999, padding: "6px 10px" }}>Protocol: {protocol}</span>
+          {selectedProblem?.label ? (
+            <span style={{ border: "1px solid #e5e7eb", borderRadius: 9999, padding: "6px 10px" }}>Selected: {selectedProblem.label}</span>
+          ) : null}
           {pathwayPath ? (
             <span style={{ border: "1px solid #e5e7eb", borderRadius: 9999, padding: "6px 10px" }}>Path: {pathwayPath}</span>
           ) : null}
@@ -268,19 +246,12 @@ export function DecisionWizardTab() {
 
         {step === 1 ? (
           <div style={{ display: "grid", gap: 10 }}>
-            <div style={{ fontWeight: 800 }}>Step 1: Enter the problem</div>
+            <div style={{ fontWeight: 800 }}>Step 1: Describe the change in condition</div>
             <textarea
               value={issueText}
               onChange={(e) => setIssueText(e.target.value)}
-              placeholder='Try: "Potassium 2.5", "Stroke symptoms", "Chest pain", "New/worsening pain protocol"'
-              style={{
-                width: "100%",
-                minHeight: 90,
-                padding: 10,
-                borderRadius: 12,
-                border: "1px solid #e5e7eb",
-                fontFamily: "inherit",
-              }}
+              placeholder='Example: "Refusing meds since morning; more confused" or "Potassium 2.5" or "Chest pain radiating to jaw"'
+              style={{ width: "100%", minHeight: 90, padding: 10, borderRadius: 12, border: "1px solid #e5e7eb", fontFamily: "inherit" }}
             />
             <div style={{ display: "flex", gap: 8 }}>
               <div style={{ flex: 1 }} />
@@ -290,137 +261,142 @@ export function DecisionWizardTab() {
         ) : null}
 
         {step === 2 ? (
-          <div style={{ display: "grid", gap: 10 }}>
-            <div style={{ fontWeight: 800 }}>Step 2: Cascading questions</div>
+          <div style={{ display: "grid", gap: 12 }}>
+            <ProblemPickerStep
+              query={issueText}
+              selectedId={selectedProblem?.id || null}
+              onSelect={(it) => setSelectedProblem(it)}
+            />
 
-            {protocol === "unknown" ? (
-              <div style={{ border: "1px solid #fca5a5", borderRadius: 14, padding: 10 }}>
-                <div style={{ fontWeight: 900 }}>No protocol detected</div>
-                <div style={{ opacity: 0.9 }}>
-                  Try: <b>potassium 2.5</b>, <b>stroke symptoms</b>, <b>chest pain</b>, <b>pain protocol</b>
-                </div>
-              </div>
-            ) : null}
+            {selectedProblem ? (
+              <div style={{ borderTop: "1px solid #eef2f7", paddingTop: 12, display: "grid", gap: 10 }}>
+                <div style={{ fontWeight: 800 }}>Cascading decision tree</div>
 
-            {pathwayError ? (
-              <div style={{ border: "1px solid #fca5a5", borderRadius: 14, padding: 10 }}>
-                <div style={{ fontWeight: 900 }}>Could not load decision tree</div>
-                <div style={{ opacity: 0.9 }}>{pathwayError}</div>
-              </div>
-            ) : null}
+                {pathwayError ? (
+                  <div style={{ border: "1px solid #fca5a5", borderRadius: 12, padding: 10 }}>
+                    <div style={{ fontWeight: 800 }}>Could not load decision tree</div>
+                    <div style={{ fontSize: 12, opacity: 0.9 }}>{pathwayError}</div>
+                  </div>
+                ) : null}
 
-            {pathway ? (
-              <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
-                <div style={{ fontWeight: 900 }}>{pathway.title}</div>
-                <div style={{ fontSize: 12, opacity: 0.8 }}>Loaded node: {activeNodeId || "(end)"}</div>
+                {pathway ? (
+                  <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
+                    <div style={{ fontWeight: 900 }}>{pathway.title}</div>
+                    <div style={{ fontSize: 12, opacity: 0.8 }}>Loaded node: {activeNodeId || "(end)"}</div>
 
-                {node ? (
-                  <div style={{ marginTop: 10, display: "grid", gap: 10 }}>
-                    {"prompt" in node && (node as any).prompt ? <div style={{ fontWeight: 800 }}>{(node as any).prompt}</div> : null}
-                    {"helpText" in node && (node as any).helpText ? <div style={{ fontSize: 12, opacity: 0.8 }}>{(node as any).helpText}</div> : null}
+                    {node ? (
+                      <div style={{ marginTop: 10, display: "grid", gap: 10 }}>
+                        {"prompt" in node && (node as any).prompt ? <div style={{ fontWeight: 800 }}>{(node as any).prompt}</div> : null}
+                        {"helpText" in node && (node as any).helpText ? <div style={{ fontSize: 12, opacity: 0.8 }}>{(node as any).helpText}</div> : null}
 
-                    {node.type === "question_single" ? (
-                      <div style={{ display: "grid", gap: 8 }}>
-                        {node.options.map((o) => {
-                          const checked = answers[node.id] === o.value;
-                          return (
-                            <label key={o.value} style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: 10, border: "1px solid #e5e7eb", borderRadius: 12, cursor: "pointer", background: checked ? "#f1f5f9" : "#fff" }}>
-                              <input type="radio" name={node.id} checked={checked} onChange={() => onSinglePick(node, o.value)} style={{ marginTop: 3 }} />
-                              <div style={{ fontWeight: 700 }}>{o.label}</div>
-                            </label>
-                          );
-                        })}
-                      </div>
-                    ) : null}
-
-                    {node.type === "question_multi" ? (
-                      <div style={{ display: "grid", gap: 8 }}>
-                        {node.options.map((o) => {
-                          const cur: string[] = Array.isArray(answers[node.id]) ? answers[node.id] : [];
-                          const checked = cur.includes(o.value);
-                          return (
-                            <label key={o.value} style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: 10, border: "1px solid #e5e7eb", borderRadius: 12, cursor: "pointer", background: checked ? "#f1f5f9" : "#fff" }}>
-                              <input type="checkbox" checked={checked} onChange={() => toggleMulti(node, o.value)} style={{ marginTop: 3 }} />
-                              <div style={{ fontWeight: 700 }}>{o.label}</div>
-                            </label>
-                          );
-                        })}
-                        <Btn onClick={() => goNext((node as any).next)}>Continue</Btn>
-                      </div>
-                    ) : null}
-
-                    {node.type === "lab_numeric" || node.type === "text_short" ? (
-                      <div style={{ display: "grid", gap: 8 }}>
-                        <input value={String(answers[node.id] ?? "")} onChange={(e) => setText(node, e.target.value)} placeholder="Enter value" style={{ width: "100%", padding: 10, borderRadius: 12, border: "1px solid #e5e7eb", fontFamily: "inherit" }} />
-                        <Btn onClick={() => goNext((node as any).next)} disabled={!String(answers[node.id] ?? "").trim()}>Continue</Btn>
-                      </div>
-                    ) : null}
-
-                    {node.type === "info" ? (
-                      <div style={{ border: "1px solid #fde68a", borderRadius: 14, padding: 10 }}>
-                        <div style={{ fontWeight: 900 }}>{node.title}</div>
-                        <div style={{ opacity: 0.9, marginTop: 6 }}>{node.body}</div>
-                        <Btn onClick={() => goNext((node as any).next)} style={{ marginTop: 10 }}>Continue</Btn>
-                      </div>
-                    ) : null}
-
-                    {node.type === "checklist" ? (
-                      <div style={{ display: "grid", gap: 12 }}>
-                        <div style={{ fontWeight: 900 }}>{node.title}</div>
-                        {node.sections.map((sec) => (
-                          <div key={sec.key} style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
-                            <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
-                              <div style={{ fontWeight: 800 }}>{sec.label}</div>
-                              <div style={{ display: "flex", gap: 8 }}>
-                                <Btn onClick={() => selectAll(sec)} style={{ padding: "6px 10px" }}>Select all</Btn>
-                                <Btn onClick={() => clearAll(sec.key)} style={{ padding: "6px 10px" }}>Clear</Btn>
-                              </div>
-                            </div>
-                            <div style={{ display: "grid", gap: 8, marginTop: 10 }}>
-                              {sec.items.map((it) => {
-                                const checked = !!selected?.[sec.key]?.[it.id];
-                                return (
-                                  <label key={it.id} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                                    <input type="checkbox" checked={checked} onChange={() => toggleChecklist(sec.key, it.id)} style={{ marginTop: 3 }} />
-                                    <div>{it.text}</div>
-                                  </label>
-                                );
-                              })}
-                            </div>
+                        {node.type === "question_single" ? (
+                          <div style={{ display: "grid", gap: 8 }}>
+                            {node.options.map((o) => {
+                              const checked = answers[node.id] === o.value;
+                              return (
+                                <label key={o.value} style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: 10, border: "1px solid #e5e7eb", borderRadius: 12, cursor: "pointer", background: checked ? "#f1f5f9" : "#fff" }}>
+                                  <input type="radio" name={node.id} checked={checked} onChange={() => onSinglePick(node, o.value)} style={{ marginTop: 3 }} />
+                                  <div style={{ fontWeight: 700 }}>{o.label}</div>
+                                </label>
+                              );
+                            })}
                           </div>
-                        ))}
-                        <Btn onClick={() => goNext((node as any).next)}>Continue</Btn>
-                      </div>
-                    ) : null}
+                        ) : null}
 
-                    {node.type === "summary" ? (
-                      <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
-                        <div style={{ fontWeight: 900 }}>Decision tree complete</div>
+                        {node.type === "question_multi" ? (
+                          <div style={{ display: "grid", gap: 8 }}>
+                            {node.options.map((o) => {
+                              const cur: string[] = Array.isArray(answers[node.id]) ? answers[node.id] : [];
+                              const checked = cur.includes(o.value);
+                              return (
+                                <label key={o.value} style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: 10, border: "1px solid #e5e7eb", borderRadius: 12, cursor: "pointer", background: checked ? "#f1f5f9" : "#fff" }}>
+                                  <input type="checkbox" checked={checked} onChange={() => toggleMulti(node, o.value)} style={{ marginTop: 3 }} />
+                                  <div style={{ fontWeight: 700 }}>{o.label}</div>
+                                </label>
+                              );
+                            })}
+                            <Btn onClick={() => goNext((node as any).next)}>Continue</Btn>
+                          </div>
+                        ) : null}
+
+                        {node.type === "lab_numeric" || node.type === "text_short" ? (
+                          <div style={{ display: "grid", gap: 8 }}>
+                            <input value={String(answers[node.id] ?? "")} onChange={(e) => setText(node, e.target.value)} placeholder="Enter value" style={{ width: "100%", padding: 10, borderRadius: 12, border: "1px solid #e5e7eb", fontFamily: "inherit" }} />
+                            <Btn onClick={() => goNext((node as any).next)} disabled={!String(answers[node.id] ?? "").trim()}>Continue</Btn>
+                          </div>
+                        ) : null}
+
+                        {node.type === "info" ? (
+                          <div style={{ border: "1px solid #fde68a", borderRadius: 14, padding: 10 }}>
+                            <div style={{ fontWeight: 900 }}>{node.title}</div>
+                            <div style={{ opacity: 0.9, marginTop: 6 }}>{node.body}</div>
+                            <Btn onClick={() => goNext((node as any).next)} style={{ marginTop: 10 }}>Continue</Btn>
+                          </div>
+                        ) : null}
+
+                        {node.type === "checklist" ? (
+                          <div style={{ display: "grid", gap: 12 }}>
+                            <div style={{ fontWeight: 900 }}>{node.title}</div>
+                            {node.sections.map((sec) => (
+                              <div key={sec.key} style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
+                                <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
+                                  <div style={{ fontWeight: 800 }}>{sec.label}</div>
+                                  <div style={{ display: "flex", gap: 8 }}>
+                                    <Btn onClick={() => selectAll(sec)} style={{ padding: "6px 10px" }}>Select all</Btn>
+                                    <Btn onClick={() => clearAll(sec.key)} style={{ padding: "6px 10px" }}>Clear</Btn>
+                                  </div>
+                                </div>
+                                <div style={{ display: "grid", gap: 8, marginTop: 10 }}>
+                                  {sec.items.map((it) => {
+                                    const checked = !!selected?.[sec.key]?.[it.id];
+                                    return (
+                                      <label key={it.id} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                                        <input type="checkbox" checked={checked} onChange={() => toggleChecklist(sec.key, it.id)} style={{ marginTop: 3 }} />
+                                        <div>{it.text}</div>
+                                      </label>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            ))}
+                            <Btn onClick={() => goNext((node as any).next)}>Continue</Btn>
+                          </div>
+                        ) : null}
+
+                        {node.type === "summary" ? (
+                          <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
+                            <div style={{ fontWeight: 900 }}>Decision tree complete</div>
+                            <Btn onClick={wizardNext} style={{ marginTop: 10 }}>Next</Btn>
+                          </div>
+                        ) : null}
+                      </div>
+                    ) : (
+                      <div style={{ marginTop: 10 }}>
+                        <div style={{ opacity: 0.9 }}>End of decision tree reached.</div>
                         <Btn onClick={wizardNext} style={{ marginTop: 10 }}>Next</Btn>
                       </div>
-                    ) : null}
+                    )}
                   </div>
-                ) : (
-                  <div style={{ marginTop: 10 }}>
-                    <div style={{ opacity: 0.9 }}>End of decision tree reached.</div>
-                    <Btn onClick={wizardNext} style={{ marginTop: 10 }}>Next</Btn>
-                  </div>
-                )}
+                ) : null}
               </div>
-            ) : null}
+            ) : (
+              <div style={{ border: "1px solid #fde68a", borderRadius: 12, padding: 10 }}>
+                <div style={{ fontWeight: 800 }}>Select a problem to start the tree</div>
+                <div style={{ fontSize: 12, opacity: 0.85 }}>Pick the closest match above; the decision tree will appear here.</div>
+              </div>
+            )}
 
             <div style={{ display: "flex", gap: 8 }}>
               <Btn onClick={wizardBack}>Back</Btn>
               <div style={{ flex: 1 }} />
-              <Btn onClick={wizardNext} disabled={!pathway || !!pathwayError}>Next</Btn>
+              <Btn onClick={wizardNext} disabled={!selectedProblem || !!pathwayError}>Next</Btn>
             </div>
           </div>
         ) : null}
 
         {step === 3 ? (
           <div style={{ display: "grid", gap: 10 }}>
-            <div style={{ fontWeight: 800 }}>Step 3: Suggested actions + narrative</div>
-
+            <div style={{ fontWeight: 800 }}>Step 3: Progress note</div>
             <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
               <div style={{ fontWeight: 900 }}>Progress Note (problem + findings + selected actions)</div>
               <textarea value={finalNote} readOnly style={{ width: "100%", minHeight: 130, marginTop: 8, padding: 10, borderRadius: 12, border: "1px solid #e5e7eb", fontFamily: "inherit" }} />
@@ -428,7 +404,6 @@ export function DecisionWizardTab() {
                 <Btn onClick={() => navigator.clipboard.writeText(finalNote || "")} disabled={!finalNote}>Copy Note</Btn>
               </div>
             </div>
-
             <div style={{ display: "flex", gap: 8 }}>
               <Btn onClick={wizardBack}>Back</Btn>
               <div style={{ flex: 1 }} />

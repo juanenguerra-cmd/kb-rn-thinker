@@ -1,0 +1,343 @@
+{
+  "schema": "coc.pathway.v1",
+  "id": "general_change_in_condition",
+  "title": "General Change in Condition \u2014 Decision Ladder (Starter)",
+  "version": "0.1.0",
+  "startNodeId": "q_redflags",
+  "nodes": [
+    {
+      "id": "q_redflags",
+      "type": "question_multi",
+      "prompt": "Red flags (select any that apply)",
+      "helpText": "If any red flags are present, prioritize immediate safety assessment and escalate per protocol/provider direction.",
+      "options": [
+        {
+          "value": "airway",
+          "label": "Airway/breathing distress (gasping, cyanosis, cannot speak full sentences)"
+        },
+        {
+          "value": "severe_chest_pain",
+          "label": "Severe or ongoing chest pain/pressure or suspected ACS"
+        },
+        {
+          "value": "new_focal_deficit",
+          "label": "New focal neuro deficit (face droop, arm weakness, slurred speech)"
+        },
+        {
+          "value": "unresponsive",
+          "label": "Unresponsive, seizure, or rapidly worsening mental status"
+        },
+        {
+          "value": "shock",
+          "label": "Signs of shock (very low BP, cool/clammy, poor perfusion)"
+        },
+        {
+          "value": "severe_bleeding",
+          "label": "Uncontrolled bleeding or suspected major bleed"
+        }
+      ],
+      "next": "q_primary_domain"
+    },
+    {
+      "id": "q_primary_domain",
+      "type": "question_single",
+      "prompt": "Primary problem domain",
+      "helpText": "Pick the closest match; the next questions will narrow it down.",
+      "options": [
+        {
+          "value": "infection",
+          "label": "Infection / fever / possible sepsis",
+          "next": "q_infection_symptoms"
+        },
+        {
+          "value": "resp",
+          "label": "Respiratory / low O2 / cough",
+          "next": "q_resp_symptoms"
+        },
+        {
+          "value": "neuro",
+          "label": "Neuro / mental status change",
+          "next": "q_neuro_symptoms"
+        },
+        {
+          "value": "gi",
+          "label": "GI / hydration / bowel",
+          "next": "q_gi_symptoms"
+        },
+        {
+          "value": "gu",
+          "label": "GU / urinary symptoms",
+          "next": "q_gu_symptoms"
+        },
+        {
+          "value": "pain",
+          "label": "Pain",
+          "next": "q_pain_assess"
+        },
+        {
+          "value": "other",
+          "label": "Other / uncertain",
+          "next": "q_other_notes"
+        }
+      ]
+    },
+    {
+      "id": "q_infection_symptoms",
+      "type": "question_multi",
+      "prompt": "Infection symptom checker",
+      "options": [
+        {
+          "value": "fever",
+          "label": "Fever/chills"
+        },
+        {
+          "value": "cough",
+          "label": "Cough/sore throat"
+        },
+        {
+          "value": "sob",
+          "label": "Shortness of breath"
+        },
+        {
+          "value": "dysuria",
+          "label": "Dysuria/frequency"
+        },
+        {
+          "value": "wound",
+          "label": "Wound redness/drainage"
+        },
+        {
+          "value": "ams",
+          "label": "New confusion"
+        }
+      ],
+      "next": "t_vitals"
+    },
+    {
+      "id": "q_resp_symptoms",
+      "type": "question_multi",
+      "prompt": "Respiratory symptom checker",
+      "options": [
+        {
+          "value": "low_o2",
+          "label": "Low SpO2/desaturation"
+        },
+        {
+          "value": "wob",
+          "label": "Increased work of breathing"
+        },
+        {
+          "value": "wheeze",
+          "label": "Wheezing"
+        },
+        {
+          "value": "crackles",
+          "label": "Crackles"
+        },
+        {
+          "value": "aspiration",
+          "label": "Choking/aspiration event"
+        }
+      ],
+      "next": "t_vitals"
+    },
+    {
+      "id": "q_neuro_symptoms",
+      "type": "question_multi",
+      "prompt": "Neuro/mental status symptom checker",
+      "options": [
+        {
+          "value": "confusion",
+          "label": "New confusion/delirium"
+        },
+        {
+          "value": "lethargy",
+          "label": "Lethargy/somnolence"
+        },
+        {
+          "value": "headache",
+          "label": "Severe headache"
+        },
+        {
+          "value": "weakness",
+          "label": "New weakness"
+        },
+        {
+          "value": "speech",
+          "label": "Slurred speech"
+        },
+        {
+          "value": "fall",
+          "label": "Recent fall/head strike"
+        }
+      ],
+      "next": "t_vitals"
+    },
+    {
+      "id": "q_gi_symptoms",
+      "type": "question_multi",
+      "prompt": "GI/hydration symptom checker",
+      "options": [
+        {
+          "value": "n/v",
+          "label": "Nausea/vomiting"
+        },
+        {
+          "value": "diarrhea",
+          "label": "Diarrhea"
+        },
+        {
+          "value": "no_bm",
+          "label": "No BM/constipation"
+        },
+        {
+          "value": "abd_pain",
+          "label": "Abdominal pain"
+        },
+        {
+          "value": "poor_intake",
+          "label": "Poor intake/dehydration"
+        }
+      ],
+      "next": "t_vitals"
+    },
+    {
+      "id": "q_gu_symptoms",
+      "type": "question_multi",
+      "prompt": "GU symptom checker",
+      "options": [
+        {
+          "value": "dysuria",
+          "label": "Dysuria/frequency"
+        },
+        {
+          "value": "retention",
+          "label": "Urinary retention/low output"
+        },
+        {
+          "value": "hematuria",
+          "label": "Hematuria"
+        },
+        {
+          "value": "catheter",
+          "label": "Catheter issue/leak/dislodged"
+        }
+      ],
+      "next": "t_vitals"
+    },
+    {
+      "id": "q_pain_assess",
+      "type": "text_short",
+      "prompt": "Enter pain location and severity (e.g., R hip 8/10)",
+      "next": "t_vitals"
+    },
+    {
+      "id": "q_other_notes",
+      "type": "text_short",
+      "prompt": "Briefly describe the concern (1\u20132 lines)",
+      "next": "t_vitals"
+    },
+    {
+      "id": "t_vitals",
+      "type": "info",
+      "title": "Collect minimum data",
+      "body": "Obtain full vital signs (BP/HR/RR/T/SpO2) and compare to baseline. Perform focused assessment related to the concern. Review recent medication changes and relevant history. Notify provider using SBAR when indicated.",
+      "next": "check_actions"
+    },
+    {
+      "id": "check_actions",
+      "type": "checklist",
+      "title": "Select actions to include in the progress note",
+      "sections": [
+        {
+          "key": "assessment",
+          "label": "Assessment",
+          "items": [
+            {
+              "id": "vs",
+              "text": "Obtained full vital signs and compared to baseline"
+            },
+            {
+              "id": "focused",
+              "text": "Completed focused assessment related to the concern"
+            },
+            {
+              "id": "ms",
+              "text": "Assessed mental status and compared to baseline"
+            },
+            {
+              "id": "i/o",
+              "text": "Reviewed intake/output and hydration status"
+            }
+          ]
+        },
+        {
+          "key": "interventions",
+          "label": "Interventions",
+          "items": [
+            {
+              "id": "safety",
+              "text": "Implemented immediate safety measures as indicated"
+            },
+            {
+              "id": "precautions",
+              "text": "Initiated precautions/isolation per protocol when indicated"
+            },
+            {
+              "id": "tests",
+              "text": "Obtained ordered tests/specimens per protocol/orders"
+            },
+            {
+              "id": "prn",
+              "text": "Administered PRN/ordered meds per protocol/orders"
+            }
+          ]
+        },
+        {
+          "key": "monitoring",
+          "label": "Monitoring",
+          "items": [
+            {
+              "id": "trend",
+              "text": "Trending symptoms and vital signs; increased monitoring as indicated"
+            },
+            {
+              "id": "escalate",
+              "text": "Escalation plan in place for rapid decline or red flags"
+            }
+          ]
+        },
+        {
+          "key": "documentation",
+          "label": "Documentation",
+          "items": [
+            {
+              "id": "sbar",
+              "text": "Notified provider using SBAR with objective findings"
+            },
+            {
+              "id": "orders",
+              "text": "Implemented provider orders and monitored response"
+            },
+            {
+              "id": "family",
+              "text": "Notified resident/representative/family as appropriate"
+            },
+            {
+              "id": "plan",
+              "text": "Documented monitoring and escalation plan"
+            }
+          ]
+        }
+      ],
+      "next": "done"
+    },
+    {
+      "id": "done",
+      "type": "summary",
+      "outputs": {
+        "noteTemplate": "Problem: {{issue}}. Key findings: {{findings}}. {{actions}}"
+      }
+    }
+  ]
+}

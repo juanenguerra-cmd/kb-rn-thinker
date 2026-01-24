@@ -1,0 +1,1049 @@
+{
+  "schema": "coc.catalog.v1",
+  "updatedAt": "2026-01-24",
+  "count": 46,
+  "items": [
+    {
+      "id": "coc_stroke_tia",
+      "label": "Suspected Stroke / TIA",
+      "category": "Neuro",
+      "synonyms": [
+        "stroke symptoms",
+        "tia",
+        "face droop",
+        "arm weakness",
+        "slurred speech",
+        "one-sided weakness",
+        "be-fast",
+        "fast"
+      ],
+      "tags": [
+        "stroke",
+        "neuro",
+        "emergency"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/stroke_protocol_decision_tree.json",
+      "minimumData": [
+        "last_known_well",
+        "vitals",
+        "blood_glucose",
+        "baseline_deficits",
+        "neuro_assessment"
+      ]
+    },
+    {
+      "id": "coc_chest_pain",
+      "label": "Chest Pain / Suspected ACS",
+      "category": "Cardiac",
+      "synonyms": [
+        "chest pain",
+        "chest pressure",
+        "acs",
+        "angina",
+        "radiating pain",
+        "heart attack"
+      ],
+      "tags": [
+        "cardiac",
+        "acs",
+        "emergency"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/chest_pain_protocol_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "spO2",
+        "pain_scale",
+        "onset",
+        "radiation",
+        "associated_symptoms",
+        "orders"
+      ]
+    },
+    {
+      "id": "coc_critical_labs",
+      "label": "Critical Lab Result",
+      "category": "Labs",
+      "synonyms": [
+        "critical lab",
+        "panic lab",
+        "potassium 2.5",
+        "troponin elevated",
+        "anc low",
+        "co2 low",
+        "bicarb low",
+        "bun creatinine"
+      ],
+      "tags": [
+        "labs",
+        "critical"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/critical_labs_decision_tree.json",
+      "minimumData": [
+        "value",
+        "time",
+        "symptoms",
+        "vitals",
+        "notify_provider"
+      ]
+    },
+    {
+      "id": "coc_pain_new",
+      "label": "New / Worsening Pain",
+      "category": "Pain",
+      "synonyms": [
+        "new pain",
+        "worsening pain",
+        "uncontrolled pain",
+        "severe pain",
+        "pain protocol"
+      ],
+      "tags": [
+        "pain",
+        "comfort"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/pain_protocol_decision_tree.json",
+      "minimumData": [
+        "location",
+        "severity",
+        "onset",
+        "function",
+        "vitals_if_severe"
+      ]
+    },
+    {
+      "id": "coc_behavior_change",
+      "label": "Behavior Change / Agitation",
+      "category": "Behavior",
+      "synonyms": [
+        "agitation",
+        "aggressive",
+        "combative",
+        "wandering",
+        "behavior change",
+        "resists care"
+      ],
+      "tags": [
+        "behavior",
+        "safety"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "baseline_behavior",
+        "triggers",
+        "pain",
+        "infection_symptoms",
+        "med_changes"
+      ]
+    },
+    {
+      "id": "coc_refusal_meds",
+      "label": "Refusal of Medications",
+      "category": "Refusal",
+      "synonyms": [
+        "refused meds",
+        "medication refusal",
+        "spit out meds",
+        "declines meds"
+      ],
+      "tags": [
+        "refusal",
+        "meds"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "which_med",
+        "reason",
+        "capacity",
+        "alternatives",
+        "provider_notify"
+      ]
+    },
+    {
+      "id": "coc_refusal_treatment",
+      "label": "Refusal of Treatment / Care",
+      "category": "Refusal",
+      "synonyms": [
+        "refused treatment",
+        "refused care",
+        "refused wound care",
+        "refused therapy"
+      ],
+      "tags": [
+        "refusal",
+        "rights"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "what_refused",
+        "reason",
+        "education",
+        "capacity",
+        "notify"
+      ]
+    },
+    {
+      "id": "coc_fever",
+      "label": "Fever / Possible Infection",
+      "category": "Infection",
+      "synonyms": [
+        "fever",
+        "temperature",
+        "chills",
+        "rigors"
+      ],
+      "tags": [
+        "infection",
+        "fever"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "temp",
+        "vitals",
+        "symptom_review",
+        "hydration",
+        "mental_status"
+      ]
+    },
+    {
+      "id": "coc_sob",
+      "label": "Shortness of Breath / Dyspnea",
+      "category": "Respiratory",
+      "synonyms": [
+        "sob",
+        "dyspnea",
+        "difficulty breathing",
+        "labored breathing",
+        "low o2"
+      ],
+      "tags": [
+        "respiratory",
+        "hypoxia"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "spO2",
+        "rr",
+        "work_of_breathing",
+        "lung_sounds",
+        "vitals",
+        "cough"
+      ]
+    },
+    {
+      "id": "coc_fall",
+      "label": "Fall / Post-fall Assessment",
+      "category": "Safety",
+      "synonyms": [
+        "fall",
+        "fell",
+        "unwitnessed fall",
+        "slip",
+        "trip"
+      ],
+      "tags": [
+        "fall",
+        "safety"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "injury_check",
+        "neuro_check",
+        "anticoagulants",
+        "pain"
+      ]
+    },
+    {
+      "id": "coc_acute_confusion_delirium",
+      "label": "Acute Confusion / Delirium",
+      "category": "Neuro",
+      "synonyms": [
+        "new confusion",
+        "delirium",
+        "ams",
+        "lethargic"
+      ],
+      "tags": [
+        "delirium",
+        "ams",
+        "neuro"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_hypoglycemia",
+      "label": "Hypoglycemia",
+      "category": "Endocrine",
+      "synonyms": [
+        "low blood sugar",
+        "glucose 50",
+        "hypoglycemia"
+      ],
+      "tags": [
+        "endocrine",
+        "emergency"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_hyperglycemia",
+      "label": "Hyperglycemia",
+      "category": "Endocrine",
+      "synonyms": [
+        "high blood sugar",
+        "glucose 400",
+        "hyperglycemia"
+      ],
+      "tags": [
+        "endocrine"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_bleeding",
+      "label": "Bleeding / Suspected GI Bleed",
+      "category": "Heme",
+      "synonyms": [
+        "melena",
+        "hematemesis",
+        "blood in stool",
+        "bleeding"
+      ],
+      "tags": [
+        "bleeding",
+        "emergency"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_dehydration",
+      "label": "Dehydration / Poor Intake",
+      "category": "Fluid",
+      "synonyms": [
+        "poor intake",
+        "dehydrated",
+        "dry mouth",
+        "low output"
+      ],
+      "tags": [
+        "dehydration"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_uti_symptoms",
+      "label": "Urinary Symptoms / Suspected UTI",
+      "category": "GU",
+      "synonyms": [
+        "dysuria",
+        "frequency",
+        "foul urine",
+        "suprapubic pain"
+      ],
+      "tags": [
+        "uti",
+        "infection"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_diarrhea",
+      "label": "Diarrhea",
+      "category": "GI",
+      "synonyms": [
+        "diarrhea",
+        "loose stool",
+        "c diff"
+      ],
+      "tags": [
+        "gi",
+        "infection"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_constipation",
+      "label": "Constipation / No BM",
+      "category": "GI",
+      "synonyms": [
+        "constipation",
+        "no bm",
+        "impaction"
+      ],
+      "tags": [
+        "gi",
+        "comfort"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_nausea_vomiting",
+      "label": "Nausea / Vomiting",
+      "category": "GI",
+      "synonyms": [
+        "vomiting",
+        "nausea",
+        "emesis"
+      ],
+      "tags": [
+        "gi",
+        "dehydration"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_wound_infection",
+      "label": "Wound Change / Suspected Infection",
+      "category": "Skin",
+      "synonyms": [
+        "wound drainage",
+        "redness",
+        "pus",
+        "cellulitis"
+      ],
+      "tags": [
+        "wound",
+        "infection"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_low_bp",
+      "label": "Low Blood Pressure / Hypotension",
+      "category": "Vitals",
+      "synonyms": [
+        "low bp",
+        "hypotension",
+        "bp 80"
+      ],
+      "tags": [
+        "hypotension",
+        "emergency"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_high_bp",
+      "label": "Very High Blood Pressure",
+      "category": "Vitals",
+      "synonyms": [
+        "high bp",
+        "bp 200",
+        "hypertension urgency"
+      ],
+      "tags": [
+        "hypertension"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_palpitations",
+      "label": "Palpitations / Irregular Heartbeat",
+      "category": "Cardiac",
+      "synonyms": [
+        "palpitations",
+        "irregular heartbeat",
+        "fluttering"
+      ],
+      "tags": [
+        "cardiac",
+        "arrhythmia"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_syncope",
+      "label": "Syncope / Near Syncope",
+      "category": "Cardiac",
+      "synonyms": [
+        "fainted",
+        "syncope",
+        "near syncope"
+      ],
+      "tags": [
+        "syncope",
+        "cardiac"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_head_strike",
+      "label": "Fall with Head Strike",
+      "category": "Safety",
+      "synonyms": [
+        "head strike",
+        "hit head",
+        "on blood thinner"
+      ],
+      "tags": [
+        "fall",
+        "head injury",
+        "emergency"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_cough_fever",
+      "label": "Cough + Fever (Respiratory Infection)",
+      "category": "Infection",
+      "synonyms": [
+        "cough and fever",
+        "flu like",
+        "resp infection"
+      ],
+      "tags": [
+        "infection",
+        "respiratory"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_rash",
+      "label": "New Rash / Hives",
+      "category": "Allergy",
+      "synonyms": [
+        "rash",
+        "hives",
+        "itching"
+      ],
+      "tags": [
+        "allergy"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_anaphylaxis",
+      "label": "Possible Anaphylaxis",
+      "category": "Allergy",
+      "synonyms": [
+        "tongue swelling",
+        "wheezing after med",
+        "lip swelling"
+      ],
+      "tags": [
+        "allergy",
+        "emergency"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_renal_labs",
+      "label": "Worsening Renal Labs (BUN/Cr)",
+      "category": "Labs",
+      "synonyms": [
+        "bun high",
+        "creatinine high",
+        "aki"
+      ],
+      "tags": [
+        "labs",
+        "renal"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_troponin",
+      "label": "Elevated Troponin",
+      "category": "Labs",
+      "synonyms": [
+        "troponin high",
+        "troponin elevated"
+      ],
+      "tags": [
+        "labs",
+        "cardiac"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_ammonia",
+      "label": "Elevated Ammonia / Encephalopathy",
+      "category": "Labs",
+      "synonyms": [
+        "ammonia high",
+        "hepatic encephalopathy"
+      ],
+      "tags": [
+        "labs",
+        "neuro"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_bicarb",
+      "label": "Low CO2 / Bicarbonate",
+      "category": "Labs",
+      "synonyms": [
+        "bicarb low",
+        "co2 low",
+        "metabolic acidosis"
+      ],
+      "tags": [
+        "labs",
+        "respiratory"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_anc",
+      "label": "Low ANC / Neutropenia",
+      "category": "Labs",
+      "synonyms": [
+        "anc low",
+        "neutropenia"
+      ],
+      "tags": [
+        "labs",
+        "infection"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_over_sedation",
+      "label": "Over-sedation / Excess Sleepiness",
+      "category": "Meds",
+      "synonyms": [
+        "too sleepy",
+        "hard to arouse",
+        "over sedated"
+      ],
+      "tags": [
+        "sedation",
+        "safety"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_med_error",
+      "label": "Medication Error / Wrong Dose",
+      "category": "Meds",
+      "synonyms": [
+        "med error",
+        "wrong dose",
+        "missed dose"
+      ],
+      "tags": [
+        "medication",
+        "safety"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_swallowing",
+      "label": "Swallowing Difficulty / Aspiration Risk",
+      "category": "Respiratory",
+      "synonyms": [
+        "choking",
+        "aspiration",
+        "cough with meals"
+      ],
+      "tags": [
+        "aspiration",
+        "respiratory"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_pressure_injury",
+      "label": "Pressure Injury Worsening",
+      "category": "Skin",
+      "synonyms": [
+        "pressure ulcer worse",
+        "skin breakdown"
+      ],
+      "tags": [
+        "pressure injury",
+        "skin"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_skin_tear",
+      "label": "Skin Tear / Laceration",
+      "category": "Skin",
+      "synonyms": [
+        "skin tear",
+        "laceration"
+      ],
+      "tags": [
+        "skin",
+        "wound"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_elopement",
+      "label": "Elopement / Wandering Risk",
+      "category": "Behavior",
+      "synonyms": [
+        "elopement",
+        "wandering"
+      ],
+      "tags": [
+        "behavior",
+        "safety"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_suicidal",
+      "label": "Suicidal Ideation / Self-harm Risk",
+      "category": "Behavior",
+      "synonyms": [
+        "suicidal",
+        "self harm"
+      ],
+      "tags": [
+        "behavior",
+        "emergency"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_refusal_isolation",
+      "label": "Refusal of Isolation/Precautions",
+      "category": "Refusal",
+      "synonyms": [
+        "refused isolation",
+        "refused mask"
+      ],
+      "tags": [
+        "infection",
+        "rights"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_catheter_issue",
+      "label": "Catheter Issue / Dislodged",
+      "category": "GU",
+      "synonyms": [
+        "foley out",
+        "catheter leaking"
+      ],
+      "tags": [
+        "gu",
+        "device"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_line_issue",
+      "label": "IV/PICC Issue",
+      "category": "Device",
+      "synonyms": [
+        "picc",
+        "iv infiltrated"
+      ],
+      "tags": [
+        "device",
+        "infection"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_new_edema",
+      "label": "New/Worsening Edema",
+      "category": "Cardiac",
+      "synonyms": [
+        "edema",
+        "swelling legs",
+        "weight gain"
+      ],
+      "tags": [
+        "cardiac",
+        "fluid"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_weight_loss",
+      "label": "Unintended Weight Loss",
+      "category": "Nutrition",
+      "synonyms": [
+        "weight loss",
+        "poor appetite"
+      ],
+      "tags": [
+        "nutrition"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    },
+    {
+      "id": "coc_refusal_food",
+      "label": "Refusal to Eat/Drink",
+      "category": "Nutrition",
+      "synonyms": [
+        "not eating",
+        "refusing meals"
+      ],
+      "tags": [
+        "nutrition",
+        "dehydration"
+      ],
+      "ladder": "universal_coc_ladder_v1",
+      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "minimumData": [
+        "vitals",
+        "focused_assessment",
+        "baseline_compare",
+        "notify_provider_if_needed"
+      ]
+    }
+  ]
+}

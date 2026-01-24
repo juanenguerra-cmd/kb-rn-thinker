@@ -1,4 +1,8 @@
 // src/features/wizard/DecisionWizardTab.tsx
+// Build-fix + compatibility:
+// - Exports BOTH named and default component: `DecisionWizardTab`
+//   so App.tsx can import either `import { DecisionWizardTab } ...` or `import DecisionWizardTab ...`
+
 import React, { useEffect, useMemo, useState } from "react";
 import { useAppStore } from "../../store/appStore";
 
@@ -8,83 +12,26 @@ type ChecklistItem = { id: string; text: string };
 type ChecklistSection = { key: string; label: string; items: ChecklistItem[] };
 
 type WizardNode =
-  | {
-      id: string;
-      type: "question_single";
-      prompt: string;
-      helpText?: string;
-      options: Option[];
-      next?: string;
-    }
-  | {
-      id: string;
-      type: "question_multi";
-      prompt: string;
-      helpText?: string;
-      options: Option[];
-      next?: string;
-    }
-  | {
-      id: string;
-      type: "lab_numeric" | "text_short";
-      prompt: string;
-      helpText?: string;
-      next?: string;
-    }
-  | {
-      id: string;
-      type: "info";
-      title: string;
-      body: string;
-      next?: string;
-    }
-  | {
-      id: string;
-      type: "checklist";
-      title: string;
-      sections: ChecklistSection[];
-      next?: string;
-    }
-  | {
-      id: string;
-      type: "summary";
-      outputs?: Record<string, any>;
-    };
+  | { id: string; type: "question_single"; prompt: string; helpText?: string; options: Option[]; next?: string }
+  | { id: string; type: "question_multi"; prompt: string; helpText?: string; options: Option[]; next?: string }
+  | { id: string; type: "lab_numeric" | "text_short"; prompt: string; helpText?: string; next?: string }
+  | { id: string; type: "info"; title: string; body: string; next?: string }
+  | { id: string; type: "checklist"; title: string; sections: ChecklistSection[]; next?: string }
+  | { id: string; type: "summary"; outputs?: Record<string, any> };
 
-type Pathway = {
-  id: string;
-  title: string;
-  version?: string;
-  startNodeId: string;
-  nodes: WizardNode[];
-};
+type Pathway = { id: string; title: string; version?: string; startNodeId: string; nodes: WizardNode[] };
 
-function lower(s: string) {
-  return (s || "").toLowerCase();
-}
+function lower(s: string) { return (s || "").toLowerCase(); }
 
 function detectProtocol(issueText: string) {
   const t = lower(issueText);
-
   if (t.includes("stroke") || t.includes("tia") || t.includes("face droop") || t.includes("arm weakness")) return "stroke";
   if (t.includes("chest pain") || t.includes("heart attack") || t.includes("acs")) return "chest_pain";
   if (t.includes("pain protocol") || t === "pain" || t.startsWith("pain ")) return "pain";
-
-  // Critical labs triggers
   if (
-    t.includes("potassium") ||
-    t.includes("troponin") ||
-    t.includes("anc") ||
-    t.includes("ammonia") ||
-    t.includes("bun") ||
-    t.includes("creatinine") ||
-    t.includes("bicarbonate") ||
-    t.includes("co2") ||
-    t.includes("critical lab")
-  ) {
-    return "critical_labs";
-  }
-
+    t.includes("potassium") || t.includes("troponin") || t.includes("anc") || t.includes("ammonia") ||
+    t.includes("bun") || t.includes("creatinine") || t.includes("bicarbonate") || t.includes("co2") || t.includes("critical lab")
+  ) return "critical_labs";
   return "unknown";
 }
 
@@ -122,13 +69,11 @@ function Btn(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   );
 }
 
-export default function DecisionWizardTab() {
-  // Pull state/actions from your store (safe selectors)
+export function DecisionWizardTab() {
   const wizard = useAppStore((s: any) => s.wizard);
   const actions = useAppStore((s: any) => s.actions);
 
   const step: number = wizard?.step ?? 1;
-
   const issueText: string = wizard?.issueText ?? wizard?.issue ?? "";
 
   const setIssueText =
@@ -146,18 +91,15 @@ export default function DecisionWizardTab() {
   const [pathwayError, setPathwayError] = useState<string | null>(null);
   const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
 
-  // Answers + checklist selections
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [selected, setSelected] = useState<Record<string, Record<string, boolean>>>({});
 
-  // detect protocol from issue text
   useEffect(() => {
     const p = detectProtocol(issueText);
     setProtocol(p);
     setPathwayPath(PATHWAY_PATHS[p] || null);
   }, [issueText]);
 
-  // load pathway whenever Step 2 is reached and we have a pathwayPath
   useEffect(() => {
     if (step !== 2) return;
     if (!pathwayPath) {
@@ -189,9 +131,7 @@ export default function DecisionWizardTab() {
         setPathwayError(String(e?.message || e));
       });
 
-    return () => {
-      cancelled = true;
-    };
+    return () => { cancelled = true; };
   }, [step, pathwayPath]);
 
   const nodesById = useMemo(() => {
@@ -204,7 +144,7 @@ export default function DecisionWizardTab() {
 
   const checklistNode = useMemo(() => {
     if (!pathway?.nodes) return null;
-    return (pathway.nodes.find((n) => n.type === "checklist") as Extract<WizardNode, { type: "checklist" }>) || null;
+    return pathway.nodes.find((n) => n.type === "checklist") as Extract<WizardNode, { type: "checklist" }> | null;
   }, [pathway]);
 
   const narrative = useMemo(() => {
@@ -212,10 +152,7 @@ export default function DecisionWizardTab() {
     return buildNarrativeFromChecklist(checklistNode.sections, selected);
   }, [checklistNode, selected]);
 
-  function goNextExplicit(next?: string) {
-    if (next) setActiveNodeId(next);
-    else setActiveNodeId(null);
-  }
+  function goNext(next?: string) { setActiveNodeId(next || null); }
 
   function onSinglePick(n: Extract<WizardNode, { type: "question_single" }>, val: string) {
     setAnswers((p) => ({ ...p, [n.id]: val }));
@@ -282,7 +219,6 @@ export default function DecisionWizardTab() {
           ) : null}
         </div>
 
-        {/* STEP 1 */}
         {step === 1 ? (
           <div style={{ display: "grid", gap: 10 }}>
             <div style={{ fontWeight: 800 }}>Step 1: Enter the problem</div>
@@ -301,14 +237,11 @@ export default function DecisionWizardTab() {
             />
             <div style={{ display: "flex", gap: 8 }}>
               <div style={{ flex: 1 }} />
-              <Btn onClick={wizardNext} disabled={!issueText.trim()}>
-                Next
-              </Btn>
+              <Btn onClick={wizardNext} disabled={!issueText.trim()}>Next</Btn>
             </div>
           </div>
         ) : null}
 
-        {/* STEP 2 */}
         {step === 2 ? (
           <div style={{ display: "grid", gap: 10 }}>
             <div style={{ fontWeight: 800 }}>Step 2: Cascading questions</div>
@@ -317,8 +250,7 @@ export default function DecisionWizardTab() {
               <div style={{ border: "1px solid #fca5a5", borderRadius: 14, padding: 10 }}>
                 <div style={{ fontWeight: 900 }}>No protocol detected</div>
                 <div style={{ opacity: 0.9 }}>
-                  Use one of these triggers: <b>stroke symptoms</b>, <b>chest pain</b>, <b>pain protocol</b>,{" "}
-                  <b>potassium 2.5</b>
+                  Try: <b>stroke symptoms</b>, <b>chest pain</b>, <b>pain protocol</b>, <b>potassium 2.5</b>
                 </div>
               </div>
             ) : null}
@@ -330,16 +262,16 @@ export default function DecisionWizardTab() {
               </div>
             ) : null}
 
-            {pathway && (
+            {pathway ? (
               <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
                 <div style={{ fontWeight: 900 }}>{pathway.title}</div>
                 <div style={{ fontSize: 12, opacity: 0.8 }}>Loaded node: {activeNodeId || "(end)"}</div>
 
                 {node ? (
                   <div style={{ marginTop: 10, display: "grid", gap: 10 }}>
-                    {"prompt" in node && node.prompt ? <div style={{ fontWeight: 800 }}>{node.prompt}</div> : null}
-                    {"helpText" in node && node.helpText ? (
-                      <div style={{ fontSize: 12, opacity: 0.8 }}>{node.helpText}</div>
+                    {"prompt" in node && (node as any).prompt ? <div style={{ fontWeight: 800 }}>{(node as any).prompt}</div> : null}
+                    {"helpText" in node && (node as any).helpText ? (
+                      <div style={{ fontSize: 12, opacity: 0.8 }}>{(node as any).helpText}</div>
                     ) : null}
 
                     {node.type === "question_single" ? (
@@ -403,7 +335,7 @@ export default function DecisionWizardTab() {
                             </label>
                           );
                         })}
-                        <Btn onClick={() => goNextExplicit(node.next)}>Continue</Btn>
+                        <Btn onClick={() => goNext((node as any).next)}>Continue</Btn>
                       </div>
                     ) : null}
 
@@ -421,7 +353,7 @@ export default function DecisionWizardTab() {
                             fontFamily: "inherit",
                           }}
                         />
-                        <Btn onClick={() => goNextExplicit(node.next)} disabled={!String(answers[node.id] ?? "").trim()}>
+                        <Btn onClick={() => goNext((node as any).next)} disabled={!String(answers[node.id] ?? "").trim()}>
                           Continue
                         </Btn>
                       </div>
@@ -431,9 +363,7 @@ export default function DecisionWizardTab() {
                       <div style={{ border: "1px solid #fde68a", borderRadius: 14, padding: 10 }}>
                         <div style={{ fontWeight: 900 }}>{node.title}</div>
                         <div style={{ opacity: 0.9, marginTop: 6 }}>{node.body}</div>
-                        <Btn onClick={() => goNextExplicit(node.next)} style={{ marginTop: 10 }}>
-                          Continue
-                        </Btn>
+                        <Btn onClick={() => goNext((node as any).next)} style={{ marginTop: 10 }}>Continue</Btn>
                       </div>
                     ) : null}
 
@@ -446,12 +376,8 @@ export default function DecisionWizardTab() {
                             <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
                               <div style={{ fontWeight: 800 }}>{sec.label}</div>
                               <div style={{ display: "flex", gap: 8 }}>
-                                <Btn onClick={() => selectAll(sec)} style={{ padding: "6px 10px" }}>
-                                  Select all
-                                </Btn>
-                                <Btn onClick={() => clearAll(sec.key)} style={{ padding: "6px 10px" }}>
-                                  Clear
-                                </Btn>
+                                <Btn onClick={() => selectAll(sec)} style={{ padding: "6px 10px" }}>Select all</Btn>
+                                <Btn onClick={() => clearAll(sec.key)} style={{ padding: "6px 10px" }}>Clear</Btn>
                               </div>
                             </div>
 
@@ -474,45 +400,37 @@ export default function DecisionWizardTab() {
                           </div>
                         ))}
 
-                        <Btn onClick={() => goNextExplicit(node.next)}>Continue</Btn>
+                        <Btn onClick={() => goNext((node as any).next)}>Continue</Btn>
                       </div>
                     ) : null}
 
                     {node.type === "summary" ? (
                       <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
                         <div style={{ fontWeight: 900 }}>Decision tree complete</div>
-                        <Btn onClick={wizardNext} style={{ marginTop: 10 }}>
-                          Next
-                        </Btn>
+                        <Btn onClick={wizardNext} style={{ marginTop: 10 }}>Next</Btn>
                       </div>
                     ) : null}
                   </div>
                 ) : (
                   <div style={{ marginTop: 10 }}>
                     <div style={{ opacity: 0.9 }}>End of decision tree reached.</div>
-                    <Btn onClick={wizardNext} style={{ marginTop: 10 }}>
-                      Next
-                    </Btn>
+                    <Btn onClick={wizardNext} style={{ marginTop: 10 }}>Next</Btn>
                   </div>
                 )}
               </div>
-            )}
+            ) : null}
 
             <div style={{ display: "flex", gap: 8 }}>
               <Btn onClick={wizardBack}>Back</Btn>
               <div style={{ flex: 1 }} />
-              <Btn onClick={wizardNext} disabled={!pathway || !!pathwayError}>
-                Next
-              </Btn>
+              <Btn onClick={wizardNext} disabled={!pathway || !!pathwayError}>Next</Btn>
             </div>
           </div>
         ) : null}
 
-        {/* STEP 3 */}
         {step === 3 ? (
           <div style={{ display: "grid", gap: 10 }}>
             <div style={{ fontWeight: 800 }}>Step 3: Suggested actions + narrative</div>
-
             <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
               <div style={{ fontWeight: 900 }}>Narrative (only checked items)</div>
               <textarea
@@ -529,29 +447,15 @@ export default function DecisionWizardTab() {
                 }}
               />
               <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-                <Btn
-                  onClick={() => {
-                    navigator.clipboard.writeText(narrative || "");
-                  }}
-                  disabled={!narrative}
-                >
+                <Btn onClick={() => navigator.clipboard.writeText(narrative || "")} disabled={!narrative}>
                   Copy Note
                 </Btn>
               </div>
             </div>
-
             <div style={{ display: "flex", gap: 8 }}>
               <Btn onClick={wizardBack}>Back</Btn>
               <div style={{ flex: 1 }} />
-              <Btn
-                onClick={() => {
-                  try {
-                    actions?.wizardFinish?.();
-                  } catch {}
-                }}
-              >
-                Finish
-              </Btn>
+              <Btn onClick={() => { try { actions?.wizardFinish?.(); } catch {} }}>Finish</Btn>
             </div>
           </div>
         ) : null}
@@ -559,3 +463,5 @@ export default function DecisionWizardTab() {
     </div>
   );
 }
+
+export default DecisionWizardTab;

@@ -1,0 +1,114 @@
+{
+  "schema": "kb.doc.v1",
+  "id": "ltc_snf_clinical_standards_and_triage",
+  "title": "Clinical Standards & Symptom Triage in LTC/SNF (Regulatory + Best Practice)",
+  "updatedAt": "2026-01-24",
+  "tags": [
+    "LTC",
+    "SNF",
+    "clinical standards",
+    "triage",
+    "MDS 3.0",
+    "CMS",
+    "F-tags",
+    "infection control",
+    "documentation",
+    "SBAR"
+  ],
+  "ftags": [
+    "F636",
+    "F658",
+    "F684",
+    "F757",
+    "F842",
+    "F880",
+    "F881"
+  ],
+  "summary": "A practical, survey-ready overview of LTC/SNF clinical standards (assessment, interdisciplinary care planning, infection prevention, documentation, medication management) and evidence-based symptom triage aimed at preventing avoidable hospitalizations.",
+  "sections": [
+    {
+      "id": "overview",
+      "heading": "Overview",
+      "body": "Clinical standards in Long-Term Care (LTC) and Skilled Nursing Facilities (SNF) are shaped by federal (CMS) and state requirements. At minimum, facilities must assess each resident\u2019s functional capacity, develop and update individualized care plans, maintain an infection prevention and control program, keep complete and accurate medical records, and manage medications to avoid unnecessary drug use. Symptom triage uses structured protocols to identify urgency, support timely provider communication, and reduce avoidable transfers while aligning with resident goals of care."
+    },
+    {
+      "id": "comprehensive_assessment",
+      "heading": "Comprehensive Assessment (MDS 3.0 / Resident Assessment)",
+      "body": "Facilities must complete resident assessments according to CMS requirements and use results to develop, review, and revise the resident\u2019s plan of care. This is operationalized through the MDS 3.0 Resident Assessment Instrument (RAI) process, including admission, quarterly, and annual assessments as required."
+    },
+    {
+      "id": "interdisciplinary_team",
+      "heading": "Interdisciplinary Team (IDT) approach and person-centered care planning",
+      "body": "Care is coordinated through an interdisciplinary team (e.g., nursing, physician/NP/PA, therapy, social work, dietary) to address medical, functional, psychosocial, and discharge needs. Care plans are updated when changes occur and should reflect resident goals and preferences."
+    },
+    {
+      "id": "infection_prevention",
+      "heading": "Infection prevention and control (IPCP) + outbreak response",
+      "body": "Facilities must establish and maintain an infection prevention and control program (IPCP) to prevent and manage transmission of communicable diseases and infections. This includes processes for surveillance, standard/transmission-based precautions, and an antibiotic stewardship component. During outbreaks (e.g., respiratory pathogens), triage workflows should incorporate screening, isolation decisions, and timely reporting per policy and public health requirements."
+    },
+    {
+      "id": "documentation_standards",
+      "heading": "Documentation standards (medical records)",
+      "body": "Medical records must be complete, accurate, readily accessible, and systematically organized in accordance with accepted professional standards and practices. Documentation should clearly reflect assessment findings, interventions, resident response, notifications, orders received, and the ongoing monitoring/escalation plan."
+    },
+    {
+      "id": "medication_management",
+      "heading": "Medication management (unnecessary drugs / psychotropics)",
+      "body": "Each resident\u2019s drug regimen must be free from unnecessary drugs, and facilities must maintain processes for drug regimen review and follow-up when irregularities require urgent action. Psychotropic medication safeguards and monitoring expectations are addressed through regulation and survey guidance (e.g., unnecessary medications and related F-tags)."
+    },
+    {
+      "id": "triage_goals",
+      "heading": "Triage goals in LTC/SNF",
+      "body": "Triage focuses on managing acute changes in condition safely in-house when possible, while recognizing when a resident is unstable or needs services beyond facility capability. Structured symptom screening helps reduce missed red flags, supports timely provider notification, and can prevent unnecessary and distressful transfers when appropriate for the resident\u2019s goals of care."
+    },
+    {
+      "id": "triage_common_domains",
+      "heading": "Common triage domains",
+      "body": "1) Infections: prompt focused assessment and appropriate lab/testing per orders and protocol. 2) Behavioral/cognitive: screen for delirium and reversible causes; assess safety risk. 3) End-of-life/palliative: prioritize comfort (pain, agitation, constipation, dyspnea) and align actions with goals of care."
+    },
+    {
+      "id": "best_practices",
+      "heading": "Clinical best practices for triage (SBAR + RN oversight)",
+      "body": "Use SBAR (Situation-Background-Assessment-Recommendation) to structure provider communication. When possible, RN-led triage improves assessment quality and ensures key objective data is collected. Include residents in assessment when they are reliable historians and incorporate representative/family notification as appropriate."
+    },
+    {
+      "id": "regulatory_frameworks",
+      "heading": "Key regulatory frameworks to map into decision trees",
+      "body": "Map decision-tree outputs to: (1) resident assessment requirements; (2) person-centered care planning and IDT involvement; (3) infection prevention and antibiotic stewardship; (4) medical record completeness/accuracy; and (5) unnecessary medication safeguards (including psychotropics). Also map to relevant survey guidance (Appendix PP) and your state-specific rules/policies."
+    }
+  ],
+  "references": [
+    {
+      "label": "42 CFR \u00a7483.20 Resident assessment (eCFR)",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-483/subpart-B/section-483.20"
+    },
+    {
+      "label": "MDS 3.0 RAI User's Manual (CMS)",
+      "url": "https://www.cms.gov/files/document/mds-30-rai-manual-v11811october2023.pdf"
+    },
+    {
+      "label": "42 CFR \u00a7483.21 Comprehensive person-centered care planning (eCFR)",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-483/subpart-B/section-483.21"
+    },
+    {
+      "label": "42 CFR \u00a7483.80 Infection control (eCFR)",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-483/subpart-B/section-483.80"
+    },
+    {
+      "label": "42 CFR \u00a7483.70(h) Medical records (eCFR)",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-483/subpart-B/section-483.70"
+    },
+    {
+      "label": "42 CFR \u00a7483.45 Pharmacy services / unnecessary drugs (eCFR)",
+      "url": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-483/subpart-B/section-483.45"
+    },
+    {
+      "label": "CMS State Operations Manual Appendix PP (Guidance to Surveyors)",
+      "url": "https://www.cms.gov/medicare/provider-enrollment-and-certification/guidanceforlawsandregulations/downloads/appendix-pp-state-operations-manual.pdf"
+    },
+    {
+      "label": "IHI SBAR Tool (Situation-Background-Assessment-Recommendation)",
+      "url": "https://www.ihi.org/library/tools/sbar-tool-situation-background-assessment-recommendation"
+    }
+  ]
+}

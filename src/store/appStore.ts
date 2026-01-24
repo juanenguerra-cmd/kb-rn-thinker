@@ -57,7 +57,7 @@ type PacketDraftState = {
   blockedReasons: Record<string, string>;
 };
 
-type WizardCategory = "general" | "fever" | "respiratory" | "fall" | "abuse";
+type WizardCategory = "general" | "fever" | "respiratory" | "fall" | "abuse" | "stroke" | "chest_pain" | "pain" | "critical_labs";
 
 type WizardState = {
   step: 1 | 2 | 3;
@@ -136,10 +136,28 @@ const emptyNotes = (): Record<PacketDraftSection, string> => ({
 
 function inferWizardFromIssue(issueText: string): { category: WizardCategory; topic: string } {
   const t = (issueText || "").toLowerCase();
+
+  // Cascading decision-tree triggers (problem-driven)
+  if (/(stroke|tia|facial droop|slurred speech|arm weakness|one[- ]sided weakness|be-?fast|fast)/.test(t)) {
+    return { category: "stroke", topic: "Suspected Stroke / TIA (cascading protocol)" };
+  }
+  if (/(chest pain|chest pressure|acs|heart attack|myocard|angina)/.test(t)) {
+    return { category: "chest_pain", topic: "Chest Pain / Suspected ACS (cascading protocol)" };
+  }
+  // Use a stricter trigger so normal text doesn't accidentally route to pain protocol:
+  if (/(pain protocol|new pain|worsening pain|severe pain|uncontrolled pain)/.test(t)) {
+    return { category: "pain", topic: "Pain Assessment + Follow-through (cascading protocol)" };
+  }
+  if (/(critical lab|panic lab|potassium|k|sodium|na|glucose|troponin|ammonia|anc|neutropen|bun|creatinine|co2|bicarb)/.test(t)) {
+    return { category: "critical_labs", topic: "Critical Lab Result (cascading protocol)" };
+  }
+
+  // Legacy starter categories
   if (/(fall|fell|slip|trip)/.test(t)) return { category: "fall", topic: "Post-fall assessment / monitoring" };
   if (/(fever|temp|temperature|chills|rigor)/.test(t)) return { category: "fever", topic: "Fever / possible infection" };
   if (/(sob|shortness|dyspnea|o2|oxygen|resp|cough|wheeze)/.test(t)) return { category: "respiratory", topic: "Respiratory symptoms / low O2" };
   if (/(abuse|neglect|mistreat|assault|alleg)/.test(t)) return { category: "abuse", topic: "Allegation/concern: abuse or neglect" };
+
   return { category: "general", topic: "General change in condition" };
 }
 

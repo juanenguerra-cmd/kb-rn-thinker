@@ -2,6 +2,43 @@ import * as React from "react";
 import { useAppStore } from "@/store/appStore";
 import { NursingProgressNoteModal } from "@/features/note/NursingProgressNoteModal";
 
+type PathwayNode =
+  | { id: string; type: "question_single"; prompt: string; helpText?: string; options: { value: string; label: string; next: string }[] }
+  | { id: string; type: "question_multi"; prompt: string; helpText?: string; options: { value: string; label: string }[]; next: string }
+  | { id: string; type: "lab_numeric"; prompt: string; defaultsPath?: string; next: string }
+  | { id: string; type: "text_short"; prompt: string; next: string }
+  | { id: string; type: "info"; title: string; body: string; next: string }
+  | { id: string; type: "checklist"; title: string; sections: { key: string; label: string; items: { id: string; text: string }[] }[]; next: string }
+  | { id: string; type: "summary"; outputs: any };
+
+type Pathway = {
+  schema: string;
+  id: string;
+  title: string;
+  version: string;
+  startNodeId: string;
+  assets?: any;
+  nodes: PathwayNode[];
+};
+
+const PATHWAY_BY_CATEGORY: Record<string, string> = {
+  stroke: "/kb/coc/pathways/stroke_protocol_decision_tree.json",
+  chest_pain: "/kb/coc/pathways/chest_pain_protocol_decision_tree.json",
+  pain: "/kb/coc/pathways/pain_protocol_decision_tree.json",
+  critical_labs: "/kb/coc/pathways/critical_labs_decision_tree.json"
+};
+
+async function fetchJson<T>(url: string): Promise<T> {
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Fetch failed ${res.status} for ${url}`);
+  return (await res.json()) as T;
+}
+
+function asNodeMap(p: Pathway) {
+  const m = new Map<string, PathwayNode>();
+  for (const n of p.nodes) m.set(n.id, n);
+  return m;
+}
 function promptsForCategory(category: string) {
   switch (category) {
     case "fall":
@@ -206,50 +243,69 @@ export function DecisionWizardTab() {
     };
   }
 
-  const narrative = React.useMemo(() => {
-    const issue = draft.meta.issue_text?.trim() ? draft.meta.issue_text.trim() : "__";
-    const flags = Object.entries(wizard.redFlags).filter(([, v]) => v).map(([k]) => k).join(", ");
-    const flagsLine = flags ? ` Red flags present: ${flags}.` : "";
+  const narrative = React.useMemo(() => (isTreeCategory ? treeNarrative : buildWizardNarrative(draft.meta.issue_text ?? "", wizard)), [isTreeCategory, treeNarrative, draft.meta.issue_text, wizard]);
 
-    const a = wizard.answers || {};
-    const bits: string[] = [];
-    if (wizard.category === "fever") {
-      if (a.tempF) bits.push(`T ${a.tempF}F`);
-      if (a.cough) bits.push("cough");
-      if (a.sob) bits.push("shortness of breath");
-      if (a.onset) bits.push(`onset: ${a.onset}`);
-    } else if (wizard.category === "respiratory") {
-      if (a.spo2) bits.push(`SpO2 ${a.spo2}%`);
-      if (a.oxygenL) bits.push(`O2 ${a.oxygenL} L/min`);
-      if (a.cough) bits.push("cough");
-      if (a.sob) bits.push("shortness of breath");
-      if (a.wheeze) bits.push("wheezing");
-    } else if (wizard.category === "fall") {
-      if (a.witnessedFall) bits.push(`fall witnessed: ${a.witnessedFall}`);
-      if (a.headStrike) bits.push("head strike suspected");
-      if (a.anticoagulant) bits.push("on anticoagulants/antiplatelets");
-      if (a.pain) bits.push(`pain: ${a.pain}`);
-      if (a.injury) bits.push("visible injury/bleeding");
-    } else if (wizard.category === "abuse") {
-      if (a.allegation) bits.push("allegation reported");
-      if (a.immediateDanger) bits.push("immediate danger/unsafe situation");
-      if (a.injury) bits.push("observed injury/bruise");
-    }
+  const nodeMap = React.useMemo(() => (pathway ? asNodeMap(pathway) : null), [pathway]);
+const currentNode = React.useMemo(() => (nodeMap && nodeId ? nodeMap.get(nodeId) : null), [nodeMap, nodeId]);
 
-    const p1 = `Resident assessed due to ${issue}. Change in condition: ${wizard.changeOfCondition.toUpperCase()}.${flagsLine}`;
-    const p2 = bits.length ? `Key details: ${bits.join(", ")}.` : "";
-    const p3 = "Assessment completed including vital signs and focused assessment relevant to the concern; findings compared to baseline as applicable.";
-    const p4 = "Interventions initiated per facility protocol/orders as applicable; resident response documented.";
-    const p5 = "Provider notified and orders received/implemented as applicable. Family/Emergency Contact notified as applicable.";
-    const p6 = "Plan: continue monitoring per protocol/orders and notify provider for any change in condition.";
-    return [p1, p2, p3, p4, p5, p6].filter(Boolean).join("\n\n");
-  }, [draft.meta.issue_text, wizard]);
+const setAnswer = (key: string, value: any) => setTreeAnswers((s) => ({ ...s, [key]: value }));
 
-  return (
+const goto = (next: string) => setNodeId(next);
+
+const toggleItem = (sectionKey: string, itemId: string) => {
+  setTreeSelected((prev) => {
+    const sec = { ...(prev[sectionKey] ?? {}) };
+    sec[itemId] = !sec[itemId];
+    return { ...prev, [sectionKey]: sec };
+  });
+};
+
+const setAll = (sectionKey: string, itemIds: string[], value: boolean) => {
+  setTreeSelected((prev) => {
+    const sec: Record<string, boolean> = { ...(prev[sectionKey] ?? {}) };
+    for (const id of itemIds) sec[id] = value;
+    return { ...prev, [sectionKey]: sec };
+  });
+};
+
+const pickedFromChecklist = React.useMemo(() => {
+  // Build prompts arrays + selected arrays from the checklist node (if present).
+  if (!currentNode || currentNode.type !== "checklist") return null;
+  const pickTexts = (key: string) => {
+    const sec = currentNode.sections.find((s) => s.key === key);
+    if (!sec) return { prompts: [], selected: [] };
+    const prompts = sec.items.map((it) => it.text);
+    const selected = sec.items.filter((it) => treeSelected?.[key]?.[it.id]).map((it) => it.text);
+    return { prompts, selected };
+  };
+  const a = pickTexts("assessment");
+  const i = pickTexts("interventions");
+  const d = pickTexts("documentation");
+  return {
+    assessmentPrompts: a.prompts,
+    interventionPrompts: i.prompts,
+    documentationPrompts: d.prompts,
+    selected: { assessment: a.selected, interventions: i.selected, documentation: d.selected }
+  };
+}, [currentNode, treeSelected]);
+
+const treeNarrative = React.useMemo(() => {
+  const issue = (draft.meta.issue_text ?? "").trim() || "__";
+  if (!pickedFromChecklist) return `Resident assessed due to ${issue}.`;
+  const join = (arr: string[]) => (arr.length ? arr.join("; ") : "");
+  const parts = [
+    `Resident assessed due to ${issue}.`,
+    pickedFromChecklist.selected.assessment.length ? `Assessment: ${join(pickedFromChecklist.selected.assessment)}.` : "",
+    pickedFromChecklist.selected.interventions.length ? `Interventions: ${join(pickedFromChecklist.selected.interventions)}.` : "",
+    pickedFromChecklist.selected.documentation.length ? `Documentation: ${join(pickedFromChecklist.selected.documentation)}.` : ""
+  ].filter(Boolean);
+  return parts.join(" ");
+}, [draft.meta.issue_text, pickedFromChecklist]);
+return (
     <div style={{ padding: 16, display: "grid", gap: 12 }}>
       <div style={{ fontWeight: 900, fontSize: 18 }}>Decision Wizard (Starter)</div>
       <div style={{ fontSize: 12, opacity: 0.7 }}>
-        This is a scaffolding wizard. Next phase: load executable trees from /kb/trees and run them.
+        This wizard can run problem-driven cascading protocols (stroke, chest pain, pain, critical labs) from /kb/coc/pathways.
       </div>
 
       {wizard.step === 1 ? (
@@ -274,6 +330,190 @@ export function DecisionWizardTab() {
       ) : null}
 
       {wizard.step === 2 ? (
+  isTreeCategory ? (
+    <div style={{ border: "1px solid #eee", borderRadius: 16, padding: 12, display: "grid", gap: 10 }}>
+      <div style={{ fontWeight: 800 }}>Protocol: {wizard.suggestedTopic}</div>
+      {treeError ? (
+        <div style={{ padding: 10, borderRadius: 12, border: "1px solid #fca5a5", background: "#fef2f2" }}>
+          <div style={{ fontWeight: 800, marginBottom: 6 }}>Could not load decision tree</div>
+          <div style={{ fontSize: 12, opacity: 0.8 }}>{treeError}</div>
+          <div style={{ fontSize: 12, opacity: 0.8, marginTop: 6 }}>
+            Make sure this file exists on the deployed site:
+            <code style={{ padding: "2px 6px", borderRadius: 9999, border: "1px solid #eee" }}>
+              {PATHWAY_BY_CATEGORY[wizard.category as any]}
+            </code>
+          </div>
+        </div>
+      ) : !currentNode ? (
+        <div style={{ padding: 10, borderRadius: 12, border: "1px solid #eee" }}>Loading protocol…</div>
+      ) : currentNode.type === "question_single" ? (
+        <div style={{ display: "grid", gap: 8 }}>
+          <div style={{ fontWeight: 800 }}>{currentNode.prompt}</div>
+          {currentNode.helpText ? <div style={{ fontSize: 12, opacity: 0.75 }}>{currentNode.helpText}</div> : null}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {currentNode.options.map((o) => (
+              <button
+                key={o.value}
+                onClick={() => {
+                  setAnswer(currentNode.id, o.value);
+                  goto(o.next);
+                }}
+                style={{ padding: "10px 12px", borderRadius: 9999, border: "1px solid #eee" }}
+              >
+                {o.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : currentNode.type === "question_multi" ? (
+        <div style={{ display: "grid", gap: 8 }}>
+          <div style={{ fontWeight: 800 }}>{currentNode.prompt}</div>
+          {currentNode.helpText ? <div style={{ fontSize: 12, opacity: 0.75 }}>{currentNode.helpText}</div> : null}
+          <div style={{ display: "grid", gap: 6 }}>
+            {currentNode.options.map((o) => {
+              const arr: string[] = (treeAnswers[currentNode.id] ?? []) as string[];
+              const checked = arr.includes(o.value);
+              return (
+                <label key={o.value} style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={(e) => {
+                      const next = e.target.checked ? [...arr, o.value] : arr.filter((x) => x !== o.value);
+                      setAnswer(currentNode.id, next);
+                    }}
+                  />
+                  {o.label}
+                </label>
+              );
+            })}
+          </div>
+          <div style={{ display: "flex", gap: 8 }}>
+            <button
+              onClick={() => goto(currentNode.next)}
+              style={{ padding: "10px 12px", borderRadius: 9999, border: "1px solid #eee" }}
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      ) : currentNode.type === "lab_numeric" ? (
+        <div style={{ display: "grid", gap: 8 }}>
+          <div style={{ fontWeight: 800 }}>{currentNode.prompt}</div>
+          <input
+            value={treeAnswers[currentNode.id] ?? ""}
+            onChange={(e) => setAnswer(currentNode.id, e.target.value)}
+            placeholder="Enter value"
+            inputMode="decimal"
+            style={{ padding: 10, borderRadius: 12, border: "1px solid #ddd" }}
+          />
+          <button
+            onClick={() => goto(currentNode.next)}
+            style={{ padding: "10px 12px", borderRadius: 9999, border: "1px solid #eee", width: "fit-content" }}
+          >
+            Continue
+          </button>
+        </div>
+      ) : currentNode.type === "text_short" ? (
+        <div style={{ display: "grid", gap: 8 }}>
+          <div style={{ fontWeight: 800 }}>{currentNode.prompt}</div>
+          <input
+            value={treeAnswers[currentNode.id] ?? ""}
+            onChange={(e) => setAnswer(currentNode.id, e.target.value)}
+            placeholder="Type here"
+            style={{ padding: 10, borderRadius: 12, border: "1px solid #ddd" }}
+          />
+          <button
+            onClick={() => goto(currentNode.next)}
+            style={{ padding: "10px 12px", borderRadius: 9999, border: "1px solid #eee", width: "fit-content" }}
+          >
+            Continue
+          </button>
+        </div>
+      ) : currentNode.type === "info" ? (
+        <div style={{ display: "grid", gap: 8 }}>
+          <div style={{ fontWeight: 900 }}>{currentNode.title}</div>
+          <div style={{ fontSize: 13, lineHeight: 1.5, opacity: 0.9 }}>{currentNode.body}</div>
+          <button
+            onClick={() => goto(currentNode.next)}
+            style={{ padding: "10px 12px", borderRadius: 9999, border: "1px solid #eee", width: "fit-content" }}
+          >
+            Continue
+          </button>
+        </div>
+      ) : currentNode.type === "checklist" ? (
+        <div style={{ display: "grid", gap: 10 }}>
+          <div style={{ fontWeight: 900 }}>{currentNode.title}</div>
+          {currentNode.sections.map((sec) => (
+            <div key={sec.key} style={{ border: "1px solid #eee", borderRadius: 16, padding: 12, display: "grid", gap: 8 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
+                <div style={{ fontWeight: 800 }}>{sec.label}</div>
+                <div style={{ display: "flex", gap: 8 }}>
+                  <button
+                    onClick={() => setAll(sec.key, sec.items.map((x) => x.id), true)}
+                    style={{ padding: "6px 10px", borderRadius: 9999, border: "1px solid #eee", fontSize: 12 }}
+                  >
+                    Select all
+                  </button>
+                  <button
+                    onClick={() => setAll(sec.key, sec.items.map((x) => x.id), false)}
+                    style={{ padding: "6px 10px", borderRadius: 9999, border: "1px solid #eee", fontSize: 12 }}
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+              <div style={{ display: "grid", gap: 6 }}>
+                {sec.items.map((it) => (
+                  <label key={it.id} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                    <input
+                      type="checkbox"
+                      checked={!!treeSelected?.[sec.key]?.[it.id]}
+                      onChange={() => toggleItem(sec.key, it.id)}
+                      style={{ marginTop: 3 }}
+                    />
+                    <span>{it.text}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          ))}
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            <button onClick={() => goto(currentNode.next)} style={{ padding: "10px 12px", borderRadius: 9999 }}>
+              Continue
+            </button>
+            <button onClick={actions.openNoteModal} style={{ padding: "10px 12px", borderRadius: 9999 }}>
+              Nursing Progress Note
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div style={{ padding: 10, borderRadius: 12, border: "1px solid #eee" }}>
+          Unsupported node type: {(currentNode as any).type}
+        </div>
+      )}
+
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+        <button onClick={actions.wizardBack} style={{ padding: "10px 12px", borderRadius: 9999 }}>
+          Back
+        </button>
+        <button onClick={actions.wizardReset} style={{ padding: "10px 12px", borderRadius: 9999 }}>
+          Reset
+        </button>
+        <div style={{ flex: 1 }} />
+        <button onClick={actions.wizardApplyToPacket} style={{ padding: "10px 12px", borderRadius: 9999 }}>
+          Apply to Packet Draft
+        </button>
+        <button
+          onClick={() => actions.wizardNext()}
+          style={{ padding: "10px 12px", borderRadius: 9999 }}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  ) : (
+
         <div style={{ border: "1px solid #eee", borderRadius: 16, padding: 12, display: "grid", gap: 12 }}>
           <div style={{ fontWeight: 800 }}>Step 2: Exploratory questions</div>
           <div style={{ fontSize: 12, opacity: 0.75 }}>
@@ -636,15 +876,46 @@ export function DecisionWizardTab() {
         open={ui.noteModalOpen}
         onClose={actions.closeNoteModal}
         issueText={draft.meta.issue_text}
-        assessmentPrompts={p.assessment}
-        documentationPrompts={p.documentation}
-        interventionPrompts={p.interventions}
-        defaultSelected={{
-          assessment: picked.assessment,
-          documentation: picked.documentation,
-          interventions: picked.interventions
-        }}
+        assessmentPrompts={isTreeCategory && pickedFromChecklist ? pickedFromChecklist.assessmentPrompts : p.assessment}
+        documentationPrompts={isTreeCategory && pickedFromChecklist ? pickedFromChecklist.documentationPrompts : p.documentation}
+        interventionPrompts={isTreeCategory && pickedFromChecklist ? pickedFromChecklist.interventionPrompts : p.interventions}
+        defaultSelected={
+          isTreeCategory && pickedFromChecklist
+            ? pickedFromChecklist.selected
+            : {
+                assessment: picked.assessment,
+                documentation: picked.documentation,
+                interventions: picked.interventions
+              }
+        }
       />
     </div>
   );
+const [pathway, setPathway] = React.useState<Pathway | null>(null);
+const [nodeId, setNodeId] = React.useState<string | null>(null);
+const [treeAnswers, setTreeAnswers] = React.useState<Record<string, any>>({});
+const [treeSelected, setTreeSelected] = React.useState<Record<string, Record<string, boolean>>>({}); // sectionKey -> itemId -> checked
+const [treeError, setTreeError] = React.useState<string | null>(null);
+
+const isTreeCategory = ["stroke", "chest_pain", "pain", "critical_labs"].includes(wizard.category as any);
+
+React.useEffect(() => {
+  // Load pathway when user enters Step 2 and category matches a tree.
+  const run = async () => {
+    if (!isTreeCategory || wizard.step !== 2) return;
+    setTreeError(null);
+    try {
+      const url = PATHWAY_BY_CATEGORY[wizard.category as any];
+      if (!url) throw new Error(`No pathway mapped for category: ${wizard.category}`);
+      const p = await fetchJson<Pathway>(url);
+      setPathway(p);
+      setNodeId(p.startNodeId);
+      setTreeAnswers({});
+      setTreeSelected({});
+    } catch (e: any) {
+      setTreeError(e?.message ?? String(e));
+    }
+  };
+  run();
+}, [isTreeCategory, wizard.step, wizard.category]);
 }

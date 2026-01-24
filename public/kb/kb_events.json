@@ -74,6 +74,15 @@
         }
       ]
     },
+
+    {
+  "id": "coc_critical_labs",
+  "title": "Critical Lab Result (COC Triage)",
+  "pathway": "/kb/coc/pathways/critical_labs_decision_tree.json",
+  "category": "Change of Condition",
+  "tags": ["COC", "Labs"]
+},
+
     {
       "event_id": "coc_sob",
       "title": "Shortness of Breath / Low O2",

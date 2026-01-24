@@ -1,15 +1,29 @@
-Build Fix Patch — DecisionWizardTab exports
+KB RN Thinker — WizardCategory Build Fix (Auto-Patch)
 
-Fixes Cloudflare build error:
-- App.tsx imports { DecisionWizardTab } but file might only default-export.
-This file exports BOTH a named export and a default export.
+Your Cloudflare build is failing because src/store/appStore.ts contains Record<WizardCategory, ...> maps
+that only define the legacy keys:
+  general, fever, respiratory, fall, abuse
 
-Apply:
-1) Unzip into repo root (same folder as package.json), overwrite.
-2) Commit + push.
+But WizardCategory now includes:
+  stroke, chest_pain, pain, critical_labs
 
-IMPORTANT:
-Your latest build log also shows WizardCategory maps missing keys:
-stroke, chest_pain, pain, critical_labs.
-You MUST add those keys to the Record<WizardCategory, ...> maps in src/store/appStore.ts.
-(If you upload/paste appStore.ts, I can generate an exact appStore.ts patch file too.)
+This auto-patch script updates appStore.ts by inserting the missing keys into:
+- Record<WizardCategory, string> maps (3 places)
+- Record<WizardCategory, string[]> map (keywords)
+
+How to apply:
+1) Unzip this ZIP into your repo root (same folder as package.json).
+2) Run:
+   node scripts/patch-appstore-wizardcategories.mjs
+3) Verify:
+   git diff src/store/appStore.ts
+4) Rebuild:
+   npm run build
+5) Commit + push.
+
+If you prefer a manual edit, add these keys to each Record map:
+  stroke: "Stroke/TIA"
+  chest_pain: "Chest Pain / Suspected ACS"
+  pain: "Pain"
+  critical_labs: "Critical Labs"
+And for keywords map, use arrays of trigger terms.

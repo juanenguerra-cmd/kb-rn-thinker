@@ -1,0 +1,192 @@
+{
+  "schema": "kb.coc_pathway.v1",
+  "id": "coc_pathway_chest_pain_protocol",
+  "title": "Chest Pain / Suspected ACS (Cascading Triage)",
+  "version": "1.0.0",
+  "assets": {
+    "kbDocId": "coc_chest_pain_protocol"
+  },
+  "startNodeId": "cp_start",
+  "nodes": [
+    {
+      "id": "cp_start",
+      "type": "question_single",
+      "prompt": "What is the problem?",
+      "options": [
+        {
+          "value": "chest_pain",
+          "label": "Chest pain/pressure or suspected heart attack symptoms",
+          "next": "cp_symptoms"
+        }
+      ]
+    },
+    {
+      "id": "cp_symptoms",
+      "type": "question_multi",
+      "prompt": "Symptom checker (select all present/observed):",
+      "options": [
+        {
+          "value": "pressure",
+          "label": "Chest pressure/squeezing/fullness/pain"
+        },
+        {
+          "value": "radiation",
+          "label": "Pain radiating to arm/back/neck/jaw/stomach"
+        },
+        {
+          "value": "sob",
+          "label": "Shortness of breath"
+        },
+        {
+          "value": "nausea",
+          "label": "Nausea/vomiting/diaphoresis"
+        },
+        {
+          "value": "syncope",
+          "label": "Dizziness/near-syncope/syncope"
+        },
+        {
+          "value": "none",
+          "label": "None of the above"
+        }
+      ],
+      "next": "cp_severity"
+    },
+    {
+      "id": "cp_severity",
+      "type": "question_single",
+      "prompt": "Is the resident unstable or are symptoms severe/ongoing?",
+      "helpText": "Examples: severe pain, severe SOB, syncope, hypotension, altered mental status.",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes",
+          "next": "cp_escalate"
+        },
+        {
+          "value": "no",
+          "label": "No / mild or resolved",
+          "next": "cp_followthrough"
+        }
+      ]
+    },
+    {
+      "id": "cp_escalate",
+      "type": "info",
+      "title": "Emergency response (possible ACS)",
+      "body": "Activate facility emergency response and call 911 per protocol. Obtain vitals and SpO2 if feasible without delaying EMS. Notify provider immediately and document times. Follow standing orders only if present and allowed.",
+      "next": "cp_followthrough"
+    },
+    {
+      "id": "cp_followthrough",
+      "type": "question_multi",
+      "prompt": "Follow-through questions (select what applies / will do):",
+      "options": [
+        {
+          "value": "abcs",
+          "label": "Assessed ABCs and current symptoms"
+        },
+        {
+          "value": "vitals",
+          "label": "Obtained vital signs and SpO2"
+        },
+        {
+          "value": "pain_assess",
+          "label": "Pain assessment (location/quality/radiation/0\u201310)"
+        },
+        {
+          "value": "ekg",
+          "label": "EKG obtained/ordered (if available)"
+        },
+        {
+          "value": "orders",
+          "label": "Followed standing orders if present (per facility policy)"
+        },
+        {
+          "value": "notify",
+          "label": "Provider notified (SBAR)"
+        },
+        {
+          "value": "ems",
+          "label": "EMS/911 activated per protocol"
+        }
+      ],
+      "next": "cp_actions_checklist"
+    },
+    {
+      "id": "cp_actions_checklist",
+      "type": "checklist",
+      "title": "Actions (select to include in note)",
+      "sections": [
+        {
+          "key": "assessment",
+          "label": "Assessment",
+          "items": [
+            {
+              "id": "vs",
+              "text": "Obtained vital signs and oxygen saturation"
+            },
+            {
+              "id": "pain",
+              "text": "Completed focused chest pain assessment (0\u201310, radiation, associated symptoms)"
+            },
+            {
+              "id": "baseline",
+              "text": "Compared symptoms and vitals to baseline"
+            }
+          ]
+        },
+        {
+          "key": "interventions",
+          "label": "Interventions",
+          "items": [
+            {
+              "id": "ems",
+              "text": "Activated emergency response / called 911 per protocol"
+            },
+            {
+              "id": "orders",
+              "text": "Implemented standing/provider orders as applicable and monitored response"
+            },
+            {
+              "id": "safety",
+              "text": "Provided safety measures, rest, and monitoring"
+            }
+          ]
+        },
+        {
+          "key": "documentation",
+          "label": "Documentation",
+          "items": [
+            {
+              "id": "onset",
+              "text": "Documented onset time and symptom progression"
+            },
+            {
+              "id": "notify",
+              "text": "Notified provider/representative with times; documented orders received"
+            },
+            {
+              "id": "plan",
+              "text": "Documented monitoring and disposition plan"
+            }
+          ]
+        }
+      ],
+      "next": "cp_outputs"
+    },
+    {
+      "id": "cp_outputs",
+      "type": "summary",
+      "outputs": {
+        "noteTemplate": "narrative_paragraph_only_checked",
+        "kbAdd": [
+          "coc_chest_pain_protocol"
+        ],
+        "packetAdd": [
+          "coc_chest_pain_protocol"
+        ]
+      }
+    }
+  ]
+}

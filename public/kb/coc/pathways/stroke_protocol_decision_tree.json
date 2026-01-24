@@ -1,0 +1,225 @@
+{
+  "schema": "kb.coc_pathway.v1",
+  "id": "coc_pathway_stroke_protocol",
+  "title": "Suspected Stroke / TIA (Cascading Triage)",
+  "version": "1.0.0",
+  "assets": {
+    "kbDocId": "coc_stroke_protocol"
+  },
+  "startNodeId": "stroke_start",
+  "nodes": [
+    {
+      "id": "stroke_start",
+      "type": "question_single",
+      "prompt": "What is the problem?",
+      "options": [
+        {
+          "value": "suspected_stroke",
+          "label": "Suspected stroke/TIA symptoms",
+          "next": "stroke_symptoms"
+        }
+      ]
+    },
+    {
+      "id": "stroke_symptoms",
+      "type": "question_multi",
+      "prompt": "Symptom checker (select all present/observed):",
+      "options": [
+        {
+          "value": "face",
+          "label": "Face drooping/numbness"
+        },
+        {
+          "value": "arm",
+          "label": "Arm weakness/numbness (one side)"
+        },
+        {
+          "value": "speech",
+          "label": "Speech difficulty/slurred/confused"
+        },
+        {
+          "value": "vision",
+          "label": "Trouble seeing (one/both eyes)"
+        },
+        {
+          "value": "balance",
+          "label": "Trouble walking/dizziness/loss of balance"
+        },
+        {
+          "value": "headache",
+          "label": "Sudden severe headache"
+        },
+        {
+          "value": "none",
+          "label": "None of the above"
+        }
+      ],
+      "next": "stroke_time"
+    },
+    {
+      "id": "stroke_time",
+      "type": "question_single",
+      "prompt": "When were they last known well (at baseline)?",
+      "options": [
+        {
+          "value": "known",
+          "label": "Known time (I can estimate/enter)",
+          "next": "stroke_last_known_well"
+        },
+        {
+          "value": "unknown",
+          "label": "Unknown / found with symptoms",
+          "next": "stroke_found_time"
+        }
+      ]
+    },
+    {
+      "id": "stroke_last_known_well",
+      "type": "text_short",
+      "prompt": "Enter last known well time (or best estimate).",
+      "next": "stroke_redflags"
+    },
+    {
+      "id": "stroke_found_time",
+      "type": "text_short",
+      "prompt": "Enter time resident was found with symptoms (or best estimate).",
+      "next": "stroke_redflags"
+    },
+    {
+      "id": "stroke_redflags",
+      "type": "question_single",
+      "prompt": "Any urgent red flags / instability right now?",
+      "helpText": "Examples: severe SOB, syncope, seizure, unstable vitals, cannot protect airway.",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes",
+          "next": "stroke_escalate"
+        },
+        {
+          "value": "no",
+          "label": "No",
+          "next": "stroke_actions_core"
+        }
+      ]
+    },
+    {
+      "id": "stroke_escalate",
+      "type": "info",
+      "title": "Emergency response (stroke suspected)",
+      "body": "Activate facility emergency response and call 911 per protocol. Obtain vitals and blood glucose if feasible without delaying EMS. Notify provider and document times.",
+      "next": "stroke_actions_core"
+    },
+    {
+      "id": "stroke_actions_core",
+      "type": "question_multi",
+      "prompt": "Follow-through questions (select what applies / will do):",
+      "options": [
+        {
+          "value": "abcs",
+          "label": "Assessed ABCs and current symptoms"
+        },
+        {
+          "value": "vitals",
+          "label": "Obtained full vital signs"
+        },
+        {
+          "value": "glucose",
+          "label": "Checked blood glucose (rule out hypoglycemia mimic)"
+        },
+        {
+          "value": "neuro",
+          "label": "Focused neuro check (speech/face/arm drift)"
+        },
+        {
+          "value": "anticoag",
+          "label": "Checked if on anticoagulant/antiplatelet (if known)"
+        },
+        {
+          "value": "notify",
+          "label": "Provider notified (SBAR)"
+        },
+        {
+          "value": "ems",
+          "label": "EMS/911 activated per protocol"
+        }
+      ],
+      "next": "stroke_actions_checklist"
+    },
+    {
+      "id": "stroke_actions_checklist",
+      "type": "checklist",
+      "title": "Actions (select to include in note)",
+      "sections": [
+        {
+          "key": "assessment",
+          "label": "Assessment",
+          "items": [
+            {
+              "id": "vs",
+              "text": "Obtained vital signs and compared to baseline"
+            },
+            {
+              "id": "neuro",
+              "text": "Performed focused neuro assessment (FAST/BE-FAST elements)"
+            },
+            {
+              "id": "glucose",
+              "text": "Checked blood glucose per protocol/availability"
+            }
+          ]
+        },
+        {
+          "key": "interventions",
+          "label": "Interventions",
+          "items": [
+            {
+              "id": "ems",
+              "text": "Activated emergency response / called 911 per protocol"
+            },
+            {
+              "id": "safety",
+              "text": "Implemented immediate safety measures and fall precautions"
+            },
+            {
+              "id": "position",
+              "text": "Positioned resident for airway safety and monitoring as appropriate"
+            }
+          ]
+        },
+        {
+          "key": "documentation",
+          "label": "Documentation",
+          "items": [
+            {
+              "id": "times",
+              "text": "Documented onset/found time and last known well (best estimate)"
+            },
+            {
+              "id": "notify",
+              "text": "Notified provider/representative with times and received orders"
+            },
+            {
+              "id": "plan",
+              "text": "Documented monitoring and disposition plan"
+            }
+          ]
+        }
+      ],
+      "next": "stroke_outputs"
+    },
+    {
+      "id": "stroke_outputs",
+      "type": "summary",
+      "outputs": {
+        "noteTemplate": "narrative_paragraph_only_checked",
+        "kbAdd": [
+          "coc_stroke_protocol"
+        ],
+        "packetAdd": [
+          "coc_stroke_protocol"
+        ]
+      }
+    }
+  ]
+}

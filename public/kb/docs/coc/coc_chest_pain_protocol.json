@@ -1,0 +1,52 @@
+{
+  "schema": "kb.doc.v1",
+  "id": "coc_chest_pain_protocol",
+  "title": "Change of Condition \u2014 Chest Pain / Suspected ACS Protocol (LTC/SNF)",
+  "updatedAt": "2026-01-24",
+  "tags": [
+    "change of condition",
+    "chest pain",
+    "ACS",
+    "heart attack",
+    "SOB",
+    "911",
+    "triage"
+  ],
+  "summary": "A triage workflow for chest pain or suspected myocardial ischemia: symptom screen, red flags, immediate escalation, and documentation elements.",
+  "sections": [
+    {
+      "id": "recognize",
+      "heading": "Recognize heart attack warning signs",
+      "body": "Chest discomfort (pressure/squeezing/fullness/pain) that lasts more than a few minutes or comes and goes; discomfort in arm(s), back, neck, jaw, or stomach; shortness of breath; nausea, lightheadedness, or cold sweat."
+    },
+    {
+      "id": "immediate",
+      "heading": "Immediate actions (do not delay)",
+      "body": "1) Assess ABCs and current symptoms. 2) Obtain vitals and oxygen saturation. 3) Call 911/activate emergency response per facility protocol if symptoms concerning for ACS or resident unstable. 4) Notify provider with SBAR. 5) Follow standing orders only if they exist (e.g., oxygen, aspirin, nitroglycerin) and only as ordered/allowed by your facility policy."
+    },
+    {
+      "id": "red_flags",
+      "heading": "Red flags",
+      "body": "Severe/ongoing chest pain, shortness of breath, syncope, hypotension, new confusion, diaphoresis, or any unstable vital signs should trigger immediate emergency response per protocol."
+    },
+    {
+      "id": "documentation",
+      "heading": "Documentation elements (survey-ready)",
+      "body": "Document: onset time; pain location/quality/radiation/0-10; associated symptoms; vitals and SpO2; interventions per orders; notifications (EMS/provider/representative) with times; resident response and disposition."
+    }
+  ],
+  "references": [
+    {
+      "label": "AHA: Warning Signs of a Heart Attack",
+      "url": "https://www.heart.org/en/health-topics/heart-attack/warning-signs-of-a-heart-attack"
+    },
+    {
+      "label": "AHA: Heart Attack Symptoms (overview)",
+      "url": "https://www.heart.org/en/about-us/heart-attack-and-stroke-symptoms"
+    },
+    {
+      "label": "AHA News: call 911 for heart attack symptoms",
+      "url": "https://www.heart.org/en/news/2025/04/15/call-911-for-heart-attack-or-stroke-symptoms-or-just-drive-to-the-er"
+    }
+  ]
+}

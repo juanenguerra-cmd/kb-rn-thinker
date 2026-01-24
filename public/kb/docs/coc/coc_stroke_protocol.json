@@ -1,0 +1,53 @@
+{
+  "schema": "kb.doc.v1",
+  "id": "coc_stroke_protocol",
+  "title": "Change of Condition \u2014 Suspected Stroke/TIA Protocol (LTC/SNF)",
+  "updatedAt": "2026-01-24",
+  "tags": [
+    "change of condition",
+    "stroke",
+    "TIA",
+    "BE-FAST",
+    "FAST",
+    "neuro",
+    "911",
+    "triage"
+  ],
+  "summary": "A survey-ready triage workflow for suspected stroke/TIA: rapid symptom check, last-known-well, red flags, immediate escalation, and documentation elements.",
+  "sections": [
+    {
+      "id": "recognize",
+      "heading": "Recognize stroke warning signs (FAST / BE-FAST)",
+      "body": "Assume stroke until proven otherwise when there is a sudden neurological change. Use FAST: Face drooping, Arm weakness, Speech difficulty, Time to call 911. Also consider sudden trouble seeing, loss of balance/coordination, or severe headache."
+    },
+    {
+      "id": "time_is_brain",
+      "heading": "Time matters",
+      "body": "If stroke is suspected, treat as an emergency. Call 911 per facility emergency protocol and notify provider. Document last known well time, symptom onset (or when found), and baseline deficits."
+    },
+    {
+      "id": "first_actions",
+      "heading": "First actions (do not delay)",
+      "body": "1) Ensure safety and assess ABCs. 2) Obtain vitals and blood glucose (hypoglycemia can mimic stroke). 3) Assess neuro status (speech, facial symmetry, arm drift, pupils if trained). 4) Determine last-known-well time and anticoagulant use if known. 5) Call 911/activate emergency response per protocol and notify provider."
+    },
+    {
+      "id": "documentation",
+      "heading": "Documentation elements (survey-ready)",
+      "body": "Document: symptoms observed and exact time; last-known-well; vitals and glucose; focused neuro findings; notifications (EMS/provider/representative) with times; interventions; resident response and disposition."
+    }
+  ],
+  "references": [
+    {
+      "label": "AHA/ASA: Stroke Symptoms and Warning Signs (FAST)",
+      "url": "https://www.stroke.org/en/about-stroke/stroke-symptoms"
+    },
+    {
+      "label": "AHA FAST handout (call 911)",
+      "url": "https://www.heart.org/-/media/Files/Affiliates/WSA/Oregon/OR-Hard-Hats-Stroke/Spot-a-stroke-FAST.pdf"
+    },
+    {
+      "label": "AHA News: call 911 for stroke symptoms",
+      "url": "https://www.heart.org/en/news/2025/04/15/call-911-for-heart-attack-or-stroke-symptoms-or-just-drive-to-the-er"
+    }
+  ]
+}

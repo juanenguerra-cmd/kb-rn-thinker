@@ -1,0 +1,43 @@
+{
+  "schema": "kb.doc.v1",
+  "id": "coc_pain_protocol",
+  "title": "Change of Condition \u2014 Pain Protocol (LTC/SNF)",
+  "updatedAt": "2026-01-24",
+  "tags": [
+    "change of condition",
+    "pain",
+    "assessment",
+    "older adults",
+    "PAINAD",
+    "triage"
+  ],
+  "summary": "A structured pain assessment and follow-through workflow for older adults, including red flags, functional impact, and documentation elements.",
+  "sections": [
+    {
+      "id": "assess",
+      "heading": "Assess pain systematically",
+      "body": "Assess location, onset, quality, intensity (0\u201310), duration, aggravating/relieving factors, functional impact (mobility, sleep, appetite), and associated symptoms. For residents with dementia or limited verbal ability, use an observational tool (e.g., PAINAD) and behavioral cues."
+    },
+    {
+      "id": "red_flags",
+      "heading": "Red flags requiring escalation",
+      "body": "Chest pain, new neuro deficits, severe abdominal pain with rigidity, uncontrolled bleeding, new severe shortness of breath, suspected fracture, or sudden 'worst pain' should trigger immediate escalation per facility protocol."
+    },
+    {
+      "id": "follow_through",
+      "heading": "Follow-through",
+      "body": "Check vitals if pain is new/worsening or severe. Review recent events (fall, procedure), bowel/urinary status, wounds, and medication timing/effect. Implement ordered interventions (non-pharm and pharmacologic per orders), then reassess and document response within a defined timeframe."
+    },
+    {
+      "id": "documentation",
+      "heading": "Documentation elements (survey-ready)",
+      "body": "Document: pain assessment details; nonverbal cues if applicable; interventions performed per orders; resident response; education; provider notifications and orders received; monitoring plan."
+    }
+  ],
+  "references": [
+    {
+      "label": "Practice guideline review: pain assessment in older adults; PAINAD and domains",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2871017/"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "schema": "kb.coc_pathway.v1",
+  "id": "coc_pathway_pain_protocol",
+  "title": "Pain (Cascading Assessment + Follow-through)",
+  "version": "1.0.0",
+  "assets": {
+    "kbDocId": "coc_pain_protocol"
+  },
+  "startNodeId": "pain_start",
+  "nodes": [
+    {
+      "id": "pain_start",
+      "type": "question_single",
+      "prompt": "What is the problem?",
+      "options": [
+        {
+          "value": "pain",
+          "label": "New or worsening pain",
+          "next": "pain_characterize"
+        }
+      ]
+    },
+    {
+      "id": "pain_characterize",
+      "type": "question_multi",
+      "prompt": "Characterize the pain (select what you assessed):",
+      "options": [
+        {
+          "value": "location",
+          "label": "Location documented"
+        },
+        {
+          "value": "onset",
+          "label": "Onset/time pattern documented"
+        },
+        {
+          "value": "quality",
+          "label": "Quality (sharp/dull/burning) documented"
+        },
+        {
+          "value": "severity",
+          "label": "Severity scale used (0\u201310 or PAINAD)"
+        },
+        {
+          "value": "function",
+          "label": "Functional impact assessed (mobility/sleep/appetite)"
+        },
+        {
+          "value": "associated",
+          "label": "Associated symptoms assessed"
+        }
+      ],
+      "next": "pain_redflags"
+    },
+    {
+      "id": "pain_redflags",
+      "type": "question_single",
+      "prompt": "Any pain red flags that require immediate escalation?",
+      "helpText": "Examples: chest pain, new neuro deficits, severe SOB, suspected fracture, uncontrolled bleeding, acute rigid abdomen, 'worst pain'.",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes",
+          "next": "pain_escalate"
+        },
+        {
+          "value": "no",
+          "label": "No",
+          "next": "pain_followthrough"
+        }
+      ]
+    },
+    {
+      "id": "pain_escalate",
+      "type": "info",
+      "title": "Red Flag \u2014 Escalate",
+      "body": "Follow facility emergency protocol and notify provider immediately. Obtain vitals if feasible without delaying emergency response. Document times and orders received.",
+      "next": "pain_followthrough"
+    },
+    {
+      "id": "pain_followthrough",
+      "type": "question_multi",
+      "prompt": "Follow-through questions (select what applies / will do):",
+      "options": [
+        {
+          "value": "vitals",
+          "label": "Obtained vital signs (new/worsening or severe pain)"
+        },
+        {
+          "value": "recent_event",
+          "label": "Reviewed recent fall/procedure/injury"
+        },
+        {
+          "value": "bowel",
+          "label": "Assessed bowel status/constipation"
+        },
+        {
+          "value": "urinary",
+          "label": "Assessed urinary symptoms/retention"
+        },
+        {
+          "value": "wounds",
+          "label": "Assessed wounds/skin areas related to pain"
+        },
+        {
+          "value": "med_timing",
+          "label": "Reviewed pain med timing and effectiveness"
+        },
+        {
+          "value": "notify",
+          "label": "Provider notified (SBAR) if not controlled/new concerning pain"
+        }
+      ],
+      "next": "pain_actions_checklist"
+    },
+    {
+      "id": "pain_actions_checklist",
+      "type": "checklist",
+      "title": "Actions (select to include in note)",
+      "sections": [
+        {
+          "key": "assessment",
+          "label": "Assessment",
+          "items": [
+            {
+              "id": "pain_assess",
+              "text": "Completed structured pain assessment (location, onset, quality, severity, function)"
+            },
+            {
+              "id": "nonverbal",
+              "text": "Used nonverbal/behavioral pain cues (PAINAD or similar) when applicable"
+            },
+            {
+              "id": "focused",
+              "text": "Performed focused assessment for likely cause based on location/symptoms"
+            }
+          ]
+        },
+        {
+          "key": "interventions",
+          "label": "Interventions",
+          "items": [
+            {
+              "id": "nonpharm",
+              "text": "Implemented non-pharmacologic comfort measures as appropriate"
+            },
+            {
+              "id": "orders",
+              "text": "Administered ordered pain interventions/medications and monitored response"
+            },
+            {
+              "id": "reassess",
+              "text": "Reassessed pain and function after intervention within expected timeframe"
+            }
+          ]
+        },
+        {
+          "key": "documentation",
+          "label": "Documentation",
+          "items": [
+            {
+              "id": "response",
+              "text": "Documented response to interventions and ongoing plan"
+            },
+            {
+              "id": "notify",
+              "text": "Notified provider/representative as appropriate; documented orders received"
+            },
+            {
+              "id": "monitor",
+              "text": "Documented monitoring plan and follow-up"
+            }
+          ]
+        }
+      ],
+      "next": "pain_outputs"
+    },
+    {
+      "id": "pain_outputs",
+      "type": "summary",
+      "outputs": {
+        "noteTemplate": "narrative_paragraph_only_checked",
+        "kbAdd": [
+          "coc_pain_protocol"
+        ],
+        "packetAdd": [
+          "coc_pain_protocol"
+        ]
+      }
+    }
+  ]
+}

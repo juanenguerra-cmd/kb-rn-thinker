@@ -1,5 +1,4 @@
 // src/features/wizard/ProblemPickerStep.tsx
-import React from "react";
 import type { CocCatalogItem } from "./useCocCatalog";
 import { useCocCatalog } from "./useCocCatalog";
 

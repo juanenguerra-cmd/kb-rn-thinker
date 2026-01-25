@@ -1,0 +1,204 @@
+{
+  "schema": "coc.pathway.v1",
+  "id": "refusal_treatment",
+  "title": "Refusal of Treatment/Care \u2014 Decision Ladder",
+  "version": "0.1.0",
+  "startNodeId": "q_redflags",
+  "nodes": [
+    {
+      "id": "q_redflags",
+      "type": "question_multi",
+      "prompt": "Red flags (select any)",
+      "helpText": "If the refusal creates immediate clinical danger, escalate per policy/provider direction.",
+      "options": [
+        {
+          "value": "life_sustaining",
+          "label": "Refusal of life\u2011sustaining care (e.g., airway/bleeding emergency)"
+        },
+        {
+          "value": "acute_ams",
+          "label": "Acute confusion/delirium or cannot understand"
+        },
+        {
+          "value": "infection_control",
+          "label": "Refusal of required infection control precautions during outbreak"
+        },
+        {
+          "value": "severe_symptoms",
+          "label": "Severe symptoms/instability requiring urgent evaluation"
+        }
+      ],
+      "next": "q_whats_refused"
+    },
+    {
+      "id": "q_whats_refused",
+      "type": "text_short",
+      "prompt": "What is being refused? (e.g., wound care, therapy, isolation, vitals)",
+      "next": "q_reason"
+    },
+    {
+      "id": "q_reason",
+      "type": "question_multi",
+      "prompt": "Reason for refusal (select all that apply)",
+      "options": [
+        {
+          "value": "pain",
+          "label": "Pain/discomfort"
+        },
+        {
+          "value": "fear",
+          "label": "Fear/anxiety"
+        },
+        {
+          "value": "privacy",
+          "label": "Privacy/embarrassment"
+        },
+        {
+          "value": "fatigue",
+          "label": "Fatigue/tired"
+        },
+        {
+          "value": "belief",
+          "label": "Belief/mistrust"
+        },
+        {
+          "value": "misunderstanding",
+          "label": "Misunderstanding of purpose"
+        },
+        {
+          "value": "other",
+          "label": "Other/unknown"
+        }
+      ],
+      "next": "q_capacity"
+    },
+    {
+      "id": "q_capacity",
+      "type": "question_single",
+      "prompt": "Does the resident appear to have capacity for this decision?",
+      "helpText": "If uncertain, treat as change in condition and notify provider/supervisor per policy.",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No / uncertain"
+        }
+      ],
+      "next": "info_education"
+    },
+    {
+      "id": "info_education",
+      "type": "info",
+      "title": "Education + alternatives",
+      "body": "Explain purpose, risks/benefits, and alternatives in plain language. Offer options (timing, smaller steps, different staff approach) when feasible. Respect resident rights; avoid coercion.",
+      "next": "q_notify"
+    },
+    {
+      "id": "q_notify",
+      "type": "question_single",
+      "prompt": "Notify provider/supervisor/responsible party?",
+      "helpText": "Notify for repeated refusal, high\u2011risk refusal, or if capacity is uncertain.",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "Not at this time"
+        }
+      ],
+      "next": "check_actions"
+    },
+    {
+      "id": "check_actions",
+      "type": "checklist",
+      "title": "Select actions to include in the progress note",
+      "sections": [
+        {
+          "key": "assessment",
+          "label": "Assessment",
+          "items": [
+            {
+              "id": "what",
+              "text": "Clarified what was refused and assessed clinical impact/risk"
+            },
+            {
+              "id": "status",
+              "text": "Assessed resident status (vitals/symptoms/mental status) and compared to baseline"
+            },
+            {
+              "id": "capacity",
+              "text": "Assessed capacity/understanding for this decision and documented findings"
+            }
+          ]
+        },
+        {
+          "key": "interventions",
+          "label": "Interventions",
+          "items": [
+            {
+              "id": "educate",
+              "text": "Provided education on purpose/risks/benefits and offered alternatives"
+            },
+            {
+              "id": "comfort",
+              "text": "Addressed comfort barriers (pain/anxiety) with allowed interventions"
+            },
+            {
+              "id": "reapproach",
+              "text": "Planned re\u2011approach with modified approach/time/staff as appropriate"
+            }
+          ]
+        },
+        {
+          "key": "monitoring",
+          "label": "Monitoring",
+          "items": [
+            {
+              "id": "trend",
+              "text": "Monitored for clinical changes related to refusal and re\u2011evaluated risk"
+            },
+            {
+              "id": "escalate",
+              "text": "Escalated for deterioration, repeated refusals, or high\u2011risk refusal per policy"
+            }
+          ]
+        },
+        {
+          "key": "documentation",
+          "label": "Documentation",
+          "items": [
+            {
+              "id": "details",
+              "text": "Documented refusal details, education provided, and resident response"
+            },
+            {
+              "id": "notify",
+              "text": "Notified provider/supervisor/responsible party as indicated and documented outcome"
+            },
+            {
+              "id": "rights",
+              "text": "Documented resident rights considerations and offered alternatives"
+            },
+            {
+              "id": "plan",
+              "text": "Documented follow\u2011up plan and escalation triggers"
+            }
+          ]
+        }
+      ],
+      "next": "done"
+    },
+    {
+      "id": "done",
+      "type": "summary",
+      "outputs": {
+        "noteTemplate": "Problem: {{issue}}. Key findings: {{findings}}. {{actions}}"
+      }
+    }
+  ]
+}

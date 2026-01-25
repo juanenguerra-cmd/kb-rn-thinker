@@ -1,7 +1,7 @@
 {
   "schema": "coc.catalog.v1",
-  "updatedAt": "2026-01-24",
-  "count": 46,
+  "updatedAt": "2026-01-25",
+  "count": 45,
   "items": [
     {
       "id": "coc_stroke_tia",
@@ -131,7 +131,7 @@
         "safety"
       ],
       "ladder": "universal_coc_ladder_v1",
-      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "pathway": "/kb/coc/pathways/behavior_change_decision_tree.json",
       "minimumData": [
         "baseline_behavior",
         "triggers",
@@ -155,7 +155,7 @@
         "meds"
       ],
       "ladder": "universal_coc_ladder_v1",
-      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "pathway": "/kb/coc/pathways/refusal_meds_decision_tree.json",
       "minimumData": [
         "which_med",
         "reason",
@@ -179,7 +179,7 @@
         "rights"
       ],
       "ladder": "universal_coc_ladder_v1",
-      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "pathway": "/kb/coc/pathways/refusal_treatment_decision_tree.json",
       "minimumData": [
         "what_refused",
         "reason",
@@ -279,7 +279,7 @@
         "neuro"
       ],
       "ladder": "universal_coc_ladder_v1",
-      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "pathway": "/kb/coc/pathways/delirium_ams_decision_tree.json",
       "minimumData": [
         "vitals",
         "focused_assessment",
@@ -343,28 +343,6 @@
       "tags": [
         "bleeding",
         "emergency"
-      ],
-      "ladder": "universal_coc_ladder_v1",
-      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
-      "minimumData": [
-        "vitals",
-        "focused_assessment",
-        "baseline_compare",
-        "notify_provider_if_needed"
-      ]
-    },
-    {
-      "id": "coc_dehydration",
-      "label": "Dehydration / Poor Intake",
-      "category": "Fluid",
-      "synonyms": [
-        "poor intake",
-        "dehydrated",
-        "dry mouth",
-        "low output"
-      ],
-      "tags": [
-        "dehydration"
       ],
       "ladder": "universal_coc_ladder_v1",
       "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
@@ -783,7 +761,7 @@
         "safety"
       ],
       "ladder": "universal_coc_ladder_v1",
-      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "pathway": "/kb/coc/pathways/delirium_ams_decision_tree.json",
       "minimumData": [
         "vitals",
         "focused_assessment",
@@ -890,7 +868,7 @@
         "safety"
       ],
       "ladder": "universal_coc_ladder_v1",
-      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "pathway": "/kb/coc/pathways/behavior_change_decision_tree.json",
       "minimumData": [
         "vitals",
         "focused_assessment",
@@ -911,7 +889,7 @@
         "emergency"
       ],
       "ladder": "universal_coc_ladder_v1",
-      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "pathway": "/kb/coc/pathways/behavior_change_decision_tree.json",
       "minimumData": [
         "vitals",
         "focused_assessment",
@@ -932,7 +910,7 @@
         "rights"
       ],
       "ladder": "universal_coc_ladder_v1",
-      "pathway": "/kb/coc/pathways/general_change_in_condition_decision_tree.json",
+      "pathway": "/kb/coc/pathways/refusal_treatment_decision_tree.json",
       "minimumData": [
         "vitals",
         "focused_assessment",

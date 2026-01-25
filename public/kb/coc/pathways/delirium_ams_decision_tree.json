@@ -1,0 +1,192 @@
+{
+  "schema": "coc.pathway.v1",
+  "id": "delirium_ams",
+  "title": "AMS / Delirium \u2014 Decision Ladder",
+  "version": "0.1.0",
+  "startNodeId": "q_redflags",
+  "nodes": [
+    {
+      "id": "q_redflags",
+      "type": "question_multi",
+      "prompt": "Red flags (select any)",
+      "helpText": "If red flags are present, prioritize immediate safety assessment and urgent escalation per policy/provider direction.",
+      "options": [
+        {
+          "value": "unresponsive",
+          "label": "Unresponsive/rapidly worsening mental status"
+        },
+        {
+          "value": "new_focal",
+          "label": "New focal neuro deficit (face droop, weakness, slurred speech)"
+        },
+        {
+          "value": "resp",
+          "label": "Respiratory distress / cyanosis / low O2"
+        },
+        {
+          "value": "hypoglycemia",
+          "label": "Possible hypoglycemia symptoms / very low glucose"
+        },
+        {
+          "value": "severe_hypotension",
+          "label": "Severe hypotension/shock signs"
+        }
+      ],
+      "next": "q_onset"
+    },
+    {
+      "id": "q_onset",
+      "type": "question_single",
+      "prompt": "Onset/time course",
+      "options": [
+        {
+          "value": "sudden",
+          "label": "Sudden (hours)"
+        },
+        {
+          "value": "day",
+          "label": "Within 24 hours"
+        },
+        {
+          "value": "gradual",
+          "label": "Gradual (days/weeks)"
+        }
+      ],
+      "next": "q_contributors"
+    },
+    {
+      "id": "q_contributors",
+      "type": "question_multi",
+      "prompt": "Potential contributors (select any suspected)",
+      "options": [
+        {
+          "value": "infection",
+          "label": "Infection symptoms/fever"
+        },
+        {
+          "value": "pain",
+          "label": "Pain"
+        },
+        {
+          "value": "hypoxia",
+          "label": "Low O2/respiratory symptoms"
+        },
+        {
+          "value": "dehydration",
+          "label": "Dehydration/poor intake"
+        },
+        {
+          "value": "constipation_retention",
+          "label": "Constipation/urinary retention"
+        },
+        {
+          "value": "meds",
+          "label": "Sedating meds/opioids/benzos or med change"
+        },
+        {
+          "value": "metabolic",
+          "label": "Metabolic issue/lab abnormality"
+        }
+      ],
+      "next": "info_min_data"
+    },
+    {
+      "id": "info_min_data",
+      "type": "info",
+      "title": "Minimum data to collect",
+      "body": "Obtain full vital signs and compare to baseline. Check blood glucose if indicated (delirium mimic). Assess oxygenation (SpO2) and pain. Review intake/output and last BM. Review recent meds and sedatives. Screen for infection symptoms. Notify provider using SBAR with objective findings and baseline comparison.",
+      "next": "check_actions"
+    },
+    {
+      "id": "check_actions",
+      "type": "checklist",
+      "title": "Select actions to include in the progress note",
+      "sections": [
+        {
+          "key": "assessment",
+          "label": "Assessment",
+          "items": [
+            {
+              "id": "vs",
+              "text": "Obtained full vital signs and compared to baseline"
+            },
+            {
+              "id": "ms",
+              "text": "Assessed mental status/behavior and compared to baseline; described objective changes"
+            },
+            {
+              "id": "o2",
+              "text": "Assessed SpO2/respiratory status and pain level"
+            },
+            {
+              "id": "review",
+              "text": "Reviewed meds (sedatives/opioids), intake/output, and bowel/urinary status"
+            }
+          ]
+        },
+        {
+          "key": "interventions",
+          "label": "Interventions",
+          "items": [
+            {
+              "id": "safety",
+              "text": "Implemented safety measures (close observation, fall precautions) as indicated"
+            },
+            {
+              "id": "reorient",
+              "text": "Provided reorientation, calm environment, and reduced stimuli as appropriate"
+            },
+            {
+              "id": "address",
+              "text": "Addressed likely contributors per orders/protocol (hydration, pain measures, oxygen)"
+            }
+          ]
+        },
+        {
+          "key": "monitoring",
+          "label": "Monitoring",
+          "items": [
+            {
+              "id": "trend",
+              "text": "Monitoring mental status and vital signs closely; trending changes"
+            },
+            {
+              "id": "escalate",
+              "text": "Escalated for worsening mental status, new red flags, or instability"
+            }
+          ]
+        },
+        {
+          "key": "documentation",
+          "label": "Documentation",
+          "items": [
+            {
+              "id": "objective",
+              "text": "Documented objective findings, onset, baseline comparison, and contributing factors"
+            },
+            {
+              "id": "notify",
+              "text": "Notified provider using SBAR; documented orders and resident response"
+            },
+            {
+              "id": "family",
+              "text": "Notified family/representative as appropriate"
+            },
+            {
+              "id": "plan",
+              "text": "Documented monitoring plan and escalation triggers"
+            }
+          ]
+        }
+      ],
+      "next": "done"
+    },
+    {
+      "id": "done",
+      "type": "summary",
+      "outputs": {
+        "noteTemplate": "Problem: {{issue}}. Key findings: {{findings}}. {{actions}}"
+      }
+    }
+  ]
+}

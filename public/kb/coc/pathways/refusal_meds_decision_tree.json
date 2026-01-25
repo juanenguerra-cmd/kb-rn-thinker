@@ -1,0 +1,215 @@
+{
+  "schema": "coc.pathway.v1",
+  "id": "refusal_meds",
+  "title": "Refusal of Medications \u2014 Decision Ladder",
+  "version": "0.1.0",
+  "startNodeId": "q_redflags",
+  "nodes": [
+    {
+      "id": "q_redflags",
+      "type": "question_multi",
+      "prompt": "Red flags (select any)",
+      "helpText": "If red flags are present (acute confusion, airway issues, instability), escalate per policy/provider direction.",
+      "options": [
+        {
+          "value": "acute_ams",
+          "label": "Acute confusion/delirium or inability to understand"
+        },
+        {
+          "value": "resp",
+          "label": "Respiratory distress / aspiration risk"
+        },
+        {
+          "value": "hypo",
+          "label": "Hypoglycemia symptoms / very low glucose"
+        },
+        {
+          "value": "severe_pain",
+          "label": "Severe uncontrolled pain"
+        }
+      ],
+      "next": "q_med_criticality"
+    },
+    {
+      "id": "q_med_criticality",
+      "type": "question_single",
+      "prompt": "Is the refused medication time\u2011critical/high\u2011risk if missed?",
+      "helpText": "Examples: anticoagulants, insulin, seizure meds, antibiotics (depending on indication), cardiac meds. Follow facility policy/orders.",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes (time\u2011critical / high\u2011risk)"
+        },
+        {
+          "value": "no",
+          "label": "No / routine / PRN"
+        }
+      ],
+      "next": "q_reason"
+    },
+    {
+      "id": "q_reason",
+      "type": "question_multi",
+      "prompt": "Why is the resident refusing? (select all that apply)",
+      "options": [
+        {
+          "value": "nausea",
+          "label": "Nausea/feels sick"
+        },
+        {
+          "value": "pain_swallow",
+          "label": "Pain with swallowing/difficulty swallowing"
+        },
+        {
+          "value": "confusion",
+          "label": "Confusion/delirium"
+        },
+        {
+          "value": "belief",
+          "label": "Belief/fear/mistrust"
+        },
+        {
+          "value": "taste",
+          "label": "Taste/size/difficulty taking"
+        },
+        {
+          "value": "side_effects",
+          "label": "Reports side effects"
+        },
+        {
+          "value": "other",
+          "label": "Other/unknown"
+        }
+      ],
+      "next": "q_capacity"
+    },
+    {
+      "id": "q_capacity",
+      "type": "question_single",
+      "prompt": "Does the resident appear to understand risks/benefits (capacity for this decision)?",
+      "helpText": "If capacity is uncertain or there is acute confusion, treat as change of condition and notify per policy.",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes / appears to understand"
+        },
+        {
+          "value": "no",
+          "label": "No / uncertain / acutely confused"
+        }
+      ],
+      "next": "info_education"
+    },
+    {
+      "id": "info_education",
+      "type": "info",
+      "title": "Education + alternatives",
+      "body": "Provide brief resident\u2011centered education on purpose and risks of refusal. Offer acceptable alternatives per policy: different timing, with food, alternate formulation only if allowed, and re\u2011approach later. Respect resident rights and avoid coercion.",
+      "next": "q_notify"
+    },
+    {
+      "id": "q_notify",
+      "type": "question_single",
+      "prompt": "Notify provider/supervisor now?",
+      "helpText": "Notify for time\u2011critical meds, repeated refusals, new symptoms, or safety concerns.",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "Not at this time"
+        }
+      ],
+      "next": "check_actions"
+    },
+    {
+      "id": "check_actions",
+      "type": "checklist",
+      "title": "Select actions to include in the progress note",
+      "sections": [
+        {
+          "key": "assessment",
+          "label": "Assessment",
+          "items": [
+            {
+              "id": "which",
+              "text": "Verified which medication(s) were refused and scheduled time/dose"
+            },
+            {
+              "id": "status",
+              "text": "Assessed resident status (vitals/symptoms/mental status) and compared to baseline"
+            },
+            {
+              "id": "reason",
+              "text": "Assessed stated reason for refusal and swallowing/tolerance concerns"
+            }
+          ]
+        },
+        {
+          "key": "interventions",
+          "label": "Interventions",
+          "items": [
+            {
+              "id": "educate",
+              "text": "Provided resident\u2011centered education on purpose and risks/benefits"
+            },
+            {
+              "id": "alternatives",
+              "text": "Offered acceptable alternatives per policy and planned re\u2011approach"
+            },
+            {
+              "id": "safety",
+              "text": "Implemented safety measures if refusal related to acute confusion or distress"
+            }
+          ]
+        },
+        {
+          "key": "monitoring",
+          "label": "Monitoring",
+          "items": [
+            {
+              "id": "recheck",
+              "text": "Planned re\u2011approach and monitored for symptoms related to missed dose"
+            },
+            {
+              "id": "trend",
+              "text": "Trending refusal pattern and escalating for repeated refusals or high\u2011risk meds"
+            }
+          ]
+        },
+        {
+          "key": "documentation",
+          "label": "Documentation",
+          "items": [
+            {
+              "id": "details",
+              "text": "Documented medication, dose/time, refusal reason, and education provided"
+            },
+            {
+              "id": "notify",
+              "text": "Notified provider/supervisor as indicated and documented orders/response"
+            },
+            {
+              "id": "rp",
+              "text": "Notified responsible party/family as applicable per policy"
+            },
+            {
+              "id": "plan",
+              "text": "Documented follow\u2011up plan (re\u2011approach timing, monitoring, escalation triggers)"
+            }
+          ]
+        }
+      ],
+      "next": "done"
+    },
+    {
+      "id": "done",
+      "type": "summary",
+      "outputs": {
+        "noteTemplate": "Problem: {{issue}}. Key findings: {{findings}}. {{actions}}"
+      }
+    }
+  ]
+}

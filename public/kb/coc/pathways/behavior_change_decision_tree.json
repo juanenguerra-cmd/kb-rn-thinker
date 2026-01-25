@@ -1,0 +1,208 @@
+{
+  "schema": "coc.pathway.v1",
+  "id": "behavior_change",
+  "title": "Behavior Change / Agitation \u2014 Decision Ladder",
+  "version": "0.1.0",
+  "startNodeId": "q_redflags",
+  "nodes": [
+    {
+      "id": "q_redflags",
+      "type": "question_multi",
+      "prompt": "Red flags (select any)",
+      "helpText": "If red flags are present, prioritize immediate safety assessment and escalate per policy/provider direction.",
+      "options": [
+        {
+          "value": "imminent_harm",
+          "label": "Imminent harm to self/others or cannot be redirected"
+        },
+        {
+          "value": "acute_neuro",
+          "label": "New focal neuro deficit or sudden severe headache"
+        },
+        {
+          "value": "resp",
+          "label": "Respiratory distress / cyanosis / low O2"
+        },
+        {
+          "value": "chest",
+          "label": "Severe chest pain/pressure"
+        },
+        {
+          "value": "unresponsive",
+          "label": "Unresponsive/seizure/rapidly worsening mental status"
+        }
+      ],
+      "next": "q_behavior_present"
+    },
+    {
+      "id": "q_behavior_present",
+      "type": "question_multi",
+      "prompt": "What behaviors are present?",
+      "options": [
+        {
+          "value": "agitation",
+          "label": "Agitation/restlessness"
+        },
+        {
+          "value": "aggression",
+          "label": "Aggression/combative behavior"
+        },
+        {
+          "value": "wandering",
+          "label": "Wandering/elopement risk"
+        },
+        {
+          "value": "refusal",
+          "label": "Refusal of care"
+        },
+        {
+          "value": "hallucinations",
+          "label": "Hallucinations/paranoia"
+        },
+        {
+          "value": "sudden_change",
+          "label": "Sudden change from baseline"
+        }
+      ],
+      "next": "q_reversible_causes"
+    },
+    {
+      "id": "q_reversible_causes",
+      "type": "question_multi",
+      "prompt": "Check common reversible causes (suspected)",
+      "options": [
+        {
+          "value": "pain",
+          "label": "Pain/discomfort"
+        },
+        {
+          "value": "infection",
+          "label": "Infection symptoms/fever"
+        },
+        {
+          "value": "hypoxia",
+          "label": "Low O2/respiratory distress"
+        },
+        {
+          "value": "dehydration",
+          "label": "Dehydration/poor intake"
+        },
+        {
+          "value": "constipation",
+          "label": "Constipation/urinary retention"
+        },
+        {
+          "value": "meds",
+          "label": "Recent med change / sedating meds / missed meds"
+        },
+        {
+          "value": "environment",
+          "label": "Environmental trigger (noise/crowd/new room)"
+        }
+      ],
+      "next": "info_min_data"
+    },
+    {
+      "id": "info_min_data",
+      "type": "info",
+      "title": "Collect minimum data",
+      "body": "Obtain full vital signs and compare to baseline. Assess pain. Review intake/output and last BM. Screen for infection symptoms. Review recent medication changes and missed doses. Document objective behavior (what was seen/heard), duration, and what interventions worked/did not work.",
+      "next": "check_actions"
+    },
+    {
+      "id": "check_actions",
+      "type": "checklist",
+      "title": "Select actions to include in the progress note",
+      "sections": [
+        {
+          "key": "assessment",
+          "label": "Assessment",
+          "items": [
+            {
+              "id": "vs",
+              "text": "Obtained full vital signs and compared to baseline"
+            },
+            {
+              "id": "baseline",
+              "text": "Compared behavior/mental status to baseline; documented objective behaviors"
+            },
+            {
+              "id": "pain",
+              "text": "Assessed pain/discomfort and contributing factors (toileting, hunger, environment)"
+            },
+            {
+              "id": "review",
+              "text": "Reviewed recent meds/changes, intake/output, and bowel/urinary status"
+            }
+          ]
+        },
+        {
+          "key": "interventions",
+          "label": "Interventions",
+          "items": [
+            {
+              "id": "deescalate",
+              "text": "Used calm approach, reassurance, re-direction, and reduced stimuli as appropriate"
+            },
+            {
+              "id": "needs",
+              "text": "Addressed immediate needs (toileting, hydration, comfort, pain measures)"
+            },
+            {
+              "id": "safety",
+              "text": "Implemented safety measures (close observation/1:1/room safety) per policy"
+            },
+            {
+              "id": "orders",
+              "text": "Implemented ordered interventions/PRNs as applicable and monitored response"
+            }
+          ]
+        },
+        {
+          "key": "monitoring",
+          "label": "Monitoring",
+          "items": [
+            {
+              "id": "trend",
+              "text": "Monitoring behavior frequency/intensity and response to interventions"
+            },
+            {
+              "id": "reassess",
+              "text": "Reassessed vitals/mental status and escalated for deterioration or red flags"
+            }
+          ]
+        },
+        {
+          "key": "documentation",
+          "label": "Documentation",
+          "items": [
+            {
+              "id": "objective",
+              "text": "Documented objective description of behavior, triggers, and de-escalation attempts"
+            },
+            {
+              "id": "notify",
+              "text": "Notified provider/supervisor using SBAR with objective findings and request"
+            },
+            {
+              "id": "family",
+              "text": "Notified family/representative as appropriate"
+            },
+            {
+              "id": "plan",
+              "text": "Documented plan for monitoring, safety precautions, and follow-up"
+            }
+          ]
+        }
+      ],
+      "next": "done"
+    },
+    {
+      "id": "done",
+      "type": "summary",
+      "outputs": {
+        "noteTemplate": "Problem: {{issue}}. Key findings: {{findings}}. {{actions}}"
+      }
+    }
+  ]
+}

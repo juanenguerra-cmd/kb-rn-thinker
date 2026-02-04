@@ -111,6 +111,47 @@ a:hover { text-decoration: underline; }
 
 }
 
+@media (max-width: 720px) {
+  .kbHeaderInner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .kbTitle {
+    font-size: 18px;
+  }
+
+  .kbTabs {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .kbTab {
+    flex: 1 1 140px;
+  }
+
+  .kbRight {
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .panelPad {
+    padding: 12px;
+  }
+
+  .actionBar {
+    margin: -12px -12px 10px -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
 .panel {
   background: var(--surface);
   border: 1px solid var(--border);

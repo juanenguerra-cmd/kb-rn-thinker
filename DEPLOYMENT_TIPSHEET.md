@@ -41,3 +41,4 @@ After deploy, confirm these URLs work:
 ## Common gotchas
 - Don’t open `dist/index.html` by double-click (file://). Use Cloudflare Pages URL or `npm run preview`.
 - If the GitHub repo doesn’t appear in Cloudflare: GitHub Settings → Installed GitHub Apps → Cloudflare Pages → Configure repository access.
+- If you deploy with `wrangler pages deploy` and see `Failed to publish your Function` *after* assets upload, it’s a transient Pages Functions issue. Rerun the command or deploy via the Git-integrated Pages workflow to bypass the Functions publish step.

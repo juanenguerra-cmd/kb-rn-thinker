@@ -192,19 +192,23 @@
       "source_id": "CDC_IC",
       "section_id": "CDC_IC_cdc_010",
       "heading": "Transmission-Based Precautions",
-      "text": "Use Contact/Droplet/Airborne precautions when indicated. Post signage and ensure staff education. Use facility forms/logs as required.",
+      "text": "CDC Transmission-Based Precautions (Appendix A examples). Airborne (N95/respirator; AIIR if available): tuberculosis (pulmonary/laryngeal), measles, varicella (chickenpox), disseminated herpes zoster (shingles; and sometimes zoster in immunocompromised depending on extent/policy). Droplet (surgical mask for close contact): influenza, pertussis, meningococcal disease, mumps, rubella, early/untreated group A strep pharyngitis, adenovirus respiratory infection, Mycoplasma pneumonia; RSV is often managed as droplet + contact. Contact (gown + gloves for room entry; dedicated equipment): C. difficile (soap-and-water emphasis), norovirus, scabies, major impetigo, draining wounds/abscesses not contained by dressings, uncontrolled diarrhea, and MDROs per facility policy. Combinations are used when indicated: droplet + contact (RSV, parainfluenza, human metapneumovirus, adenovirus, seasonal coronaviruses, sometimes influenza); airborne + contact (varicella, disseminated zoster, smallpox); airborne + droplet (e.g., SARS/avian influenza or novel respiratory pathogens under investigation; often add contact + eye protection).",
       "keywords": [
-        "respiratory hygiene",
-        "hand hygiene",
+        "airborne",
+        "contact",
+        "droplet",
+        "isolation",
         "ppe",
-        "droplet"
+        "transmission-based precautions"
       ],
       "tags": [
         "cdc",
-        "respiratory hygiene",
-        "hand hygiene",
+        "airborne",
+        "contact",
+        "droplet",
+        "isolation",
         "ppe",
-        "droplet"
+        "transmission-based precautions"
       ]
     },
     {

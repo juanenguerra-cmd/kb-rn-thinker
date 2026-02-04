@@ -25,13 +25,10 @@ function prettyValue(val: any): string {
   return String(val).trim();
 }
 
-function buildActionsNarrative(sections: ChecklistSection[], selected: Record<string, Record<string, boolean>>) {
-  const parts: string[] = [];
-  for (const sec of sections) {
-    const picked = sec.items.filter((it) => selected?.[sec.key]?.[it.id]).map((it) => it.text);
-    if (picked.length) parts.push(`${sec.label}: ${picked.join("; ")}`);
-  }
-  return parts.length ? parts.join(". ") + "." : "";
+function summarizeSection(section: ChecklistSection | null, selected: Record<string, Record<string, boolean>>) {
+  if (!section) return "";
+  const picked = section.items.filter((it) => selected?.[section.key]?.[it.id]).map((it) => it.text);
+  return picked.length ? picked.join("; ") : "";
 }
 
 function Btn(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -104,7 +101,16 @@ export function DecisionWizardTab() {
         setPathway(p);
         setActiveNodeId(p.startNodeId);
         setAnswers({});
-        setSelected({});
+        const nextSelected: Record<string, Record<string, boolean>> = {};
+        const checklist = p.nodes.find((n) => n.type === "checklist") as Extract<WizardNode, { type: "checklist" }> | undefined;
+        const assessment = checklist?.sections.find((s) => s.key === "assessment");
+        if (assessment) {
+          nextSelected[assessment.key] = {};
+          assessment.items.forEach((it) => {
+            nextSelected[assessment.key][it.id] = true;
+          });
+        }
+        setSelected(nextSelected);
       })
       .catch((e: any) => {
         if (cancelled) return;
@@ -130,6 +136,41 @@ export function DecisionWizardTab() {
     if (!pathway?.nodes) return null;
     return pathway.nodes.find((n) => n.type === "checklist") as Extract<WizardNode, { type: "checklist" }> | null;
   }, [pathway]);
+
+  const assessmentSection = useMemo(() => {
+    return checklistNode?.sections.find((s) => s.key === "assessment") ?? null;
+  }, [checklistNode]);
+
+  const interventionSection = useMemo(() => {
+    if (!checklistNode) return null;
+    const base = checklistNode.sections.find((s) => s.key === "interventions");
+    const monitoring = checklistNode.sections.find((s) => s.key === "monitoring");
+    if (!base && !monitoring) return null;
+    return {
+      key: "interventions",
+      label: "Interventions",
+      items: [...(base?.items ?? []), ...(monitoring?.items ?? [])]
+    };
+  }, [checklistNode]);
+
+  const notificationSection = useMemo<ChecklistSection>(
+    () => ({
+      key: "notifications",
+      label: "Notifications",
+      items: [
+        { id: "notify_provider", text: "Notified provider/physician with SBAR and received/implemented orders as applicable" },
+        { id: "notify_family", text: "Notified family/responsible party for awareness of the change in condition" }
+      ]
+    }),
+    []
+  );
+
+  const actionSections = useMemo(() => {
+    const sections: ChecklistSection[] = [];
+    if (interventionSection) sections.push(interventionSection);
+    sections.push(notificationSection);
+    return sections;
+  }, [interventionSection, notificationSection]);
 
   const findingsLine = useMemo(() => {
     if (!pathway) return "";
@@ -163,21 +204,23 @@ export function DecisionWizardTab() {
     return parts.length ? `Key findings: ${parts.join("; ")}.` : "";
   }, [pathway, answers]);
 
-  const actionsNarrative = useMemo(() => {
-    if (!checklistNode) return "";
-    return buildActionsNarrative(checklistNode.sections, selected);
-  }, [checklistNode, selected]);
+  const assessmentSummary = useMemo(() => summarizeSection(assessmentSection, selected), [assessmentSection, selected]);
+  const interventionsSummary = useMemo(() => summarizeSection(interventionSection, selected), [interventionSection, selected]);
+  const notificationsSummary = useMemo(() => summarizeSection(notificationSection, selected), [notificationSection, selected]);
 
   const finalNote = useMemo(() => {
     const prob = issueText?.trim() ? issueText.trim() : "__";
     const label = selectedProblem?.label || "General change in condition";
-    const header = `Problem: ${prob}. Selected COC topic: ${label}.`;
-    const lines = [header];
-    if (findingsLine) lines.push(findingsLine);
-    if (actionsNarrative) lines.push(actionsNarrative);
-    if (!actionsNarrative) lines.push("Actions: (none selected). Select actions in the checklist to include them here.");
-    return lines.join("\n\n");
-  }, [issueText, selectedProblem, findingsLine, actionsNarrative]);
+    const lines = [
+      `Resident assessed for ${prob}.`,
+      `Primary concern selected: ${label}.`,
+      findingsLine,
+      assessmentSummary ? `Assessment completed: ${assessmentSummary}.` : "Assessment: (none selected).",
+      interventionsSummary ? `Interventions implemented: ${interventionsSummary}.` : "Interventions: (none selected).",
+      notificationsSummary ? `Notifications: ${notificationsSummary}.` : "Notifications: (none selected)."
+    ];
+    return lines.filter(Boolean).join(" ");
+  }, [issueText, selectedProblem, findingsLine, assessmentSummary, interventionsSummary, notificationsSummary]);
 
   function goNext(next?: string) { setActiveNodeId(next || null); }
 
@@ -270,10 +313,36 @@ export function DecisionWizardTab() {
 
             {selectedProblem ? (
               <div style={{ borderTop: "1px solid #eef2f7", paddingTop: 12, display: "grid", gap: 10 }}>
-                <div style={{ fontWeight: 800 }}>Cascading decision tree</div>
+                <div style={{ fontWeight: 800 }}>Interactive decision tree</div>
                 <div style={{ fontSize: 12, opacity: 0.8 }}>
-                  Answer each prompt to move down the pathway. Your selections populate the summary note and action checklist at the end.
+                  Start by confirming the suggested assessments below, then walk through the prompts to surface the right interventions and notifications.
                 </div>
+
+                {assessmentSection ? (
+                  <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10, display: "grid", gap: 10 }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
+                      <div>
+                        <div style={{ fontWeight: 900 }}>Potential assessment checklist</div>
+                        <div style={{ fontSize: 12, opacity: 0.8 }}>Select all that apply to this concern.</div>
+                      </div>
+                      <div style={{ display: "flex", gap: 8 }}>
+                        <Btn onClick={() => selectAll(assessmentSection)} style={{ padding: "6px 10px" }}>Select all</Btn>
+                        <Btn onClick={() => clearAll(assessmentSection.key)} style={{ padding: "6px 10px" }}>Clear</Btn>
+                      </div>
+                    </div>
+                    <div style={{ display: "grid", gap: 8 }}>
+                      {assessmentSection.items.map((it) => {
+                        const checked = !!selected?.[assessmentSection.key]?.[it.id];
+                        return (
+                          <label key={it.id} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                            <input type="checkbox" checked={checked} onChange={() => toggleChecklist(assessmentSection.key, it.id)} style={{ marginTop: 3 }} />
+                            <div>{it.text}</div>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : null}
 
                 {pathwayError ? (
                   <div style={{ border: "1px solid #fca5a5", borderRadius: 12, padding: 10 }}>
@@ -340,7 +409,10 @@ export function DecisionWizardTab() {
                         {node.type === "checklist" ? (
                           <div style={{ display: "grid", gap: 12 }}>
                             <div style={{ fontWeight: 900 }}>{node.title}</div>
-                            {node.sections.map((sec) => (
+                            <div style={{ fontSize: 12, opacity: 0.8 }}>
+                              Select the interventions and notifications that apply based on the assessment above.
+                            </div>
+                            {actionSections.map((sec) => (
                               <div key={sec.key} style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
                                 <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
                                   <div style={{ fontWeight: 800 }}>{sec.label}</div>

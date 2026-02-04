@@ -212,7 +212,7 @@ function buildWizardNarrative(issueText: string, wizard: WizardState): string {
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
-  activeTab: "finder",
+  activeTab: "wizard",
 
   finder: {
     query: "",
@@ -600,7 +600,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       }
 
       get().actions.recomputeGating();
-      set(() => ({ activeTab: "finder" }));
+      set(() => ({ activeTab: "wizard" }));
     },
 
     openNoteModal: () => set(() => ({ ui: { noteModalOpen: true } })),

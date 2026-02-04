@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { PacketDraftSection } from "@/store/appStore";
 import type { SearchDoc } from "@/kb/loadKb";
 import { useKBDoc } from "@/hooks/useKBDoc";

@@ -14,8 +14,24 @@ export function DocReaderModal(props: {
   onOpenRelated: (doc: SearchDoc) => void;
 }) {
   const { open, onClose, result, query, addSection, onChangeAddSection, onAdd, onOpenRelated } = props;
+  const [relatedPage, setRelatedPage] = React.useState(1);
+  const relatedPageSize = 10;
 
   const view = useKBDoc(result);
+  const relatedTotalPages = Math.max(1, Math.ceil((view?.relatedInSource?.length ?? 0) / relatedPageSize));
+  const relatedPaged = React.useMemo(() => {
+    const start = (relatedPage - 1) * relatedPageSize;
+    return (view?.relatedInSource ?? []).slice(start, start + relatedPageSize);
+  }, [relatedPage, relatedPageSize, view?.relatedInSource]);
+
+  React.useEffect(() => {
+    if (!open) return;
+    setRelatedPage(1);
+  }, [open, result?.id]);
+
+  React.useEffect(() => {
+    setRelatedPage((prev) => Math.min(prev, relatedTotalPages));
+  }, [relatedTotalPages]);
 
   if (!open || !result) return null;
 
@@ -88,10 +104,10 @@ export function DocReaderModal(props: {
           {view?.relatedInSource?.length ? (
             <details style={{ marginTop: 12 }}>
               <summary style={{ cursor: "pointer", fontSize: 12, opacity: 0.85 }}>
-                More from this source ({view.relatedInSource.length})
+                More from this source ({view.relatedInSource.length}) • Page {relatedPage} of {relatedTotalPages}
               </summary>
               <div style={{ display: "grid", gap: 8, marginTop: 10 }}>
-                {view.relatedInSource.slice(0, 30).map((d) => (
+                {relatedPaged.map((d) => (
                   <button
                     key={d.id}
                     type="button"
@@ -104,6 +120,26 @@ export function DocReaderModal(props: {
                   </button>
                 ))}
               </div>
+              {view.relatedInSource.length > relatedPageSize ? (
+                <div style={{ display: "flex", gap: 8, justifyContent: "flex-end", marginTop: 8 }}>
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => setRelatedPage((p) => Math.max(1, p - 1))}
+                    disabled={relatedPage === 1}
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => setRelatedPage((p) => Math.min(relatedTotalPages, p + 1))}
+                    disabled={relatedPage === relatedTotalPages}
+                  >
+                    Next
+                  </button>
+                </div>
+              ) : null}
             </details>
           ) : null}
         </div>

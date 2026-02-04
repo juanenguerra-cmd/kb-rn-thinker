@@ -10,6 +10,8 @@ export function ProblemPickerStep(props: {
   const { query, selectedId, onSelect } = props;
   const { ranked, loading, error } = useCocCatalog(query);
 
+  const visible = selectedId ? ranked.filter((it) => it.id === selectedId) : ranked;
+
   return (
     <div style={{ display: "grid", gap: 10 }}>
       <div style={{ fontWeight: 800 }}>Pick the closest problem (ranked)</div>
@@ -26,7 +28,7 @@ export function ProblemPickerStep(props: {
       ) : null}
 
       <div style={{ display: "grid", gap: 8 }}>
-        {ranked.map((it) => {
+        {visible.map((it) => {
           const active = it.id === selectedId;
           return (
             <button

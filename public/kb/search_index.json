@@ -1,6 +1,6 @@
 {
-  "kb_version": "0.3.3",
-  "generated_at": "2026-01-20T12:55:29.786Z",
+  "kb_version": "0.3.4",
+  "generated_at": "2026-02-04T14:09:35.486Z",
   "docs": [
     {
       "id": "POL_COC_01::POL_COC_01_change_of_condition_000",
@@ -114,6 +114,35 @@
         "contact"
       ],
       "text": "Standard Precautions apply to all residents. Perform hand hygiene and use PPE based on anticipated exposure. Maintain infection control practices throughout."
+    },
+    {
+      "id": "CDC_EBP::CDC_EBP_ebp_001",
+      "source_id": "CDC_EBP",
+      "section_id": "CDC_EBP_ebp_001",
+      "title": "CDC Enhanced Barrier Precautions in Nursing Homes",
+      "heading": "Enhanced Barrier Precautions (nursing homes)",
+      "type": "guideline",
+      "jurisdiction": "CDC",
+      "effective_date": "2024-07-10",
+      "review_by": "",
+      "url_or_location": "https://www.cdc.gov/hai/containment/enhanced-barrier-precautions.html",
+      "tags": [
+        "cdc",
+        "enhanced barrier precautions",
+        "mdro",
+        "indwelling devices",
+        "wound care",
+        "gown",
+        "gloves",
+        "foley catheter",
+        "indwelling catheter",
+        "medical device",
+        "wound",
+        "indwelling medical device",
+        "medical devices",
+        "multidrug-resistant organism"
+      ],
+      "text": "Use Enhanced Barrier Precautions in nursing homes for residents with wounds, indwelling medical devices (e.g., Foley/indwelling urinary catheters), or MDRO colonization/infection. Apply gown and gloves for high-contact resident care activities to reduce MDRO transmission while residents remain in their room/unit unless otherwise indicated."
     },
     {
       "id": "NYS_DOH_IP::NYS_DOH_IP_nys_005",

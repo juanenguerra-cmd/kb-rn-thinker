@@ -1,6 +1,6 @@
 {
-  "kb_version": "0.3.3",
-  "effective_date": "2026-01-20",
+  "kb_version": "0.3.4",
+  "effective_date": "2026-01-21",
   "approval": {
     "status": "approved",
     "approved_by_role": "Admin",
@@ -17,6 +17,17 @@
   },
   "active_trees": [],
   "changelog": [
+    {
+      "date": "2026-01-21",
+      "summary": "Added CDC Enhanced Barrier Precautions guidance for residents with indwelling devices, wounds, or MDROs to improve precaution quick check matching.",
+      "files_changed": [
+        "manifest.json",
+        "sources.json",
+        "source_sections.json",
+        "search_index.json"
+      ],
+      "ticket_or_reason": "Content: CDC Enhanced Barrier Precautions update"
+    },
     {
       "date": "2026-01-20",
       "summary": "Added dedicated KB file for Change of Condition triage (Behavior/Refusal/Symptoms) with survey-ready sections, SBAR template, refusal documentation expectations, and packet-building guidance. Added KB_COC_GUIDE source and indexed sections for search.",

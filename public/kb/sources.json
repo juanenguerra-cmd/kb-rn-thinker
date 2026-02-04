@@ -80,6 +80,24 @@
       ]
     },
     {
+      "source_id": "CDC_EBP",
+      "type": "guideline",
+      "title": "CDC Enhanced Barrier Precautions in Nursing Homes",
+      "jurisdiction": "CDC",
+      "effective_date": "2024-07-10",
+      "review_by": "",
+      "url_or_location": "https://www.cdc.gov/hai/containment/enhanced-barrier-precautions.html",
+      "tags": [
+        "cdc",
+        "enhanced barrier precautions",
+        "mdro",
+        "indwelling devices",
+        "wound care",
+        "gown",
+        "gloves"
+      ]
+    },
+    {
       "source_id": "NYS_DOH_IP",
       "type": "guideline",
       "title": "NYSDOH Nursing Home Resident Rights / Abuse Reporting / IP Guidance (Landing)",

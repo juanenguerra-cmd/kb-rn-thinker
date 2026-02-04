@@ -72,27 +72,27 @@ export function NursingProgressNoteModal(props: Props) {
       ? `BP ${vitals.bp ?? "__"}, HR ${vitals.hr ?? "__"}, RR ${vitals.rr ?? "__"}, T ${vitals.t ?? "__"}, SpO2 ${vitals.spo2 ?? "__"}, Pain ${vitals.pain ?? "__"}/10`
       : "BP __, HR __, RR __, T __, SpO2 __, Pain __/10";
 
-    const p1 = `Resident assessed due to ${issue}. Vital signs obtained: ${vs}.`;
+    const p1 = `Assessed the resident for ${issue}. Vitals: ${vs}.`;
     const p2 = pickedAssess.length
-      ? `Assessment/Evaluation included: ${pickedAssess.join(", ")}. Relevant findings documented and compared to baseline (as applicable).`
-      : `Assessment/Evaluation completed; relevant findings documented and compared to baseline (as applicable).`;
+      ? `Assessment focused on ${pickedAssess.join(", ")}. Findings were documented and compared to baseline when applicable.`
+      : `Assessment completed. Findings were documented and compared to baseline when applicable.`;
 
     const p3 = pickedInterv.length
-      ? `Interventions performed/initiated: ${pickedInterv.join(", ")}. Resident response/tolerance documented.`
-      : `Interventions performed/initiated per protocol/orders as applicable; resident response/tolerance documented.`;
+      ? `Interventions completed: ${pickedInterv.join(", ")}. The resident’s response and tolerance were documented.`
+      : `Interventions were completed per protocol or provider orders as applicable. The resident’s response and tolerance were documented.`;
 
     const providerLine = providerNotified
-      ? `Provider notified at ${providerTime || "__"}; orders received: ${providerOrders || "__"} and implemented as appropriate.`
-      : `Provider notification not completed (reason: __).`;
+      ? `Provider notified at ${providerTime || "__"}. Orders received: ${providerOrders || "__"}, then implemented as appropriate.`
+      : `Provider was not notified (reason: __).`;
 
     const familyLine = familyNotified
-      ? `Family/Emergency Contact notified (${familyName || "__"}) at ${familyTime || "__"}; response/instructions: ${familyResponse || "__"}.`
-      : `Family/Emergency Contact notification not completed (reason: __).`;
+      ? `Family/Emergency Contact notified (${familyName || "__"}) at ${familyTime || "__"}. Response/instructions: ${familyResponse || "__"}.`
+      : `Family/Emergency Contact was not notified (reason: __).`;
 
     const p4 = `${providerLine} ${familyLine}`;
     const p5 = pickedDoc.length
-      ? `Documentation completed as applicable: ${pickedDoc.join(", ")}. Plan: continue monitoring per protocol/orders and notify provider for any change in condition.`
-      : `Documentation completed as applicable. Plan: continue monitoring per protocol/orders and notify provider for any change in condition.`;
+      ? `Documentation completed as applicable: ${pickedDoc.join(", ")}. Plan is to continue monitoring per protocol or orders and notify the provider with any change in condition.`
+      : `Documentation completed as applicable. Plan is to continue monitoring per protocol or orders and notify the provider with any change in condition.`;
 
     return `Nursing Progress Note:\n\n${p1}\n\n${p2}\n\n${p3}\n\n${p4}\n\n${p5}`;
   }, [

@@ -41,9 +41,11 @@ export function DocReaderModal(props: {
         className="panel panelPad"
         style={{
           width: "min(980px, 100%)",
-          maxHeight: "min(88vh, 820px)",
-          overflow: "auto",
-          background: "white"
+          height: "min(88vh, 820px)",
+          background: "white",
+          display: "grid",
+          gridTemplateRows: "auto 1fr",
+          overflow: "hidden"
         }}
       >
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
@@ -55,54 +57,56 @@ export function DocReaderModal(props: {
           </button>
         </div>
 
-        <div style={{ height: 1, background: "#e5e5e5", margin: "12px 0" }} />
+        <div style={{ overflow: "auto", paddingTop: 12 }}>
+          <div style={{ height: 1, background: "#e5e5e5", marginBottom: 12 }} />
 
-        <SectionViewer doc={result} source={view?.source} query={query} />
+          <SectionViewer doc={result} source={view?.source} query={query} />
 
-        <div style={{ height: 1, background: "#e5e5e5", margin: "12px 0" }} />
+          <div style={{ height: 1, background: "#e5e5e5", margin: "12px 0" }} />
 
-        <div className="row" style={{ flexWrap: "wrap", gap: 8 }}>
-          <span className="muted">Add to packet:</span>
-          <select
-            value={addSection}
-            onChange={(e) => onChangeAddSection(e.target.value as PacketDraftSection)}
-            className="select"
-            style={{ width: 190 }}
-            title="Where should this appear in the packet?"
-          >
-            <option value="citations">Citations</option>
-            <option value="assessment">Assessment</option>
-            <option value="interventions">Interventions</option>
-            <option value="monitoring">Monitoring</option>
-            <option value="documentation">Documentation</option>
-            <option value="issue">Issue</option>
-          </select>
-          <button className="btn btnPrimary" onClick={() => onAdd(result, addSection)}>
-            Add this section
-          </button>
+          <div className="row" style={{ flexWrap: "wrap", gap: 8 }}>
+            <span className="muted">Add to packet:</span>
+            <select
+              value={addSection}
+              onChange={(e) => onChangeAddSection(e.target.value as PacketDraftSection)}
+              className="select"
+              style={{ width: 190 }}
+              title="Where should this appear in the packet?"
+            >
+              <option value="citations">Citations</option>
+              <option value="assessment">Assessment</option>
+              <option value="interventions">Interventions</option>
+              <option value="monitoring">Monitoring</option>
+              <option value="documentation">Documentation</option>
+              <option value="issue">Issue</option>
+            </select>
+            <button className="btn btnPrimary" onClick={() => onAdd(result, addSection)}>
+              Add this section
+            </button>
+          </div>
+
+          {view?.relatedInSource?.length ? (
+            <details style={{ marginTop: 12 }}>
+              <summary style={{ cursor: "pointer", fontSize: 12, opacity: 0.85 }}>
+                More from this source ({view.relatedInSource.length})
+              </summary>
+              <div style={{ display: "grid", gap: 8, marginTop: 10 }}>
+                {view.relatedInSource.slice(0, 30).map((d) => (
+                  <button
+                    key={d.id}
+                    type="button"
+                    className="card"
+                    style={{ textAlign: "left", cursor: "pointer" }}
+                    onClick={() => onOpenRelated(d)}
+                  >
+                    <div style={{ fontWeight: 800 }}>{d.heading || d.title}</div>
+                    <div className="muted" style={{ fontSize: 12, marginTop: 4 }}>{d.title}</div>
+                  </button>
+                ))}
+              </div>
+            </details>
+          ) : null}
         </div>
-
-        {view?.relatedInSource?.length ? (
-          <details style={{ marginTop: 12 }}>
-            <summary style={{ cursor: "pointer", fontSize: 12, opacity: 0.85 }}>
-              More from this source ({view.relatedInSource.length})
-            </summary>
-            <div style={{ display: "grid", gap: 8, marginTop: 10 }}>
-              {view.relatedInSource.slice(0, 30).map((d) => (
-                <button
-                  key={d.id}
-                  type="button"
-                  className="card"
-                  style={{ textAlign: "left", cursor: "pointer" }}
-                  onClick={() => onOpenRelated(d)}
-                >
-                  <div style={{ fontWeight: 800 }}>{d.heading || d.title}</div>
-                  <div className="muted" style={{ fontSize: 12, marginTop: 4 }}>{d.title}</div>
-                </button>
-              ))}
-            </div>
-          </details>
-        ) : null}
       </div>
     </div>
   );

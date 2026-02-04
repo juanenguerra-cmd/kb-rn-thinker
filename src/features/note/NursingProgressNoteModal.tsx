@@ -151,7 +151,18 @@ export function NursingProgressNoteModal(props: Props) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div style={{ width: "min(980px, 100%)", background: "#fff", borderRadius: 18, border: "1px solid #eee" }}>
+      <div
+        style={{
+          width: "min(980px, 100%)",
+          height: "min(90vh, 980px)",
+          background: "#fff",
+          borderRadius: 18,
+          border: "1px solid #eee",
+          display: "grid",
+          gridTemplateRows: "auto 1fr",
+          overflow: "hidden"
+        }}
+      >
         <div style={{ padding: 14, borderBottom: "1px solid #eee", display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ fontWeight: 900, fontSize: 18 }}>Nursing Progress Note</div>
           <div style={{ opacity: 0.7, fontSize: 12 }}>Guidance + copy-ready draft</div>
@@ -161,7 +172,7 @@ export function NursingProgressNoteModal(props: Props) {
           </button>
         </div>
 
-        <div style={{ padding: 14, display: "grid", gap: 12 }}>
+        <div style={{ padding: 14, display: "grid", gap: 12, overflow: "auto" }}>
           <div style={{ display: "grid", gap: 6 }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
               <div style={{ fontWeight: 800 }}>What to assess / evaluate</div>

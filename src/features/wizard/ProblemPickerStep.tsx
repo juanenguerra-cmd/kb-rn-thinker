@@ -14,7 +14,7 @@ export function ProblemPickerStep(props: {
     <div style={{ display: "grid", gap: 10 }}>
       <div style={{ fontWeight: 800 }}>Pick the closest problem (ranked)</div>
       <div style={{ fontSize: 12, opacity: 0.8 }}>
-        This selection drives the cascading decision tree. If the top match is wrong, pick a better one.
+        Pick the closest match to drive the decision tree. If the ranking feels off, choose another option or refine the description in Step 1.
       </div>
 
       {loading ? <div style={{ fontSize: 12, opacity: 0.75 }}>Loading COC catalog…</div> : null}

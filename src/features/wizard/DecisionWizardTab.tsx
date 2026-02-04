@@ -271,6 +271,9 @@ export function DecisionWizardTab() {
             {selectedProblem ? (
               <div style={{ borderTop: "1px solid #eef2f7", paddingTop: 12, display: "grid", gap: 10 }}>
                 <div style={{ fontWeight: 800 }}>Cascading decision tree</div>
+                <div style={{ fontSize: 12, opacity: 0.8 }}>
+                  Answer each prompt to move down the pathway. Your selections populate the summary note and action checklist at the end.
+                </div>
 
                 {pathwayError ? (
                   <div style={{ border: "1px solid #fca5a5", borderRadius: 12, padding: 10 }}>
@@ -382,7 +385,9 @@ export function DecisionWizardTab() {
             ) : (
               <div style={{ border: "1px solid #fde68a", borderRadius: 12, padding: 10 }}>
                 <div style={{ fontWeight: 800 }}>Select a problem to start the tree</div>
-                <div style={{ fontSize: 12, opacity: 0.85 }}>Pick the closest match above; the decision tree will appear here.</div>
+                <div style={{ fontSize: 12, opacity: 0.85 }}>
+                  Choose the closest match from the ranked list. If nothing looks right, refine the problem description and try again.
+                </div>
               </div>
             )}
 

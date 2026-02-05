@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useAppStore } from "@/store/appStore";
 
 export function OverviewPanel() {

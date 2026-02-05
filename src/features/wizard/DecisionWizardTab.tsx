@@ -143,14 +143,17 @@ export function DecisionWizardTab() {
 
   const interventionSection = useMemo(() => {
     if (!checklistNode) return null;
-    const base = checklistNode.sections.find((s) => s.key === "interventions");
-    const monitoring = checklistNode.sections.find((s) => s.key === "monitoring");
-    if (!base && !monitoring) return null;
-    return {
-      key: "interventions",
-      label: "Interventions",
-      items: [...(base?.items ?? []), ...(monitoring?.items ?? [])]
-    };
+    return checklistNode.sections.find((s) => s.key === "interventions") ?? null;
+  }, [checklistNode]);
+
+  const monitoringSection = useMemo(() => {
+    if (!checklistNode) return null;
+    return checklistNode.sections.find((s) => s.key === "monitoring") ?? null;
+  }, [checklistNode]);
+
+  const documentationSection = useMemo(() => {
+    if (!checklistNode) return null;
+    return checklistNode.sections.find((s) => s.key === "documentation") ?? null;
   }, [checklistNode]);
 
   const notificationSection = useMemo<ChecklistSection>(
@@ -168,9 +171,11 @@ export function DecisionWizardTab() {
   const actionSections = useMemo(() => {
     const sections: ChecklistSection[] = [];
     if (interventionSection) sections.push(interventionSection);
+    if (monitoringSection) sections.push(monitoringSection);
+    if (documentationSection) sections.push(documentationSection);
     sections.push(notificationSection);
     return sections;
-  }, [interventionSection, notificationSection]);
+  }, [interventionSection, monitoringSection, documentationSection, notificationSection]);
 
   const findingsLine = useMemo(() => {
     if (!pathway) return "";
@@ -206,6 +211,8 @@ export function DecisionWizardTab() {
 
   const assessmentSummary = useMemo(() => summarizeSection(assessmentSection, selected), [assessmentSection, selected]);
   const interventionsSummary = useMemo(() => summarizeSection(interventionSection, selected), [interventionSection, selected]);
+  const monitoringSummary = useMemo(() => summarizeSection(monitoringSection, selected), [monitoringSection, selected]);
+  const documentationSummary = useMemo(() => summarizeSection(documentationSection, selected), [documentationSection, selected]);
   const notificationsSummary = useMemo(() => summarizeSection(notificationSection, selected), [notificationSection, selected]);
 
   const finalNote = useMemo(() => {
@@ -213,14 +220,16 @@ export function DecisionWizardTab() {
     const label = selectedProblem?.label || "General change in condition";
     const lines = [
       `Resident assessed for ${prob}.`,
-      `Primary concern selected: ${label}.`,
+      `Primary concern: ${label}.`,
       findingsLine,
-      assessmentSummary ? `Assessment completed: ${assessmentSummary}.` : "Assessment: (none selected).",
-      interventionsSummary ? `Interventions implemented: ${interventionsSummary}.` : "Interventions: (none selected).",
-      notificationsSummary ? `Notifications: ${notificationsSummary}.` : "Notifications: (none selected)."
+      assessmentSummary ? `Assessment included ${assessmentSummary}.` : "",
+      interventionsSummary ? `Interventions included ${interventionsSummary}.` : "",
+      monitoringSummary ? `Monitoring plan: ${monitoringSummary}.` : "",
+      documentationSummary ? `Documentation captured: ${documentationSummary}.` : "",
+      notificationsSummary ? `Notifications: ${notificationsSummary}.` : ""
     ];
     return lines.filter(Boolean).join(" ");
-  }, [issueText, selectedProblem, findingsLine, assessmentSummary, interventionsSummary, notificationsSummary]);
+  }, [issueText, selectedProblem, findingsLine, assessmentSummary, interventionsSummary, monitoringSummary, documentationSummary, notificationsSummary]);
 
   function goNext(next?: string) { setActiveNodeId(next || null); }
 
@@ -473,9 +482,9 @@ export function DecisionWizardTab() {
 
         {step === 3 ? (
           <div style={{ display: "grid", gap: 10 }}>
-            <div style={{ fontWeight: 800 }}>Step 3: Progress note</div>
+            <div style={{ fontWeight: 800 }}>Progress note</div>
             <div style={{ border: "1px solid #e5e7eb", borderRadius: 14, padding: 10 }}>
-              <div style={{ fontWeight: 900 }}>Progress Note (problem + findings + selected actions)</div>
+              <div style={{ fontWeight: 900 }}>Draft note</div>
               <textarea value={finalNote} readOnly style={{ width: "100%", minHeight: 130, marginTop: 8, padding: 10, borderRadius: 12, border: "1px solid #e5e7eb", fontFamily: "inherit" }} />
               <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
                 <Btn onClick={() => navigator.clipboard.writeText(finalNote || "")} disabled={!finalNote}>Copy Note</Btn>

@@ -1,15 +1,15 @@
 {
   "schema": "coc.pathway.v1",
   "id": "general_change_in_condition",
-  "title": "General Change in Condition \u2014 Decision Ladder (Starter)",
-  "version": "0.1.0",
+  "title": "General Change in Condition \u2014 Clinical Evaluation Decision Tree",
+  "version": "0.2.0",
   "startNodeId": "q_redflags",
   "nodes": [
     {
       "id": "q_redflags",
       "type": "question_multi",
       "prompt": "Red flags (select any that apply)",
-      "helpText": "If any red flags are present, prioritize immediate safety assessment and escalate per protocol/provider direction.",
+      "helpText": "If any red flags are present, prioritize immediate safety assessment and escalate per protocol/provider direction (activate EMS/911 when indicated).",
       "options": [
         {
           "value": "airway",
@@ -34,6 +34,14 @@
         {
           "value": "severe_bleeding",
           "label": "Uncontrolled bleeding or suspected major bleed"
+        },
+        {
+          "value": "acute_hypoxia",
+          "label": "Acute hypoxia or sudden SpO2 drop from baseline"
+        },
+        {
+          "value": "new_sepsis",
+          "label": "Possible sepsis (fever or hypothermia, tachycardia, hypotension, new confusion)"
         }
       ],
       "next": "q_primary_domain"
@@ -241,7 +249,7 @@
       "id": "t_vitals",
       "type": "info",
       "title": "Collect minimum data",
-      "body": "Obtain full vital signs (BP/HR/RR/T/SpO2) and compare to baseline. Perform focused assessment related to the concern. Review recent medication changes and relevant history. Notify provider using SBAR when indicated.",
+      "body": "Obtain full vital signs (BP/HR/RR/T/SpO2) and pain score; compare to baseline. Perform a focused assessment related to the concern (airway/breathing/circulation, mental status, neuro, skin, hydration, and symptoms). Check blood glucose for acute mental status changes per protocol. Review recent medication changes, allergies, and relevant history. Use standard and transmission-based precautions per CDC guidance and initiate isolation/source control if symptomatic. Notify provider using SBAR when indicated.",
       "next": "check_actions"
     },
     {
@@ -255,19 +263,27 @@
           "items": [
             {
               "id": "vs",
-              "text": "Obtained full vital signs and compared to baseline"
+              "text": "Obtained full vital signs and pain score; compared to baseline"
             },
             {
               "id": "focused",
-              "text": "Completed focused assessment related to the concern"
+              "text": "Completed focused assessment related to the concern (ABC, symptoms, and relevant systems)"
             },
             {
               "id": "ms",
-              "text": "Assessed mental status and compared to baseline"
+              "text": "Assessed mental status and compared to baseline; completed neuro checks if indicated"
             },
             {
               "id": "i/o",
               "text": "Reviewed intake/output and hydration status"
+            },
+            {
+              "id": "bg",
+              "text": "Checked blood glucose for acute mental status change per protocol"
+            },
+            {
+              "id": "skin",
+              "text": "Assessed skin/wounds for redness, drainage, or pressure concerns"
             }
           ]
         },
@@ -281,7 +297,7 @@
             },
             {
               "id": "precautions",
-              "text": "Initiated precautions/isolation per protocol when indicated"
+              "text": "Initiated standard/transmission-based precautions or isolation per protocol as indicated"
             },
             {
               "id": "tests",
@@ -290,6 +306,10 @@
             {
               "id": "prn",
               "text": "Administered PRN/ordered meds per protocol/orders"
+            },
+            {
+              "id": "comfort",
+              "text": "Provided comfort measures and positioning per resident preference"
             }
           ]
         },
@@ -304,6 +324,10 @@
             {
               "id": "escalate",
               "text": "Escalation plan in place for rapid decline or red flags"
+            },
+            {
+              "id": "response",
+              "text": "Reassessed resident response after interventions"
             }
           ]
         },
@@ -326,6 +350,14 @@
             {
               "id": "plan",
               "text": "Documented monitoring and escalation plan"
+            },
+            {
+              "id": "onset",
+              "text": "Documented time of change in condition and key objective findings"
+            },
+            {
+              "id": "education",
+              "text": "Documented resident/family education and understanding when provided"
             }
           ]
         }

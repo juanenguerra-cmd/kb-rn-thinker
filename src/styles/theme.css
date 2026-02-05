@@ -169,6 +169,59 @@ a:hover { text-decoration: underline; }
 .row { display: flex; gap: 10px; align-items: center; }
 .grow { flex: 1; }
 
+.toolGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.toolCard {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: 10px;
+}
+
+.toolCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.toolCardTitle {
+  font-weight: 800;
+}
+
+.toolCardSubtitle {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.toolBadge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--r-full);
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-2);
+  white-space: nowrap;
+}
+
+.toolCardBody {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.toolCardActions {
+  display: flex;
+  gap: 8px;
+}
+
 .searchField {
   position: relative;
   flex: 1;

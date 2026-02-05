@@ -87,7 +87,7 @@ type AppState = {
   kbError?: string;
   minisearch?: MiniSearch<SearchDoc>;
 
-  activeTab: "finder" | "wizard";
+  activeTab: "home" | "finder" | "wizard";
 
   finder: FinderState;
   wizard: WizardState;
@@ -99,7 +99,7 @@ type AppState = {
 
   actions: {
     loadKb: (kb: KBLoaded) => void;
-    setTab: (tab: "finder" | "wizard") => void;
+    setTab: (tab: "home" | "finder" | "wizard") => void;
 
     // Finder
     setQuery: (q: string) => void;
@@ -212,7 +212,7 @@ function buildWizardNarrative(issueText: string, wizard: WizardState): string {
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
-  activeTab: "wizard",
+  activeTab: "home",
 
   finder: {
     query: "",
@@ -600,7 +600,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       }
 
       get().actions.recomputeGating();
-      set(() => ({ activeTab: "wizard" }));
+    set(() => ({ activeTab: "wizard" }));
     },
 
     openNoteModal: () => set(() => ({ ui: { noteModalOpen: true } })),
